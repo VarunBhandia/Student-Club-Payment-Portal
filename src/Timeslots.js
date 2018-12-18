@@ -38,296 +38,55 @@ class Timeslots extends Component {
   </Popover>
   );
 
+    const colhour = (
+      <Col className='halfhour' xs={4} md={1}>
+         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
+          <OverlayTrigger overlay={popoverHoverFocus}>
+            <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
+              {'10:30am - 11:00am'} 
+            </Button>
+          </OverlayTrigger>
+        </Col>
+    );
+
     return (
     <Grid>
      <br></br>
       <Row className="timeslot">
-        <Col className='halfhour' xs={4} md={1}>
-         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
-          <OverlayTrigger overlay={popoverHoverFocus}>
-            <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-              {'10:30am - 11:00am'} 
-            </Button>
-          </OverlayTrigger>
-        </Col>
-        
-        <Col className='halfhour' xs={4} md={1}>
-         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
-          <OverlayTrigger overlay={popoverHoverFocus}>
-            <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-              {'10:30am - 11:00am'} 
-            </Button>
-          </OverlayTrigger>
-        </Col>
-        
-        <Col className='halfhour' xs={4} md={1}>
-         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
-        <OverlayTrigger overlay={popoverHoverFocus}>
-          <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-            {'10:30am - 11:00am'} 
-          </Button>
-        </OverlayTrigger>
-       
-        </Col>
-        
-        <Col className='halfhour' xs={4} md={1}>
-         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
-        <OverlayTrigger overlay={popoverHoverFocus}>
-          <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-            {'10:30am - 11:00am'} 
-          </Button>
-        </OverlayTrigger>
-       
-        </Col>
-        
-        <Col className='halfhour' xs={4} md={1}>
-         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
-        <OverlayTrigger overlay={popoverHoverFocus}>
-          <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-            {'10:30am - 11:00am'} 
-          </Button>
-        </OverlayTrigger>
-       
-        </Col>
-        
-        <Col className='halfhour' xs={4} md={1}>
-         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
-        <OverlayTrigger overlay={popoverHoverFocus}>
-          <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-            {'10:30am - 11:00am'} 
-          </Button>
-        </OverlayTrigger>
-       
-        </Col>
-        
-        <Col className='halfhour' xs={4} md={1}>
-         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
-        <OverlayTrigger overlay={popoverHoverFocus}>
-          <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-            {'10:30am - 11:00am'} 
-          </Button>
-        </OverlayTrigger>
-       
-        </Col>
+        {colhour}
+        {colhour}
+        {colhour}
+        {colhour}
+        {colhour}
+        {colhour}
+        {colhour}
       </Row>
-       <br></br>
-     <Row className="timeslot">
-        
-        <Col className='halfhour' xs={4} md={1}>
-         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
-        <OverlayTrigger overlay={popoverHoverFocus}>
-          <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-            {'10:30am - 11:00am'} 
-          </Button>
-        </OverlayTrigger>
-       
-        </Col>
-        
-        <Col className='halfhour' xs={4} md={1}>
-         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
-        <OverlayTrigger overlay={popoverHoverFocus}>
-          <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-            {'10:30am - 11:00am'} 
-          </Button>
-        </OverlayTrigger>
-       
-        </Col>
-        
-        <Col className='halfhour' xs={4} md={1}>
-         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
-        <OverlayTrigger overlay={popoverHoverFocus}>
-          <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-            {'10:30am - 11:00am'} 
-          </Button>
-        </OverlayTrigger>
-       
-        </Col>
-        
-        <Col className='halfhour' xs={4} md={1}>
-         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
-        <OverlayTrigger overlay={popoverHoverFocus}>
-          <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-            {'10:30am - 11:00am'} 
-          </Button>
-        </OverlayTrigger>
-       
-        </Col>
-        
-        <Col className='halfhour' xs={4} md={1}>
-         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
-        <OverlayTrigger overlay={popoverHoverFocus}>
-          <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-            {'10:30am - 11:00am'} 
-          </Button>
-        </OverlayTrigger>
-       
-        </Col>
-        
-        <Col className='halfhour' xs={4} md={1}>
-         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
-        <OverlayTrigger overlay={popoverHoverFocus}>
-          <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-            {'10:30am - 11:00am'} 
-          </Button>
-        </OverlayTrigger>
-       
-        </Col>
-        
-        <Col className='halfhour' xs={4} md={1}>
-         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
-        <OverlayTrigger overlay={popoverHoverFocus}>
-          <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-            {'10:30am - 11:00am'} 
-          </Button>
-        </OverlayTrigger>
-       
-        </Col>
-      </Row>
-        <br></br>
       <Row className="timeslot">
-        
-        <Col className='halfhour' xs={4} md={1}>
-         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
-        <OverlayTrigger overlay={popoverHoverFocus}>
-          <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-            {'10:30am - 11:00am'} 
-          </Button>
-        </OverlayTrigger>
-       
-        </Col>
-        
-        <Col className='halfhour' xs={4} md={1}>
-         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
-        <OverlayTrigger overlay={popoverHoverFocus}>
-          <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-            {'10:30am - 11:00am'} 
-          </Button>
-        </OverlayTrigger>
-       
-        </Col>
-        
-        <Col className='halfhour' xs={4} md={1}>
-         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
-        <OverlayTrigger overlay={popoverHoverFocus}>
-          <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-            {'10:30am - 11:00am'} 
-          </Button>
-        </OverlayTrigger>
-       
-        </Col>
-        
-        <Col className='halfhour' xs={4} md={1}>
-         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
-        <OverlayTrigger overlay={popoverHoverFocus}>
-          <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-            {'10:30am - 11:00am'} 
-          </Button>
-        </OverlayTrigger>
-       
-        </Col>
-        
-        <Col className='halfhour' xs={4} md={1}>
-         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
-        <OverlayTrigger overlay={popoverHoverFocus}>
-          <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-            {'10:30am - 11:00am'} 
-          </Button>
-        </OverlayTrigger>
-       
-        </Col>
-        
-        <Col className='halfhour' xs={4} md={1}>
-         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
-        <OverlayTrigger overlay={popoverHoverFocus}>
-          <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-            {'10:30am - 11:00am'} 
-          </Button>
-        </OverlayTrigger>
-       
-        </Col>
-        
-        <Col className='halfhour' xs={4} md={1}>
-         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
-        <OverlayTrigger overlay={popoverHoverFocus}>
-          <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-            {'10:30am - 11:00am'} 
-          </Button>
-        </OverlayTrigger>
-       
-        </Col>
+        {colhour}
+        {colhour}
+        {colhour}
+        {colhour}
+        {colhour}
+        {colhour}
+        {colhour}
       </Row>
-           <br></br>
       <Row className="timeslot">
-        
-        <Col className='halfhour' xs={4} md={1}>
-         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
-        <OverlayTrigger overlay={popoverHoverFocus}>
-          <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-            {'10:30am - 11:00am'} 
-          </Button>
-        </OverlayTrigger>
-       
-        </Col>
-        
-        <Col className='halfhour' xs={4} md={1}>
-         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
-        <OverlayTrigger overlay={popoverHoverFocus}>
-          <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-            {'10:30am - 11:00am'} 
-          </Button>
-        </OverlayTrigger>
-       
-        </Col>
-        
-        <Col className='halfhour' xs={4} md={1}>
-         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
-        <OverlayTrigger overlay={popoverHoverFocus}>
-          <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-            {'10:30am - 11:00am'} 
-          </Button>
-        </OverlayTrigger>
-       
-        </Col>
-        
-        <Col className='halfhour' xs={4} md={1}>
-         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
-        <OverlayTrigger overlay={popoverHoverFocus}>
-          <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-            {'10:30am - 11:00am'} 
-          </Button>
-        </OverlayTrigger>
-       
-        </Col>
-        
-        <Col className='halfhour' xs={4} md={1}>
-         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
-        <OverlayTrigger overlay={popoverHoverFocus}>
-          <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-            {'10:30am - 11:00am'} 
-          </Button>
-        </OverlayTrigger>
-       
-        </Col>
-        
-        <Col className='halfhour' xs={4} md={1}>
-         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
-        <OverlayTrigger overlay={popoverHoverFocus}>
-          <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-            {'10:30am - 11:00am'} 
-          </Button>
-        </OverlayTrigger>
-       
-        </Col>
-        
-        <Col className='halfhour' xs={4} md={1}>
-         <TsModal show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
-        <OverlayTrigger overlay={popoverHoverFocus}>
-          <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-            {'10:30am - 11:00am'} 
-          </Button>
-        </OverlayTrigger>
-       
-        </Col>
+        {colhour}
+        {colhour}
+        {colhour}
+        {colhour}
+        {colhour}
+        {colhour}
+        {colhour}
+      </Row>
+      <Row className="timeslot">
+        {colhour}
+        {colhour}
+        {colhour}
+        {colhour}
+        {colhour}
+        {colhour}
+        {colhour}
       </Row>
     </Grid>
     );
