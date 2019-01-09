@@ -4,7 +4,8 @@
   "description": "App to sell ebook",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "author": "Brad Traversy",
   "license": "MIT",
@@ -15,5 +16,11 @@
     "mongodb": "^3.1.10",
     "razorpay": "^2.0.3",
     "stripe": "^5.1.1"
-  }
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0"
+  },
+  "engines": {
+    "node": "8.11.1"
+}
 }
