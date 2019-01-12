@@ -15,12 +15,13 @@
     "express-handlebars": "^3.0.0",
     "mongodb": "^3.1.10",
     "razorpay": "^2.0.3",
-    "stripe": "^5.1.1"
+    "stripe": "^5.1.1",
+    "socket.io": "latest"
   },
   "devDependencies": {
     "concurrently": "^4.1.0"
   },
   "engines": {
     "node": "8.11.1"
-}
+  }
 }

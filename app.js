@@ -2,11 +2,15 @@ const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
+
 var Razorpay = require('razorpay');
 var instance = new Razorpay({
   key_id: 'rzp_test_yY6hENsbfg4E62',
   key_secret: 'o0mh3HQO4l4o58BQboWGmQUv'
 })
+
+
+
 
 // ... other imports 
 const path = require("path");
@@ -171,7 +175,8 @@ app.get('/dbreset', function (req, res) {
   DeleteRecords();
 });
 
-
+const io = require('socket.io').listen(app);
+socket = io.listen(process.env.PORT);
 const port = process.env.PORT || 4000;
 
 // Right before your app.listen(), add this:
