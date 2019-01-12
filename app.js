@@ -50,7 +50,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static(`${__dirname}/public`));
 
 // ... other app.use middleware 
-// app.use(express.static(path.join(__dirname, "client", "build")));
+ app.use(express.static(path.join(__dirname, "client", "build")));
 
 // Index Route
 var amount= 1000,
@@ -179,9 +179,9 @@ app.get('/dbreset', function (req, res) {
 const port = process.env.PORT || 4000;
 
 // Right before your app.listen(), add this:
-/*app.get("*", (req, res) => {
+app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-}); */
+}); 
 
 app.listen(process.env.PORT || port, function() {
   console.log('Express server is up and running!');
