@@ -175,8 +175,7 @@ app.get('/dbreset', function (req, res) {
   DeleteRecords();
 });
 
-const io = require('socket.io').listen(app);
-socket = io.listen(process.env.PORT);
+
 const port = process.env.PORT || 4000;
 
 // Right before your app.listen(), add this:
