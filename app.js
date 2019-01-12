@@ -13,7 +13,7 @@ const path = require("path");
 
 
 var MongoClient = require('mongodb').MongoClient;
-var url = 'mongodb://<dbuser>:<dbpassword>@ds153314.mlab.com:53314/heroku_zt5h9gdm';
+var url = 'mongodb://localhost:27017/BookingDB';
 
 MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
   if(!err) {
@@ -23,7 +23,7 @@ MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
   {
       console.log(err);
   }
-  var dbo = db.db('heroku_zt5h9gdm');
+  var dbo = db.db('BookingDB');
   dbo.createCollection("BookingHistory", function(err, res) {
     if (err) throw err;
     console.log("Collection created!");
@@ -41,11 +41,12 @@ app.set('view engine', 'handlebars');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
-// ... other app.use middleware 
-app.use(express.static(path.join(__dirname, "client", "build")));
 
 // Set Static Folder
 app.use(express.static(`${__dirname}/public`));
+
+// ... other app.use middleware 
+// app.use(express.static(path.join(__dirname, "client", "build")));
 
 // Index Route
 var amount= 1000,
@@ -112,7 +113,7 @@ app.post('/purchase', (req,res) =>{
     console.log(tid[1]);
     console.log("**********Payment instance***********")
     MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
-      var dbo = db.db('heroku_zt5h9gdm');
+      var dbo = db.db('BookingDB');
       var insertobj = { BookingEmail: resp.email,
         BookingContact: resp.contact,
         BookingId: resp.id,
@@ -144,7 +145,7 @@ app.get('/purchase', function (req, res) {
 app.get('/dbstatus', function (req, res) {
   MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
     if (err) throw err;
-    var dbo = db.db("heroku_zt5h9gdm");
+    var dbo = db.db("BookingDB");
     dbo.collection("BookingHistory").find({}).toArray(function(err, result) {
       if (err) throw err;
       res.send(result);
@@ -156,7 +157,7 @@ app.get('/dbstatus', function (req, res) {
 function DeleteRecords() {
   MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
     if (err) throw err;
-    var dbo = db.db("heroku_zt5h9gdm");
+    var dbo = db.db("BookingDB");
     var myquery = {};
     dbo.collection("BookingHistory").deleteMany(myquery, function(err, obj) {
       if (err) throw err;
@@ -174,9 +175,9 @@ app.get('/dbreset', function (req, res) {
 const port = process.env.PORT || 4000;
 
 // Right before your app.listen(), add this:
-app.get("*", (req, res) => {
+/*app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-});
+}); */
 
 app.listen(process.env.PORT || port, function() {
   console.log('Express server is up and running!');
