@@ -31,8 +31,7 @@ MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
   dbo.createCollection("BookingHistory", function(err, res) {
     if (err) throw err;
     console.log("Collection created!");
-  }); 
-  db.close();
+  });
 }); 
 
 const app = express();
@@ -161,22 +160,22 @@ app.get('/dbstatus', function (req, res) {
   });
 });
 
-function DeleteRecords() {
-  MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
-    if (err) throw err;
-    var dbo = db.db("heroku_zt5h9gdm");
-    var myquery = {};
-    dbo.collection("BookingHistory").deleteMany(myquery, function(err, obj) {
-      if (err) throw err;
-      console.log(obj.result.n + " document(s) deleted");
-      db.close();
-    });
-  });
-}
+// function DeleteRecords() {
+//   MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
+//     if (err) throw err;
+//     var dbo = db.db("heroku_zt5h9gdm");
+//     var myquery = {};
+//     dbo.collection("BookingHistory").deleteMany(myquery, function(err, obj) {
+//       if (err) throw err;
+//       console.log(obj.result.n + " document(s) deleted");
+//       db.close();
+//     });
+//   });
+// }
 
-app.get('/dbreset', function (req, res) {
-  DeleteRecords();
-});
+// app.get('/dbreset', function (req, res) {
+//   DeleteRecords();
+// });
 
 
 const port = process.env.PORT || 4000;
