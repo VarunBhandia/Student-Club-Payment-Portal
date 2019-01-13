@@ -127,7 +127,7 @@ app.post('/purchase', (req,res) =>{
         if (err) throw err;
         console.log("Table time and id: " + insertobj.TableId + " has been booked by : " + insertobj.BookingEmail );
       });
-      db.close();
+      
     }); 
     instance.payments.capture(payment_id.razorpay_payment_id, response.amount).then((response) => {
     res.send(response);
