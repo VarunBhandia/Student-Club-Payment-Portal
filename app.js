@@ -181,11 +181,14 @@ app.get('/dbreset', function (req, res) {
 
 const port = process.env.PORT || 4000;
 
+const server = http.createServer(app)
+server.listen(port)
+server.on('listening', () => console.log('Express server is up and running!'))
 // Right before your app.listen(), add this:
 /*app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 }); */ 
 
-app.listen(process.env.PORT || port, function() {
-  console.log('Express server is up and running!');
-});
+// app.listen(process.env.PORT || port, function() {
+//   console.log('Express server is up and running!');
+// });
