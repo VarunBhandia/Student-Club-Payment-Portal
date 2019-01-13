@@ -31,7 +31,7 @@ MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
   dbo.createCollection("BookingHistory", function(err, res) {
     if (err) throw err;
     console.log("Collection created!");
-  });
+  }); 
   db.close();
 }); 
 
@@ -50,7 +50,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static(`${__dirname}/public`));
 
 // ... other app.use middleware 
- app.use(express.static(path.join(__dirname, "client", "build")));
+ //app.use(express.static(path.join(__dirname, "client", "build")));
 
 // Index Route
 var amount= 1000,
@@ -112,9 +112,10 @@ app.post('/purchase', (req,res) =>{
     console.log(response); 
     resp = response;
     resp.table_id = table_id;
-    tid[0] = table_id.slice(0,11);
-    tid[1] = table_id.slice(12);
-    console.log(tid[1]);
+    var t = table_id.slice(0,11);
+    var ta = table_id.slice(12);
+    tid.push({time: t, table: ta});
+    
     console.log("**********Payment instance***********")
     MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
       var dbo = db.db('BookingDB');
@@ -142,11 +143,13 @@ app.post('/purchase', (req,res) =>{
 
 
 app.get('/purchase', function (req, res) {
-  res.json(tid);
+  console.log(tid);
+  res.send(tid);
 });
 
 
 app.get('/dbstatus', function (req, res) {
+  tid = [];
   MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
     if (err) throw err;
     var dbo = db.db("BookingDB");
@@ -179,9 +182,9 @@ app.get('/dbreset', function (req, res) {
 const port = process.env.PORT || 4000;
 
 // Right before your app.listen(), add this:
-app.get("*", (req, res) => {
+/*app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-}); 
+}); */ 
 
 app.listen(process.env.PORT || port, function() {
   console.log('Express server is up and running!');

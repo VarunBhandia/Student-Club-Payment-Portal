@@ -22,7 +22,7 @@ class Timeslots extends Component {
     this.state = {
       show: false, 
       buttonPush: 'invalid',
-      list : [],  
+      list: [],  
       time : ['10:00-10:30', '10:30-11:00', '11:00-11:30', '11:30-12:00', '12:00-12:30', '12:30-13:00', '13:00-13:30', '13:30-14:00', '14:00-14:30', '14:30-15:00', '15:00-15:30', '15:30-16:00', '16:00-16:30', '16:30-17:00', '17:00-17:30', '17:30-18:00', '18:00-18:30', '19:00-19:30','19:30-20:00', '20:00-20:30', '20:30-21:00', '21:00-21:30', '22:00-22:30', '22:30-23:00', '23:00-23:30', '23:30-24:00'],
       popoverlist : [{'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available"},
                      {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available"}],
@@ -34,9 +34,10 @@ class Timeslots extends Component {
   }
 
   getList = () => {
+    
     fetch("/purchase")
     .then( (res) => res.json())   
-    .then( (json) => {this.setState({list: json});});
+    .then( (json) => {this.setState({list : JSON.stringify(json)});});
   }
 
   handleClose() {
@@ -52,25 +53,8 @@ class Timeslots extends Component {
 
   handlePopoverList(keeptime,butdisable, count) {
     const newList = this.state.popoverlist.slice();
-    if(keeptime === butdisable[0]) {
-       if(butdisable[1] === 'Pool Table 1') {
-        newList[count].p1 = "Booked";
-       }
-       else if(butdisable[1] === 'Pool Table 2') {
-        newList[count].p2 = "Booked";
-      
-       }
-       else if(butdisable[1] === 'Snooker Table 1') {
-        newList[count].s1 = "Booked";
-        
-       }
-       else if(butdisable[1] === 'Snooker Table 2') {
-        newList[count].s2 = "Booked";
-      
-       }
-       else if(butdisable[1] === 'Snooker Table 3') {
-        newList[count].s3 = "Booked";
-       }
+      if(keeptime === butdisable) {
+       
 
        this.setState({popoverlist : newList});
     }
@@ -87,7 +71,7 @@ class Timeslots extends Component {
   </Popover>
   );
   } 
-
+  
   
   colhour(keeptime,butdisable,count) {
     return(  
@@ -104,6 +88,7 @@ class Timeslots extends Component {
 
   render() { 
     var slot = this.state.list;
+    console.log(slot);
     var time = this.state.time;
     return (
     <Grid>
