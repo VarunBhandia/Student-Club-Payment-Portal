@@ -4,8 +4,10 @@
   "description": "App to sell ebook",
   "main": "app.js",
   "scripts": {
-    "start": "cd ~/ && node app.js",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "start": "node app.js",
+    "herou-prebuild": "npm install",
+    "heroku-postinstall": "cd client && npm install && npm run build",
+    "heroku-postbuild": "cd ../"
   },
   "author": "Brad Traversy",
   "license": "MIT",
