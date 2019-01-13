@@ -4,8 +4,7 @@
   "description": "App to sell ebook",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "preinstall": "npm install"
+    "start": "node app.js"
   },
   "author": "Brad Traversy",
   "license": "MIT",
