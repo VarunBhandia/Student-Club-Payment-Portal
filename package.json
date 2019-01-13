@@ -5,9 +5,10 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "herou-prebuild": "npm install",
-    "heroku-postinstall": "cd client && npm install && npm run build",
-    "heroku-postbuild": "cd ../"
+    "heroku-postbuild": "npm install",
+    "preinstall": "cd client && npm install",
+    "postinstall": "npm run build",
+    "heroku-prebuild": "cd ../"
   },
   "author": "Brad Traversy",
   "license": "MIT",
