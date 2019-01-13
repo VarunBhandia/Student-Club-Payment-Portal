@@ -18,7 +18,7 @@ const path = require("path");
 
 var MongoClient = require('mongodb').MongoClient;
 var url = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/BookingDB';
-
+console.log(process.env.MONGOLAB_URI);
 MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
   if(!err) {
     console.log("We are connected");
