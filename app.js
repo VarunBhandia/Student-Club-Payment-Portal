@@ -36,19 +36,19 @@ MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
 
 const app = express();
 
-/*// Handlebars Middleware
+// Handlebars Middleware
 app.engine('handlebars',exphbs({defaultLayout:'main'}));
 app.set('view engine', 'handlebars');
-*/
+
 // Body Parser Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
 
 // Set Static Folder
-app.use(express.static(`${__dirname}/public`));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
-//Static file declaration
+
 
 
 // Index Route
@@ -178,14 +178,12 @@ app.get('/dbstatus', function (req, res) {
 
 const port = process.env.PORT || 4000;
 
-const server = http.createServer(app)
-server.listen(port)
-server.on('listening', () => console.log('Express server is up and running!'))
-// Right before your app.listen(), add this:
-/*app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-}); */ 
 
-// app.listen(process.env.PORT || port, function() {
-//   console.log('Express server is up and running!');
-// });
+// Right before your app.listen(), add this:
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});  
+
+app.listen(process.env.PORT || port, function() {
+  console.log('Express server is up and running!');
+});
