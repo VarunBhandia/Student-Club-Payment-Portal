@@ -17,7 +17,7 @@ const path = require("path");
 
 
 var MongoClient = require('mongodb').MongoClient;
-var url = 'mongodb://localhost:27017/BookingDB';
+var url = 'mongodb://<dbuser>:<dbpassword>@ds153314.mlab.com:53314/heroku_zt5h9gdm';
 
 MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
   if(!err) {
@@ -27,7 +27,7 @@ MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
   {
       console.log(err);
   }
-  var dbo = db.db('BookingDB');
+  var dbo = db.db('heroku_zt5h9gdm');
   dbo.createCollection("BookingHistory", function(err, res) {
     if (err) throw err;
     console.log("Collection created!");
@@ -118,7 +118,7 @@ app.post('/purchase', (req,res) =>{
     
     console.log("**********Payment instance***********")
     MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
-      var dbo = db.db('BookingDB');
+      var dbo = db.db('heroku_zt5h9gdm');
       var insertobj = { BookingEmail: resp.email,
         BookingContact: resp.contact,
         BookingId: resp.id,
@@ -152,7 +152,7 @@ app.get('/dbstatus', function (req, res) {
   tid = [];
   MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
     if (err) throw err;
-    var dbo = db.db("BookingDB");
+    var dbo = db.db("heroku_zt5h9gdm");
     dbo.collection("BookingHistory").find({}).toArray(function(err, result) {
       if (err) throw err;
       res.send(result);
@@ -164,7 +164,7 @@ app.get('/dbstatus', function (req, res) {
 function DeleteRecords() {
   MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
     if (err) throw err;
-    var dbo = db.db("BookingDB");
+    var dbo = db.db("heroku_zt5h9gdm");
     var myquery = {};
     dbo.collection("BookingHistory").deleteMany(myquery, function(err, obj) {
       if (err) throw err;
