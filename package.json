@@ -4,7 +4,7 @@
   "description": "App to sell ebook",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "cd ~/ && node app.js",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "Brad Traversy",
