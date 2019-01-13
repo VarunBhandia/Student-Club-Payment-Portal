@@ -9,7 +9,7 @@ var instance = new Razorpay({
   key_secret: 'o0mh3HQO4l4o58BQboWGmQUv'
 })
 
-
+require('dotenv').config();
 
 
 // ... other imports 
