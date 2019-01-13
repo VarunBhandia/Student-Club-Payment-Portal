@@ -48,8 +48,8 @@ app.use(bodyParser.urlencoded({extended:false}));
 // Set Static Folder
 app.use(express.static(`${__dirname}/public`));
 
-// ... other app.use middleware 
- //app.use(express.static(path.join(__dirname, "client", "build")));
+//Static file declaration
+
 
 // Index Route
 var amount= 1000,
@@ -116,7 +116,7 @@ app.post('/purchase', (req,res) =>{
     tid.push({time: t, table: ta});
     
     console.log("**********Payment instance***********")
-    MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
+    
       var dbo = db.db('heroku_zt5h9gdm');
       var insertobj = { BookingEmail: resp.email,
         BookingContact: resp.contact,
@@ -127,8 +127,6 @@ app.post('/purchase', (req,res) =>{
         if (err) throw err;
         console.log("Table time and id: " + insertobj.TableId + " has been booked by : " + insertobj.BookingEmail );
       });
-      
-    }); 
     instance.payments.capture(payment_id.razorpay_payment_id, response.amount).then((response) => {
     res.send(response);
   }).catch((error) => {
