@@ -17,7 +17,7 @@ const path = require("path");
 
 
 var MongoClient = require('mongodb').MongoClient;
-var url = 'mongodb://<dbuser>:<dbpassword>@ds153314.mlab.com:53314/heroku_zt5h9gdm';
+var url = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/BookingDB';
 
 MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
   if(!err) {
