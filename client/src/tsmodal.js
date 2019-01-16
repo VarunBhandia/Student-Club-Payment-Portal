@@ -3,7 +3,6 @@ import {
   Modal,
   Button,
 } from 'react-bootstrap';
-import Razorpay from './razorpay';
 
 
 
@@ -44,13 +43,11 @@ class TsModal extends React.Component {
           </Modal.Header>
           <Modal.Body>            
             <hr />
-            <Button bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Pool Table 1')}} >Pool table 1 </Button>
-            <Button bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Pool Table 2')}} >Pool table 2</Button>
-            <Button bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 1')}} >Snooker table 1</Button>
-            <Button bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 2')}} >Snooker table 2</Button>
-            <Button bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 3')}} >Snooker table 3</Button>
-            
-            <Razorpay table = {table_name} />
+            <Button bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Pool Table 1')}} href = "http://localhost:4000" >Pool table 1 </Button>
+            <Button bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Pool Table 2')}} href = "http://localhost:4000">Pool table 2</Button>
+            <Button bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 1')}} href = "http://localhost:4000">Snooker table 1</Button>
+            <Button bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 2')}} href = "http://localhost:4000">Snooker table 2</Button>
+            <Button bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 3')}} href = "http://localhost:4000">Snooker table 3</Button>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.props.onclick}>Close</Button>
