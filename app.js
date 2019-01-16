@@ -27,6 +27,7 @@ MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
   {
       console.log(err);
   }
+  
   var dbo = db.db('heroku_zt5h9gdm');
   dbo.createCollection("BookingHistory", function(err, res) {
     if (err) throw err;
@@ -47,8 +48,8 @@ app.use(bodyParser.urlencoded({extended:false}));
 
 // Set Static Folder
 
- app.use(express.static(path.join(__dirname, 'public')));
-//  app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'client/build')));
 
 
 // Index Route
