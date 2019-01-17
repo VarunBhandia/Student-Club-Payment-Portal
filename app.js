@@ -46,11 +46,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
 
-// Set Static Folder
-
-app.use(express.static(path.join(__dirname, 'public')));
-//app.use(express.static(path.join(__dirname, 'client/build')));
-
 
 // Index Route
 var amount= 1000,
@@ -58,7 +53,7 @@ var amount= 1000,
     receipt = '1234545f4',
     payment_capture =true,
     notes ="something",
-    order_id,payment_id,table_id;
+    order_id,payment_id,table_id = '';
 var tag = 0;
 
 app.post('/', function (req, res) {
@@ -67,10 +62,9 @@ app.post('/', function (req, res) {
 });
 
 
-function BookingCheck() {
-  
-}
+// Set Static Folder
 
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/', (req, res) => {
@@ -81,7 +75,7 @@ app.get('/', (req, res) => {
     console.log("Table to be booked is : " + table_id);
     console.log("**********Order Created***********");
     order_id=response.id;
-    BookingCheck();
+    
     }).catch((error) => {
       console.log(error);
 })
@@ -182,8 +176,8 @@ const port = process.env.PORT || 4000;
 
 // Right before your app.listen(), add this:
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-});  
+  res.sendFile(path.join(__dirname, "client", "build", "main.handlebars"));
+}); 
 
 app.listen(process.env.PORT || port, function() {
   console.log('Express server is up and running!');
