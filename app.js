@@ -63,7 +63,7 @@ app.post('/', function (req, res) {
 
 
 // Set Static Folder
-
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
