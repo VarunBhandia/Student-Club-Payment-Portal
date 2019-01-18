@@ -38,8 +38,28 @@ MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
 const app = express();
 
 //Handlebars Middleware
-app.engine('handlebars',exphbs({defaultLayout:'main'}));
-app.set('view engine', 'handlebars');
+
+app.use('/handlebars', (req, res) => {
+  var tag = 0;
+    instance.orders.create({amount, currency, receipt, payment_capture, notes}).then((response) => {
+    console.log("**********Order Created***********");
+    console.log(response);
+    console.log("Table to be booked is : " + table_id);
+    console.log("**********Order Created***********");
+    order_id=response.id;
+    
+    }).catch((error) => {
+      console.log(error);
+})
+  app.engine('handlebars',exphbs({defaultLayout:'main'}));
+  app.set('view engine', 'handlebars');
+  res.render(
+    'index',
+    {order_id,amount, table_id}
+  );
+  // res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+  // res.sendFile(path.join(__dirname, 'views/layouts', 'main.handlebars'))
+});
 
 // Body Parser Middleware
 app.use(bodyParser.json());
@@ -63,7 +83,7 @@ app.post('/', function (req, res) {
 
 
 // Set Static Folder
-app.use('/reactapp', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
 });
 app.get('/static/*.css', (req, res) => {
@@ -83,21 +103,11 @@ app.get('/manifest.json', (req, res) => {
   res.setHeader('Content-type', 'application/json')
   res.sendFile(path.join(__dirname, req.url))
 });
-app.use(express.static(path.join(__dirname, 'public')));
+ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/', (req, res) => {
-    var tag = 0;
-    instance.orders.create({amount, currency, receipt, payment_capture, notes}).then((response) => {
-    console.log("**********Order Created***********");
-    console.log(response);
-    console.log("Table to be booked is : " + table_id);
-    console.log("**********Order Created***********");
-    order_id=response.id;
     
-    }).catch((error) => {
-      console.log(error);
-})
 // instance.payments.capture(order_id, amount).then((response) => {
 //     console.log(response);
 // }).catch((error) => {
