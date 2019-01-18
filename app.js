@@ -37,7 +37,7 @@ MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
 
 const app = express();
 
-// Handlebars Middleware
+//Handlebars Middleware
 app.engine('handlebars',exphbs({defaultLayout:'main'}));
 app.set('view engine', 'handlebars');
 
@@ -63,7 +63,26 @@ app.post('/', function (req, res) {
 
 
 // Set Static Folder
-app.use(express.static(path.join(__dirname, 'client', 'build')));
+app.use('/reactapp', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+});
+app.get('/static/*.css', (req, res) => {
+  req.url = 'client/build' + req.url;
+  res.setHeader('Content-type', 'text/css')
+  res.sendFile(path.join(__dirname, req.url))
+});
+app.get('/static/*.js', (req, res) => {
+  console.log(req.url)
+  req.url = 'client/build' + req.url;
+  console.log(req.url)
+  res.setHeader('Content-type', 'text/javascript')
+  res.sendFile(path.join(__dirname, req.url))
+});
+app.get('/manifest.json', (req, res) => {
+  req.url = 'client/build' + req.url;
+  res.setHeader('Content-type', 'application/json')
+  res.sendFile(path.join(__dirname, req.url))
+});
 app.use(express.static(path.join(__dirname, 'public')));
 
 
@@ -175,9 +194,9 @@ const port = process.env.PORT || 4000;
 
 
 // Right before your app.listen(), add this:
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "build", "main.handlebars"));
-}); 
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "client", "build", "main.handlebars"));
+// }); 
 
 app.listen(process.env.PORT || port, function() {
   console.log('Express server is up and running!');
