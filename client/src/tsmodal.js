@@ -43,11 +43,11 @@ class TsModal extends React.Component {
           </Modal.Header>
           <Modal.Body>            
             <hr />
-            <Button bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Pool Table 1')}} href = "https://studclubbooking.herokuapp.com/" >Pool table 1 </Button>
-            <Button bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Pool Table 2')}} href = "https://studclubbooking.herokuapp.com/">Pool table 2</Button>
-            <Button bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 1')}} href = "https://studclubbooking.herokuapp.com/">Snooker table 1</Button>
-            <Button bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 2')}} href = "https://studclubbooking.herokuapp.com/">Snooker table 2</Button>
-            <Button bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 3')}} href = "https://studclubbooking.herokuapp.com/">Snooker table 3</Button>
+            <Button bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Pool Table 1')}} href = "https://studclubbooking.herokuapp.com/handlebars" >Pool table 1 </Button>
+            <Button bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Pool Table 2')}} href = "https://studclubbooking.herokuapp.com/handlebars">Pool table 2</Button>
+            <Button bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 1')}} href = "https://studclubbooking.herokuapp.com/handlebars">Snooker table 1</Button>
+            <Button bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 2')}} href = "https://studclubbooking.herokuapp.com/handlebars">Snooker table 2</Button>
+            <Button bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 3')}} href = "https://studclubbooking.herokuapp.com/handlebars">Snooker table 3</Button>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.props.onclick}>Close</Button>
