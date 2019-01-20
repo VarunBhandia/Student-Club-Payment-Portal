@@ -23,6 +23,7 @@ class Timeslots extends Component {
     this.state = {
       show: false, 
       buttonPush: 'invalid',
+      count : 0,
       result: [],  
       time : ['10:00-10:30', '10:30-11:00', '11:00-11:30', '11:30-12:00', '12:00-12:30', '12:30-13:00', '13:00-13:30', '13:30-14:00', '14:00-14:30', '14:30-15:00', '15:00-15:30', '15:30-16:00', '16:00-16:30', '16:30-17:00', '17:00-17:30', '17:30-18:00', '18:00-18:30', '19:00-19:30','19:30-20:00', '20:00-20:30', '20:30-21:00', '21:00-21:30', '22:00-22:30', '22:30-23:00', '23:00-23:30', '23:30-24:00'],
       popoverlist : [{'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available"},
@@ -48,8 +49,8 @@ class Timeslots extends Component {
   handleShow() {
     this.setState({ show: true });
   }
-  handleButPush(val) {
-    this.setState({ buttonpush: val });
+  handleButPush(val,count) {
+    this.setState({ buttonpush: val , count: count});
   }
 
   handlePopoverList(keeptime,butdisable, count) {
@@ -95,9 +96,9 @@ class Timeslots extends Component {
   colhour(keeptime,butdisable,count) {
     return(  
         <Col className='halfhour' xs={4} md={1}>
-          <TsModal modalid = {this.state.buttonpush} show={this.state.show} onhide={this.handleClose} onclick={this.handleClose} />
+          <TsModal modalid = {this.state.buttonpush} popoverlist = {this.state.popoverlist} count = {this.state.count} show={this.state.show} onhide={this.handleClose} onclick={this.handleClose}   />
             <OverlayTrigger overlay = {this.popoverHoverFocus(count)}>
-              <Button bsStyle="primary" bsSize="small" onMouseEnter={() => {this.handlePopoverList(keeptime, butdisable, count);}} onClick={() => { this.handleShow(); this.handleButPush({keeptime}); }}>
+              <Button bsStyle="primary" bsSize="small" onMouseEnter={() => {this.handlePopoverList(keeptime, butdisable, count);}} onClick={() => { this.handleShow(); this.handleButPush({keeptime},count); }}>
                 {keeptime} 
               </Button>
             </OverlayTrigger>

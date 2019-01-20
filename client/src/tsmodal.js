@@ -34,6 +34,28 @@ class TsModal extends React.Component {
 
   render() {
     var item = this.props.modalid;
+    var slot = this.props.popoverlist;
+    var count = this.props.count;
+    var dis = [false,false,false,false,false];
+    if(slot && item) {
+      
+      if(slot[count].p1 === 'Booked') {
+        dis[0] = true;
+      }
+      if(slot[count].p2 === 'Booked') {
+        dis[1] = true;
+      }
+      if(slot[count].s1 === 'Booked') {
+        dis[2] = true;
+      }
+      if(slot[count].s2 === 'Booked') {
+        dis[3] = true;
+      }
+      if(slot[count].s3 === 'Booked') {
+        dis[4] = true;
+      }
+
+    } 
     
     return (
       	<Modal show={this.props.show} onHide={this.props.onhide}>
@@ -42,11 +64,11 @@ class TsModal extends React.Component {
           </Modal.Header>
           <Modal.Body>            
             <hr />
-            <Button bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Pool Table 1')}} href = "http://localhost:4000/handlebars" >Pool table 1 </Button>
-            <Button bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Pool Table 2')}} href = "http://localhost:4000/handlebars">Pool table 2</Button>
-            <Button bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 1')}} href = "http://localhost:4000/handlebars">Snooker table 1</Button>
-            <Button bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 2')}} href = "http://localhost:4000/handlebars">Snooker table 2</Button>
-            <Button bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 3')}} href = "http://localhost:4000/handlebars">Snooker table 3</Button>
+            <Button disabled = {dis[0]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Pool Table 1')}} href = "http://localhost:4000/handlebars" >Pool table 1 </Button>
+            <Button disabled = {dis[1]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Pool Table 2')}} href = "http://localhost:4000/handlebars">Pool table 2</Button>
+            <Button disabled = {dis[2]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 1')}} href = "http://localhost:4000/handlebars">Snooker table 1</Button>
+            <Button disabled = {dis[3]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 2')}} href = "http://localhost:4000/handlebars">Snooker table 2</Button>
+            <Button disabled = {dis[4]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 3')}} href = "http://localhost:4000/handlebars">Snooker table 3</Button>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.props.onclick}>Close</Button>
