@@ -1,0 +1,130 @@
+@media (min-width: 300px) {
+  html{
+    font-size : 6px;
+  }
+}
+
+@media (min-width: 800px) {
+  html{
+    font-size : 9px;
+  }
+}
+
+@media (min-width: 1300px) {
+  html{
+    font-size : 12px;
+  }
+}
+
+@media (min-width: 1400px) {
+  html{
+    font-size : 15px;
+  }
+}
+
+@media (min-width: 1850px) {
+  html{
+    font-size : 18px;
+  }
+}
+
+
+body {padding:0; margin:0}
+
+.logo {position: fixed; z-index: 50; top:2rem; left:12rem; width:10rem;}
+
+.head {position: fixed; z-index: 55; top:3.5rem; right:11rem; font-family: brandon grotesque; font-size: 1.3rem;}
+
+ul {font-family:Brandon grotesque; text-align:right; font-size:1.33rem;}
+
+li { font-size:100%; display:inline; padding-left:2.5rem; }
+
+.head a {text-decoration:none; color:black; opacity:0.4;}
+
+.head a:hover {text-decoration:none; color:black;font-weight: normal; opacity:0.9; transition: 0.4s;}
+
+.box {background-color:#e73838; width: 0; height:100%; float:left;position: absolute;z-index:10;}
+
+.body { width:55%;top:14rem;left:40rem;position: absolute;z-index: 20;opacity:0;}
+
+.notices {font-family: 'Average', serif; font-size: 7rem; color:#2c2c2c; line-height:1.1;text-align:left;
+		  opacity:1.0;}
+
+.circle { width:1.2rem; opacity:0.75;}
+
+.heading {font-size:2.5rem;font-family: brandon grotesque; color:#2b2b2b;opacity:0.75; text-align:left; line-height:0.8;
+		margin: 2% 0 0 2%;}
+
+.pdfdwnld {height:1.67rem; opacity:0.6; margin:0 0 0 4%;}
+
+.text {font-size:1.25rem;font-family: brandon grotesque;color:#2b2b2b; opacity:0.5; text-align:left; line-height:1;
+		margin: 0.5% 0 0 9.6%;}
+
+hr {opacity:0.4; margin: 2% 0 2% 5%;}
+
+.pdficon a {text-decoration: none; color:transparent;}
+
+.register a{font-family: 'Brandon grotesque'; font-size: 1rem; color:black; border:0.10rem solid black;
+			padding: 0.75rem 2rem;font-size: 1.0rem;float: right}
+
+      .register a {
+        position: relative;
+        //display:block;
+        outline: 0;
+        overflow:hidden;
+        background: none;
+        z-index: 40;
+        transition:         0.08s ease-in;
+        -o-transition:      0.08s ease-in;
+        -ms-transition:     0.08s ease-in;
+        -moz-transition:    0.08s ease-in;
+        -webkit-transition: 0.08s ease-in;
+      }
+
+      .register {
+        -webkit-transition: all 150ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+          text-decoration: none;
+      }
+
+      .register a:before{
+        position:absolute;
+        content:"";
+        width:100%;
+        height:100%;
+        top:0;
+        left:0;
+        z-index:-1;
+        opacity:0;
+          text-decoration: none;
+          border:0.10rem solid black;
+        -webkit-transition: all 250ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+      }
+
+      .register a:after {
+        content: "";
+        position: absolute;
+        background: black;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 100%;
+        z-index: -2;
+          text-decoration: none;
+          border:0.10rem solid black;
+        -webkit-transition: all 250ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+      }
+      .register a:hover{
+        color:white;
+        border: 0.167rem black solid;
+          text-decoration: none;
+          opacity: 0.9
+          border:0.10rem solid black;
+      }
+      .register a:hover:before {
+        opacity: .8;text-decoration: none;
+        border:0.10rem solid black;
+      }
+      .register a:hover:after {
+        top: 0;text-decoration: none;
+        border:0.10rem solid black;
+      }

@@ -1,0 +1,88 @@
+@media (min-width: 300px) {
+  html{
+    font-size : 6px;
+  }
+}
+
+@media (min-width: 800px) {
+  html{
+    font-size : 9px;
+  }
+}
+@media (min-width: 1300px) {
+  html{
+    font-size : 12px;
+  }
+}
+
+@media (min-width: 1400px) {
+  html{
+    font-size : 15px;
+  }
+}
+
+@media (min-width: 1850px) {
+  html{
+    font-size : 18px;
+  }
+}
+
+
+
+body {padding:0; margin:0}
+
+.logo {position: fixed; z-index: 50; top:2rem; left:12rem; width:10rem;}
+
+.head {position: fixed; z-index: 55; top:3.5rem; right:11rem; font-family: brandon grotesque; font-size: 1.3rem;}
+
+ul {font-family:Brandon grotesque; text-align:right; font-size:1.33rem;}
+
+li { font-size:100%; display:inline; padding-left:2.5rem; }
+
+.head a {text-decoration:none; color:black; opacity:0.4;}
+
+.head a:hover {text-decoration:none; color:black;font-weight: normal; opacity:0.9;transition: 0.4s;}
+
+.section{width:0%;height:100%;}
+
+#one{float: left; background-color:#FEAB30; left:0; overflow: hidden;
+  width: 100%;
+  height: 100%;
+  
+  background-image:url("main.jpg");
+  
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#two{float: left; position: absolute;background-color: #b4373d ; left:33.33%;
+  width: 100%;
+  height: 100%;
+  
+  
+  background-image:url("alaknanda.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+#three{float: left; position: absolute; background-color: #E1AD70; left:66.66%;
+  width: 100%;
+  height: 100%;
+  background-image:url("jawahar.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.title {font-family: 'Average', serif; font-size: 2.5rem; color:white; text-align: center; margin-top: 120%; opacity: 1;}
+
+
+.picture {height:100%; overflow:hidden;}
+
+.text {font-family: montserrat; font-size: 1.33rem; color: black; line-height: 1.5; position:absolute; top: 40%; left: 40%; opacity: 0; width:40%;}
+
+.name {font-family: 'Average', serif; font-size: 5rem; color:#FEAB30; position: absolute; left: 40%; top:20%; opacity: 0}
+
+.fa{position: absolute;z-index: 70;opacity: 0; top:4rem;right:11rem;color:black;}
+
+.fa:hover {cursor:pointer;}
