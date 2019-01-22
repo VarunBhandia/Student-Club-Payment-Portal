@@ -1,0 +1,160 @@
+@media (min-width: 300px) {
+  html{
+    font-size : 6px;
+  }
+}
+
+@media (min-width: 800px) {
+  html{
+    font-size : 9px;
+  }
+}
+
+@media (min-width: 1300px) {
+  html{
+    font-size : 12px;
+  }
+}
+
+@media (min-width: 1400px) {
+  html{
+    font-size : 15px;
+  }
+}
+
+@media (min-width: 1850px) {
+  html{
+    font-size : 18px;
+  }
+}
+
+
+body {padding:0; margin:0}
+
+.logo {position: fixed; z-index: 60; top:2rem; left:12rem; width:10rem;}
+
+.head {position: fixed; z-index: 55; top:3.5rem; right:12rem; font-family: brandon grotesque; font-size: 1.3rem;}
+
+ul {font-family:Brandon grotesque; text-align:right; font-size:1.33rem;}
+
+li { font-size:100%; display:inline; padding-left:2.5rem; }
+
+.head a {text-decoration:none; color:black; opacity:0.4;}
+
+.head a:hover {text-decoration:none; color:black;font-weight:normal; opacity:0.90; transition: 0.4s;}
+
+.box{background-color:#b4373d; width: 0;height:100%;position:absolute; z-index: 50;}
+
+.fa{position: absolute;z-index: 70;opacity: 0; top:4rem;right:11rem;color:white;}
+
+.fa:hover {cursor:pointer;}
+
+#img1 {left:5rem;}
+
+.gamesimg {position:absolute; z-index:52; /*margin: 8% 0 0 -25%;*/ width: 35rem; left:15.5rem; top:22%;overflow-x: visible;opacity:0;}
+
+.body{width: 70%; height:100%; float:right}
+
+.text {top:14rem;left:50%;position:absolute;z-index:6;opacity:0;}
+
+.game {font-family: 'Average', serif; font-size: 84; color:#b4373d; line-height:1.1; position:relative;
+		 text-align:left;padding-bottom: 1rem;}
+
+.gametext {position: relative; font-family: 'montserrat'; font-size: 1.33rem; color: #2c2c2c; width:30rem; line-height:1.5;opacity:0.8;padding-bottom:2.5rem;}
+
+/*.booktable{ font-family: Brandon grotesque; font-size: 1rem; color:white;background-color: #b4373d;margin-left:39%;
+			padding: 1.25rem 3.33rem; }*/
+
+.readmore{ font-family: Brandon grotesque; font-size: 1.0rem; color:#2c2c2c ; border: 0.08rem solid black;
+			padding: 0.75rem 3rem; opacity:0.8;cursor:pointer;}
+
+.readmore {
+  position: relative;
+  //display:block;
+  outline: 0;
+  overflow:hidden;
+  background: none;
+  z-index: 80;
+  transition:         0.08s ease-in;
+  -o-transition:      0.08s ease-in;
+  -ms-transition:     0.08s ease-in;
+  -moz-transition:    0.08s ease-in;
+  -webkit-transition: 0.08s ease-in;
+}
+
+.readmore {
+  -webkit-transition: all 150ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    text-decoration: none;
+}
+
+.readmore:before{
+  position:absolute;
+  content:"";
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:-1;
+  opacity:0;
+    text-decoration: none;
+  -webkit-transition: all 250ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+}
+
+.readmore:after {
+  content: "";
+  position: absolute;
+  background: black;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: -2;
+    text-decoration: none;
+  -webkit-transition: all 250ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+}
+.readmore:hover{
+  color:white;
+  border: 0.167rem black solid;
+    text-decoration: none;
+    opacity: 0.9;
+  }
+.readmore:hover:before {
+  opacity: .8;text-decoration: none;
+}
+.readmore:hover:after {
+  top: 0;text-decoration: none;
+}
+
+.number {text-align:center; position: fixed; opacity: 1;z-index:56; float:left; bottom:4rem;left:11rem;}
+
+.dot {
+  font-size:1.67rem;
+  /*display: inline-block;*/
+  padding-right: 1rem;
+  color:black;
+  font-family: brandon grotesque;
+  opacity:1;
+}
+
+.dot a {
+  position:relative;
+  color:black;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.dot a:hover {
+  color:white;
+  opacity: 1.0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/*.vl1 {position: absolute; z-index: 80;border-left: 0.15rem solid white; height: 3.33rem; margin: 17rem 0 0 7.7rem; opacity: 0;}
+
+.vl2 {position: absolute;  z-index: 82;border-left: 0.15rem solid white; height: 3.33rem;  margin: 36rem 0 0 7.7rem; opacity: 0;}*/
+
+.rules {position: absolute; z-index: 62;font-family: 'Average', serif; font-size: 6rem; color:white;top:14rem; left:40rem;opacity: 0;}
+
+.rulestext{position: absolute; z-index: 64; font-family: montserrat; font-size: 1.4rem; line-height: 1.4; width:50rem;top:25rem; left:40rem;color:white;display: none;opacity: 0;}

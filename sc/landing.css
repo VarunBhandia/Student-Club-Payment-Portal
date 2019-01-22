@@ -1,0 +1,158 @@
+@media (min-width: 1300px) {
+  html{
+    font-size : 12px;
+  }
+}
+
+@media (min-width: 1400px) {
+  html{
+    font-size : 15px;
+  }
+}
+
+@media (min-width: 1850px) {
+  html{
+    font-size : 18px;
+  }
+}
+
+
+
+
+body {padding:0; margin:0}
+
+.container-fluid { width:100%; height:100%}
+
+.header {height:16%; width:100%; }
+
+.body {height:68%; width:100%; /*background-color:green;*/}
+
+.footer {height:16%; width:100%; /*background-color:yellow;*/}
+
+.logo {width:10rem; margin:1.67rem 0 auto 11rem; float:left;}
+
+.head {float:right; width:60%; height:100%; float:right;margin:2.5rem 10rem 0 0; color:black;}
+
+ul {font-family:Brandon grotesque; text-align:right; font-size:1.33rem;}
+
+li { font-size:100%; display:inline; padding-left:3rem; }
+
+.head a {text-decoration:none; color:black; opacity:0.4;transition: 0.4s;}
+
+.head a:hover {text-decoration:none; color:black;font-weight: bold; opacity:0.8; transition: 0.4s;}
+
+.box{ width:50%; height:68%; margin-left:10rem; background-color: #cbaa51; position:absolute;}
+
+.sctext {font-family: 'Average', serif; font-size: 8.67rem; text-align:right; float:right; position:relative; z-index:5;
+		margin:3.33rem 9rem 3.33rem 0; color:#2b2b2b; line-height:1.1;}
+
+.booktabletext {font-family: Brandon grotesque; font-size: 1rem; color:white;background-color: #2b2b2b;margin-left:79.7%;
+				position:relative; z-index:18; padding: 1.25rem 3.33rem;}
+
+.booktabletext:hover {cursor:pointer}
+
+.mySlides fade {width:84%; height:84%; margin:6% 8% 6% 8%;}
+
+.timing {font-family:Brandon grotesque; font-size: 1.33rem; position:absolute ; z-index:10; transform: rotate(-90deg);
+		opacity:0.6;margin: 20rem 0 0 -4.167rem; letter-spacing:1.2;}
+
+.vl {border-left: 0.167rem solid black; height: 3.33rem; opacity:0.4; margin: 7.5rem 0 0 5rem;}
+
+.left_box {float: left;margin-left:-0.5%;}
+
+.hila {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 83.33rem;
+  position: relative;
+  margin: auto;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  font-size:1.67rem;
+  opacity: 0.5;
+  display: inline-block;
+  padding-right:1.55rem;
+  transition: opacity 0.6s ease-out;
+}
+
+.active {
+  opacity: 1.0;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: 0.2}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: 0.2}
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 25rem) {
+  .text {font-size: 11px}
+}
+
+
+
+
+.footer {font-family: Brandon grotesque; position: absolute; margin-left:-1.1%;}
+
+.number {text-align:left; margin: 3rem 0 0 11rem; float:left; text-align:center; }
+
+.underline {background-color: black;
+			width:0.83rem;
+			height:0.167rem;
+			position: relative;
+			z-index:12;
+			margin: 5.33rem 0 0 10.8rem;
+			}
+
+.slider {width:40rem;
+    height: 0.33rem;
+    opacity: 0.8;
+    background-color: #2b2b2b;
+    position: absolute;
+	  z-index:14;
+    -webkit-animation-name: lineslider; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 8s; /* Safari 4.0 - 8.0 */
+    animation-name: lineslider;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+	transition: ease-out;
+	}
+
+	@keyframes lineslider {
+    0% {width:0px;}
+    100% {width:100%;}
+	}
+
+	@-webkit-keyframes lineslider {
+    0% {width:0px;}
+    100% {width:100%;}
+	}
+
+.sliderconstant {width:100%; height:0.167rem; background-color:#2b2b2b; opacity:0.4;margin: -0.25rem 0 0 0 ; position:relative; z-index: 12;}
+
+.numbering {width:23%;float:left;}
+
+.line {width:67%;float: left;}
+
+.links {width:15%; height:1.67rem; position:relative; z-index:16; margin:-2.167rem 0 0 0 ;float:right; opacity:0.6;}
+
+.scicon {border: 0.167rem solid black; margin-right: 1.67rem; width:2rem; padding:0.33rem;}
+
+.scicon:hover {cursor:pointer}

@@ -1,0 +1,136 @@
+@media (min-width: 300px) {
+  html{
+    font-size : 6px;
+  }
+}
+
+@media (min-width: 800px) {
+  html{
+    font-size : 9px;
+  }
+}
+
+@media (min-width: 1300px) {
+  html{
+    font-size : 12px;
+  }
+}
+
+@media (min-width: 1400px) {
+  html{
+    font-size : 15px;
+  }
+}
+
+@media (min-width: 1850px) {
+  html{
+    font-size : 18px;
+  }
+}
+
+
+body {padding:0; margin:0}
+
+.logo {position: fixed; z-index: 50; top:2rem; left:12rem; width:10rem;}
+
+.head {position: fixed; z-index: 55; top:2.1rem; right:11rem; font-family: brandon grotesque; font-size: 1.3rem;}
+
+ul {font-family:Brandon grotesque; text-align:right; font-size:1.33rem;}
+
+li { font-size:100%; display:inline; padding-left:2.5rem; }
+
+.head a {text-decoration:none; color:black; opacity:0.4;}
+
+.head a:hover {text-decoration:none; color:black;font-weight: normal; opacity:0.9;transition: 0.4s;}
+
+.main{position: absolute;width:85%; top:25%; height:60%; padding-left: 13%}
+
+.card{position: relative;width:17.5%; height:25rem; top:5rem; display:inline-block; background-color: #2b2b2b; margin-right: 5%;}
+
+.cardtext {position: relative; width:100%; height:30%; background-color:#e2e2e2; top:70%;}
+
+.cardtext p{
+  color: #2c2c2c;
+}
+
+.prev, .next {position: fixed; z-index: 50; top:50%; font-size: 2rem; padding: 2rem; background-color: #e2e2e2;}
+
+.prev {left: 0;}
+
+.next {right:0;}
+
+.name, .designation {text-align: center; width:100%; font-family: Brandon grotesque; font-size: 1rem;line-height: 1;}
+
+.meet {position: absolute; top:15%; text-align: center; font-family: 'Average', serif; font-size: 2.5rem; color:#2c2c2c; width:100%}
+
+.member-name{
+  color: #232D39;
+  font-size: 18px;
+  }
+  #top{
+  display: inline fixed;
+  float: right;
+  }
+  
+
+#team-body{
+  height: 100%;
+  position: relative;
+
+}
+.panel {
+  transition: box-shadow 0.5s;
+
+}
+.panel-body{
+color:#232D39;
+font-size: 18px;
+
+}
+.panel:hover {
+  box-shadow: 5px 0px 40px rgba(0,0,0, .6);
+}
+.panel-footer .btn:hover {
+  
+  background-color: #fff !important;
+  color: #fdc03c;
+}
+.panel-heading {
+  color: #fff !important;
+  background-color: #fdc03c !important;
+  padding: 25px;
+  
+}
+.panel-footer {
+  background-color: white !important;
+}
+.panel-footer h3 {
+  font-size: 32px;
+}
+.panel-footer h4 {
+  color: #aaa;
+  font-size: 14px;
+}
+
+
+.team-member{
+  width:360px;
+  height:200px;
+  background-repeat: no-repeat;
+  transition: box-shadow 0.5s;
+  background-size: cover;
+  }
+  .member-name{
+    font-size: 24px;
+    background-color: #fdc03c;
+    font-family: cursive;
+  }
+  .team-btn{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+  .team-btn:hover{
+    background-color: #fdc03c;
+  }
+  
