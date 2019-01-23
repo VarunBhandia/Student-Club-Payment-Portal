@@ -19,17 +19,23 @@
     position: fixed;
     z-index: 50;
     top: 1rem;
-    left: 8rem;
-    width: 8rem;
+    left: 1rem;
+    width: 6rem;
   }
   
   .head {
     position: fixed;
     z-index: 55;
     top: 2.1rem;
-    right: 8rem;
+    right: 3rem;
     font-family: brandon grotesque;
-    font-size: 1.4rem;
+    font-size: 1rem;
+  }
+
+  li {
+    font-size: 100%;
+    display: inline;
+    padding-left: 0rem;
   }
 }
 ul {
@@ -64,6 +70,15 @@ li {
   top: 25%;
   height: 60%;
   padding-left: 13%
+}
+@media screen and (max-width:680px){
+  .main {
+    position: absolute;
+    width: 82%;
+    top: 25%;
+    height: 60%;
+    padding-left: 15%
+  }
 }
 
 .card {
