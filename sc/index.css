@@ -1,8 +1,3 @@
-body {
-    margin: 0;
-    padding: 0;
-}
-
 .logo {
     position: fixed;
     z-index: 50;
@@ -37,9 +32,9 @@ body {
     position: fixed;
     z-index: 55;
     top: 1.5rem;
-    right: 11rem;
+    right: 1rem;
     font-family: brandon grotesque;
-    font-size: 1.3rem;
+    font-size: 1rem;
     display: none;
 }
 
