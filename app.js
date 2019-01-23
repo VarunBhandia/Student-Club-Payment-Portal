@@ -44,36 +44,10 @@ const app = express();
 
 //Handlebars Middleware
 
-app.use('/handlebars', (req, res) => {
-  var tag = 0;
-    instance.orders.create({amount, currency, receipt, payment_capture, notes}).then((response) => {
-    console.log("**********Order Created***********");
-    console.log(response);
-    console.log("Table to be booked is : " + table_id);
-    console.log("**********Order Created***********");
-    order_id=response.id;
-    
-    }).catch((error) => {
-      console.log(error);
-})
-  app.engine('handlebars',exphbs({defaultLayout:'main'}));
-  app.set('view engine', 'handlebars');
-  res.render(
-    'index',
-    {order_id,amount, table_id}
-  );
-
-
-  
-  // res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
-  // res.sendFile(path.join(__dirname, 'views/layouts', 'main.handlebars'))
-});
 
 // Body Parser Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
-
-
 
 // Index Route
 var amount= 1000,
@@ -81,12 +55,52 @@ var amount= 1000,
     receipt = '1234545f4',
     payment_capture =true,
     notes ="something",
-    order_id,payment_id,table_id = '';
+    order_id,payment_id,table_id = '', count = 0;
 var tag = 0;
 
 app.post('/', function (req, res) {
-  table_id = req.body.keeptime;
-  console.log(table_id);
+  table_id = req.body.item.keeptime;
+  amount = req.body.amount*100;
+});
+
+app.use('/handlebars', (req, res) => {
+  CheckBooking(count);
+  setTimeout(function() {
+    if(count === 1) {
+      count = 0;
+      res.redirect('/');
+    }
+    else if(table_id === ''){
+      res.redirect('/');
+    }
+    
+    else {
+      var tag = 0;
+      instance.orders.create({amount, currency, receipt, payment_capture, notes}).then((response) => {
+      console.log("**********Order Created***********");
+      console.log(response);
+      console.log("Table to be booked is : " + table_id);
+      console.log("**********Order Created***********");
+      order_id=response.id;
+      }).catch((error) => {
+        console.log(error);
+      })
+        app.engine('handlebars',exphbs({defaultLayout:'main'}));
+        app.set('view engine', 'handlebars');
+        res.render(
+          'index',
+          {order_id,amount, table_id}
+        );
+    }
+  }, 1000);
+  
+  
+
+  
+
+  
+  // res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+  // res.sendFile(path.join(__dirname, 'views/layouts', 'main.handlebars'))
 });
 
 
@@ -100,9 +114,9 @@ app.get('/static/*.css', (req, res) => {
   res.sendFile(path.join(__dirname, req.url))
 });
 app.get('/static/*.js', (req, res) => {
-  console.log(req.url)
+  
   req.url = 'client/build' + req.url;
-  console.log(req.url)
+  
   res.setHeader('Content-type', 'text/javascript')
   res.sendFile(path.join(__dirname, req.url))
 });
@@ -158,7 +172,7 @@ app.post('/purchase', (req,res) =>{
           console.log(err);
       }
       
-      var dbo = db.db('heroku_zt5h9gdm');
+      var dbo = db.db(process.env.DB_NAME);
       var insertobj = { TableTime : TableTime,
         TableType : TableType,
         TableStatus : 'Booked'
@@ -211,7 +225,7 @@ app.post('/purchase', (req,res) =>{
 app.get('/purchase', function (req, res) {
   MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
     if (err) throw err;
-    var dbo = db.db("heroku_zt5h9gdm");
+    var dbo = db.db(process.env.DB_NAME);
     dbo.collection("TableStatus").find({}).toArray(function(err, result) {
       if (err) throw err;
       res.json(result);
@@ -224,7 +238,7 @@ app.get('/purchase', function (req, res) {
 app.get('/dbstatus', function (req, res) {
   MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
     if (err) throw err;
-    var dbo = db.db("heroku_zt5h9gdm");
+    var dbo = db.db(process.env.DB_NAME);
     dbo.collection("TableStatus").find({}).toArray(function(err, result) {
       if (err) throw err;
       res.send(result);
@@ -236,7 +250,7 @@ app.get('/dbstatus', function (req, res) {
 function DeleteRecords() {
   MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
     if (err) throw err;
-    var dbo = db.db("heroku_zt5h9gdm");
+    var dbo = db.db(process.env.DB_NAME);
     var myquery = {};
     dbo.collection("TableStatus").deleteMany(myquery, function(err, obj) {
       if (err) throw err;
@@ -248,6 +262,27 @@ function DeleteRecords() {
 app.get('/dbreset', function (req, res) {
   DeleteRecords();
 });
+
+function CheckBooking() {
+  var TableTime = table_id.slice(0,11);
+  var TableType = table_id.slice(12);
+  
+  MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db(process.env.DB_NAME);
+    var query = {TableTime : TableTime, TableType : TableType, TableStatus : 'Booked'};  
+    dbo.collection("TableStatus").find(query).toArray(function(err, result) {
+      if (err) throw err;
+      result = JSON.stringify(result); 
+      if(result[1] != ']') {
+        count = 1;
+      }
+      else {
+        count = 0;
+      }
+    });
+  });
+}
 
 
 const port = process.env.PORT || 4000;

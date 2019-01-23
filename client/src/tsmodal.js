@@ -16,14 +16,15 @@ class TsModal extends React.Component {
     
   }
 
-  handlePostReq(item,str) {
-    this.setState({table_name : str});
+  handlePostReq(item,str,amount) {
     // eslint-disable-next-line
-    console.log(item);
     item.keeptime = item.keeptime + " " + str;
     fetch('/', {
       method: 'POST',
-      body: JSON.stringify(item),
+      body: JSON.stringify({
+        item : item,
+        amount : amount
+      }),
       headers:{
         'Content-Type': 'application/json'
       }
@@ -64,11 +65,11 @@ class TsModal extends React.Component {
           </Modal.Header>
           <Modal.Body>            
             <hr />
-            <Button disabled = {dis[0]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Pool Table 1')}} href = "http://localhost:4000/handlebars" >Pool table 1 </Button>
-            <Button disabled = {dis[1]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Pool Table 2')}} href = "http://localhost:4000/handlebars">Pool table 2</Button>
-            <Button disabled = {dis[2]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 1')}} href = "http://localhost:4000/handlebars">Snooker table 1</Button>
-            <Button disabled = {dis[3]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 2')}} href = "http://localhost:4000/handlebars">Snooker table 2</Button>
-            <Button disabled = {dis[4]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 3')}} href = "http://localhost:4000/handlebars">Snooker table 3</Button>
+            <Button disabled = {dis[0]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Pool Table 1',10)}} href = "http://localhost:4000/handlebars" >Pool table 1 </Button>
+            <Button disabled = {dis[1]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Pool Table 2',10)}} href = "http://localhost:4000/handlebars">Pool table 2</Button>
+            <Button disabled = {dis[2]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 1',20)}} href = "http://localhost:4000/handlebars">Snooker table 1</Button>
+            <Button disabled = {dis[3]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 2',20)}} href = "http://localhost:4000/handlebars">Snooker table 2</Button>
+            <Button disabled = {dis[4]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 3',20)}} href = "http://localhost:4000/handlebars">Snooker table 3</Button>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.props.onclick}>Close</Button>
