@@ -24,7 +24,6 @@ body {
 } 
 
 .head {
-    opacity: 0;
     position: fixed;
     z-index: 55;
     top: 3.5rem;
@@ -35,7 +34,6 @@ body {
 }
 @media screen and (max-width:680px){
   .head {
-    opacity: 0;
     position: fixed;
     z-index: 55;
     top: 1.5rem;
