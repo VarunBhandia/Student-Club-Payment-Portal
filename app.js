@@ -245,17 +245,7 @@ app.get('/purchase', function (req, res) {
 });
 
 
-app.get('/dbstatus', function (req, res) {
-  MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
-    if (err) throw err;
-    var dbo = db.db(process.env.DB_NAME);
-    dbo.collection("BookingHistory").find({}).toArray(function(err, result) {
-      if (err) throw err;
-      res.send(result);
-      db.close();
-    });
-  });
-});
+
 
 function DeleteTableStatus() {
   MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
@@ -282,10 +272,7 @@ function DeleteBookingHistory() {
   });
 }
 
-app.get('/dbreset', function (req, res) {
-  DeleteBookingHistory();
-  DeleteTableStatus();
-});
+
 
 function CheckBooking() {
   var TableTime = table_id.slice(0,11);
@@ -331,7 +318,7 @@ setInterval(function(){
   DeleteBookingHistory();
   DeleteTableStatus();
 
-},86400);
+},86400000);
 const port = process.env.PORT || 4000;
 
 
