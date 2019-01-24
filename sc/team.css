@@ -75,8 +75,7 @@ li {
   .main {
     position: absolute;
     width: 82%;
-    top: 25%;
-    height: 60%;
+    top: 25%;;
     padding-left: 15%
   }
 }
