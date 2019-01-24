@@ -1,0 +1,306 @@
+.logo {
+    position: fixed;
+    z-index: 50;
+    top: 2rem;
+    left: 12rem;
+    width: 10rem;
+    opacity: 0;
+}
+
+@media screen and (max-width:680px){
+  .logo {
+    position: fixed;
+    z-index: 50;
+    top: 0.8rem;
+    left: 1rem;
+    width: 8rem;
+    opacity: 0;
+}
+} 
+
+.head {
+    position: fixed;
+    z-index: 55;
+    top: 3.5rem;
+    right: 11rem;
+    font-family: brandon grotesque;
+    font-size: 1.3rem;
+    display: none;
+}
+@media screen and (max-width:680px){
+  .head {
+    position: fixed;
+    z-index: 55;
+    top: 1.5rem;
+    right: 1rem;
+    font-family: brandon grotesque;
+    font-size: 1rem;
+    display: none;
+}
+
+}
+ul {
+    font-family: Brandon grotesque;
+    text-align: right;
+    font-size: 1.33rem;
+}
+
+li {
+    font-size: 100%;
+    display: inline;
+    padding-left: 2.5rem;
+}
+
+
+.head a {
+    text-decoration: none;
+    color: black;
+}
+
+.head a:hover {
+    text-decoration: none;
+    color: #eecd76;
+    font-weight: normal;
+    opacity: 0.9;
+    transition: 0.4s;
+}
+
+.timing {
+    font-family: Brandon grotesque;
+    font-size: 1.33rem;
+    position: fixed;
+    z-index: 10;
+    transform: rotate(-90deg);
+    opacity: 0.0;
+    top: 30rem;
+    left: -2rem;
+}
+@media screen and (max-width:680px){
+  .timing {
+    font-family: Brandon grotesque;
+    font-size: 1rem;
+    position: fixed;
+    z-index: 10;
+    transform: rotate(-90deg);
+    opacity: 0.0;
+    left: -4.4em;
+}
+}
+.vl {
+    border-left: 0.167rem solid black;
+    height: 0rem;
+    opacity: 0.4;
+    top: 16rem;
+    left: 6rem;
+    position: fixed;
+}
+
+.sportdiv {
+    height: 36rem;
+    background-color: #eecd76;
+    top: 10rem;
+    left: 12rem;
+    position: absolute;
+}
+@media screen and (max-width:680px){
+  .sportdiv{
+    height: 30rem;
+    max-width: 400px;
+    left:4rem;
+  }
+}
+
+
+.text {
+    opacity: 0.0;
+    font-family: 'Average', serif;
+    font-size: 9rem;
+    text-align: right;
+    position: absolute;
+    z-index: inherit 9999;
+    right: 10.2rem;
+    top: 16rem;
+    line-height: 1;
+    color: #503c3c;
+}
+
+@media screen and (max-width:680px){
+  .text {
+    font-size: 4rem;
+    text-align: right;
+    position: absolute;
+    z-index: inherit 9999;
+    right: 10.2rem;
+    top: 16rem;
+    line-height: 1;
+    color: #503c3c;
+}
+}
+
+
+.numbers {
+    opacity: 0;
+    bottom: 3rem;
+    position: absolute;
+    font-family: brandon grotesque;
+    left: 12rem;
+    text-align: center;
+}
+@media screen and (max-width:680px){
+  .numbers{
+    left:1.5rem;
+  }
+}
+
+
+.number {
+    font-size: 1.8rem;
+    padding-right: 1.1rem;
+}
+
+@media screen and (max-width:680px){
+  .number {
+    font-size: 1.2rem;
+    padding-right: 1rem;
+}
+}
+
+.slider {
+    width: 0;
+    height: 0.15rem;
+    opacity: 0.0;
+    background-color: #2b2b2b;
+    position: relative;
+    z-index: 14;
+    -webkit-animation-name: lineslider;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: lineslider;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    transition: ease-out;
+    animation-delay: 2.25s;
+}
+
+@keyframes lineslider {
+    0% {
+        width: 0px;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@-webkit-keyframes lineslider {
+    0% {
+        width: 0px;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.sliderconstant {
+    width: 0%;
+    height: 0.15rem;
+    background-color: #2e2e2e;
+    opacity: 0.4;
+    margin: -0.20rem 0 0 0;
+    position: relative;
+    z-index: 12;
+}
+
+.line {
+    width: 60%;
+    position: absolute;
+    bottom: 4.2rem;
+    left: 23.5rem;
+}
+@media screen and (max-width:680px){
+  .line {
+    width: 60%;
+    position: absolute;
+    bottom: 4.2rem;
+    left: 10rem;
+}
+}
+.links {
+  display: flex;
+  flex-direction: row;
+    width: 15%;
+    height: 4rem;
+    position: absolute;
+    z-index: 40;
+    opacity: 0.8;
+    bottom: 1.5rem;
+    right: 2.5rem;
+}
+@media screen and (max-width:680px){  
+.links {
+  display: flex;
+  flex-direction: row;
+  width: 10%;
+  height: 2rem;
+  right:10rem;
+  }
+}
+
+.scicon {
+    border: 0.167rem solid black;
+    right: 1.67rem;
+    width: 2rem;
+    padding: 0.33rem;
+    margin-right: 1rem;
+    opacity: 0.0;
+}
+
+.scion:hover {
+    color: white;
+    border: 0.167rem solid black;
+    right: 1.67rem;
+    width: 2rem;
+    padding: 0.33rem;
+    margin-right: 1rem;
+    opacity: 0.0;
+    background-color: black;
+    text-decoration: none;
+    opacity: 0.9;
+}
+
+.sportdiv {
+    position: absolute;
+    /*transform: translate(-50%,-50%);*/
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-image {
+    position: relative;
+    margin-top: 4%;
+    left: 15%;
+    width: 60%;
+    display: none;
+    opacity: 0;
+}
+@media screen and (max-width:680px){
+  .carousel-image{
+    top:10rem;
+  }
+}
+
+.numbers {
+    display: inline-flex;
+}
+
+.numbers>span {
+    flex-grow: 1;
+    text-align: center;
+    color: #cecece;
+    transition: all 0.5s ease-in;
+}
+
+.numbers>.active {
+    color: #1e1e1e;
+    font-weight: 500;
+}

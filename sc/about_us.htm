@@ -1,0 +1,182 @@
+<html>
+<head>
+	<link rel="stylesheet" href="about_us.css">
+	<link href="https://fonts.googleapis.com/css?family=Average" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.js" type="text/javascript"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script>
+	$(document).ready(function(){
+		$(".name, .text, .fa").hide();
+		$(".section").animate({
+			width:'33.33%'
+		},800);
+		setTimeout(function(){
+			$(".title").animate({
+				opacity:'1.0'
+			},400);
+		},800);
+
+		$("#one").click(function(){
+			$(".title, .header").animate({
+				opacity:'0.0'
+			},400);
+			setTimeout(function(){
+			$(".name, .text, .fa").show()
+			$(".header").hide();
+			$("#two, #three").animate({
+				width:'0'
+				},600);
+			},400);
+			setTimeout(function(){
+				$(".name, .text, .fa").animate({
+					opacity:'1.0'
+				},400);
+			},1000);
+		});
+
+			$("#two").click(function(){
+				$(".title").animate({
+					opacity:'0.0'
+				},400);
+				setTimeout(function(){
+				$("#one, #three").animate({
+					width:'0'
+					},600);
+				$("#two").animate({
+					left:'0%'
+				},600);
+				},400);
+			});
+
+			$("#three").click(function(){
+				$(".title").animate({
+					opacity:'0.0'
+				},400);
+				setTimeout(function(){
+				$("#one, #two").animate({
+					width:'0'
+					},600);
+				setTimeout(function(){
+				$("#three").animate({
+					left:'0%'
+				},1200);
+			},200)
+				},400);
+			});
+
+	});
+</script>
+
+</head>
+<body>
+	<div class="header">
+	<a href="index.htm"><img src="sclogo.PNG" class="logo"></img></a>
+	<ul class="head">
+		<li> <a href="index.htm">Home </a></li>
+		<li> <a href="games.htm">Games </a> </li>
+		<li> <a href="events.htm">Events </a></li>
+		<li> <a href="about_us.htm" style="font-weight:normal; opacity:0.90;">About Us </a></li>
+		<li> <a href="notices.htm">Notices </a></li>
+		<li> <a href="team.htm">Team </a></li>
+	</ul>
+	</div>
+	<div class="section" id="one" onclick="myFunc1()">
+		<p class="title">Main Unit</p>
+	</div>
+	<div class="section" id="two" onclick="myFunc2()">
+		<p class="title">Alaknanda Unit</p>
+	</div>
+	<div class="section" id="three" onclick="myFunc3()">
+		<p class="title">Jawahar Unit</p>
+	</div>
+
+<div id="one1">
+		<p class="name"> Main Unit </p>
+		<p class="text"> The main unit of the Students' Club is located near Georgia and Punjab National Bank. It has various facilities for students to avail such as Snooker , Pool , Table Tennis , Carrom , Foosball , Chess and Air Hockey. Starting from the 2018-19 session , this unit will also have gaming consoles for the students. Other than the games , the main unit has a TV room , open wifi , music system and the students' square for hosting different events.
+		<br><br>
+		<b>Timings</b>
+		<br>10:00 AM to 01:00 PM
+		<br>02:00 PM to 12:00 AM
+		 </p>
+</div>
+
+
+<div id="two2">
+		<p class="name">Alaknanda Unit </p>
+		<p class="text"> The Alaknanda unit is located in the Multi Activity Centre (MAC) . It is is situated very close to 5 Bhawans making it easily accessible for a large number of students. It has facilities such as Snooker , Pool , Table Tennis , Carrom , Chess , Air Hockey and Foosball. It also has a TV room , open wifi and a music system.
+	   
+		<br><br>
+		<b>Timings</b>
+		<br>03:00 PM to 10:00 PM
+		 </p>
+	   
+</div>
+ 
+<div id="three3">
+		<p class="name"> Jawahar Unit </p>
+		<p class="text"> The Jawahar unit is located in the Jawahar Bhawan. It has facilities such as Snooker , Pool , Table Tennis , Carrom , Chess , Air Hockey and Foosball. It also has a TV room.
+
+		<br><br>
+		<b>Timings</b>
+		<br>03:00 PM to 12:00 PM
+		 </p>
+		
+</div>
+  
+<a href="about_us.htm" id="cross"><i class="fa fa-times" style="font-size:24px"></i></a>
+<script>
+	var c=document.getElementById('cross');
+	function myFunc1(){
+		var x=document.getElementById("one1");
+		var y=document.getElementById("two2");
+		var z=document.getElementById("three3");
+		
+		
+		y.style.display='none';
+		z.style.display='none';
+		if (x.style.display==='none')	{
+			x.style.display="block";
+			c.style.display='block';
+		}
+		else{
+			x.style.display='none';
+			c.style.display='none';
+		}
+	}
+	function myFunc2(){
+		var x=document.getElementById("two2");
+		var y=document.getElementById("one1");
+		var z=document.getElementById("three3");
+		y.style.display='none';
+		z.style.display='none';
+		if (x.style.display==='none')	{
+			x.style.display="block";
+			c.style.display='block';
+		}
+		else{
+			x.style.display='none';
+			c.style.display='none';
+		}
+	}
+	function myFunc3(){
+		var x=document.getElementById("three3");
+		var y=document.getElementById("two2");
+		var z=document.getElementById("one1");
+		y.style.display='none';
+		z.style.display='none';
+		if (x.style.display==='none')	{
+			x.style.display="block";
+			c.style.display='block';
+		}
+		else{
+			x.style.display='none';
+			c.style.display='none';
+		}
+	}
+</script>
+
+
+</body>
+</html>
