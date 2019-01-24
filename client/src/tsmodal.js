@@ -65,11 +65,11 @@ class TsModal extends React.Component {
           </Modal.Header>
           <Modal.Body>            
             <hr />
-            <Button disabled = {dis[0]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Pool Table 1',10)}} href = "https://studclubbooking.herokuapp.com//handlebars" >Pool table 1 </Button>
-            <Button disabled = {dis[1]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Pool Table 2',10)}} href = "https://studclubbooking.herokuapp.com//handlebars">Pool table 2</Button>
-            <Button disabled = {dis[2]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 1',20)}} href = "https://studclubbooking.herokuapp.com//handlebars">Snooker table 1</Button>
-            <Button disabled = {dis[3]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 2',20)}} href = "https://studclubbooking.herokuapp.com//handlebars">Snooker table 2</Button>
-            <Button disabled = {dis[4]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 3',20)}} href = "https://studclubbooking.herokuapp.com//handlebars">Snooker table 3</Button>
+            <Button disabled = {dis[0]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Pool Table 1',10)}} href = "https://studclubbooking.herokuapp.com/handlebars" >Pool table 1 </Button>
+            <Button disabled = {dis[1]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Pool Table 2',10)}} href = "https://studclubbooking.herokuapp.com/handlebars">Pool table 2</Button>
+            <Button disabled = {dis[2]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 1',20)}} href = "https://studclubbooking.herokuapp.com/handlebars">Snooker table 1</Button>
+            <Button disabled = {dis[3]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 2',20)}} href = "https://studclubbooking.herokuapp.com/handlebars">Snooker table 2</Button>
+            <Button disabled = {dis[4]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 3',20)}} href = "https://studclubbooking.herokuapp.com/handlebars">Snooker table 3</Button>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.props.onclick}>Close</Button>
