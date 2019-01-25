@@ -239,7 +239,6 @@ app.get('/purchase', function (req, res) {
     dbo.collection("TableStatus").find({}).toArray(function(err, result) {
       if (err) throw err;
       res.json(result);
-      db.close();
     });
   });
 });
