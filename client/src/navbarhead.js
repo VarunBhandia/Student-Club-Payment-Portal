@@ -8,17 +8,17 @@ class NavbarHeader extends Component {
     <Navbar inverse >
       <Navbar.Header>
         <Navbar.Brand>
-        <a href="#home">Student's Club</a>
+        <a href="/">Student's Club</a>
         </Navbar.Brand>
         <Navbar.Toggle />
       </Navbar.Header>
       <Navbar.Collapse>
         <Nav pullRight>
           <NavItem eventKey={1} href="#">
-            Stream Live            
+            Stream Live                      
           </NavItem>
-          <NavItem eventKey={2} href="#">
-            Login As Admin
+          <NavItem eventKey={2} href="/adminlogin">
+            Login As Admin             
           </NavItem>
         </Nav>
       </Navbar.Collapse>
