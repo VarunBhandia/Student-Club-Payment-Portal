@@ -64,7 +64,7 @@ class Timeslots extends Component {
 
   getList = () => {
     
-    fetch("/purchase")
+    fetch("/mznFag7kV7")
     .then(res => res.json())
     .then(result => this.setState({ result }))
   }

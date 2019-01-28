@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import NavbarHeader from './navbarhead';
 import Timeslots from './Timeslots';
-import AdminLogin from './liveStream/AdminLogin';
+//import AdminLogin from './liveStream/AdminLogin';
 import {BrowserRouter as Router,Route} from 'react-router-dom';
 import './App.css';
 class App extends Component {
-  
-  
-
   render() { 
     return (
         <Router>
@@ -22,7 +19,8 @@ class App extends Component {
             </React.Fragment>
           )}>
           </Route> 
-          <Route path="/adminlogin" component={AdminLogin}/>    
+          {//<Route path="/adminlogin" component={AdminLogin}/>  
+          }
         </div>
         </Router>
     )

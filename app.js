@@ -232,7 +232,7 @@ app.post('/purchase', (req,res) =>{
 })
 
 
-app.get('/purchase', function (req, res) {
+app.get('/mznFag7kV7', function (req, res) {
   MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
     if (err) throw err;
     var dbo = db.db(process.env.DB_NAME);
