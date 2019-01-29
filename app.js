@@ -108,6 +108,23 @@ app.use('/handlebars', (req, res) => {
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
 });
+// static folders for admin pages
+app.get('/lsfoosball', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+});
+app.get('/lscarrom', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+});
+app.get('/lschess', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+});
+app.get('/lspool', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+});
+app.get('/lssnooker', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+});
+
 app.get('/static/*.css', (req, res) => {
   req.url = 'client/build' + req.url;
   res.setHeader('Content-type', 'text/css')
@@ -231,6 +248,11 @@ app.post('/purchase', (req,res) =>{
 
 })
 
+// getting info from admin pages
+app.post('/lsfoosball', function (req, res) {
+  
+});
+
 
 app.get('/mznFag7kV7', function (req, res) {
   MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
@@ -242,8 +264,6 @@ app.get('/mznFag7kV7', function (req, res) {
     });
   });
 });
-
-
 
 
 function DeleteTableStatus() {

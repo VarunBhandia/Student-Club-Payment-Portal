@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Navbar, NavItem,Nav
+  Navbar, NavItem,Nav,NavDropdown,MenuItem
 } from 'react-bootstrap';
 class NavbarHeader extends Component {
   render() {
@@ -17,9 +17,13 @@ class NavbarHeader extends Component {
           <NavItem eventKey={1} href="#">
             Stream Live                      
           </NavItem>
-          <NavItem eventKey={2} href="/adminlogin">
-            Login As Admin             
-          </NavItem>
+          <NavDropdown eventKey={3} title="Livestream" id="basic-nav-dropdown">
+            <MenuItem eventKey={3.1} href="/lsfoosball">Foosball</MenuItem>
+            <MenuItem eventKey={3.2} href="/lschess">Chess</MenuItem>
+            <MenuItem eventKey={3.3} href="/lssnooker">Snooker</MenuItem>
+            <MenuItem eventKey={3.4} href="/lspool">Pool</MenuItem>
+            <MenuItem eventKey={3.2} href="/lscarrom">Carrom</MenuItem>
+          </NavDropdown>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

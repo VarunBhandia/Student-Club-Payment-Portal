@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import NavbarHeader from './navbarhead';
 import Timeslots from './Timeslots';
-//import AdminLogin from './liveStream/AdminLogin';
+import LsFoosball from './Lsfoosball';
+import LsCarrom from './Lscarrom';
+import LsChess from './Lschess';
+import LsPool from './Lspool';
+import LsSnooker from './Lssnooker';
 import {BrowserRouter as Router,Route} from 'react-router-dom';
 import './App.css';
 class App extends Component {
@@ -19,8 +23,11 @@ class App extends Component {
             </React.Fragment>
           )}>
           </Route> 
-          {//<Route path="/adminlogin" component={AdminLogin}/>  
-          }
+        <Route path="/lsfoosball" component={LsFoosball}/>  
+        <Route path="/lscarrom" component={LsCarrom}/>  
+        <Route path="/lschess" component={LsChess}/>  
+        <Route path="/lspool" component={LsPool}/>  
+        <Route path="/lssnooker" component={LsSnooker}/>        
         </div>
         </Router>
     )
