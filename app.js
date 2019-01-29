@@ -313,11 +313,13 @@ function CheckContactInfo(response) {
   });
 }
 
-setInterval(function(){
-  DeleteBookingHistory();
-  DeleteTableStatus();
 
-},86400000);
+
+app.use('/XKTmYC3pOg', function (req, res) {
+  DeleteTableStatus();
+  DeleteBookingHistory();
+});
+
 const port = process.env.PORT || 4000;
 
 
