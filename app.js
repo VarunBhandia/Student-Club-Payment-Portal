@@ -42,6 +42,23 @@ MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
     if (err) throw err;
     console.log("FoosballLS Collection created!");
   });
+  dbo.createCollection("ChessLS", function(err, res) {
+    if (err) throw err;
+    console.log("ChessLS Collection created!");
+  });
+  dbo.createCollection("CarromLS", function(err, res) {
+    if (err) throw err;
+    console.log("CarromLS Collection created!");
+  });
+  dbo.createCollection("PoolLS", function(err, res) {
+    if (err) throw err;
+    console.log("PoolLS Collection created!");
+  });
+  dbo.createCollection("SnookerLS", function(err, res) {
+    if (err) throw err;
+    console.log("SnookerLS Collection created!");
+  });
+
 }); 
 
 const app = express();
@@ -122,13 +139,25 @@ app.get('/foosballstream', (req, res) => {
 app.get('/lscarrom', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
 });
+app.get('/carromstream', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+});
 app.get('/lschess', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+});
+app.get('/chessstream', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
 });
 app.get('/lspool', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
 });
+app.get('/poolstream', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+});
 app.get('/lssnooker', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+});
+app.get('/snookerstream', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
 });
 
@@ -255,7 +284,8 @@ app.post('/purchase', (req,res) =>{
 
 })
 
-// getting info from admin pages
+// getting info from admin pages 
+// foosball 
 app.post('/lsfoosball', function (req, res) {
   var val = req.body.value;
   MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
@@ -298,6 +328,179 @@ app.post('/foosballstream', function (req, res) {
 });
 
 
+
+// carrom
+app.post('/lscarrom', function (req, res) {
+  var val = req.body.value;
+  MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
+    if(!err) {
+      console.log("We are connected");
+    }
+    if(err)
+    {
+        console.log(err);
+    }
+    
+    var dbo = db.db(process.env.DB_NAME);
+    myquery = {};
+    dbo.collection("CarromLS").deleteMany(myquery, function(err, obj) {
+      if (err) throw err;
+      console.log(obj.result.n + " document(s) deleted");
+    });
+    var insertobj = { Player1: val.player1,
+      Player2: val.player2,
+      Player3: val.player3,
+      Player4: val.player4,
+      Link: val.link
+    };
+    dbo.collection("CarromLS").insertOne(insertobj, function(err, res) {
+      if (err) throw err;
+    });
+  });
+});
+
+
+app.post('/carromstream', function (req, res) {
+  MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db(process.env.DB_NAME);
+    dbo.collection("CarromLS").find({}).toArray(function(err, result) {
+      if (err) throw err;
+      res.json(result);
+    });
+  });
+});
+
+
+// chess streaming
+
+app.post('/lschess', function (req, res) {
+  var val = req.body.value;
+  MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
+    if(!err) {
+      console.log("We are connected");
+    }
+    if(err)
+    {
+        console.log(err);
+    }
+    
+    var dbo = db.db(process.env.DB_NAME);
+    myquery = {};
+    dbo.collection("ChessLS").deleteMany(myquery, function(err, obj) {
+      if (err) throw err;
+      console.log(obj.result.n + " document(s) deleted");
+    });
+    var insertobj = { Player1: val.player1,
+      Player2: val.player2,
+      Link: val.link
+    };
+    dbo.collection("ChessLS").insertOne(insertobj, function(err, res) {
+      if (err) throw err;
+    });
+  });
+});
+
+
+app.post('/chessstream', function (req, res) {
+  MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db(process.env.DB_NAME);
+    dbo.collection("ChessLS").find({}).toArray(function(err, result) {
+      if (err) throw err;
+      res.json(result);
+    });
+  });
+});
+
+
+// pool live stream
+app.post('/lspool', function (req, res) {
+  var val = req.body.value;
+  MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
+    if(!err) {
+      console.log("We are connected");
+    }
+    if(err)
+    {
+        console.log(err);
+    }
+    
+    var dbo = db.db(process.env.DB_NAME);
+    myquery = {};
+    dbo.collection("PoolLS").deleteMany(myquery, function(err, obj) {
+      if (err) throw err;
+      console.log(obj.result.n + " document(s) deleted");
+    });
+    var insertobj = { Player1: val.player1,
+      Player2: val.player2,
+      Player3: val.player3,
+      Player4: val.player4,
+      Link: val.link
+    };
+    dbo.collection("PoolLS").insertOne(insertobj, function(err, res) {
+      if (err) throw err;
+    });
+  });
+});
+
+
+app.post('/poolstream', function (req, res) {
+  MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db(process.env.DB_NAME);
+    dbo.collection("PoolLS").find({}).toArray(function(err, result) {
+      if (err) throw err;
+      res.json(result);
+    });
+  });
+});
+
+// snooker streaming
+app.post('/lssnooker', function (req, res) {
+  var val = req.body.value;
+  MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
+    if(!err) {
+      console.log("We are connected");
+    }
+    if(err)
+    {
+        console.log(err);
+    }
+    
+    var dbo = db.db(process.env.DB_NAME);
+    myquery = {};
+    dbo.collection("SnookerLS").deleteMany(myquery, function(err, obj) {
+      if (err) throw err;
+      console.log(obj.result.n + " document(s) deleted");
+    });
+    var insertobj = { Player1: val.player1,
+      Player2: val.player2,
+      Player3: val.player3,
+      Player4: val.player4,
+      Link: val.link
+    };
+    dbo.collection("SnookerLS").insertOne(insertobj, function(err, res) {
+      if (err) throw err;
+    });
+  });
+});
+
+
+app.post('/snookerstream', function (req, res) {
+  MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db(process.env.DB_NAME);
+    dbo.collection("SnookerLS").find({}).toArray(function(err, result) {
+      if (err) throw err;
+      res.json(result);
+    });
+  });
+});
+
+
+
+// send booked tables 
 app.get('/mznFag7kV7', function (req, res) {
   MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
     if (err) throw err;
