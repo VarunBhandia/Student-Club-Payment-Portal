@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import NavbarHeader from './navbarhead';
 import Timeslots from './Timeslots';
-// import LsFoosball from './LsFoosballAdmin';
-// import Foosball from './LsFoosballFront';
-// import LsCarrom from './LsCarromAdmin';
-// import Carrom from './LsCarromFront';
-// import LsChess from './LsChessAdmin';
-// import Chess from './LsChessFront';
-// import LsPool from './LsPoolAdmin';
-// import Pool from './LsPoolFront';
-// import LsSnooker from './LsSnookerAdmin';
-// import Snooker from './LsSnookerFront';
+import LsFoosball from './LsFoosballAdmin.js';
+import Foosball from './LsFoosballFront';
+import LsCarrom from './LsCarromAdmin';
+import Carrom from './LsCarromFront';
+import LsChess from './LsChessAdmin';
+import Chess from './LsChessFront';
+import LsPool from './LsPoolAdmin';
+import Pool from './LsPoolFront';
+import LsSnooker from './LsSnookerAdmin';
+import Snooker from './LsSnookerFront';
 import {BrowserRouter as Router,Route} from 'react-router-dom';
 import './App.css';
 class App extends Component {
@@ -29,7 +29,7 @@ class App extends Component {
             </React.Fragment>
           )}>
           </Route> 
-        {/* <Route path="/lsfoosball" component={LsFoosball}/>
+        <Route path="/lsfoosball" component={LsFoosball}/>
         <Route path="/foosballstream" component={Foosball}/>  
         <Route path="/lscarrom" component={LsCarrom}/>  
         <Route path="/carromstream" component={Carrom}/> 
@@ -38,7 +38,7 @@ class App extends Component {
         <Route path="/lspool" component={LsPool}/>  
         <Route path="/poolstream" component={Pool}/> 
         <Route path="/lssnooker" component={LsSnooker}/>
-        <Route path="/snookerstream" component={Snooker}/>          */}
+        <Route path="/snookerstream" component={Snooker}/>         
         </div>
         </Router>
     )
