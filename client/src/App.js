@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NavbarHeader from './navbarhead';
 import Timeslots from './Timeslots';
-import LsFoosball from './LsFoosballAdmin';
+//import LsFoosball from './LsFoosballAdmin';
 import Foosball from './LsFoosballFront';
 import LsCarrom from './LsCarromAdmin';
 import Carrom from './LsCarromFront';
@@ -29,7 +29,7 @@ class App extends Component {
             </React.Fragment>
           )}>
           </Route> 
-        <Route path="/lsfoosball" component={LsFoosball}/>
+        {/* <Route path="/lsfoosball" component={LsFoosball}/> */}
         <Route path="/foosballstream" component={Foosball}/>  
         <Route path="/lscarrom" component={LsCarrom}/>  
         <Route path="/carromstream" component={Carrom}/> 
