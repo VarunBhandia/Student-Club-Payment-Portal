@@ -22,9 +22,10 @@ class App extends Component {
           <Route exact path="/" render={props => (
             <React.Fragment>
               <Timeslots />
-              <p1 className='Note'>
-             <br></br> Please note that you cannot book more than 3 tables in a day. If you do so, your amount will be deducted but you will not get that table. Refund will be processed in 14 days at Student's Club. 
-              </p1>
+              <div class="alert"> 
+                Please note that you cannot book more than 3 tables in a day. 
+                In case of any discrepancy or amount deducted but table not being assigned, please report the incident to Student's Club. Refund will be initiated accordingly in about 14 days.
+              </div>
             </React.Fragment>
           )}>
           </Route> 
