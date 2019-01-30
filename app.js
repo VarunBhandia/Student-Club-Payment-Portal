@@ -38,6 +38,10 @@ MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
     if (err) throw err;
     console.log("Table Status Collection created!");
   });
+  dbo.createCollection("FoosballLS", function(err, res) {
+    if (err) throw err;
+    console.log("FoosballLS Collection created!");
+  });
 }); 
 
 const app = express();
@@ -110,6 +114,9 @@ app.get('/', (req, res) => {
 });
 // static folders for admin pages
 app.get('/lsfoosball', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+});
+app.get('/foosballstream', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
 });
 app.get('/lscarrom', (req, res) => {
@@ -250,7 +257,44 @@ app.post('/purchase', (req,res) =>{
 
 // getting info from admin pages
 app.post('/lsfoosball', function (req, res) {
-  
+  var val = req.body.value;
+  MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
+    if(!err) {
+      console.log("We are connected");
+    }
+    if(err)
+    {
+        console.log(err);
+    }
+    
+    var dbo = db.db(process.env.DB_NAME);
+    myquery = {};
+    dbo.collection("FoosballLS").deleteMany(myquery, function(err, obj) {
+      if (err) throw err;
+      console.log(obj.result.n + " document(s) deleted");
+    });
+    var insertobj = { Player1: val.player1,
+      Player2: val.player2,
+      Player3: val.player3,
+      Player4: val.player4,
+      Link: val.link
+    };
+    dbo.collection("FoosballLS").insertOne(insertobj, function(err, res) {
+      if (err) throw err;
+    });
+  });
+});
+
+
+app.post('/foosballstream', function (req, res) {
+  MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db(process.env.DB_NAME);
+    dbo.collection("FoosballLS").find({}).toArray(function(err, result) {
+      if (err) throw err;
+      res.json(result);
+    });
+  });
 });
 
 

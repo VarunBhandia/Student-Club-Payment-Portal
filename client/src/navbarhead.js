@@ -18,7 +18,7 @@ class NavbarHeader extends Component {
             Stream Live                      
           </NavItem>
           <NavDropdown eventKey={3} title="Livestream" id="basic-nav-dropdown">
-            <MenuItem eventKey={3.1} href="/lsfoosball">Foosball</MenuItem>
+            <MenuItem eventKey={3.1} href="/foosballstream">Foosball</MenuItem>
             <MenuItem eventKey={3.2} href="/lschess">Chess</MenuItem>
             <MenuItem eventKey={3.3} href="/lssnooker">Snooker</MenuItem>
             <MenuItem eventKey={3.4} href="/lspool">Pool</MenuItem>

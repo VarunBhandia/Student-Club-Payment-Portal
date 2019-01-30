@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import NavbarHeader from './navbarhead';
 import Timeslots from './Timeslots';
-import LsFoosball from './Lsfoosball';
+import LsFoosball from './LsFoosballAdmin';
+import Foosball from './LsFoosballFront';
 import LsCarrom from './Lscarrom';
 import LsChess from './Lschess';
 import LsPool from './Lspool';
@@ -23,7 +24,8 @@ class App extends Component {
             </React.Fragment>
           )}>
           </Route> 
-        <Route path="/lsfoosball" component={LsFoosball}/>  
+        <Route path="/lsfoosball" component={LsFoosball}/>
+        <Route path="/foosballstream" component={Foosball}/>  
         <Route path="/lscarrom" component={LsCarrom}/>  
         <Route path="/lschess" component={LsChess}/>  
         <Route path="/lspool" component={LsPool}/>  
