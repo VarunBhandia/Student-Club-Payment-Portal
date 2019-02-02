@@ -84,6 +84,40 @@ app.post('/', function (req, res) {
   amount = req.body.amount*100;
 });
 
+app.post('/admin', function (req, res) {
+  res.send(JSON.stringify('iamadmin'));
+});
+
+app.post('/adminbook', function (req, res) {
+  console.log('hi');
+  table_id = req.body.item.keeptime;
+  amount = req.body.amount*100;
+        var TableTime = table_id.slice(0,11);
+        var TableType = table_id.slice(12);
+        
+        // pushing table_id and status to TABLE STATUS collection
+        MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
+          if(!err) {
+            console.log("We are connected");
+          }
+          if(err)
+          {
+              console.log(err);
+          }
+          
+          var dbo = db.db(process.env.DB_NAME);
+          var insertobj = { TableTime : TableTime,
+            TableType : TableType,
+            TableStatus : 'Booked'
+          };
+          dbo.collection("TableStatus").insertOne(insertobj, function(err, res) {
+            if (err) throw err;
+            console.log("Table time is " + insertobj.TableTime +  "     "  + insertobj.TableType + " has been booked" );
+          });
+        }); 
+});
+
+
 app.use('/handlebars', (req, res) => {
   CheckBooking(count);
   setTimeout(function() {
@@ -127,6 +161,9 @@ app.use('/handlebars', (req, res) => {
 
 // Set Static Folder
 app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+});
+app.get('/admin', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
 });
 // static folders for admin pages

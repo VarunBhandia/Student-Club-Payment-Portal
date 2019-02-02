@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NavbarHeader from './navbarhead';
 import Timeslots from './Timeslots';
 import LsFoosball from './LsFoosballAdmin.js';
+import LoginAdmin from './LoginAdmin';
 import Foosball from './LsFoosballFront';
 import LsCarrom from './LsCarromAdmin';
 import Carrom from './LsCarromFront';
@@ -22,13 +23,14 @@ class App extends Component {
           <Route exact path="/" render={props => (
             <React.Fragment>
               <Timeslots />
-              <div class="alert"> 
+              <div className="alert"> 
                 Please note that you cannot book more than 3 tables in a day. 
                 In case of any discrepancy or amount deducted but table not being assigned, please report the incident to Student's Club. Refund will be initiated accordingly in about 14 days.
               </div>
             </React.Fragment>
           )}>
           </Route> 
+        <Route path="/admin" component={LoginAdmin}/>
         <Route path="/lsfoosball" component={LsFoosball}/>
         <Route path="/foosballstream" component={Foosball}/>  
         <Route path="/lscarrom" component={LsCarrom}/>  

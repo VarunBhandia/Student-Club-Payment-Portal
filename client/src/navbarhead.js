@@ -21,6 +21,9 @@ class NavbarHeader extends Component {
             <MenuItem eventKey={3.4} href="/poolstream">Pool</MenuItem>
             <MenuItem eventKey={3.5} href="/carromstream">Carrom</MenuItem>
           </NavDropdown>
+          <NavDropdown eventKey={4} title="PortalBooking" id="basic-nav-dropdown">
+            <MenuItem eventKey={4.1} href="/admin">Admin Login</MenuItem>
+          </NavDropdown>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
