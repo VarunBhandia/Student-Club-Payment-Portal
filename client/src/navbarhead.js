@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 import {
   Navbar, NavItem,Nav,NavDropdown,MenuItem
 } from 'react-bootstrap';
+
+var navstyle = {
+  color:'white'
+}
 class NavbarHeader extends Component {
   render() {
     return (
     <Navbar inverse >
       <Navbar.Header>
         <Navbar.Brand>
-        <a href="/">Student's Club</a>
+        <a href="/" style={navstyle}>Student's Club</a>
         </Navbar.Brand>
         <Navbar.Toggle />
       </Navbar.Header>

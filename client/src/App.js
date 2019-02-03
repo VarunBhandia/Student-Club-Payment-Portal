@@ -14,15 +14,27 @@ import LsSnooker from './LsSnookerAdmin';
 import Snooker from './LsSnookerFront';
 import {BrowserRouter as Router,Route} from 'react-router-dom';
 import './App.css';
+import Background from './snooker.jpg';
+
+
+var sectionStyle = {
+  width: "100%",
+  height: "1000px",
+  backgroundImage: `url(${Background})`
+};
+
+
 class App extends Component {
   render() { 
     return (
+      <div style={ sectionStyle }>
         <Router>
           <div className="App">
           <NavbarHeader />
           <Route exact path="/" render={props => (
             <React.Fragment>
               <Timeslots />
+              <br></br><br></br>
               <div className="alert"> 
                 Please note that you cannot book more than 3 tables in a day. 
                 In case of any discrepancy or amount deducted but table not being assigned, please report the incident to Student's Club. Refund will be initiated accordingly in about 14 days.
@@ -43,6 +55,7 @@ class App extends Component {
         <Route path="/snookerstream" component={Snooker}/>         
         </div>
         </Router>
+      </div>
     )
   }
 }

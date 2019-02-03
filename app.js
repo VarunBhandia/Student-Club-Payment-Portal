@@ -210,6 +210,13 @@ app.get('/static/*.js', (req, res) => {
   res.setHeader('Content-type', 'text/javascript')
   res.sendFile(path.join(__dirname, req.url))
 });
+app.get('/static/media/*.jpg', (req, res) => {
+  
+  req.url = 'client/build' + req.url;
+  
+  res.setHeader('Content-type', 'image/jpg')
+  res.sendFile(path.join(__dirname, req.url))
+});
 app.get('/manifest.json', (req, res) => {
   req.url = 'client/build' + req.url;
   res.setHeader('Content-type', 'application/json')
