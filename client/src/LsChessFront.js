@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Iframe from 'react-iframe'
+import './App.css';
 class Chess extends Component {
     constructor(props, context) {
         super(props, context);
@@ -29,7 +30,7 @@ class Chess extends Component {
     }
     return (
         <div className='container'>
-          <h1>Chess Live Stream</h1>
+          <h1 className='head'>Chess Live Stream</h1>
           <ul className="header">
             <li>Player 1 : {p1}</li>
             <li>Player 2 : {p2}</li>
