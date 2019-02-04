@@ -166,6 +166,9 @@ app.get('/', (req, res) => {
 app.get('/admin', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
 });
+app.get('/status', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+});
 // static folders for admin pages
 app.get('/lsfoosball', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'))

@@ -28,6 +28,9 @@ class NavbarHeader extends Component {
           <NavDropdown eventKey={4} title="PortalBooking" id="basic-nav-dropdown">
             <MenuItem eventKey={4.1} href="/admin">Admin Login</MenuItem>
           </NavDropdown>
+          <NavDropdown eventKey={4} title="Booking Status" id="basic-nav-dropdown">
+            <MenuItem eventKey={4.1} href="/status">Table Booking Status</MenuItem>
+          </NavDropdown>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

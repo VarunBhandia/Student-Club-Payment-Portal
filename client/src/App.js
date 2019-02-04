@@ -15,11 +15,13 @@ import Snooker from './LsSnookerFront';
 import {BrowserRouter as Router,Route} from 'react-router-dom';
 import './App.css';
 import Background from './snooker.jpg';
+import TableBookingStatus from './TableBookingStatus';
 
 
 var sectionStyle = {
   width: "100%",
-  height: "1000px",
+  height: '1100px',
+  backgroundSize: 'cover',
   backgroundImage: `url(${Background})`
 };
 
@@ -42,6 +44,7 @@ class App extends Component {
             </React.Fragment>
           )}>
           </Route> 
+        <Route path="/status" component={TableBookingStatus}/>
         <Route path="/admin" component={LoginAdmin}/>
         <Route path="/lsfoosball" component={LsFoosball}/>
         <Route path="/foosballstream" component={Foosball}/>  
