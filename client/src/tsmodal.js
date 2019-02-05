@@ -39,7 +39,7 @@ class TsModal extends React.Component {
     var newArr = this.state.finalbook;
     var totamo = this.state.totalamount
     item.keeptimeNew = item.keeptime + " " + str;
-    if(newArr.includes(item.keeptimeNew) || newArr.length === 5) {
+    if(newArr.includes(item.keeptimeNew) || newArr.length === 3) {
     }
     else {
     newArr.push(item.keeptimeNew);
