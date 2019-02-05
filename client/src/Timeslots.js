@@ -133,8 +133,12 @@ class Timeslots extends Component {
     );
   }
 
-  render() { 
+
+  render() {
     const { result } = this.state;
+    if(result === null) {
+      return <div />
+    }
     if(result) {
     var slot = result;
     } 

@@ -76,12 +76,12 @@ var amount= 1000,
     receipt = '1234545f4',
     payment_capture =true,
     notes ="something",
-    order_id,payment_id,table_id = '', count = 0, bookno = true;
-var tag = 0;
+    order_id,payment_id, count = 0, bookno = true,
+    table_id = [];
 
 app.post('/', function (req, res) {
-  table_id = req.body.item.keeptime;
-  amount = req.body.amount*100;
+  table_id = req.body.item.finalbook;
+  amount = req.body.amount.totalamount*100;
 });
 
 app.post('/admin', function (req, res) {
@@ -125,12 +125,10 @@ app.use('/handlebars', (req, res) => {
       count = 0;
       res.redirect('/');
     }
-    else if(table_id === ''){
+    else if(table_id[0] === undefined){
       res.redirect('/');
     }
-    
     else {
-      var tag = 0;
       instance.orders.create({amount, currency, receipt, payment_capture, notes}).then((response) => {
       console.log("**********Order Created***********");
       console.log(response);
@@ -140,12 +138,12 @@ app.use('/handlebars', (req, res) => {
       }).catch((error) => {
         console.log(error);
       })
-        app.engine('handlebars',exphbs({defaultLayout:'main'}));
-        app.set('view engine', 'handlebars');
-        res.render(
-          'index',
-          {order_id,amount, table_id}
-        );
+      app.engine('handlebars',exphbs({defaultLayout:'main'}));
+      app.set('view engine', 'handlebars');
+      res.render(
+        'index',
+        {order_id,amount, table_id}
+      );
     }
   }, 1000);
   
@@ -250,69 +248,89 @@ app.post('/purchase', (req,res) =>{
     console.log("**********Payment authorized***********");
     console.log(payment_id);
     console.log("**********Payment authorized***********");
-    console.log(table_id);
+    console.log(table_id + 'hi');
     instance.payments.fetch(payment_id.razorpay_payment_id).then((response) => {
     console.log("**********Payment instance***********");
     console.log(response); 
     // checking for 3 or more bookings 
     CheckContactInfo(response);
+    CheckBooking(count);  
     setTimeout(function() {
+      if(count === 1) {
+        count = 0;
+        res.render(
+          'notif',
+          {text: 'In the meantime, one of the tables have already been booked. Please collect your refund from Students\' Club and repeat the process again to book any table.' }
+        );
+      }
       if(bookno === false) {
         bookno = true;
-       res.render('notif');
-      } 
+       res.render('notif', 
+       {
+         text: 'Sorry! You have already made 3 bookings for today. Refund cannot be processed now since you were already notified the same!' 
+       });
+      }
       else {
         response.table_id = table_id;
-        var TableTime = table_id.slice(0,11);
-        var TableType = table_id.slice(12);
+        console.log(response.table_id[0]);
+        var TableTime = [];
+        var TableType = [];
+        for (var i=0; i < table_id.length; i++) {
+            TableTime[i] = table_id[i].slice(0,11);
+            TableType[i] = table_id[i].slice(12);
+        } 
         response.tabletime = TableTime;
         response.tabletype = TableType;
+        console.log(response.tabletime[0] + 'hi' + response.tabletype);
         
-        // pushing table_id and status to TABLE STATUS collection
-        MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
-          if(!err) {
-            console.log("We are connected");
+        
+          // pushing table_id and status to TABLE STATUS collection
+          MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
+            if(!err) {
+              console.log("We are connected");
+            }
+            if(err)
+            {
+                console.log(err);
+            }
+            for(var i=0; i < table_id.length; i++) {
+            var dbo = db.db(process.env.DB_NAME);
+            var insertobj = { TableTime : response.tabletime[i],
+              TableType : response.tabletype[i],
+              TableStatus : 'Booked'
+            };
+            dbo.collection("TableStatus").insertOne(insertobj, function(err, res) {
+              if (err) throw err;
+              console.log("Table time is " + insertobj.TableTime +  "     "  + insertobj.TableType + " has been booked" );
+            });
           }
-          if(err)
-          {
-              console.log(err);
-          }
-          
-          var dbo = db.db(process.env.DB_NAME);
-          var insertobj = { TableTime : TableTime,
-            TableType : TableType,
-            TableStatus : 'Booked'
-          };
-          dbo.collection("TableStatus").insertOne(insertobj, function(err, res) {
-            if (err) throw err;
-            console.log("Table time is " + insertobj.TableTime +  "     "  + insertobj.TableType + " has been booked" );
-          });
-        }); 
-    
-        console.log("**********Payment instance***********")
+          }); 
       
-        // pushing payment details to BookingHistory
-        MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
-          if(!err) {
-            console.log("We are connected");
-          }
-          if(err)
-          {
-              console.log(err);
-          }
-          
-          var dbo = db.db(process.env.DB_NAME);
-          var insertobj = { BookingEmail: response.email,
-            BookingContact: response.contact,
-            BookingId: response.id,
-            TableId : response.table_id,
-          };
-          dbo.collection("BookingHistory").insertOne(insertobj, function(err, res) {
-            if (err) throw err;
-            console.log("Table time and id: " + insertobj.TableId + " has been booked by : " + insertobj.BookingEmail );
-          });
-        }); 
+          console.log("**********Payment instance***********")
         
+          // pushing payment details to BookingHistory
+          MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
+            if(!err) {
+              console.log("We are connected");
+            }
+            if(err)
+            {
+                console.log(err);
+            }
+            for(var i=0; i < table_id.length; i++) {
+            var dbo = db.db(process.env.DB_NAME);
+            var insertobj = { BookingEmail: response.email,
+              BookingContact: response.contact,
+              BookingId: response.id,
+              TableId : response.table_id[i],
+            };
+            dbo.collection("BookingHistory").insertOne(insertobj, function(err, res) {
+              if (err) throw err;
+              console.log("Table time and id: " + insertobj.TableId + " has been booked by : " + insertobj.BookingEmail );
+            });
+          }
+          }); 
+      
     
         app.engine('handlebars',exphbs({defaultLayout:'main'}));
         app.set('view engine', 'handlebars');
@@ -322,7 +340,7 @@ app.post('/purchase', (req,res) =>{
           {response}
         );
       }
-    }, 1000);
+    }, 2000);
     
   
 }).catch((error) => {
@@ -559,6 +577,22 @@ app.get('/mznFag7kV7', function (req, res) {
   });
 });
 
+app.get('/tstatus', function (req, res) {
+  MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db(process.env.DB_NAME);
+    dbo.collection("TableStatus").find({}).toArray(function(err, result) {
+      if (err) throw err;
+      res.send(result);
+      db.close();
+    });
+    dbo.collection("BookingHistory").find({}).toArray(function(err, result) {
+      if (err) throw err;
+     console.log(result);
+      db.close();
+    });
+  });
+});
 
 function DeleteTableStatus() {
   MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
@@ -588,24 +622,34 @@ function DeleteBookingHistory() {
 
 
 function CheckBooking() {
-  var TableTime = table_id.slice(0,11);
-  var TableType = table_id.slice(12);
-  
-  MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
-    if (err) throw err;
-    var dbo = db.db(process.env.DB_NAME);
-    var query = {TableTime : TableTime, TableType : TableType, TableStatus : 'Booked'};  
-    dbo.collection("TableStatus").find(query).toArray(function(err, result) {
+  var TableTime = [];
+  var TableType = [];
+  var tag = 0;
+  for (var i=0; i < table_id.length; i++) {
+      TableTime[i] = table_id[i].slice(0,11);
+      TableType[i] = table_id[i].slice(12);
+  } 
+  for(var i=0; i<table_id.length; i++) {
+    MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
       if (err) throw err;
-      result = JSON.stringify(result); 
-      if(result[1] != ']') {
-        count = 1;
-      }
-      else {
-        count = 0;
-      }
+      var dbo = db.db(process.env.DB_NAME);
+      var query = {TableTime : TableTime[i], TableType : TableType[i], TableStatus : 'Booked'};  
+      dbo.collection("TableStatus").find(query).toArray(function(err, result) {
+        if (err) throw err;
+        result = JSON.stringify(result); 
+        if(result[1] != ']') {
+          count = 1;
+          tag = 1;
+        }
+        else {
+          count = 0;
+        }
+      });
     });
-  });
+  if(tag === 1) {
+    break;
+  }
+  }
 }
 
 function CheckContactInfo(response) {  

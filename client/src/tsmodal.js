@@ -5,7 +5,6 @@ import {
 } from 'react-bootstrap';
 
 
-
 class TsModal extends React.Component {
   constructor(props) {
     super(props);
@@ -13,15 +12,14 @@ class TsModal extends React.Component {
     this.handleTotalBooking = this.handleTotalBooking.bind(this);
     this.state = {
       finalbook : [],
-      totalamount : 0,
-      dis:[false,false,false,false]
+      totalamount : 0
     };
     
   }
 
-  handlePostReq(item,str,amount) {
+  handlePostReq(item,amount) {
     // eslint-disable-next-line
-    item.keeptime = item.keeptime + " " + str;
+    console.log(item.finalbook +  amount.totalamount + "  HI");
     fetch('/', {
       method: 'POST',
       body: JSON.stringify({
@@ -36,21 +34,32 @@ class TsModal extends React.Component {
      .catch((err)=>console.log(err));
   }
 
-  handleTotalBooking(item,str,amount,count) {
+  handleTotalBooking(item,str,amount) {
     // eslint-disable-next-line
     var newArr = this.state.finalbook;
     var totamo = this.state.totalamount
-    var disabled = this.state.dis;
-    item.keeptime = item.keeptime + " " + str;
-    newArr.push(item.keeptime);
+    item.keeptimeNew = item.keeptime + " " + str;
+    if(newArr.includes(item.keeptimeNew) || newArr.length === 5) {
+    }
+    else {
+    newArr.push(item.keeptimeNew);
     totamo = totamo + amount;
     this.setState({finalbook:newArr, totalamount: totamo});
+    }
   }
 
   handleReset() {
     
   }
   render() {
+    var  { finalbook, totalamount} = this.state;
+    if(finalbook && totalamount) {
+      console.log(finalbook + totalamount);
+    }
+    var final = this.state.finalbook;
+    final = final.map(function(value){
+      return <li> {value} </li>;
+    });
     var item = this.props.modalid;
     var slot = this.props.popoverlist;
     var count = this.props.count;
@@ -79,18 +88,18 @@ class TsModal extends React.Component {
           </Modal.Header>
           <Modal.Body>            
             <hr />
-            <Button disabled = {disabled[0]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Pool Table 1',5)}}  >Pool table 1 </Button>
-            <Button disabled = {disabled[1]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Pool Table 2',5)}} href = "https://studclubbooking.herokuapp.com/handlebars">Pool table 2</Button>
-            <Button disabled = {disabled[2]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 1',10)}} href = "https://studclubbooking.herokuapp.com/handlebars">Snooker table 1</Button>
-            <Button disabled = {disabled[3]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 2',10)}} href = "https://studclubbooking.herokuapp.com/handlebars">Snooker table 2</Button>
-            <Button disabled = {disabled[4]} bsStyle="primary" bsSize="small" onClick={() => { this.handlePostReq(item, 'Snooker Table 3',10)}} href = "https://studclubbooking.herokuapp.com/handlebars">Snooker table 3</Button>
+            <Button disabled = {disabled[0]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Pool Table 1',5)}} >Pool table 1 </Button>
+            <Button disabled = {disabled[1]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Pool Table 2',5)}}>Pool table 2</Button>
+            <Button disabled = {disabled[2]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Snooker Table 1',10)}}>Snooker table 1</Button>
+            <Button disabled = {disabled[3]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Snooker Table 2',10)}}>Snooker table 2</Button>
+            <Button disabled = {disabled[4]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Snooker Table 3',10)}}>Snooker table 3</Button>
           </Modal.Body>
           <Modal.Footer>
             Total Amount is : {this.state.totalamount}
             <br></br>
-            Bookings made are : {this.state.finalbook}
+            Bookings made are : {final}
             <br></br>
-            <Button onClick={this.handleReset}>Reset Amount</Button>
+            <Button onClick={() => { this.handlePostReq({finalbook},{totalamount})}} href = "http://localhost:4000/handlebars">Confirm Booking</Button>
             <Button onClick={this.props.onclick}>Close</Button>
           </Modal.Footer>
         </Modal>
