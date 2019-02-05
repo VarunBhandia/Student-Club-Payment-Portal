@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { Card, Button, CardImg, CardTitle, CardText, CardGroup,
     CardSubtitle, CardBody } from 'reactstrap';
+    import { 
+      Row,
+      Col,
+      Grid
+    } from 'react-bootstrap';
 import './App.css';
 
 class TableBookingStatus extends Component {
@@ -70,18 +75,21 @@ class TableBookingStatus extends Component {
     } 
     
     return(
-        <div className='container'>
-           <CardGroup>
-           <br></br><br></br>
-      <Card body outline color="primary">
-        <CardBody style={{color:'white', width: '20%', height:'40%', padding: '20px'}}>
+        
+        <Grid>
+         <Row>
+          <Col md="auto">
+         <Card body outline color="primary">
+          <CardBody style={{color:'white', width: '20%', height:'40%', padding: '20px'}}>
           <CardTitle><h2>Pool Table 1</h2></CardTitle>
           <CardSubtitle style={{padding: '5px'}}><h4>Bookings made</h4></CardSubtitle>
           <CardText><ul>{timesP1}</ul></CardText>
-          
-        </CardBody>
-      </Card>
-      <Card body outline color="primary">
+          </CardBody>
+        </Card>        
+        </Col>
+
+          <Col>
+          <Card body outline color="primary">
         <CardBody style={{color:'white', width: '20%', height:'40%', padding: '20px'}}>
           <CardTitle><h2>Pool Table 2</h2></CardTitle>
           <CardSubtitle style={{padding: '5px'}}><h4>Bookings made</h4></CardSubtitle>
@@ -89,7 +97,11 @@ class TableBookingStatus extends Component {
           
         </CardBody>
       </Card>
-      <Card body outline color="primary">
+
+          </Col>
+
+          <Col>
+          <Card body outline color="primary">
         <CardBody style={{color:'white', width: '20%', height:'40%', padding: '20px'}}>
           <CardTitle><h2>Snooker Table 1</h2></CardTitle>
           <CardSubtitle style={{padding: '5px'}}><h4>Bookings made</h4></CardSubtitle>
@@ -97,7 +109,11 @@ class TableBookingStatus extends Component {
           
         </CardBody>
       </Card>
-      <Card body outline color="primary">
+
+          </Col>
+
+          <Col>
+          <Card body outline color="primary">
         <CardBody style={{color:'white', width: '20%', height:'40%', padding: '20px'}}>
           <CardTitle><h2>Snooker Table 2</h2></CardTitle>
           <CardSubtitle style={{padding: '5px'}}><h4>Bookings made</h4></CardSubtitle>
@@ -105,7 +121,11 @@ class TableBookingStatus extends Component {
           
         </CardBody>
       </Card>
-      <Card body outline color="primary">
+            
+          </Col>
+
+          <Col>
+          <Card body outline color="primary">
         <CardBody style={{color:'white', width: '20%', height:'40%', padding: '20px'}}>
           <CardTitle><h2>Snooker Table 3</h2></CardTitle>
           <CardSubtitle style={{padding: '5px'}}><h4>Bookings made</h4></CardSubtitle>
@@ -113,9 +133,11 @@ class TableBookingStatus extends Component {
           
         </CardBody>
       </Card>
-    </CardGroup>
-            <br />
-        </div>
+          </Col>  
+          </Row>
+        
+    
+    </Grid>        
     );
   }
 }
