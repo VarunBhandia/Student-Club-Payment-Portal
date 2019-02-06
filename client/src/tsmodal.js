@@ -99,7 +99,7 @@ class TsModal extends React.Component {
             <br></br>
             Bookings made are : {final}
             <br></br>
-            <Button onClick={() => { this.handlePostReq({finalbook},{totalamount})}} href = "https://studclubbooking.herokuapp.com/handlebars">Confirm Booking</Button>
+            <Button onClick={() => { this.handlePostReq({finalbook},{totalamount})}} href = "https://studclubbooking.herokuapp.com/payment">Confirm Booking</Button>
             <Button onClick={this.props.onclick}>Close</Button>
           </Modal.Footer>
         </Modal>

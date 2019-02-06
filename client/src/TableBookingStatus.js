@@ -8,6 +8,13 @@ import { Card, Button, CardImg, CardTitle, CardText, CardGroup,
     } from 'react-bootstrap';
 import './App.css';
 
+var sectionStyle = {
+  width: "100%",
+  height: '100%',
+  marginLeft: '10px',
+  padding: '34px'
+};
+
 class TableBookingStatus extends Component {
   constructor(props, context) {
     super(props, context);
@@ -76,7 +83,8 @@ class TableBookingStatus extends Component {
     
     return(
         
-        <Grid>
+        <Grid style = {sectionStyle}>
+         
          <Row>
           <Col md="auto">
          <Card body outline color="primary">

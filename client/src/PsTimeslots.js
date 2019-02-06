@@ -9,7 +9,18 @@ import {
 } from 'react-bootstrap';
 import './App.css';
 import PsTsModal from'./PsTsModal';
+import Background from './playstation.jpg';
 
+var btstyle = {
+  padding: '10px',
+  margin : '10px',
+}
+var backstyle = {
+  backgroundImage: `url(${Background})`,
+  marginLeft:'-15px',
+  marginRight:'-15px',
+  marginTop: '-20px'
+}
 // declaring variable for 
 class PsTimeslots extends Component {
   constructor(props, context) {
@@ -110,10 +121,10 @@ class PsTimeslots extends Component {
   
   colhour(keeptime,butdisable,count) {
     return(  
-        <Col className='half' xs={4} md={1}>
+        <Col className='halfhour' xs={4} md={1}>
           <PsTsModal modalid = {this.state.buttonpush} popoverlist = {this.state.popoverlist} count = {this.state.count} show={this.state.show} onhide={this.handleClose} onclick={this.handleClose}   />
             <OverlayTrigger overlay = {this.popoverHoverFocus(count)}>
-              <Button bsStyle="primary" bsSize="small" onMouseEnter={() => {this.handlePopoverList(keeptime, butdisable, count);}} onClick={() => { this.handleShow(); this.handleButPush({keeptime},count); }}>
+              <Button bsStyle="outline-info" bsSize="large" style={btstyle} onMouseEnter={() => {this.handlePopoverList(keeptime, butdisable, count);}} onClick={() => { this.handleShow(); this.handleButPush({keeptime},count); }}>
                 {keeptime} 
               </Button>
             </OverlayTrigger>
@@ -132,7 +143,9 @@ class PsTimeslots extends Component {
     } 
     var time = this.state.time;
     return (
+    <div className='psbook' style={backstyle}>
     <Grid>
+    <h1 style={{color: 'white', marginLeft: '25px'}}><b>Playstation Booking</b></h1>
      <br></br>
       <Row className="timeslot">
         {this.colhour(time[0],slot,0)}
@@ -168,8 +181,13 @@ class PsTimeslots extends Component {
         {this.colhour(time[24],slot,24)}
         {this.colhour(time[25],slot,25)}
       </Row>
+
+      <div className="alert"> 
+                Please note that you cannot book more than 3 Playstations in a day. 
+                In case of any discrepancy or amount deducted but table not being assigned, please report the incident to Student's Club. Refund will be initiated accordingly in about 14 days.
+              </div>
     </Grid>
-      
+    </div> 
     );
   }
 }

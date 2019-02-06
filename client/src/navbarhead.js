@@ -9,7 +9,7 @@ var navstyle = {
 class NavbarHeader extends Component {
   render() {
     return (
-    <Navbar inverse >
+    <Navbar inverse fixed='top' style = {{background: 'transparent', width: '100%'}} >
       <Navbar.Header>
         <Navbar.Brand>
         <a href="/" style={navstyle}>Student's Club</a>

@@ -31,7 +31,7 @@ class Carrom extends Component {
         var link = result[0].Link;
     }
     return (
-        <div className='container'>
+        <div className='container' id='main'>
           <h1 className='head'>Carrom Live Stream</h1>
           <ul className="header">
             <li>Player 1 : {p1}</li>

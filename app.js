@@ -122,7 +122,7 @@ app.post('/adminbook', function (req, res) {
 });
 
 
-app.use('/handlebars', (req, res) => {
+app.use('/payment', (req, res) => {
   CheckBooking(count);
   setTimeout(function() {
     if(count === 1) {

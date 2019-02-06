@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router,Route} from 'react-router-dom';
-import {
-    ButtonToolbar, Button
-  } from 'react-bootstrap';
+
 import Login from './AdminTimeslots';
 import './App.css';
 
@@ -48,7 +45,7 @@ class LoginAdmin extends Component {
             <div className ='container'>
             <form>
             <fieldset className='form-group'>
-                <label htmlFor='formName' title='Enter Admin Pass'> Admin Pass </label>    
+                <label htmlFor='formName' title='Enter Admin Pass' style={{color: 'white'}}> Admin Pass </label>    
                 <input id='AdminCheck' className='form-input' name='pass' type='password' required onChange={this.handleChange} value={this.state.pass} />
             </fieldset>
             

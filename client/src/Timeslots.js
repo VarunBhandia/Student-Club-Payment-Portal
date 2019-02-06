@@ -10,6 +10,11 @@ import {
 import './App.css';
 import TsModal from'./tsmodal';
 
+
+var btstyle = {
+  padding: '10px',
+  margin : '10px',
+}
 // declaring variable for 
 class Timeslots extends Component {
   constructor(props, context) {
@@ -125,7 +130,7 @@ class Timeslots extends Component {
         <Col className='halfhour' xs={4} md={1}>
           <TsModal modalid = {this.state.buttonpush} popoverlist = {this.state.popoverlist} count = {this.state.count} show={this.state.show} onhide={this.handleClose} onclick={this.handleClose}   />
             <OverlayTrigger overlay = {this.popoverHoverFocus(count)}>
-              <Button bsStyle="primary" bsSize="small" onMouseEnter={() => {this.handlePopoverList(keeptime, butdisable, count);}} onClick={() => { this.handleShow(); this.handleButPush({keeptime},count); }}>
+              <Button bsStyle="outline-info" bsSize="large" style={btstyle} onMouseEnter={() => {this.handlePopoverList(keeptime, butdisable, count);}} onClick={() => { this.handleShow(); this.handleButPush({keeptime},count); }}>
                 {keeptime} 
               </Button>
             </OverlayTrigger>
@@ -145,6 +150,7 @@ class Timeslots extends Component {
     var time = this.state.time;
     return (
     <Grid>
+       <h1 style={{color: 'white', marginLeft: '25px'}}><b>Pool And Snooker Booking</b></h1>
      <br></br>
       <Row className="timeslot">
         {this.colhour(time[0],slot,0)}

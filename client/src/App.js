@@ -16,13 +16,13 @@ import {BrowserRouter as Router,Route} from 'react-router-dom';
 import './App.css';
 import Background from './snooker.jpg';
 import TableBookingStatus from './TableBookingStatus';
+import PSBookingStatus from './PsBookingStatus';
 import PsTimeslots from './PsTimeslots';
 
 
 var sectionStyle = {
   width: "100%",
-  height: '1100px',
-  backgroundSize: 'cover',
+  height: '100%',
   backgroundImage: `url(${Background})`
 };
 
@@ -45,6 +45,7 @@ class App extends Component {
             </React.Fragment>
           )}>
           </Route> 
+        <Route path="/psstatus" component={PSBookingStatus}/>
         <Route path="/psbooking" component={PsTimeslots}/>
         <Route path="/tablestatus" component={TableBookingStatus}/>
         <Route path="/admin" component={LoginAdmin}/>

@@ -29,7 +29,7 @@ class Chess extends Component {
         var link = result[0].Link;
     }
     return (
-        <div className='container'>
+        <div className='container' id='main' style={{paddingBottom:'389px'}}>
           <h1 className='head'>Chess Live Stream</h1>
           <ul className="header">
             <li>Player 1 : {p1}</li>
