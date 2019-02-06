@@ -17,7 +17,7 @@ backgroundImage: `url(${Background})`,
   marginLeft: '-20px',
   paddingTop: '100px',
   paddingLeft: '200px',
-  paddingBottom: '288px',
+  paddingBottom: '408px',
   paddingRight:'1725px',
 };
 
