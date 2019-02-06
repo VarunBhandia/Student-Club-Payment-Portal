@@ -38,6 +38,10 @@ MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
     if (err) throw err;
     console.log("Table Status Collection created!");
   });
+  dbo.createCollection("PSStatus", function(err, res) {
+    if (err) throw err;
+    console.log("PS Status Collection created!");
+  });
   dbo.createCollection("FoosballLS", function(err, res) {
     if (err) throw err;
     console.log("FoosballLS Collection created!");
@@ -77,7 +81,7 @@ var amount= 1000,
     payment_capture =true,
     notes ="something",
     order_id,payment_id, count = 0, bookno = true,
-    table_id = [];
+    table_id = [], ps_id = [];
 
 app.post('/', function (req, res) {
   table_id = req.body.item.finalbook;
@@ -164,7 +168,14 @@ app.get('/', (req, res) => {
 app.get('/admin', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
 });
-app.get('/status', (req, res) => {
+app.get('/psstatus', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+});
+
+app.get('/psbooking', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+});
+app.get('/tablestatus', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
 });
 // static folders for admin pages
