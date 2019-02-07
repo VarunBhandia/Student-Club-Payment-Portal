@@ -10,14 +10,14 @@ import './App.css';
 import Background from './playstation.jpg';
 var sectionStyle = {
 backgroundImage: `url(${Background})`,
-  width: "100%",
+  width: "101.85%",
   height: '100%',
   paddingTop:'50px',
   paddingLeft:'50px',
-  
   margin:'-20px',
   paddingBottom:'28px',
-  top: '70px', bottom: '0', minWidth: '100%', minHeight: '100%'
+  backgroundSize:'cover',
+  top: '70px', bottom: '0',minWidth: '100%', minHeight: '100%'
 };
 
 class PSBookingStatus extends Component {
