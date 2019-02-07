@@ -15,8 +15,8 @@ backgroundImage: `url(${Background})`,
   paddingTop:'50px',
   paddingLeft:'300px',
   margin:'-20px',
-  paddingBottom:'423px',
-  position: 'fixed', top: '70px', left: '20px',right: '100px', bottom: '0', minWidth: '100%', minHeight: '100%'
+  paddingBottom:'28px',
+  top: '70px', bottom: '0', minWidth: '100%', minHeight: '100%'
 };
 
 class PSBookingStatus extends Component {
