@@ -13,7 +13,8 @@ backgroundImage: `url(${Background})`,
   width: "100%",
   height: '100%',
   paddingTop:'50px',
-  paddingLeft:'300px',
+  paddingLeft:'50px',
+  
   margin:'-20px',
   paddingBottom:'28px',
   top: '70px', bottom: '0', minWidth: '100%', minHeight: '100%'
@@ -72,7 +73,7 @@ class PSBookingStatus extends Component {
          <Row >
           <Col className='portal' xs={4} md={1}>
           <Card body outline color="primary">
-            <CardBody style={{color:'white', marginRight:'300px', marginLeft:'330px',width:'200px'}}>
+            <CardBody style={{color:'white', marginRight:'300px', marginLeft:'100px',width:'200px'}}>
             <CardTitle><h2>Playstation 1</h2></CardTitle>
             <CardSubtitle style={{padding: '5px'}}><h4>Vacancies</h4></CardSubtitle>
             <CardText><ul>{timesP1}</ul></CardText>
@@ -82,7 +83,7 @@ class PSBookingStatus extends Component {
 
           <Col className='portal' xs={4} md={1} style={{color:'white'}}>
           <Card body outline color="primary">
-            <CardBody style={{color:'white', marginLeft:'700px', width:'200px'}}>
+            <CardBody style={{color:'white', marginLeft:'200px', width:'200px'}}>
             <CardTitle><h2>Playstation 2</h2></CardTitle>
             <CardSubtitle style={{padding: '5px'}}><h4>Vacancies</h4></CardSubtitle>
             <CardText><ul>{timesP1}</ul></CardText>
