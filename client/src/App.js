@@ -24,6 +24,7 @@ var sectionStyle = {
   width: "100%",
   height: '100%',
   backgroundImage: `url(${Background})`,
+  backgroundRepeatx: 'repeat',
   top: '0', left: '0',right: '0', bottom: '0', minWidth: '100%', minHeight: '100%'
 };
 
