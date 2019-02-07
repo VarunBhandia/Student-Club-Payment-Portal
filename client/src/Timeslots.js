@@ -129,7 +129,7 @@ class Timeslots extends Component {
     return(  
         <Col className='halfhour' xs={4} md={1}>
           <TsModal modalid = {this.state.buttonpush} popoverlist = {this.state.popoverlist} count = {this.state.count} show={this.state.show} onhide={this.handleClose} onclick={this.handleClose}   />
-            <OverlayTrigger overlay = {this.popoverHoverFocus(count)}>
+            <OverlayTrigger overlay = {this.popoverHoverFocus(count)} delay={{ show: 250, hide: 400 }}>
               <Button bsStyle="outline-info" bsSize="large" style={btstyle} onMouseEnter={() => {this.handlePopoverList(keeptime, butdisable, count);}} onClick={() => { this.handleShow(); this.handleButPush({keeptime},count); }}>
                 {keeptime} 
               </Button>

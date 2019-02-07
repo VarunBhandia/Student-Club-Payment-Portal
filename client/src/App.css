@@ -10,7 +10,7 @@ body {
 }
 .psbook {
 	height:100%;
-	padding-bottom: 434px;
+	padding-bottom: 59px;
 }
 .alert {
 	/* padding: 20px;
@@ -37,3 +37,6 @@ body {
 	padding-bottom: 349px;
 	background-image: 'foosball.jpg'
 }
+ul {
+	list-style-type: none;
+  }

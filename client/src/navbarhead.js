@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
   Navbar, NavItem,Nav,NavDropdown,MenuItem
 } from 'react-bootstrap';
-
+import Background from './output-0.jpg';
 var navstyle = {
   color:'white'
 }
@@ -12,7 +12,7 @@ class NavbarHeader extends Component {
     <Navbar inverse fixed='top' style = {{background: 'transparent', width: '100%'}} >
       <Navbar.Header>
         <Navbar.Brand>
-        <a href="/" style={navstyle}>Student's Club</a>
+        <a href="/" style={navstyle}><img src={Background} href='/' style={{width:80, marginTop: -7, height:50}} /></a>
         </Navbar.Brand>
         <Navbar.Toggle />
       </Navbar.Header>
@@ -27,6 +27,7 @@ class NavbarHeader extends Component {
           </NavDropdown>
           <NavDropdown eventKey={4} title="BookingPortal" id="basic-nav-dropdown">
             <MenuItem eventKey={4.1} href="/admin">Admin Login</MenuItem>
+            <MenuItem eventKey={4.2} href="/">Pool and Snooker Table Booking</MenuItem>
             <MenuItem eventKey={4.2} href="/psbooking">Playstation Booking</MenuItem>
           </NavDropdown>
           <NavDropdown eventKey={5} title="Booking Status" id="basic-nav-dropdown">

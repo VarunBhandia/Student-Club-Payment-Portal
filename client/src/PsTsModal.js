@@ -81,7 +81,7 @@ class PsTsModal extends React.Component {
             <Button disabled = {disabled[0]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Playstation 1',30)}} >Playstation 1</Button>
             <Button disabled = {disabled[1]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Playstation 2',30)}}>Playstation 2</Button>
           </Modal.Body>
-          <Modal.Footer>
+          <Modal.Footer style={{position:'relative', textAlign:'left'}}>
             Total Amount is : {this.state.totalamount}
             <br></br>
             Bookings made are : {final}

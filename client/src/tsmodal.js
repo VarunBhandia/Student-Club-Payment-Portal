@@ -94,12 +94,12 @@ class TsModal extends React.Component {
             <Button disabled = {disabled[3]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Snooker Table 2',10)}}>Snooker table 2</Button>
             <Button disabled = {disabled[4]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Snooker Table 3',10)}}>Snooker table 3</Button>
           </Modal.Body>
-          <Modal.Footer>
+          <Modal.Footer style={{position:'relative', textAlign:'left'}}>
             Total Amount is : {this.state.totalamount}
             <br></br>
             Bookings made are : {final}
             <br></br>
-            <Button onClick={() => { this.handlePostReq({finalbook},{totalamount})}} href = "https://studclubbooking.herokuapp.com/payment">Confirm Booking</Button>
+            <Button onClick={() => { this.handlePostReq({finalbook},{totalamount})}} href = "http://localhost:4000/payment">Confirm Booking</Button>
             <Button onClick={this.props.onclick}>Close</Button>
           </Modal.Footer>
         </Modal>
