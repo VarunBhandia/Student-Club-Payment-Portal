@@ -38,9 +38,9 @@ MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
     if (err) throw err;
     console.log("Table Status Collection created!");
   });
-  dbo.createCollection("PSStatus", function(err, res) {
+  dbo.createCollection("responseStatus", function(err, res) {
     if (err) throw err;
-    console.log("PS Status Collection created!");
+    console.log("response Status Collection created!");
   });
   dbo.createCollection("FoosballLS", function(err, res) {
     if (err) throw err;
@@ -121,36 +121,6 @@ app.post('/adminbook', function (req, res) {
         }); 
 });
 
-
-app.use('/payment', (req, res) => {
-  CheckBooking(count);
-  setTimeout(function() {
-    if(count === 1) {
-      count = 0;
-      res.redirect('/');
-    }
-    else if(table_id[0] === undefined){
-      res.redirect('/');
-    }
-    else {
-      instance.orders.create({amount, currency, receipt, payment_capture, notes}).then((response) => {
-      console.log("**********Order Created***********");
-      console.log(response);
-      console.log("Table to be booked is : " + table_id);
-      console.log("**********Order Created***********");
-      order_id=response.id;
-      }).catch((error) => {
-        console.log(error);
-      })
-      app.engine('handlebars',exphbs({defaultLayout:'main'}));
-      app.set('view engine', 'handlebars');
-      res.render(
-        'index',
-        {order_id,amount, table_id}
-      );
-    }
-  }, 1000);
-  
   
 
   
@@ -158,11 +128,17 @@ app.use('/payment', (req, res) => {
   
   // res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
   // res.sendFile(path.join(__dirname, 'views/layouts', 'main.handlebars'))
-});
+
 
 
 // Set Static Folder
+app.use(express.static(path.join(__dirname, 'sc')));
+
 app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'sc', 'index.htm'))
+});
+app.use(express.static(path.join(__dirname, 'public')));
+app.get('/portal', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
 });
 app.get('/admin', (req, res) => {
@@ -211,7 +187,7 @@ app.get('/snookerstream', (req, res) => {
 });
 
 app.get('/static/*.css', (req, res) => {
-  req.url = 'client/build' + req.url;
+  req.url = 'client/build/' + req.url;
   res.setHeader('Content-type', 'text/css')
   res.sendFile(path.join(__dirname, req.url))
 });
@@ -234,7 +210,7 @@ app.get('/manifest.json', (req, res) => {
   res.setHeader('Content-type', 'application/json')
   res.sendFile(path.join(__dirname, req.url))
 });
- app.use(express.static(path.join(__dirname, 'public')));
+
 
 
 // app.get('/', (req, res) => {
@@ -250,6 +226,40 @@ app.get('/manifest.json', (req, res) => {
 //   );
 // });
 
+
+
+
+
+app.use('/payment', (req, res) => {
+  CheckBooking(count);
+  setTimeout(function() {
+    if(count === 1) {
+      count = 0;
+      res.redirect('/');
+    }
+    else if(table_id[0] === undefined){
+      res.redirect('/');
+    }
+    else {
+      instance.orders.create({amount, currency, receipt, payment_capture, notes}).then((response) => {
+      console.log("**********Order Created***********");
+      console.log(response);
+      console.log("Table to be booked is : " + table_id);
+      console.log("**********Order Created***********");
+      order_id=response.id;
+      }).catch((error) => {
+        console.log(error);
+      })
+      app.engine('handlebars',exphbs({defaultLayout:'main'}));
+      app.set('view engine', 'handlebars');
+      res.render(
+        'index',
+        {order_id,amount, table_id}
+      );
+    }
+  }, 1000);
+  
+});
 
 /*****************
  * Payment status*
@@ -267,13 +277,6 @@ app.post('/purchase', (req,res) =>{
     CheckContactInfo(response);
     CheckBooking(count);  
     setTimeout(function() {
-      if(count === 1) {
-        count = 0;
-        res.render(
-          'notif',
-          {text: 'In the meantime, one of the tables have already been booked. Please collect your refund from Students\' Club and repeat the process again to book any table.' }
-        );
-      }
       if(bookno === false) {
         bookno = true;
        res.render('notif', 

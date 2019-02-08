@@ -37,7 +37,7 @@ class App extends Component {
         <Router>
           <div className="App">
           <NavbarHeader />
-          <Route exact path="/" render={props => (
+          <Route exact path="/portal" render={props => (
             <React.Fragment>
               <Timeslots />
               <br></br><br></br>
