@@ -40,7 +40,7 @@ DB_NAME = 'Heroku db id'
 ```
 
 ```sh
-$ npm dev run
+$ npm run dev
 ```
 Now you react application is running on https://localhost:3000
 
