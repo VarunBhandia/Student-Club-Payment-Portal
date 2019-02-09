@@ -76,7 +76,7 @@ class TableBookingStatus extends Component {
           }
        }
        timesP1 = timesP1.map(function(value){
-        return <li style={{backgroundColor:'white', color:'black', width:'80px', paddingBottom:'2px', marginBottom:'5px', borderRadius:'8px',paddingLeft:'3px'}}> {value} </li>;
+        return <Col md = {1} sm={4} xs={4}>{value}</Col>;
       });
 
       timesP2 = timesP2.map(function(value){
@@ -99,19 +99,13 @@ class TableBookingStatus extends Component {
     return(
         
         <Grid style = {sectionStyle}>
-
+<h2>Pool Table 1</h2>
          <Row>
-         <Col className='half' xs={4} md={1}>
-         <Card body outline color="primary">
-          <CardBody style={{color:'white', width:'200px', marginLeft:'100px' }}>
-          <CardTitle><h2>Pool Table 1</h2></CardTitle>
-          <CardSubtitle style={{padding: '5px'}}><h4>Tables Vacant</h4></CardSubtitle>
-          <CardText><ul>{timesP1}</ul></CardText>
-          </CardBody>
-        </Card>
+         <Col sm={4} md={1}>
+          {timesP1}
         </Col>
          
-        <Col className='half' xs={4} md={1}>
+        <Col className='half' sm={4} md={1}>
           <Card body outline color="primary">
         <CardBody style={{color:'white', width:'200px', marginLeft:'200px' }}>
           <CardTitle><h2>Pool Table 2</h2></CardTitle>
@@ -123,7 +117,7 @@ class TableBookingStatus extends Component {
 
           </Col>
 
-          <Col className='half' xs={4} md={1}>
+          <Col className='half' sm={4} md={1}>
           <Card body outline color="primary">
         <CardBody style={{color:'white', width:'300px', marginLeft:'300px' }}>
           <CardTitle><h2>Snooker Table 1</h2></CardTitle>
@@ -135,7 +129,7 @@ class TableBookingStatus extends Component {
 
           </Col>
 
-          <Col className='half' xs={4} md={1}>
+          <Col className='half' sm={4} md={1}>
           <Card body outline color="primary">
         <CardBody style={{color:'white', width:'300px', marginLeft:'400px' }}>
           <CardTitle><h2>Snooker Table 2</h2></CardTitle>
@@ -147,7 +141,7 @@ class TableBookingStatus extends Component {
             
           </Col>
 
-          <Col className='half' xs={4} md={1}>
+          <Col className='half' sm={4} md={1}>
           <Card body outline color="primary">
         <CardBody style={{color:'white', width:'300px', marginLeft:'500px' }}>
           <CardTitle><h2>Snooker Table 3</h2></CardTitle>
