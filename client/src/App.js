@@ -16,6 +16,7 @@ import {BrowserRouter as Router,Route} from 'react-router-dom';
 import './App.css';
 import Background from './snooker.jpg';
 import TableBookingStatus from './TableBookingStatus';
+import TableBooking from './NewBooking';
 import PSBookingStatus from './PsBookingStatus';
 import PsTimeslots from './PsTimeslots';
 
@@ -48,6 +49,7 @@ class App extends Component {
             </React.Fragment>
           )}>
           </Route> 
+        <Route path="/portal1" component={TableBooking}/>
         <Route path="/psstatus" component={PSBookingStatus}/>
         <Route path="/psbooking" component={PsTimeslots}/>
         <Route path="/tablestatus" component={TableBookingStatus}/>
