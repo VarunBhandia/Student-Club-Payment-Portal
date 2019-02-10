@@ -80,7 +80,7 @@ var amount= 1000,
     receipt = '1234545f4',
     payment_capture =true,
     notes ="something",
-    order_id,payment_id, count = 1, bookno = true,
+    order_id,payment_id, count = 0, bookno = true,
     table_id = [],
     ongoing = false;
 
@@ -261,12 +261,13 @@ app.post('/', function (req, res) {
 
 
 app.use('/payment', (req, res) => {
-  
+    var orderid = [];
     CheckBooking(count,table_id);
  
   setTimeout(function() {
-    if(count === 0) {
-      count = 1;
+    if(count === 1) {
+      count = 0;
+      console.log('hello');
       res.redirect('/');
     }
     else if(table_id[0] === undefined){
@@ -283,7 +284,8 @@ app.use('/payment', (req, res) => {
         'index',
         {order_id,amount, table_id}
       );
-      MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
+          
+        MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
           if(!err) {
             console.log("We are connected");
           }
@@ -300,6 +302,7 @@ app.use('/payment', (req, res) => {
             if (err) throw err;
           });
         }); 
+      
       }).catch((error) => {
         console.log(error);
       })
@@ -307,7 +310,7 @@ app.use('/payment', (req, res) => {
       app.set('view engine', 'handlebars');
      
     }
-  }, 1000);
+  }, 2000);
   setInterval(function() {
     MongoClient.connect(url, function(err, db) {
       if (err) throw err;
@@ -315,12 +318,12 @@ app.use('/payment', (req, res) => {
       var dbo = db.db(process.env.DB_NAME);
       dbo.collection("TableStatus").remove(myquery, function(err, obj) {
         if (err) throw err;
-        console.log(obj.result.n + " document(s) deleted hiii");
+        console.log(obj.result.n + " Table Status document(s) deleted hiii");
         db.close();
       });
     });
     table_id = [];
-  },600000);
+  },300000);
 });
 
 /*****************
@@ -334,7 +337,7 @@ app.post('/purchase', (req,res) =>{
     console.log("**********Payment authorized***********");
     instance.payments.fetch(payment_id.razorpay_payment_id).then((response) => {
     console.log("**********Payment instance***********");
-    
+    console.log(response);
     MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
       if (err) throw err;
       var dbo = db.db(process.env.DB_NAME);
@@ -357,7 +360,7 @@ app.post('/purchase', (req,res) =>{
         var dbo = db.db(process.env.DB_NAME);
         dbo.collection("OrderTableStatus").remove(myquery, function(err, obj) {
           if (err) throw err;
-          console.log(obj.result.n + " document(s) deleted");
+          console.log(obj.result.n + " Order Table document(s) deleted");
           db.close();
         });
       });
@@ -366,7 +369,7 @@ app.post('/purchase', (req,res) =>{
     
       
     setTimeout(function() {
-      if(count === 0) {
+      if(count === 1) {
         count = 0;
         app.engine('handlebars',exphbs({defaultLayout:'main'}));
         app.set('view engine', 'handlebars');
@@ -446,6 +449,7 @@ app.post('/purchase', (req,res) =>{
               BookingContact: response.contact,
               BookingId: response.id,
               TableId : response.table_id[i],
+              PaymentId: payment_id.razorpay_payment_id
             };
             dbo.collection("BookingHistory").insertOne(insertobj, function(err, res) {
               if (err) throw err;
