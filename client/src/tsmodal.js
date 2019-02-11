@@ -19,7 +19,6 @@ class TsModal extends React.Component {
 
   handlePostReq(item,amount) {
     // eslint-disable-next-line
-    console.log(item.finalbook +  amount.totalamount + "  HI");
     fetch('/', {
       method: 'POST',
       body: JSON.stringify({
@@ -80,6 +79,12 @@ class TsModal extends React.Component {
       if(slot[count].s3 === 'Booked') {
         disabled[4] = true;
       }
+      if(slot[count].s4 === 'Booked') {
+        disabled[5] = true;
+      }
+      if(slot[count].s5 === 'Booked') {
+        disabled[6] = true;
+      }
     } 
     return (
       	<Modal show={this.props.show} onHide={this.props.onhide}>
@@ -93,6 +98,8 @@ class TsModal extends React.Component {
             <Button disabled = {disabled[2]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Snooker Table 1',10)}}>Snooker table 1</Button>
             <Button disabled = {disabled[3]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Snooker Table 2',10)}}>Snooker table 2</Button>
             <Button disabled = {disabled[4]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Snooker Table 3',10)}}>Snooker table 3</Button>
+            <Button disabled = {disabled[5]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Snooker Table 4',10)}}>Snooker table 4</Button>
+            <Button disabled = {disabled[6]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Snooker Table 5',10)}}>Snooker table 5</Button>
           </Modal.Body>
           <Modal.Footer style={{position:'relative', textAlign:'left'}}>
             Total Amount is : {this.state.totalamount}

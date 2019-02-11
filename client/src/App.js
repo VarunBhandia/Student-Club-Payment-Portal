@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import NavbarHeader from './navbarhead';
 import Timeslots from './Timeslots';
 import LsFoosball from './LsFoosballAdmin.js';
-
+import LoginAdmin from './LoginAdmin'
 import Foosball from './LsFoosballFront';
 import LsCarrom from './LsCarromAdmin';
 import Carrom from './LsCarromFront';
@@ -53,7 +53,7 @@ class App extends Component {
         <Route path="/psstatus" component={PSBookingStatus}/>
         <Route path="/psbooking" component={PsTimeslots}/>
         <Route path="/tablestatus" component={TableBookingStatus}/>
-        
+        <Route path="/admin2019" component={LoginAdmin}/>
         <Route path="/lsfoosball" component={LsFoosball}/>
         <Route path="/foosballstream" component={Foosball}/>  
         <Route path="/lscarrom" component={LsCarrom}/>  
