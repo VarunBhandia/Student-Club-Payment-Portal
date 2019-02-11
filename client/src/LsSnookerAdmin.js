@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 class LsSnooker extends React.Component {
     constructor(props, context) {
