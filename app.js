@@ -139,7 +139,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/portal', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
 });
-app.get('/admin', (req, res) => {
+app.get('/admin2019', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
 });
 app.get('/psstatus', (req, res) => {
