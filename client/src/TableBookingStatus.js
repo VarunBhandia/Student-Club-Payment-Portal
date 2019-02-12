@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Button, CardImg, CardTitle, CardText, CardGroup,
+import { Card, CardTitle, CardText,
     CardSubtitle, CardBody } from 'reactstrap';
     import { 
       Row,
@@ -11,7 +11,9 @@ import './App.css';
 var sectionStyle = {
   width: "100%",
   height: '100%',
-  paddingBottom:'58px'
+  paddingBottom:'200px',
+  color:'white',
+  overflowX: 'hidden'
 };
 
 
@@ -52,7 +54,9 @@ class TableBookingStatus extends Component {
        var timesS1 = ['10:00-10:30', '10:30-11:00', '11:00-11:30', '11:30-12:00', '12:00-12:30', '12:30-13:00', '13:00-13:30', '13:30-14:00', '14:00-14:30', '14:30-15:00', '15:00-15:30', '15:30-16:00', '16:00-16:30', '16:30-17:00', '17:00-17:30', '17:30-18:00', '18:00-18:30', '19:00-19:30','19:30-20:00', '20:00-20:30', '20:30-21:00', '21:00-21:30', '22:00-22:30', '22:30-23:00', '23:00-23:30', '23:30-24:00'];
        var timesS2 = ['10:00-10:30', '10:30-11:00', '11:00-11:30', '11:30-12:00', '12:00-12:30', '12:30-13:00', '13:00-13:30', '13:30-14:00', '14:00-14:30', '14:30-15:00', '15:00-15:30', '15:30-16:00', '16:00-16:30', '16:30-17:00', '17:00-17:30', '17:30-18:00', '18:00-18:30', '19:00-19:30','19:30-20:00', '20:00-20:30', '20:30-21:00', '21:00-21:30', '22:00-22:30', '22:30-23:00', '23:00-23:30', '23:30-24:00'];
        var timesS3 = ['10:00-10:30', '10:30-11:00', '11:00-11:30', '11:30-12:00', '12:00-12:30', '12:30-13:00', '13:00-13:30', '13:30-14:00', '14:00-14:30', '14:30-15:00', '15:00-15:30', '15:30-16:00', '16:00-16:30', '16:30-17:00', '17:00-17:30', '17:30-18:00', '18:00-18:30', '19:00-19:30','19:30-20:00', '20:00-20:30', '20:30-21:00', '21:00-21:30', '22:00-22:30', '22:30-23:00', '23:00-23:30', '23:30-24:00'];
-       
+       var timesS4 = ['10:00-10:30', '10:30-11:00', '11:00-11:30', '11:30-12:00', '12:00-12:30', '12:30-13:00', '13:00-13:30', '13:30-14:00', '14:00-14:30', '14:30-15:00', '15:00-15:30', '15:30-16:00', '16:00-16:30', '16:30-17:00', '17:00-17:30', '17:30-18:00', '18:00-18:30', '19:00-19:30','19:30-20:00', '20:00-20:30', '20:30-21:00', '21:00-21:30', '22:00-22:30', '22:30-23:00', '23:00-23:30', '23:30-24:00'];
+       var timesS5 = ['10:00-10:30', '10:30-11:00', '11:00-11:30', '11:30-12:00', '12:00-12:30', '12:30-13:00', '13:00-13:30', '13:30-14:00', '14:00-14:30', '14:30-15:00', '15:00-15:30', '15:30-16:00', '16:00-16:30', '16:30-17:00', '17:00-17:30', '17:30-18:00', '18:00-18:30', '19:00-19:30','19:30-20:00', '20:00-20:30', '20:30-21:00', '21:00-21:30', '22:00-22:30', '22:30-23:00', '23:00-23:30', '23:30-24:00'];
+
        for(var i=0; i<result.length; i++) {
           if(result[i].TableType === 'Pool Table 1') {
             var index = timesP1.indexOf(result[i].TableTime);
@@ -74,9 +78,17 @@ class TableBookingStatus extends Component {
             var index = timesS3.indexOf(result[i].TableTime);
             timesS3.splice(index, 1);
           }
+          else if(result[i].TableType === 'Snooker Table 4') {
+            var index = timesS3.indexOf(result[i].TableTime);
+            timesS3.splice(index, 1);
+          }
+          else if(result[i].TableType === 'Snooker Table 5') {
+            var index = timesS3.indexOf(result[i].TableTime);
+            timesS3.splice(index, 1);
+          }
        }
        timesP1 = timesP1.map(function(value){
-        return <Col md = {1} sm={4} xs={4}>{value}</Col>;
+        return <li style={{backgroundColor:'white', color:'black', width:'80px', paddingBottom:'2px', marginBottom:'5px', borderRadius:'8px',paddingLeft:'3px'}}> {value} </li>;
       });
 
       timesP2 = timesP2.map(function(value){
@@ -94,20 +106,31 @@ class TableBookingStatus extends Component {
       timesS3 = timesS3.map(function(value){
         return <li style={{backgroundColor:'white', color:'black', width:'80px', paddingBottom:'2px', marginBottom:'5px', borderRadius:'8px',paddingLeft:'3px'}}> {value} </li>;
       });
+      timesS4 = timesS4.map(function(value){
+        return <li style={{backgroundColor:'white', color:'black', width:'80px', paddingBottom:'2px', marginBottom:'5px', borderRadius:'8px',paddingLeft:'3px'}}> {value} </li>;
+      });
+      timesS5 = timesS5.map(function(value){
+        return <li style={{backgroundColor:'white', color:'black', width:'80px', paddingBottom:'2px', marginBottom:'5px', borderRadius:'8px',paddingLeft:'3px'}}> {value} </li>;
+      });
     } 
     
     return(
         
         <Grid style = {sectionStyle}>
-<h2>Pool Table 1</h2>
-         <Row>
-         <Col sm={4} md={1}>
-          {timesP1}
-        </Col>
-         
-        <Col className='half' sm={4} md={1}>
+        <Row style={{paddingLeft:'40px', paddingBottom:'40px'}}>
+        <Col className='half' sm={2} xs={5}>
           <Card body outline color="primary">
-        <CardBody style={{color:'white', width:'200px', marginLeft:'200px' }}>
+        <CardBody >
+          <CardTitle><h2>Pool Table 1</h2></CardTitle>
+          <CardSubtitle style={{padding: '5px'}}><h4>Tables Vacant</h4></CardSubtitle>
+          <CardText><ul>{timesP1}</ul></CardText>
+        </CardBody>
+        </Card>    
+        </Col>
+       
+        <Col className='half' sm={2} xs={5}>
+          <Card body outline color="primary">
+        <CardBody >
           <CardTitle><h2>Pool Table 2</h2></CardTitle>
           <CardSubtitle style={{padding: '5px'}}><h4>Tables Vacant</h4></CardSubtitle>
           <CardText><ul>{timesP2}</ul></CardText>
@@ -116,22 +139,22 @@ class TableBookingStatus extends Component {
       </Card>
 
           </Col>
-
-          <Col className='half' sm={4} md={1}>
+        </Row>
+        <Row style={{paddingLeft:'40px', paddingBottom:'40px'}}>
+          <Col className='half' sm={2} xs={5} >
           <Card body outline color="primary">
-        <CardBody style={{color:'white', width:'300px', marginLeft:'300px' }}>
+        <CardBody >
           <CardTitle><h2>Snooker Table 1</h2></CardTitle>
           <CardSubtitle style={{padding: '5px'}}><h4>Tables Vacant</h4></CardSubtitle>
           <CardText><ul>{timesS1}</ul></CardText>
           
         </CardBody>
       </Card>
-
           </Col>
-
-          <Col className='half' sm={4} md={1}>
+          
+          <Col className='half' sm={2} xs={5} >
           <Card body outline color="primary">
-        <CardBody style={{color:'white', width:'300px', marginLeft:'400px' }}>
+        <CardBody >
           <CardTitle><h2>Snooker Table 2</h2></CardTitle>
           <CardSubtitle style={{padding: '5px'}}><h4>Tables Vacant</h4></CardSubtitle>
           <CardText><ul>{timesS2}</ul></CardText>
@@ -140,20 +163,40 @@ class TableBookingStatus extends Component {
       </Card>
             
           </Col>
-
-          <Col className='half' sm={4} md={1}>
+          
+          <Col className='half' sm={2} xs={5}>
           <Card body outline color="primary">
-        <CardBody style={{color:'white', width:'300px', marginLeft:'500px' }}>
+        <CardBody >
           <CardTitle><h2>Snooker Table 3</h2></CardTitle>
           <CardSubtitle style={{padding: '5px'}}><h4>Tables Vacant</h4></CardSubtitle>
           <CardText><ul>{timesS3}</ul></CardText>
           
         </CardBody>
       </Card>
-          </Col>  
-          </Row>
-        
-    
+          </Col>
+
+          <Col className='half' sm={2} xs={5}>
+          <Card body outline color="primary">
+        <CardBody >
+          <CardTitle><h2>Snooker Table 4</h2></CardTitle>
+          <CardSubtitle style={{padding: '5px'}}><h4>Tables Vacant</h4></CardSubtitle>
+          <CardText><ul>{timesS4}</ul></CardText>
+          
+        </CardBody>
+      </Card>
+          </Col>
+
+          <Col className='half' sm={2} xs={5}>
+          <Card body outline color="primary">
+        <CardBody >
+          <CardTitle><h2>Snooker Table 5</h2></CardTitle>
+          <CardSubtitle style={{padding: '5px'}}><h4>Tables Vacant</h4></CardSubtitle>
+          <CardText><ul>{timesS5}</ul></CardText>
+          
+        </CardBody>
+      </Card>
+          </Col>
+          </Row>  
     </Grid>        
     );
   }

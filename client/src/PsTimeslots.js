@@ -112,8 +112,8 @@ class PsTimeslots extends Component {
   popoverHoverFocus(count) {
   return(
   <Popover id="popover-trigger-hover-focus" title="Playstation status">
-    <strong >PS1 -> {this.state.popoverlist[count].p1}</strong> <br />
-    <strong >PS2 -> {this.state.popoverlist[count].p2}</strong> <br />
+    <strong >Console 1 -> {this.state.popoverlist[count].p1}</strong> <br />
+    <strong >Console 2 -> {this.state.popoverlist[count].p2}</strong> <br />
   </Popover>
   );
   } 

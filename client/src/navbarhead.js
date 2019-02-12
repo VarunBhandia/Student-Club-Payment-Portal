@@ -9,7 +9,7 @@ var navstyle = {
 class NavbarHeader extends Component {
   render() {
     return (
-    <Navbar inverse fixed='top' style = {{background: 'transparent', width: '100%'}} >
+    <Navbar inverse fixed='top' style = {{ width: '100%', background: 'none'}} >
       <Navbar.Header>
         <Navbar.Brand>
         <a href="/" style={navstyle}><img src={Background} href='/' style={{width:80, marginTop: -7, height:50}} /></a>

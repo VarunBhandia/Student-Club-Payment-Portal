@@ -10,14 +10,16 @@ import './App.css';
 import Background from './playstation.jpg';
 var sectionStyle = {
 backgroundImage: `url(${Background})`,
+
   width: "101.85%",
   height: '100%',
   paddingTop:'50px',
   paddingLeft:'50px',
-  margin:'-20px',
-  paddingBottom:'28px',
-  backgroundSize:'cover',
-  top: '70px', bottom: '0',minWidth: '100%', minHeight: '100%'
+  marginLeft:'-20px',
+  marginTop:'-20px',
+  paddingBottom:'50px',
+  marginRight:'100px',
+  color:'white',
 };
 
 class PSBookingStatus extends Component {
@@ -70,10 +72,10 @@ class PSBookingStatus extends Component {
     return(
        
         <Grid style = {sectionStyle}>
-         <Row >
-          <Col className='portal' xs={4} md={1}>
+         <Row style={{marginLeft:'20px'}}>
+          <Col className='portal' sm={2} xs={7}>
           <Card body outline color="primary">
-            <CardBody style={{color:'white', marginRight:'300px', marginLeft:'100px',width:'200px'}}>
+            <CardBody >
             <CardTitle><h2>Playstation 1</h2></CardTitle>
             <CardSubtitle style={{padding: '5px'}}><h4>Vacancies</h4></CardSubtitle>
             <CardText><ul>{timesP1}</ul></CardText>
@@ -81,9 +83,9 @@ class PSBookingStatus extends Component {
           </Card>
           </Col>
 
-          <Col className='portal' xs={4} md={1} style={{color:'white'}}>
+          <Col className='portal' sm={2} xs={7} >
           <Card body outline color="primary">
-            <CardBody style={{color:'white', marginLeft:'200px', width:'200px'}}>
+            <CardBody >
             <CardTitle><h2>Playstation 2</h2></CardTitle>
             <CardSubtitle style={{padding: '5px'}}><h4>Vacancies</h4></CardSubtitle>
             <CardText><ul>{timesP1}</ul></CardText>
