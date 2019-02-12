@@ -17,14 +17,14 @@ var sectionStyle = {
 };
 
 
-function getIndex(arr,value) {
-  for(var i = 0; i < arr.length; i++) {
-      if(arr[i] === value) {
-          return i;
-      }
-  }
-  return -1; //to handle the case where the value doesn't exist
-}
+// function getIndex(arr,value) {
+//   for(var i = 0; i < arr.length; i++) {
+//       if(arr[i] === value) {
+//           return i;
+//       }
+//   }
+//   return -1; //to handle the case where the value doesn't exist
+// }
 
 
 class TableBookingStatus extends Component {
@@ -63,19 +63,19 @@ class TableBookingStatus extends Component {
             timesP1.splice(index, 1);
           }
           else if(result[i].TableType === 'Pool Table 2') {
-            var index = timesP2.indexOf(result[i].TableTime);
+            index = timesP2.indexOf(result[i].TableTime);
             timesP2.splice(index, 1);
           }
           else if(result[i].TableType === 'Snooker Table 1') {
-            var index = timesS1.indexOf(result[i].TableTime);
+            index = timesS1.indexOf(result[i].TableTime);
             timesS1.splice(index, 1);
           }
           else if(result[i].TableType === 'Snooker Table 2') {
-            var index = timesS2.indexOf(result[i].TableTime);
+            index = timesS2.indexOf(result[i].TableTime);
             timesS2.splice(index, 1);
           }
           else if(result[i].TableType === 'Snooker Table 3') {
-            var index = timesS3.indexOf(result[i].TableTime);
+            index = timesS3.indexOf(result[i].TableTime);
             timesS3.splice(index, 1);
           }
           else if(result[i].TableType === 'Snooker Table 4') {

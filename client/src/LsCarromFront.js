@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import Iframe from 'react-iframe'
 import './App.css';
 class Carrom extends Component {

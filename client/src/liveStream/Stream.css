@@ -1,0 +1,10 @@
+.btn_container{
+    margin:2rem;
+    
+}
+.btn_style{
+    max-width:2rem;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}

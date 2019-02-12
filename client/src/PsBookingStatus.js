@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Button, CardImg, CardTitle, CardText, CardGroup,
+import { Card, CardTitle, CardText,
     CardSubtitle, CardBody } from 'reactstrap';
     import { 
       Row,
@@ -55,7 +55,7 @@ class PSBookingStatus extends Component {
           timesP1.splice(index, 1);
         }
         if(result[i].TableType === 'Playstation 2') {
-          var index = timesP2.indexOf(result[i].TableTime);
+          index = timesP2.indexOf(result[i].TableTime);
           timesP2.splice(index, 1);
         }
         
