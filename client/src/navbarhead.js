@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Navbar, NavItem,Nav,NavDropdown,MenuItem
+  Navbar, Nav,NavDropdown,MenuItem
 } from 'react-bootstrap';
 import Background from './output-0.jpg';
 var navstyle = {
@@ -12,7 +12,7 @@ class NavbarHeader extends Component {
     <Navbar inverse fixed='top' style = {{background: 'transparent', width: '100%'}} >
       <Navbar.Header>
         <Navbar.Brand>
-        <a href="/" style={navstyle}><img src={Background} href='/' style={{width:80, marginTop: -7, height:50}} /></a>
+        <a href="/" style={navstyle}><img src={Background} alt='stuc logo' href='/' style={{width:80, marginTop: -7, height:50}} /></a>
         </Navbar.Brand>
         <Navbar.Toggle />
       </Navbar.Header>
