@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/static/media/snooker.424e45de.jpg"
   },
   {
-    "revision": "44e0bf0a9b92bcc3ce97253f73b8a78b",
-    "url": "/static/media/playstation.44e0bf0a.jpg"
+    "revision": "777ffba0575aeec68ef25184cd17fb56",
+    "url": "/static/media/playstation.777ffba0.jpg"
   },
   {
     "revision": "c9f52a6dea734fd7719f94cfe2e8affd",
@@ -16,19 +16,19 @@ self.__precacheManifest = [
     "url": "/static/js/runtime~main.229c360f.js"
   },
   {
-    "revision": "3e49c20ed8566e980612",
-    "url": "/static/js/main.3e49c20e.chunk.js"
+    "revision": "40659d76836f222e673f",
+    "url": "/static/js/main.40659d76.chunk.js"
   },
   {
     "revision": "cd5a05686bcb24d55290",
     "url": "/static/js/1.cd5a0568.chunk.js"
   },
   {
-    "revision": "3e49c20ed8566e980612",
+    "revision": "40659d76836f222e673f",
     "url": "/static/css/main.4f8d5378.chunk.css"
   },
   {
-    "revision": "be774d49df8823e58a3273cbd9ee6edf",
+    "revision": "65fed712eee16dc47ea8efee6f7c5f1c",
     "url": "/index.html"
   }
 ];

@@ -2,7 +2,10 @@ import React from 'react';
 import {
   Modal,
   Button,
+  Checkbox
 } from 'react-bootstrap';
+
+var OPTIONS = [];
 
 
 class TsModal extends React.Component {
@@ -10,11 +13,30 @@ class TsModal extends React.Component {
     super(props);
     this.handlePostReq = this.handlePostReq.bind(this);
     this.handleTotalBooking = this.handleTotalBooking.bind(this);
+    this.handleCheckbox = this.handleCheckbox.bind(this);
+    //this.handleShowCheckbox = this.handleShowCheckbox.bind(this);
     this.state = {
       finalbook : [],
-      totalamount : 0
+      result: [],
+      totalamount : 0,
+      currentTable: '',
+      currentAmount: 0,
+      dis:true,
+      checkboxDis:true,
+      times:[]
     };
     
+  }
+ 
+  componentDidMount() {
+    this.getList();
+  }
+
+  getList = () => {
+    
+    fetch("/mznFag7kV7")
+    .then(res => res.json())
+    .then(result => this.setState({ result }))
   }
 
   handlePostReq(item,amount) {
@@ -33,8 +55,54 @@ class TsModal extends React.Component {
      .catch((err)=>console.log(err));
   }
 
+  handleCheckbox(e) {
+    
+    if(e.target.name === 'unchecked') {
+      e.target.name = 'checked';
+      var newArr = this.state.finalbook;
+      var totamo = this.state.totalamount
+      var newEle = e.target.value;
+      if(newArr.includes(newEle) || newArr.length === 5) {
+      }
+      else {
+      newArr.push(newEle);
+      //totamo = totamo + amount;
+      }
+    }
+    else if(e.target.name === 'checked') {
+      e.target.name = 'unchecked';
+      var newArr = this.state.finalbook;
+      var totamo = this.state.totalamount
+      var newEle = e.target.value;
+      if(newArr.includes(newEle) || newArr.length < 5) {
+        var index = newArr.indexOf(newEle);
+        newArr.splice(index, 1);
+      }
+    }
+    this.setState({finalbook:newArr, totalamount: totamo});
+  }
+
+  createCheckboxes(currentT, currentA) {
+    const {result} = this.state;
+    this.setState({checkboxDis:false});
+    OPTIONS = ['10:00-10:30', '10:30-11:00', '11:00-11:30', '11:30-12:00', '12:00-12:30', '12:30-13:00', '13:00-13:30', '13:30-14:00', '14:00-14:30', '14:30-15:00', '15:00-15:30', '15:30-16:00', '16:00-16:30', '16:30-17:00', '17:00-17:30', '17:30-18:00', '18:00-18:30', '19:00-19:30','19:30-20:00', '20:00-20:30', '20:30-21:00', '21:00-21:30', '22:00-22:30', '22:30-23:00', '23:00-23:30', '23:30-24:00'];
+    if(result) {
+      for(var i=0; i<result.length; i++) {
+        if(result[i].TableType === currentT.currentTable) {
+          var index = OPTIONS.indexOf(result[i].TableTime);
+          OPTIONS.splice(index, 1);
+        }
+      }
+      OPTIONS = OPTIONS.map(value => {
+        return  ( <label style={{marginRight:'10px'}} for="mybox">{value}<li><br></br><input  onChange={this.handleCheckbox} type="checkbox" id="mybox"  name = 'unchecked' value={value + " " + currentT.currentTable}  /></li></label> 
+        );
+      });
+    }
+  }
+  
   handleTotalBooking(item,str,amount) {
     // eslint-disable-next-line
+    this.setState({currentTable:str, currentAmount:amount, dis:false})
     var newArr = this.state.finalbook;
     var totamo = this.state.totalamount
     item.keeptimeNew = item.keeptime + " " + str;
@@ -47,14 +115,9 @@ class TsModal extends React.Component {
     }
   }
 
-  handleReset() {
-    
-  }
+  
   render() {
-    var  { finalbook, totalamount} = this.state;
-    if(finalbook && totalamount) {
-      console.log(finalbook + totalamount);
-    }
+    var  { finalbook, totalamount, currentTable, currentAmount} = this.state;
     var final = this.state.finalbook;
     final = final.map(function(value){
       return <li> {value} </li>;
@@ -85,7 +148,8 @@ class TsModal extends React.Component {
       if(slot[count].s5 === 'Booked') {
         disabled[6] = true;
       }
-    } 
+    }
+
     return (
       	<Modal show={this.props.show} onHide={this.props.onhide}>
           <Modal.Header closeButton>
@@ -107,8 +171,12 @@ class TsModal extends React.Component {
             Bookings made are : {final}
             <br></br>
             <Button onClick={() => { this.handlePostReq({finalbook},{totalamount})}} href = "/payment">Confirm Booking</Button>
+            <Button disabled ={this.state.dis}  onClick={() => {this.createCheckboxes({currentTable}, {currentAmount})}}>Book more {currentTable}</Button>
             <Button onClick={this.props.onclick}>Close</Button>
+            
           </Modal.Footer>
+          <h4 hidden = {this.state.checkboxDis}>{currentTable} free slots</h4>
+          <ul hidden = {this.state.checkboxDis}>{OPTIONS}</ul>
         </Modal>
     );
   }
