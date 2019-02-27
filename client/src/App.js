@@ -39,9 +39,9 @@ class App extends Component {
         <Router>
           <div className="App">
           <NavbarHeader />
-          <Route exact path="/portal" render={props => (
+          <Route exact path="/tablestatus" render={props => (
             <React.Fragment>
-              <Timeslots />
+              <TableBookingStatus />
               <br></br><br></br>
               <div className="alert"> 
                 1. Please note that you cannot book more than 3 tables in a day. 
@@ -51,12 +51,12 @@ class App extends Component {
             </React.Fragment>
           )}>
           </Route> 
-        <Route path="/portal1" component={TableBooking}/>
+        {/* <Route path="/portal1" component={TableBooking}/> */}
         <Route path="/psstatus" component={PSBookingStatus}/>
-        <Route path="/psbooking" component={PsTimeslots}/>
-        <Route path="/tablestatus" component={TableBookingStatus}/>
+        {/* <Route path="/psbooking" component={PsTimeslots}/>
+        <Route path="/tablestatus" component={TableBookingStatus}/> */}
         <Route path="/admin2019" component={LoginAdmin}/>
-        <Route path="/lsfoosball" component={LsFoosball}/>
+        {/* <Route path="/lsfoosball" component={LsFoosball}/>
         <Route path="/foosballstream" component={Foosball}/>  
         <Route path="/lscarrom" component={LsCarrom}/>  
         <Route path="/carromstream" component={Carrom}/> 
@@ -65,7 +65,7 @@ class App extends Component {
         <Route path="/lspool" component={LsPool}/>  
         <Route path="/poolstream" component={Pool}/> 
         <Route path="/lssnooker" component={LsSnooker}/>
-        <Route path="/snookerstream" component={Snooker}/>         
+        <Route path="/snookerstream" component={Snooker}/>          */}
         </div>
         </Router>
       </div>
