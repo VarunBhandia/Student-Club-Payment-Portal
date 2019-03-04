@@ -27,7 +27,22 @@
     font-size : 18px;
   }
 }
+.mobile{
+  display: none;
 
+}
+@media only screen and (max-width: 600px) {
+  .desktop{
+    display: none;
+  }
+  .mobile{
+    display: block;
+    background-color: #b4373d;
+    height:130%;
+  }
+
+  
+}
 
 body {padding:0; margin:0}
 
