@@ -11,6 +11,9 @@ class NavbarHeader extends Component {
     return (
     <Navbar inverse fixed='top' style = {{ width: '100%', background: 'none'}} >
       <Navbar.Header>
+        <form class="form-inline my-2 my-lg-0">
+        <div id="google_translate_element"></div>
+        </form>
         <Navbar.Brand>
         <a href="/" style={navstyle}><img src={Background} alt='stuc logo' href='/' style={{width:80, marginTop: -7, height:50}} /></a>
         </Navbar.Brand>
