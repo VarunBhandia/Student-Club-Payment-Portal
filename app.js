@@ -91,11 +91,14 @@ app.post('/admin', function (req, res) {
 });
 
 app.post('/adminbook', function (req, res) {
-  console.log('hi');
-  table_id = req.body.item.keeptime;
-  amount = req.body.amount*100;
-        var TableTime = table_id.slice(0,11);
-        var TableType = table_id.slice(12);
+  table_id = req.body.item.finalbook;
+    amount = req.body.amount.totalamount*100;
+    var TableTime = [];
+        var TableType = [];
+        for (var i=0; i < table_id.length; i++) {
+            TableTime[i] = table_id[i].slice(0,11);
+            TableType[i] = table_id[i].slice(12);
+        } 
         
         // pushing table_id and status to TABLE STATUS collection
         MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
@@ -106,16 +109,18 @@ app.post('/adminbook', function (req, res) {
           {
               console.log(err);
           }
-          
+          for(var i=0; i < table_id.length; i++) {
           var dbo = db.db(process.env.DB_NAME);
-          var insertobj = { TableTime : TableTime,
-            TableType : TableType,
-            TableStatus : 'Booked'
+          var insertobj = { TableTime : TableTime[i],
+            TableType : TableType[i],
+            TableStatus : 'Booked',
+            TableFinalStatus: 'Purchased'
           };
           dbo.collection("TableStatus").insertOne(insertobj, function(err, res) {
             if (err) throw err;
             console.log("Table time is " + insertobj.TableTime +  "     "  + insertobj.TableType + " has been booked" );
           });
+        }
         }); 
 });
 
@@ -302,7 +307,6 @@ app.use('/payment', (req, res) => {
             if (err) throw err;
           });
         }); 
-      
       }).catch((error) => {
         console.log(error);
       })
