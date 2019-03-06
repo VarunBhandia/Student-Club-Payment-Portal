@@ -1,9 +1,9 @@
 {
   "main.css": "/static/css/main.4f8d5378.chunk.css",
-  "main.js": "/static/js/main.2337df70.chunk.js",
-  "main.js.map": "/static/js/main.2337df70.chunk.js.map",
-  "static/js/1.9d04b254.chunk.js": "/static/js/1.9d04b254.chunk.js",
-  "static/js/1.9d04b254.chunk.js.map": "/static/js/1.9d04b254.chunk.js.map",
+  "main.js": "/static/js/main.cf9008fa.chunk.js",
+  "main.js.map": "/static/js/main.cf9008fa.chunk.js.map",
+  "static/js/1.2fc83042.chunk.js": "/static/js/1.2fc83042.chunk.js",
+  "static/js/1.2fc83042.chunk.js.map": "/static/js/1.2fc83042.chunk.js.map",
   "runtime~main.js": "/static/js/runtime~main.229c360f.js",
   "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
   "static/css/main.4f8d5378.chunk.css.map": "/static/css/main.4f8d5378.chunk.css.map",
@@ -11,6 +11,6 @@
   "static/media/snooker.jpg": "/static/media/snooker.424e45de.jpg",
   "static/media/output-0.jpg": "/static/media/output-0.c9f52a6d.jpg",
   "index.html": "/index.html",
-  "precache-manifest.aed607ac874d3dcaca59f6e44bbc796e.js": "/precache-manifest.aed607ac874d3dcaca59f6e44bbc796e.js",
+  "precache-manifest.870210dd8bc9bfa90452948b4c42c4da.js": "/precache-manifest.870210dd8bc9bfa90452948b4c42c4da.js",
   "service-worker.js": "/service-worker.js"
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NavbarHeader from './navbarhead';
-import Timeslots from './Timeslots';
+import AdminTimeslots from './AdminTimeslots';
 import LsFoosball from './LsFoosballAdmin.js';
 import LoginAdmin from './LoginAdmin'
 import Foosball from './LsFoosballFront';
@@ -56,6 +56,7 @@ class App extends Component {
         {/* <Route path="/psbooking" component={PsTimeslots}/> */}
         {/* <Route path="/tablestatus" component={TableBookingStatus}/> */}
         <Route path="/admin2019" component={LoginAdmin}/>
+        <Route path="/finaladmin" component={AdminTimeslots}/>
         <Route path="/lsfoosball" component={LsFoosball}/>
         <Route path="/foosballstream" component={Foosball}/>  
         <Route path="/lscarrom" component={LsCarrom}/>  

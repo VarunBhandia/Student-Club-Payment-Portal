@@ -2,6 +2,10 @@ const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
+const secret = 'mysecretsshhh';
+const cookieParser = require('cookie-parser');
+const jwt = require('jsonwebtoken');
+const withAuth = require('./middleware');
 require('dotenv').config();
 var Razorpay = require('razorpay');
 var instance = new Razorpay({
@@ -73,6 +77,7 @@ const app = express();
 // Body Parser Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
+app.use(cookieParser());
 
 // Index Route
 var amount= 1000,
@@ -87,7 +92,20 @@ var amount= 1000,
 
     
 app.post('/admin', function (req, res) {
-  res.send(JSON.stringify('iamadmin'));
+  const password = req.body.pass;
+  if(password === 'iamadmin') {
+    const payload = {password};
+      const token = jwt.sign(payload, secret, {
+        expiresIn: '1h'
+      });
+      res.cookie('token', token, { httpOnly: true }).sendStatus(200);
+  }
+  else {
+    res.status(401)
+        .json({
+          error: 'Incorrect password'
+        });
+  }
 });
 
 app.post('/adminbook', function (req, res) {
@@ -146,6 +164,12 @@ app.get('/portal', (req, res) => {
 });
 app.get('/admin2019', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+});
+app.get('/finaladmin', withAuth, function(req, res) {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+});
+app.get('/checkToken', withAuth, function(req, res) {
+  res.sendStatus(200);
 });
 app.get('/psstatus', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'))

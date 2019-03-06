@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import {
   Grid,
   Row,
@@ -15,7 +16,7 @@ var btstyle = {
   padding: '10px',
   margin : '10px',
 }
-// declaring variable for 
+
 class Timeslots extends Component {
   constructor(props, context) {
     super(props, context);
@@ -27,6 +28,8 @@ class Timeslots extends Component {
     this.handlePopoverList = this.handlePopoverList.bind(this);
     this.state = {
       show: false, 
+      loading: true,
+      redirect: false,
       buttonPush: 'invalid',
       count : 0,
       result: [],  
@@ -65,6 +68,7 @@ class Timeslots extends Component {
 
   componentDidMount() {
     this.getList();
+    this.getToken();
   }
 
   getList = () => {
@@ -72,6 +76,22 @@ class Timeslots extends Component {
     fetch("/mznFag7kV7")
     .then(res => res.json())
     .then(result => this.setState({ result }))
+  }
+
+  getToken = () => {
+    fetch('/checkToken')
+    .then(res => {
+      if (res.status === 200) {
+        this.setState({ loading: false });
+      } else {
+        const error = new Error(res.error);
+        throw error;
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      this.setState({ loading: false, redirect: true });
+    });
   }
 
   handleClose() {
@@ -136,9 +156,9 @@ class Timeslots extends Component {
   colhour(keeptime,butdisable,count) {
     return(  
         <Col className='halfhour' xs={4} md={1}>
-          <TsModal modalid = {this.state.buttonpush} popoverlist = {this.state.popoverlist} count = {this.state.count} show={this.state.show} onhide={this.handleClose} onclick={this.handleClose}   />
+          <TsModal  key={this.state.buttonpush} modalid = {this.state.buttonpush} popoverlist = {this.state.popoverlist} count = {this.state.count} show={this.state.show} onhide={this.handleClose} onclick={this.handleClose}   />
             <OverlayTrigger overlay = {this.popoverHoverFocus(count)} delay={{ show: 250, hide: 400 }}>
-              <Button bsStyle="outline-info" bsSize="large" style={btstyle} onMouseEnter={() => {this.handlePopoverList(keeptime, butdisable, count);}} onClick={() => { this.handleShow(); this.handleButPush({keeptime},count); }}>
+              <Button variant="outline-info" bsSize="large" style={btstyle} onMouseEnter={() => {this.handlePopoverList(keeptime, butdisable, count);}} onClick={() => { this.handleShow(); this.handleButPush({keeptime},count); }}>
                 {keeptime} 
               </Button>
             </OverlayTrigger>
@@ -156,6 +176,13 @@ class Timeslots extends Component {
     var slot = result;
     } 
     var time = this.state.time;
+    const { loading, redirect } = this.state;
+      if (loading) {
+        return null;
+      }
+      if (redirect) {
+        return <Redirect to="/admin2019" />;
+      }
     return (
     <Grid>
        <h1 style={{color: 'white', marginLeft: '25px'}}><b>Pool And Snooker Booking</b></h1>

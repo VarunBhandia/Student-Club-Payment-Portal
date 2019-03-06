@@ -17,9 +17,10 @@ backgroundImage: `url(${Background})`,
   paddingLeft:'50px',
   marginLeft:'-20px',
   marginTop:'-20px',
-  paddingBottom:'50px',
+  paddingBottom:'200px',
   marginRight:'100px',
   color:'white',
+  overflowX: 'hidden'
 };
 
 class PSBookingStatus extends Component {
