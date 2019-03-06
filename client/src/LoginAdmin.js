@@ -54,7 +54,7 @@ class LoginAdmin extends Component {
                 <input id='AdminCheck' className='form-input' name='pass' type='password' required onChange={this.handleChange} value={this.state.pass} />
             </fieldset>
             <div className='form-group'>
-              <input id='formButton' className='btn' type='submit' placeholder='Submit' />
+              <input id='formButton' className='btn' type='submit' placeholder='Submit'/>
             </div>
             </form>
             </div>
