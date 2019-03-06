@@ -9,7 +9,7 @@ import {
   Popover,
 } from 'react-bootstrap';
 import './App.css';
-import TsModal from'./tsmodal';
+import TsModal from'./AdminTsmodal';
 
 
 var btstyle = {

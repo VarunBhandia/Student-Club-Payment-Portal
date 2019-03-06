@@ -60,13 +60,14 @@ class TsModal extends React.Component {
     if(e.target.name === 'unchecked') {
       e.target.name = 'checked';
       var newArr = this.state.finalbook;
-      var totamo = this.state.totalamount
+      var totamo = this.state.totalamount;
       var newEle = e.target.value;
       if(newArr.includes(newEle) || newArr.length === 5) {
+        alert('Cannot book more');
       }
       else {
       newArr.push(newEle);
-      //totamo = totamo + amount;
+      totamo = totamo + 5;
       }
     }
     else if(e.target.name === 'checked') {
@@ -77,6 +78,7 @@ class TsModal extends React.Component {
       if(newArr.includes(newEle) || newArr.length < 5) {
         var index = newArr.indexOf(newEle);
         newArr.splice(index, 1);
+        totamo = totamo - 5;
       }
     }
     this.setState({finalbook:newArr, totalamount: totamo});
@@ -85,7 +87,7 @@ class TsModal extends React.Component {
   createCheckboxes(currentT) {
     const {result} = this.state;
     this.setState({checkboxDis:false});
-    OPTIONS = ['10:00-10:30', '10:30-11:00', '11:00-11:30', '11:30-12:00', '12:00-12:30', '12:30-13:00', '13:00-13:30', '13:30-14:00', '14:00-14:30', '14:30-15:00', '15:00-15:30', '15:30-16:00', '16:00-16:30', '16:30-17:00', '17:00-17:30', '17:30-18:00', '18:00-18:30', '19:00-19:30','19:30-20:00', '20:00-20:30', '20:30-21:00', '21:00-21:30', '22:00-22:30', '22:30-23:00', '23:00-23:30', '23:30-24:00'];
+    OPTIONS = ['10:00-10:30', '10:30-11:00', '11:00-11:30', '11:30-12:00', '12:00-12:30', '12:30-13:00', '13:00-13:30', '13:30-14:00', '14:00-14:30', '14:30-15:00', '15:00-15:30', '15:30-16:00', '16:00-16:30', '16:30-17:00', '17:00-17:30', '17:30-18:00', '18:00-18:30', '18:30-19:00','19:00-19:30','19:30-20:00', '20:00-20:30', '20:30-21:00', '21:00-21:30', '22:00-22:30', '22:30-23:00', '23:00-23:30', '23:30-24:00'];
     if(result) {
       for(var i=0; i<result.length; i++) {
         if(result[i].TableType === currentT.currentTable) {
@@ -101,13 +103,12 @@ class TsModal extends React.Component {
   }
   
   handleTotalBooking(item,str,amount) {
+    
     // eslint-disable-next-line
     this.setState({currentTable:str, currentAmount:amount, dis:false})
     var newArr = this.state.finalbook;
-    alert(newArr);
     var totamo = this.state.totalamount;
     item.keeptimeNew = item.keeptime + " " + str;
-    console.log(item.keeptimeNew);
     if(newArr.includes(item.keeptimeNew) || newArr.length === 5) {
       alert('Cannot book more');
     }
@@ -121,6 +122,7 @@ class TsModal extends React.Component {
 
   
   render() {
+    
     var  { finalbook, totalamount, currentTable, currentAmount} = this.state;
     var final = this.state.finalbook;
     final = final.map(function(value){
@@ -174,7 +176,7 @@ class TsModal extends React.Component {
             <br></br>
             Bookings made are : {final}
             <br></br>
-            <Button onClick={() => { this.handlePostReq({finalbook},{totalamount})}} href = "/">Confirm Booking</Button>
+            <Button onClick={() => { this.handlePostReq({finalbook},{totalamount})}} href='/finaladmin'>Confirm Booking</Button>
             <Button disabled ={this.state.dis}  onClick={() => {this.createCheckboxes({currentTable}, {currentAmount})}}>Book more {currentTable}</Button>
             <Button onClick={this.props.onclick}>Close</Button>
           </Modal.Footer>
