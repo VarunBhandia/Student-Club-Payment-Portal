@@ -3,7 +3,7 @@ import {
   Modal,
   Button,
   Checkbox
-} from 'react-bootstrap';
+} from '../node_modules/react-bootstrap';
 
 var OPTIONS = [];
 
@@ -60,13 +60,14 @@ class TsModal extends React.Component {
     if(e.target.name === 'unchecked') {
       e.target.name = 'checked';
       var newArr = this.state.finalbook;
-      var totamo = this.state.totalamount
+      var totamo = this.state.totalamount;
       var newEle = e.target.value;
       if(newArr.includes(newEle) || newArr.length === 5) {
+        alert('Cannot book more');
       }
       else {
       newArr.push(newEle);
-      //totamo = totamo + amount;
+      totamo = totamo + 5;
       }
     }
     else if(e.target.name === 'checked') {
@@ -77,15 +78,16 @@ class TsModal extends React.Component {
       if(newArr.includes(newEle) || newArr.length < 5) {
         var index = newArr.indexOf(newEle);
         newArr.splice(index, 1);
+        totamo = totamo - 5;
       }
     }
     this.setState({finalbook:newArr, totalamount: totamo});
   }
 
-  createCheckboxes(currentT, currentA) {
+  createCheckboxes(currentT) {
     const {result} = this.state;
     this.setState({checkboxDis:false});
-    OPTIONS = ['10:00-10:30', '10:30-11:00', '11:00-11:30', '11:30-12:00', '12:00-12:30', '12:30-13:00', '13:00-13:30', '13:30-14:00', '14:00-14:30', '14:30-15:00', '15:00-15:30', '15:30-16:00', '16:00-16:30', '16:30-17:00', '17:00-17:30', '17:30-18:00', '18:00-18:30', '19:00-19:30','19:30-20:00', '20:00-20:30', '20:30-21:00', '21:00-21:30', '22:00-22:30', '22:30-23:00', '23:00-23:30', '23:30-24:00'];
+    OPTIONS = ['10:00-10:30', '10:30-11:00', '11:00-11:30', '11:30-12:00', '12:00-12:30', '12:30-13:00', '13:00-13:30', '13:30-14:00', '14:00-14:30', '14:30-15:00', '15:00-15:30', '15:30-16:00', '16:00-16:30', '16:30-17:00', '17:00-17:30', '17:30-18:00', '18:00-18:30', '18:30-19:00','19:00-19:30','19:30-20:00', '20:00-20:30', '20:30-21:00', '21:00-21:30', '22:00-22:30', '22:30-23:00', '23:00-23:30', '23:30-24:00'];
     if(result) {
       for(var i=0; i<result.length; i++) {
         if(result[i].TableType === currentT.currentTable) {
@@ -101,22 +103,26 @@ class TsModal extends React.Component {
   }
   
   handleTotalBooking(item,str,amount) {
+    
     // eslint-disable-next-line
     this.setState({currentTable:str, currentAmount:amount, dis:false})
     var newArr = this.state.finalbook;
-    var totamo = this.state.totalamount
+    var totamo = this.state.totalamount;
     item.keeptimeNew = item.keeptime + " " + str;
-    if(newArr.includes(item.keeptimeNew) || newArr.length === 3) {
+    if(newArr.includes(item.keeptimeNew) || newArr.length === 5) {
+      alert('Cannot book more');
     }
     else {
     newArr.push(item.keeptimeNew);
     totamo = totamo + amount;
+    console.log(newArr + totamo);
     this.setState({finalbook:newArr, totalamount: totamo});
     }
   }
 
   
   render() {
+    
     var  { finalbook, totalamount, currentTable, currentAmount} = this.state;
     var final = this.state.finalbook;
     final = final.map(function(value){
@@ -158,22 +164,21 @@ class TsModal extends React.Component {
           <Modal.Body>            
             <hr />
             <Button disabled = {disabled[0]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Pool Table 1',5)}} >Pool table 1 </Button>
-            <Button disabled = {disabled[1]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Pool Table 2',5)}}>Pool table 2</Button>
-            <Button disabled = {disabled[2]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Snooker Table 1',10)}}>Snooker table 1</Button>
-            <Button disabled = {disabled[3]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Snooker Table 2',10)}}>Snooker table 2</Button>
-            <Button disabled = {disabled[4]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Snooker Table 3',10)}}>Snooker table 3</Button>
-            <Button disabled = {disabled[5]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Snooker Table 4',10)}}>Snooker table 4</Button>
-            <Button disabled = {disabled[6]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Snooker Table 5',10)}}>Snooker table 5</Button>
+            <Button disabled = {disabled[1]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Pool Table 2',5)}}> Pool table 2 </Button>
+            <Button disabled = {disabled[2]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Snooker Table 1',5)}}>Snooker table 1</Button>
+            <Button disabled = {disabled[3]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Snooker Table 2',5)}}>Snooker table 2</Button>
+            <Button disabled = {disabled[4]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Snooker Table 3',5)}}>Snooker table 3</Button>
+            <Button disabled = {disabled[5]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Snooker Table 4',5)}}>Snooker table 4</Button>
+            <Button disabled = {disabled[6]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Snooker Table 5',5)}}>Snooker table 5</Button>
           </Modal.Body>
           <Modal.Footer style={{position:'relative', textAlign:'left'}}>
             Total Amount is : {this.state.totalamount}
             <br></br>
             Bookings made are : {final}
             <br></br>
-            <Button onClick={() => { this.handlePostReq({finalbook},{totalamount})}} href = "/payment">Confirm Booking</Button>
+            <Button onClick={() => { this.handlePostReq({finalbook},{totalamount})}} href='/payment'>Confirm Booking</Button>
             <Button disabled ={this.state.dis}  onClick={() => {this.createCheckboxes({currentTable}, {currentAmount})}}>Book more {currentTable}</Button>
             <Button onClick={this.props.onclick}>Close</Button>
-            
           </Modal.Footer>
           <h4 hidden = {this.state.checkboxDis}>{currentTable} free slots</h4>
           <ul hidden = {this.state.checkboxDis}>{OPTIONS}</ul>

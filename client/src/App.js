@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NavbarHeader from './navbarhead';
 import AdminTimeslots from './AdminTimeslots';
+import Timeslots from './Timeslots';
 import LsFoosball from './LsFoosballAdmin.js';
 import LoginAdmin from './LoginAdmin'
 import Foosball from './LsFoosballFront';
@@ -39,9 +40,9 @@ class App extends Component {
         <Router>
           <div className="App">
           <NavbarHeader />
-          <Route exact path="/tablestatus" render={props => (
+          <Route exact path="/portal" render={props => (
             <React.Fragment>
-              <TableBookingStatus />
+              <Timeslots />
               <br></br><br></br>
               <div className="alert"> 
                 1. Please note that you cannot book more than 3 tables in a day. 
@@ -53,8 +54,8 @@ class App extends Component {
           </Route> 
         {/* <Route path="/portal1" component={TableBooking}/> */}
         <Route path="/psstatus" component={PSBookingStatus}/>
-        {/* <Route path="/psbooking" component={PsTimeslots}/> */}
-        {/* <Route path="/tablestatus" component={TableBookingStatus}/> */}
+        <Route path="/psbooking" component={PsTimeslots}/>
+        <Route path="/tablestatus" component={TableBookingStatus}/>
         <Route path="/admin2019" component={LoginAdmin}/>
         <Route path="/finaladmin" component={AdminTimeslots}/>
         <Route path="/lsfoosball" component={LsFoosball}/>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import {
   Grid,
   Row,
@@ -15,7 +16,7 @@ var btstyle = {
   padding: '10px',
   margin : '10px',
 }
-// declaring variable for 
+
 class Timeslots extends Component {
   constructor(props, context) {
     super(props, context);
@@ -27,10 +28,12 @@ class Timeslots extends Component {
     this.handlePopoverList = this.handlePopoverList.bind(this);
     this.state = {
       show: false, 
+      loading: true,
+      redirect: false,
       buttonPush: 'invalid',
       count : 0,
       result: [],  
-      time : ['10:00-10:30', '10:30-11:00', '11:00-11:30', '11:30-12:00', '12:00-12:30', '12:30-13:00', '13:00-13:30', '13:30-14:00', '14:00-14:30', '14:30-15:00', '15:00-15:30', '15:30-16:00', '16:00-16:30', '16:30-17:00', '17:00-17:30', '17:30-18:00', '18:00-18:30', '19:00-19:30','19:30-20:00', '20:00-20:30', '20:30-21:00', '21:00-21:30', '22:00-22:30', '22:30-23:00', '23:00-23:30', '23:30-24:00'],
+      time : ['10:00-10:30', '10:30-11:00', '11:00-11:30', '11:30-12:00', '12:00-12:30', '12:30-13:00', '13:00-13:30', '13:30-14:00', '14:00-14:30', '14:30-15:00', '15:00-15:30', '15:30-16:00', '16:00-16:30', '16:30-17:00', '17:00-17:30', '17:30-18:00', '18:00-18:30','18:30-19:00', '19:00-19:30','19:30-20:00', '20:00-20:30', '20:30-21:00', '21:00-21:30', '22:00-22:30', '22:30-23:00', '23:00-23:30', '23:30-24:00'],
       popoverlist : [{'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
                      {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
                      {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
@@ -65,6 +68,7 @@ class Timeslots extends Component {
 
   componentDidMount() {
     this.getList();
+  
   }
 
   getList = () => {
@@ -73,6 +77,8 @@ class Timeslots extends Component {
     .then(res => res.json())
     .then(result => this.setState({ result }))
   }
+
+  
 
   handleClose() {
     this.setState({ show: false });
@@ -136,9 +142,9 @@ class Timeslots extends Component {
   colhour(keeptime,butdisable,count) {
     return(  
         <Col className='halfhour' xs={4} md={1}>
-          <TsModal modalid = {this.state.buttonpush} popoverlist = {this.state.popoverlist} count = {this.state.count} show={this.state.show} onhide={this.handleClose} onclick={this.handleClose}   />
+          <TsModal  key={this.state.buttonpush} modalid = {this.state.buttonpush} popoverlist = {this.state.popoverlist} count = {this.state.count} show={this.state.show} onhide={this.handleClose} onclick={this.handleClose}   />
             <OverlayTrigger overlay = {this.popoverHoverFocus(count)} delay={{ show: 250, hide: 400 }}>
-              <Button bsStyle="outline-info" bsSize="large" style={btstyle} onMouseEnter={() => {this.handlePopoverList(keeptime, butdisable, count);}} onClick={() => { this.handleShow(); this.handleButPush({keeptime},count); }}>
+              <Button variant="outline-info" bsSize="large" style={btstyle} onMouseEnter={() => {this.handlePopoverList(keeptime, butdisable, count);}} onClick={() => { this.handleShow(); this.handleButPush({keeptime},count); }}>
                 {keeptime} 
               </Button>
             </OverlayTrigger>
