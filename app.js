@@ -6,6 +6,10 @@ const secret = 'mysecretsshhh';
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
 const withAuth = require('./middleware');
+var Insta = require('instamojo-nodejs');
+Insta.setKeys('test_740ce91628198c7bee53da61912','test_34c3808f8fcc937059bed35a427' );
+Insta.isSandboxMode(true);
+
 require('dotenv').config();
 var Razorpay = require('razorpay');
 var instance = new Razorpay({
@@ -13,6 +17,7 @@ var instance = new Razorpay({
   key_secret: process.env.API_PASS
 })
 
+var data = new Insta.PaymentData();
 
 
 // ... other imports 
@@ -303,37 +308,53 @@ app.use('/payment', (req, res) => {
       res.redirect('/');
     }
     else {
-      instance.orders.create({amount, currency, receipt, payment_capture, notes}).then((response) => {
-      console.log("**********Order Created***********");
-      console.log(response);
-      console.log("Table to be booked is : " + table_id);
-      console.log("**********Order Created***********");
-      order_id = response.id;
-      res.render(
-        'index',
-        {order_id,amount, table_id}
-      );
+      // instance.orders.create({amount, currency, receipt, payment_capture, notes}).then((response) => {
+      // console.log("**********Order Created***********");
+      // console.log(response);
+      // console.log("Table to be booked is : " + table_id);
+      // console.log("**********Order Created***********");
+      // order_id = response.id;
+      // res.render(
+      //   'index',
+      //   {order_id,amount, table_id}
+      // );
           
-        MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
-          if(!err) {
-            console.log("We are connected");
-          }
-          if(err)
-          {
-              console.log(err);
-          }
+      //   MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
+      //     if(!err) {
+      //       console.log("We are connected");
+      //     }
+      //     if(err)
+      //     {
+      //         console.log(err);
+      //     }
           
-          var dbo = db.db(process.env.DB_NAME);
-          var insertobj = { table_id: table_id,
-            order_id : order_id
-          };
-          dbo.collection("OrderTableStatus").insertOne(insertobj, function(err, res) {
-            if (err) throw err;
-          });
-        }); 
-      }).catch((error) => {
-        console.log(error);
-      })
+      //     var dbo = db.db(process.env.DB_NAME);
+      //     var insertobj = { table_id: table_id,
+      //       order_id : order_id
+      //     };
+      //     dbo.collection("OrderTableStatus").insertOne(insertobj, function(err, res) {
+      //       if (err) throw err;
+      //     });
+      //   }); 
+      // }).catch((error) => {
+      //   console.log(error);
+      // })
+      
+      data.purpose = "Students' Club";           
+      data.amount = amount;             
+      data.setRedirectUrl('http://localhost:4000/purchase');
+      Insta.createPayment(data, function(error,response) {
+       
+        if (error) {
+          alert(error);
+        } else {
+          console.log(response);
+          res.render(
+            'index',
+              {amount, table_id}
+             );
+        }
+      });
       app.engine('handlebars',exphbs({defaultLayout:'main'}));
       app.set('view engine', 'handlebars');
      

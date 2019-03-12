@@ -42,6 +42,7 @@
     background-color: #b4373d;
     
   }
+  
   .meet1{
     color: white;
 
@@ -52,6 +53,7 @@
     
   
   }
+ 
   .member_photo{
 width: 100%;
 
@@ -60,6 +62,9 @@ width: 100%;
 margin: 15px;
 background-color: white;
 border: gray 2px solid;
+  }
+    .icon{
+    width: 29%;
   }
   .nameofsecy{
     background-color: #fdc03c;

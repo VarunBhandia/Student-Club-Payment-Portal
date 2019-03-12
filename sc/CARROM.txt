@@ -1,0 +1,46 @@
+
+
+CARROM
+
+Players take turns to play. A turn consists of one or more strikes. A player wins by pocketing all of the pieces of their chosen colour first. However, neither player can win until one or other player has "covered the Queen". To cover the Queen, a player must pocket one of her own pieces immediately after pocketing the Queen. If the Queen is pocketed but not covered, the Queen is returned to the board. Both players normally try to cover the Queen in addition to trying to win the game because a player who wins and also covers the Queen receives bonus points.
+
+RULESObjective 
+Players take turns to play. A turn consists of one or more strikes. A player wins by pocketing all of the pieces of their chosen colour first. However, neither player can win until one or other player has "covered the Queen". To cover the Queen, a player must pocket one of her own pieces immediately after pocketing the Queen. If the Queen is pocketed but not covered, the Queen is returned to the board. Both players normally try to cover the Queen in addition to trying to win the game because a player who wins and also covers the Queen receives bonus points. 
+
+Striking 
+ - For each strike, the player must position the striker within the baseline OR on one of the two circles at either end of the baseline. 
+ - A striker within the baseline must touch both the front line and the rear line. 
+ - The striker may not "cut the moon" - be placed partially within the baseline and partially within the circle. 
+ - The player must flick the striker with one finger so that it crosses the front baseline - it is not permitted to flick backwards or horizontally. 
+ - A piece that is on or behind the front baseline must not be struck by the striker until the striker has crossed the front baseline. 
+ - In striking, the player's hand or arm must not cross the diagonal foul lines at either end of the baseline. 
+
+Basic rules 
+ - For the very first turn, the player is allowed three attempts to "break" i.e. disturb the central group of counters. 
+ - It doesn't matter which piece the striker hits first and it doesn't matter if the striker hits no pieces. 
+ - If a the striker pockets the Queen and/or one or more pieces of her own colour, the player retrieves the striker and takes another strike. 
+ - If the player pockets no pieces or commits a foul, the turn finishes. 
+
+Other Rules 
+ - Pieces returned to the centre can be placed on top of other pieces within the main circle. 
+ - If pieces come to rest standing on their edge or overlapping another piece, they are left as they are until moved again in the normal course of play. 
+ - If the striker comes to rest under another piece, the striker should be removed with as little disturbance to the covering piece as possible. 
+
+Fouls 
+When a player commits a foul, the turn comes to an end immediately and a penalty is incurred. The penalty is that one pocketed piece is returned to the board by the opponent anywhere within the main circle. Any other pieces requiring to be returned to the board are also placed within the main circle by the opponent. It is normal for pieces to be positioned in order to confer an advantage for the opponent. 
+A foul is recorded in the following situations: 
+ - The striker is pocketed. 
+ - The striker or any other piece leaves the board. 
+ - A player pockets an opponent's piece. If the Queen was also pocketed, it is returned to the centre by the opponent together with the penalty piece. Any other pieces pocketed in the same strike remain pocketed. 
+ - A player pockets the final opponent's piece. Regardless of whether the Queen has been covered, the opponent's piece is returned to the centre in addition to the penalty piece. 
+ - A player pockets the final piece before the Queen has been covered. In this case both the pocketed piece and a penalty piece are returned to the centre. 
+ - A player contravenes the rules for striking. 
+ - A player touches any piece in play, other than the striker. 
+ - The first player to strike fails to break the counters in three attempts. 
+ - Where a penalty is incurred but no pocketed pieces exist to return, the penalty is "owed" until a piece becomes available. If a penalty is owed, when a piece becomes available due to being pocketed, the piece is returned to the centre by the opponent at the end of the turn. Should the opponent forget to do this before the start of the next turn, any owed penalties are lost. 
+
+Scoring 
+ - At the end of the game the winner scores 1 point for each opponent's piece left on the board. 
+ - If the winner has less than 24 points and the winner also covered the Queen, a bonus 5 points are scored. 
+ - If the winner has 24 or more points, then no points are scored for covering the Queen. 
+ - The maximum score for one game is therefore 14 points. A match is played to 29 points. 

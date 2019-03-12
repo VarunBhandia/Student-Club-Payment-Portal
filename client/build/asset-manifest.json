@@ -1,16 +1,16 @@
 {
-  "main.css": "/static/css/main.b925b51c.chunk.css",
-  "main.js": "/static/js/main.125bb0c8.chunk.js",
-  "main.js.map": "/static/js/main.125bb0c8.chunk.js.map",
-  "static/js/1.c1c6ff2c.chunk.js": "/static/js/1.c1c6ff2c.chunk.js",
-  "static/js/1.c1c6ff2c.chunk.js.map": "/static/js/1.c1c6ff2c.chunk.js.map",
+  "main.css": "/static/css/main.004e6c5c.chunk.css",
+  "main.js": "/static/js/main.5d4fe7a4.chunk.js",
+  "main.js.map": "/static/js/main.5d4fe7a4.chunk.js.map",
+  "static/js/1.8911c0de.chunk.js": "/static/js/1.8911c0de.chunk.js",
+  "static/js/1.8911c0de.chunk.js.map": "/static/js/1.8911c0de.chunk.js.map",
   "runtime~main.js": "/static/js/runtime~main.229c360f.js",
   "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
-  "static/css/main.b925b51c.chunk.css.map": "/static/css/main.b925b51c.chunk.css.map",
+  "static/css/main.004e6c5c.chunk.css.map": "/static/css/main.004e6c5c.chunk.css.map",
   "static/media/playstation.jpg": "/static/media/playstation.777ffba0.jpg",
   "static/media/snooker.jpg": "/static/media/snooker.424e45de.jpg",
   "static/media/output-0.jpg": "/static/media/output-0.c9f52a6d.jpg",
   "index.html": "/index.html",
-  "precache-manifest.a120b907208e3a8a60c71f292074ce9b.js": "/precache-manifest.a120b907208e3a8a60c71f292074ce9b.js",
+  "precache-manifest.0e45dccecd61aa1f7bd004db9580fc23.js": "/precache-manifest.0e45dccecd61aa1f7bd004db9580fc23.js",
   "service-worker.js": "/service-worker.js"
 }

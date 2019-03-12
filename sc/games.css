@@ -27,7 +27,7 @@
     font-size : 18px;
   }
 }
-.deskto {
+.desktop {
   display: block;
 }
 .mobile{
@@ -45,6 +45,9 @@
   }
   .game-image{
     width: 100%;
+  }
+  .icon{
+    width: 29%;
   }
   .game-name{
     text-align: center;
@@ -80,8 +83,9 @@
   
    
 }
-rule
 }
+rule
+
 
 body {padding:0; margin:0}
 
@@ -209,6 +213,6 @@ li { font-size:100%; display:inline; padding-left:2.5rem; }
 
 .vl2 {position: absolute;  z-index: 82;border-left: 0.15rem solid white; height: 3.33rem;  margin: 36rem 0 0 7.7rem; opacity: 0;}*/
 
-.rules {position: absolute; z-index: 62;font-family: 'Average', serif; font-size: 6rem; color:white;top:14rem; left:40rem;opacity: 0;}
+.rules {position: absolute; z-index: 62;font-family: 'Average', serif; font-size: 6rem; color:white;top:14rem; left:52rem;opacity: 0;}
 
-.rulestext{position: absolute; z-index: 64; font-family: montserrat; font-size: 1.4rem; line-height: 1.4; width:50rem;top:25rem; left:40rem;color:white;display: none;opacity: 0;}
+.rulestext{position: absolute; z-index: 64; font-family: montserrat; font-size: 1.4rem; line-height: 1.4; width:70rem;top:25rem; left:52rem;color:white;display: none;opacity: 0;}

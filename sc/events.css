@@ -39,6 +39,10 @@
     background-color: #b4373d;
     height:130%;
   }
+  .icon{
+    width: 29%;
+    
+  }
   .title{
     margin-top: .5em;
     margin-bottom: .2em;

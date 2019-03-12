@@ -26,6 +26,43 @@
     font-size : 18px;
   }
 }
+.desktop{
+  display: block;
+}
+.mobile{
+  display: none;
+}
+@media only screen and (max-width: 600px){
+  .mobile{
+    display: block;
+    background-color: #b4373d;
+  }
+  .desktop{
+    display: none;
+    
+  }
+  .icon{
+    width: 29%;
+  }
+  .unitimage{
+    width:100%;
+  }
+  .unitcontent{
+    color: white;
+    padding-left: 2%;
+    padding-right: 2%;
+    font-size: 1.4em;
+    text-align: justify;
+  }
+  
+  .unitname{
+    text-align: center;
+    color: white;
+        font-size: 3.5em;
+        letter-spacing: .1em;
+        font-family: 'Average', serif;
+  }
+}
 
 
 
