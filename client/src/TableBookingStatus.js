@@ -30,10 +30,9 @@ var sectionStyle = {
 class TableBookingStatus extends Component {
   constructor(props, context) {
     super(props, context);
-
     this.state = {
       result: [],
-      } 
+      }
   }
 
   componentDidMount() {
@@ -89,115 +88,85 @@ class TableBookingStatus extends Component {
        }
     } 
     timesP1 = timesP1.map(function(value){
-      return <li style={{backgroundColor:'white', color:'black', width:'80px', paddingBottom:'2px', marginBottom:'5px', borderRadius:'8px',paddingLeft:'3px'}}> {value} </li>;
+      return <Col md={1} sm={2} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
     });
 
     timesP2 = timesP2.map(function(value){
-      return <li style={{backgroundColor:'white', color:'black', width:'80px', paddingBottom:'2px', marginBottom:'5px', borderRadius:'8px',paddingLeft:'3px'}}> {value} </li>;
+      return <Col md={1} sm={2} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
     });
 
     timesS1 = timesS1.map(function(value){
-      return <li style={{backgroundColor:'white', color:'black', width:'80px', paddingBottom:'2px', marginBottom:'5px', borderRadius:'8px',paddingLeft:'3px'}}> {value} </li>;
+      return <Col md={1} sm={2} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
     });
 
     timesS2 = timesS2.map(function(value){
-      return <li style={{backgroundColor:'white', color:'black', width:'80px', paddingBottom:'2px', marginBottom:'5px', borderRadius:'8px',paddingLeft:'3px'}}> {value} </li>;
+      return <Col md={1} sm={2} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
     });
 
     timesS3 = timesS3.map(function(value){
-      return <li style={{backgroundColor:'white', color:'black', width:'80px', paddingBottom:'2px', marginBottom:'5px', borderRadius:'8px',paddingLeft:'3px'}}> {value} </li>;
+      return <Col md={1} sm={2} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
     });
     timesS4 = timesS4.map(function(value){
-      return <li style={{backgroundColor:'white', color:'black', width:'80px', paddingBottom:'2px', marginBottom:'5px', borderRadius:'8px',paddingLeft:'3px'}}> {value} </li>;
+      return <Col md={1} sm={2} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
     });
     timesS5 = timesS5.map(function(value){
-      return <li style={{backgroundColor:'white', color:'black', width:'80px', paddingBottom:'2px', marginBottom:'5px', borderRadius:'8px',paddingLeft:'3px'}}> {value} </li>;
+      return <Col md={1} sm={2} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
     });
   
     return(
-        
-        <Grid style = {sectionStyle}>
-        <Row style={{paddingLeft:'40px', paddingBottom:'40px'}}>
-        <Col className='half' sm={2} xs={5}>
-          <Card body outline color="primary">
-        <CardBody >
-          <CardTitle><h2>Pool Table 1</h2></CardTitle>
-          <CardSubtitle style={{padding: '5px'}}><h4>Tables Vacant</h4></CardSubtitle>
-          <CardText><ul>{timesP1}</ul></CardText>
-        </CardBody>
-        </Card>    
-        </Col>
-       
-        <Col className='half' sm={2} xs={5}>
-          <Card body outline color="primary">
-        <CardBody >
-          <CardTitle><h2>Pool Table 2</h2></CardTitle>
-          <CardSubtitle style={{padding: '5px'}}><h4>Tables Vacant</h4></CardSubtitle>
-          <CardText><ul>{timesP2}</ul></CardText>
+      <container>
+        <Grid >
+        <Row >
+        <CardTitle><h2>Pool Table 1</h2></CardTitle>
+        <CardSubtitle style={{padding: '5px'}}><h4>Tables Vacant</h4></CardSubtitle>
+          {timesP1}
+</Row>
+</Grid>
+<Grid >
+        <Row >
+        <CardTitle><h2>Pool Table 2</h2></CardTitle>
+        <CardSubtitle style={{padding: '5px'}}><h4>Tables Vacant</h4></CardSubtitle>
+          {timesP2}
+</Row>
+</Grid>
+<Grid >
+        <Row >
+        <CardTitle><h2>Snooker Table 1</h2></CardTitle>
+        <CardSubtitle style={{padding: '5px'}}><h4>Tables Vacant</h4></CardSubtitle>
+          {timesS1}
+</Row>
+</Grid>
+<Grid >
+        <Row >
+        <CardTitle><h2>Snooker Table 2</h2></CardTitle>
+        <CardSubtitle style={{padding: '5px'}}><h4>Tables Vacant</h4></CardSubtitle>
+          {timesS2}
+</Row>
+</Grid>
           
-        </CardBody>
-      </Card>
+<Grid >
+        <Row >
+        <CardTitle><h2>Snooker Table 3</h2></CardTitle>
+        <CardSubtitle style={{padding: '5px'}}><h4>Tables Vacant</h4></CardSubtitle>
+          {timesS3}
+</Row>
+</Grid>
 
-          </Col>
-        </Row>
-        <Row style={{paddingLeft:'40px', paddingBottom:'40px'}}>
-          <Col className='half' sm={2} xs={5} >
-          <Card body outline color="primary">
-        <CardBody >
-          <CardTitle><h2>Snooker Table 1</h2></CardTitle>
-          <CardSubtitle style={{padding: '5px'}}><h4>Tables Vacant</h4></CardSubtitle>
-          <CardText><ul>{timesS1}</ul></CardText>
-          
-        </CardBody>
-      </Card>
-          </Col>
-          
-          <Col className='half' sm={2} xs={5} >
-          <Card body outline color="primary">
-        <CardBody >
-          <CardTitle><h2>Snooker Table 2</h2></CardTitle>
-          <CardSubtitle style={{padding: '5px'}}><h4>Tables Vacant</h4></CardSubtitle>
-          <CardText><ul>{timesS2}</ul></CardText>
-          
-        </CardBody>
-      </Card>
-            
-          </Col>
-          
-          <Col className='half' sm={2} xs={5}>
-          <Card body outline color="primary">
-        <CardBody >
-          <CardTitle><h2>Snooker Table 3</h2></CardTitle>
-          <CardSubtitle style={{padding: '5px'}}><h4>Tables Vacant</h4></CardSubtitle>
-          <CardText><ul>{timesS3}</ul></CardText>
-          
-        </CardBody>
-      </Card>
-          </Col>
-
-          <Col className='half' sm={2} xs={5}>
-          <Card body outline color="primary">
-        <CardBody >
-          <CardTitle><h2>Snooker Table 4</h2></CardTitle>
-          <CardSubtitle style={{padding: '5px'}}><h4>Tables Vacant</h4></CardSubtitle>
-          <CardText><ul>{timesS4}</ul></CardText>
-          
-        </CardBody>
-      </Card>
-          </Col>
-
-          <Col className='half' sm={2} xs={5}>
-          <Card body outline color="primary">
-        <CardBody >
-          <CardTitle><h2>Snooker Table 5</h2></CardTitle>
-          <CardSubtitle style={{padding: '5px'}}><h4>Tables Vacant</h4></CardSubtitle>
-          <CardText><ul>{timesS5}</ul></CardText>
-          
-        </CardBody>
-      </Card>
-          </Col>
-          </Row>  
-    </Grid>        
+<Grid >
+        <Row >
+        <CardTitle><h2>Snooker Table 4</h2></CardTitle>
+        <CardSubtitle style={{padding: '5px'}}><h4>Tables Vacant</h4></CardSubtitle>
+          {timesS4}
+</Row>
+</Grid>
+<Grid >
+        <Row >
+        <CardTitle><h2>Snooker Table 5</h2></CardTitle>
+        <CardSubtitle style={{padding: '5px'}}><h4>Tables Vacant</h4></CardSubtitle>
+          {timesS5}
+</Row>
+</Grid>
+    </container>       
     );
   }
 }

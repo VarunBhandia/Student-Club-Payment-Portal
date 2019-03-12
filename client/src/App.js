@@ -42,13 +42,16 @@ class App extends Component {
           <NavbarHeader />
           <Route exact path="/portal" render={props => (
             <React.Fragment>
-              <Timeslots />
-              <br></br><br></br>
+              <div className="container">
               <div className="alert"> 
-                1. Please note that you cannot book more than 3 tables in a day. 
+                1. Please note that you cannot book more than 3 tables in a day.<br></br> 
                 In case of any discrepancy or amount deducted but table not being assigned, please report the incident to Student's Club. Refund will be initiated accordingly in about 14 days.<br></br>
                 2. Please wait a few seconds before selecting so that the availability status can be updated.
               </div>
+              </div>
+              <Timeslots />
+              <br></br><br></br>
+              
             </React.Fragment>
           )}>
           </Route> 

@@ -16,11 +16,20 @@ body {
 	/* padding: 20px;
 	background-color: hsla(270, 7%, 5%, 0.247); Red */
 	color: white;
-	width : 500px;
-	padding-bottom: 108px;
-	margin-left: 400px;
-	margin-top: 100px;
+	width : 50%;
+	padding-bottom: 0px;
+	margin-left: 32%;
+	margin-top: 50px;
   }
+@media only screen and (max-width: 600px){
+	.alert{
+	color: white;
+	width : 100%;
+	padding-bottom: 0px;
+	margin-left: 0%;
+	margin-top: 50px;
+	}
+}
 /* .container {
 	min-height: 100%;
 } */

@@ -163,13 +163,13 @@ class TsModal extends React.Component {
           </Modal.Header>
           <Modal.Body>            
             <hr />
-            <Button disabled = {disabled[0]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Pool Table 1',5)}} >Pool table 1 </Button>
-            <Button disabled = {disabled[1]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Pool Table 2',5)}}> Pool table 2 </Button>
-            <Button disabled = {disabled[2]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Snooker Table 1',5)}}>Snooker table 1</Button>
-            <Button disabled = {disabled[3]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Snooker Table 2',5)}}>Snooker table 2</Button>
-            <Button disabled = {disabled[4]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Snooker Table 3',5)}}>Snooker table 3</Button>
-            <Button disabled = {disabled[5]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Snooker Table 4',5)}}>Snooker table 4</Button>
-            <Button disabled = {disabled[6]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Snooker Table 5',5)}}>Snooker table 5</Button>
+            <Button disabled = {disabled[0]} bsStyle="primary" bsSize="small" style={{ margin: '4px'}} onClick={() => { this.handleTotalBooking(item, 'Pool Table 1',5)}} >Pool table 1 </Button>
+            <Button disabled = {disabled[1]} bsStyle="primary" bsSize="small" style={{ margin: '4px'}} onClick={() => { this.handleTotalBooking(item, 'Pool Table 2',5)}}> Pool table 2 </Button><br></br>
+            <Button disabled = {disabled[2]} bsStyle="primary" bsSize="small" style={{ margin: '4px'}} onClick={() => { this.handleTotalBooking(item, 'Snooker Table 1',5)}}>Snooker table 1</Button>
+            <Button disabled = {disabled[3]} bsStyle="primary" bsSize="small" style={{ margin: '4px'}} onClick={() => { this.handleTotalBooking(item, 'Snooker Table 2',5)}}>Snooker table 2</Button>
+            <Button disabled = {disabled[4]} bsStyle="primary" bsSize="small" style={{ margin: '4px'}} onClick={() => { this.handleTotalBooking(item, 'Snooker Table 3',5)}}>Snooker table 3</Button>
+            <Button disabled = {disabled[5]} bsStyle="primary" bsSize="small" style={{ margin: '4px'}} onClick={() => { this.handleTotalBooking(item, 'Snooker Table 4',5)}}>Snooker table 4</Button>
+            <Button disabled = {disabled[6]} bsStyle="primary" bsSize="small" style={{ margin: '4px'}} onClick={() => { this.handleTotalBooking(item, 'Snooker Table 5',5)}}>Snooker table 5</Button>
           </Modal.Body>
           <Modal.Footer style={{position:'relative', textAlign:'left'}}>
             Total Amount is : {this.state.totalamount}

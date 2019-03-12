@@ -181,7 +181,7 @@ class PsTimeslots extends Component {
         {this.colhour(time[24],slot,24)}
         {this.colhour(time[25],slot,25)}
       </Row>
-
+      
       <div className="alert"> 
                 Please note that you cannot book more than 3 Playstations in a day. 
                 In case of any discrepancy or amount deducted but table not being assigned, please report the incident to Student's Club. Refund will be initiated accordingly in about 14 days.
@@ -191,5 +191,5 @@ class PsTimeslots extends Component {
     );
   }
 }
-
+            
 export default PsTimeslots; 
