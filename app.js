@@ -321,7 +321,7 @@ app.use('/payment', (req, res) => {
     else {
         data.purpose = "Book : " + table_id;           
         data.amount = amount;             
-        data.setRedirectUrl('http://localhost:4000/purchase/');
+        data.setRedirectUrl('http://stuc.iitr.ac.in/purchase/');
         Insta.createPayment(data, function(error,response) {
           if (error) {
             alert(error);
