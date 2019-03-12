@@ -20,12 +20,13 @@ import TableBookingStatus from './TableBookingStatus';
 import TableBooking from './NewBooking';
 import PSBookingStatus from './PsBookingStatus';
 import PsTimeslots from './PsTimeslots';
+import { Alert } from 'react-bootstrap';
 
 
 var sectionStyle = {
   width: "100%",
   height: '100%',
-  backgroundImage: `url(${Background})`,
+  backgroundColor:'#b4373d',
   backgroundRepeat: 'repeat',
   backgroundSize: 'cover',
   top: '0', left: '0',right: '0', bottom: '0', minWidth: '100%', minHeight: '100%',
@@ -35,6 +36,7 @@ var sectionStyle = {
 
 class App extends Component {
   render() { 
+    var variant='danger';
     return (
       <div style={ sectionStyle } className='container'>
         <Router>
@@ -43,11 +45,12 @@ class App extends Component {
           <Route exact path="/portal" render={props => (
             <React.Fragment>
               <div className="container">
-              <div className="alert"> 
+              <Alert variant={variant}> 
                 1. Please note that you cannot book more than 3 tables in a day.<br></br> 
                 In case of any discrepancy or amount deducted but table not being assigned, please report the incident to Student's Club. Refund will be initiated accordingly in about 14 days.<br></br>
-                2. Please wait a few seconds before selecting so that the availability status can be updated.
-              </div>
+                2. Please wait a few seconds before selecting so that the availability status can be updated.<br></br>
+                3. Minimum amount payable is 10 rupees .
+              </Alert>
               </div>
               <Timeslots />
               <br></br><br></br>

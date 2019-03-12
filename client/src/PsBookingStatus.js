@@ -9,7 +9,7 @@ import { Card, CardTitle, CardText,
 import './App.css';
 import Background from './playstation.jpg';
 var sectionStyle = {
-backgroundImage: `url(${Background})`,
+
 
   width: "101.85%",
   height: '100%',
@@ -62,40 +62,32 @@ class PSBookingStatus extends Component {
         
      }
        timesP1 = timesP1.map(function(value){
-        return <li style={{backgroundColor:'white', color:'black', width:'80px', paddingBottom:'2px', marginBottom:'5px', borderRadius:'8px',paddingLeft:'3px'}}> {value} </li>;
+        return <Col md={1} sm={2} xs={6} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
       });
 
       timesP2 = timesP2.map(function(value){
-        return <li style={{backgroundColor:'white', color:'black', width:'80px', paddingBottom:'2px', marginBottom:'5px', borderRadius:'8px',paddingLeft:'3px'}}> {value} </li>;
+        return <Col md={1} sm={2} xs={6} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
       });
     } 
     
     return(
-       
-        <Grid style = {sectionStyle}>
-         <Row style={{marginLeft:'20px'}}>
-          <Col className='portal' sm={2} xs={7}>
-          <Card body outline color="primary">
-            <CardBody >
-            <CardTitle><h2>Playstation 1</h2></CardTitle>
-            <CardSubtitle style={{padding: '5px'}}><h4>Vacancies</h4></CardSubtitle>
-            <CardText><ul>{timesP1}</ul></CardText>
-            </CardBody>
-          </Card>
-          </Col>
+       <container>
+      <Grid>
+      <Row>
+      <CardTitle><h2 style={{color:'white'}}>Playstation 1</h2></CardTitle>
+      <CardSubtitle style={{padding: '5px',color:'white'}}><h4>Vacancies</h4></CardSubtitle>
+        {timesP1}
+</Row>
+</Grid>
 
-          <Col className='portal' sm={2} xs={7} >
-          <Card body outline color="primary">
-            <CardBody >
-            <CardTitle><h2>Playstation 2</h2></CardTitle>
-            <CardSubtitle style={{padding: '5px'}}><h4>Vacancies</h4></CardSubtitle>
-            <CardText><ul>{timesP1}</ul></CardText>
-            </CardBody>
-          </Card>
-          </Col>
-        </Row>
-    </Grid>        
-    
+<Grid>
+<Row>
+<CardTitle><h2 style={{color:'white'}}>Playstation 2</h2></CardTitle>
+<CardSubtitle style={{padding: '5px',color:'white'}}><h4>Vacancies</h4></CardSubtitle>
+  {timesP2}
+</Row>
+</Grid>
+</container>
     );
   }
 }
