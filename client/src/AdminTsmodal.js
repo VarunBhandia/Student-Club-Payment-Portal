@@ -87,7 +87,7 @@ class TsModal extends React.Component {
   createCheckboxes(currentT) {
     const {result} = this.state;
     this.setState({checkboxDis:false});
-    OPTIONS = ['10:00-10:30', '10:30-11:00', '11:00-11:30', '11:30-12:00', '12:00-12:30', '12:30-13:00', '13:00-13:30', '13:30-14:00', '14:00-14:30', '14:30-15:00', '15:00-15:30', '15:30-16:00', '16:00-16:30', '16:30-17:00', '17:00-17:30', '17:30-18:00', '18:00-18:30', '18:30-19:00','19:00-19:30','19:30-20:00', '20:00-20:30', '20:30-21:00', '21:00-21:30', '22:00-22:30', '22:30-23:00', '23:00-23:30', '23:30-24:00'];
+    OPTIONS = ['10:00-10:30', '10:30-11:00', '11:00-11:30', '11:30-12:00', '12:00-12:30', '12:30-13:00', '13:00-13:30', '13:30-14:00', '14:00-14:30', '14:30-15:00', '15:00-15:30', '15:30-16:00', '16:00-16:30', '16:30-17:00', '17:00-17:30', '17:30-18:00', '18:00-18:30', '18:30-19:00','19:00-19:30','19:30-20:00', '20:00-20:30', '20:30-21:00', '21:00-21:30', '21:30-22:00', '22:00-22:30', '22:30-23:00', '23:00-23:30', '23:30-24:00'];
     if(result) {
       for(var i=0; i<result.length; i++) {
         if(result[i].TableType === currentT.currentTable) {
@@ -154,6 +154,12 @@ class TsModal extends React.Component {
       if(slot[count].s5 === 'Booked') {
         disabled[6] = true;
       }
+      if(slot[count].c1 === 'Booked') {
+        disabled[7] = true;
+      }
+      if(slot[count].c2 === 'Booked') {
+        disabled[8] = true;
+      }
     }
 
     return (
@@ -170,6 +176,8 @@ class TsModal extends React.Component {
             <Button disabled = {disabled[4]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Snooker Table 3',5)}}>Snooker table 3</Button>
             <Button disabled = {disabled[5]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Snooker Table 4',5)}}>Snooker table 4</Button>
             <Button disabled = {disabled[6]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Snooker Table 5',5)}}>Snooker table 5</Button>
+            <Button disabled = {disabled[7]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Playstation 1',20)}}>Playstation 1</Button>
+            <Button disabled = {disabled[8]} bsStyle="primary" bsSize="small" onClick={() => { this.handleTotalBooking(item, 'Playstation 2',20)}}>Playstation 2</Button>
           </Modal.Body>
           <Modal.Footer style={{position:'relative', textAlign:'left'}}>
             Total Amount is : {this.state.totalamount}

@@ -245,6 +245,13 @@ app.get('/static/media/*.jpg', (req, res) => {
   res.setHeader('Content-type', 'image/jpg')
   res.sendFile(path.join(__dirname, req.url))
 });
+app.get('/static/media/*.png', (req, res) => {
+  
+  req.url = 'client/build' + req.url;
+  
+  res.setHeader('Content-type', 'image/png')
+  res.sendFile(path.join(__dirname, req.url))
+});
 app.get('/manifest.json', (req, res) => {
   req.url = 'client/build' + req.url;
   res.setHeader('Content-type', 'application/json')
@@ -438,7 +445,7 @@ app.get('/purchase', (req,res,value) =>{
                       app.set('view engine', 'handlebars');
                     res.render('notif', 
                     {
-                      text: 'Sorry! In the meantime, someone else booked one of your tables. Please collect your refund from Students Club' 
+                      text: 'Sorry! In the meantime, someone else booked one of your tables. Please collect your refund from Students Club. It might take some days.' 
                     });
                     }
                     else if(bookno === false) {
@@ -447,7 +454,7 @@ app.get('/purchase', (req,res,value) =>{
                       app.set('view engine', 'handlebars');
                     res.render('notif', 
                     {
-                      text: 'Sorry! You have already made 3 bookings for today. Refund cannot be processed now since you were already notified the same!' 
+                      text: 'Sorry! You have already made 3 bookings for today. Refund will be processed later since you were already notified the same!' 
                     });
                     }
                     else {

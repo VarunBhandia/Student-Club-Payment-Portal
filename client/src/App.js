@@ -46,7 +46,7 @@ class App extends Component {
             <React.Fragment>
               <div className="container">
               <Alert variant={variant}> 
-                1. Please note that you cannot book more than 3 tables in a day.<br></br> 
+                1. Please note that you cannot book more than 4 table slots in a day.<br></br> 
                 In case of any discrepancy or amount deducted but table not being assigned, please report the incident to Student's Club. Refund will be initiated accordingly in about 14 days.<br></br>
                 2. Please wait a few seconds before selecting so that the availability status can be updated.<br></br>
                 3. Minimum amount payable is 10 rupees .
