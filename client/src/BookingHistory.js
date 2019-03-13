@@ -53,8 +53,8 @@ class BookingHistory extends Component {
       });
     return(
       
-        <Table responsive variant="dark">
-            <thead>
+        <Table responsive style={{color: 'white'}}>
+            <thead >
                 <tr>
                 <th>Email</th>
                 <th>Contact Number</th>

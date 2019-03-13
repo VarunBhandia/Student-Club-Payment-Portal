@@ -183,11 +183,9 @@ class Timeslots extends Component {
         {this.colhour(time[11],slot,11)}
         {this.colhour(time[12],slot,12)}
         {this.colhour(time[13],slot,13)}
-      
         {this.colhour(time[14],slot,14)}
         {this.colhour(time[15],slot,15)}
         {this.colhour(time[16],slot,16)}
-     
         {this.colhour(time[17],slot,17)}
         </Row>
       <Row className="timeslot">
