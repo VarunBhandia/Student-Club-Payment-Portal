@@ -438,7 +438,7 @@ app.get('/purchase', (req,res,value) =>{
                       app.set('view engine', 'handlebars');
                     res.render('notif', 
                     {
-                      text: 'Sorry! In the meantime, someone else booked one of your tables. Please collect your refund from Students Club' 
+                      text: 'Sorry! In the meantime, someone else booked one of your tables. Please collect your refund from Students Club. It might take some days.' 
                     });
                     }
                     else if(bookno === false) {
@@ -447,7 +447,7 @@ app.get('/purchase', (req,res,value) =>{
                       app.set('view engine', 'handlebars');
                     res.render('notif', 
                     {
-                      text: 'Sorry! You have already made 3 bookings for today. Refund cannot be processed now since you were already notified the same!' 
+                      text: 'Sorry! You have already made 3 bookings for today. Refund will be processed later since you were already notified the same!' 
                     });
                     }
                     else {

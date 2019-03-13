@@ -36,7 +36,7 @@ class TableBookingStatus extends Component {
       }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.getList();
   }
 
