@@ -32,7 +32,7 @@ class PSBookingStatus extends Component {
       } 
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.getList();
   }
 

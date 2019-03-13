@@ -70,7 +70,7 @@ class PsTimeslots extends Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.getList();
   }
 
@@ -148,7 +148,7 @@ class PsTimeslots extends Component {
     <div className='psbook' style={backstyle}>
     <div className='container'>
     <Alert variant='danger'> 
-                Please note that you cannot book more than 3 Playstations in a day. 
+                Please note that you cannot book more than 4 Playstation slots in a day. 
                 In case of any discrepancy or amount deducted but table not being assigned, please report the incident to Student's Club. Refund will be initiated accordingly in about 14 days.
                 
               </Alert>
