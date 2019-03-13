@@ -2,25 +2,25 @@ import React, { Component } from 'react';
 import {
   Navbar, Nav,NavDropdown,MenuItem
 } from 'react-bootstrap';
-import Background from './output-0.jpg';
+import Background from './logo-white-01.png';
 var navstyle = {
   color:'white'
 }
 class NavbarHeader extends Component {
   render() {
     return (
-    <Navbar inverse fixed='top' style = {{ width: '100%', background: 'none'}} >
+    <Navbar inverse fixed='top' style = {{ width: '100%', background: 'none',border:'none'}} >
       <Navbar.Header>
         
         <Navbar.Brand>
-        <a href="/" style={navstyle}><img src={Background} alt='stuc logo' href='/' style={{width:80, marginTop: -7, height:50}} /></a>
+        <a href="/" style={navstyle}><img src={Background} alt='stuc logo' href='/' style={{width:"33%",}}></img></a>
         </Navbar.Brand>
         <Navbar.Toggle />
       </Navbar.Header>
       
-      <Navbar.Collapse>
+      <Navbar.Collapse >
         <Nav pullRight>
-          <NavDropdown eventKey={3} title="Livestream" id="basic-nav-dropdown">
+          <NavDropdown eventKey={3} title="Livestream" id="basic-nav-dropdown" style={{color:'white'}}>
             <MenuItem eventKey={3.1} href="/foosballstream">Foosball</MenuItem>
             <MenuItem eventKey={3.2} href="/chessstream">Chess</MenuItem>
             <MenuItem eventKey={3.3} href="/snookerstream">Snooker</MenuItem>

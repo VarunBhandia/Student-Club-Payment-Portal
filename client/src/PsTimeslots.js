@@ -3,6 +3,7 @@ import {
   Grid,
   Row,
   Col,
+  Alert,
   Button,
   OverlayTrigger,
   Popover,
@@ -16,7 +17,7 @@ var btstyle = {
   margin : '10px',
 }
 var backstyle = {
-  backgroundImage: `url(${Background})`,
+   
   marginLeft:'-15px',
   marginRight:'-15px',
   marginTop: '-20px'
@@ -124,7 +125,7 @@ class PsTimeslots extends Component {
         <Col className='halfhour' xs={4} md={1}>
           <PsTsModal modalid = {this.state.buttonpush} popoverlist = {this.state.popoverlist} count = {this.state.count} show={this.state.show} onhide={this.handleClose} onclick={this.handleClose}   />
             <OverlayTrigger overlay = {this.popoverHoverFocus(count)} delay={{ show: 250, hide: 400 }}>
-              <Button bsStyle="outline-info" bsSize="large" style={btstyle} onMouseEnter={() => {this.handlePopoverList(keeptime, butdisable, count);}} onClick={() => { this.handleShow(); this.handleButPush({keeptime},count); }}>
+              <Button bsStyle="outline-info"  style={btstyle} onMouseEnter={() => {this.handlePopoverList(keeptime, butdisable, count);}} onClick={() => { this.handleShow(); this.handleButPush({keeptime},count); }}>
                 {keeptime} 
               </Button>
             </OverlayTrigger>
@@ -134,6 +135,7 @@ class PsTimeslots extends Component {
 
 
   render() {
+
     const { result } = this.state;
     if(result === null) {
       return <div />
@@ -144,8 +146,14 @@ class PsTimeslots extends Component {
     var time = this.state.time;
     return (
     <div className='psbook' style={backstyle}>
+
     <Grid>
     <h1 style={{color: 'white', marginLeft: '25px'}}><b>Playstation Booking</b></h1>
+              <Alert variant='danger'> 
+                Please note that you cannot book more than 3 Playstations in a day. 
+                In case of any discrepancy or amount deducted but table not being assigned, please report the incident to Student's Club. Refund will be initiated accordingly in about 14 days.
+                
+              </Alert>
      <br></br>
       <Row className="timeslot">
         {this.colhour(time[0],slot,0)}
@@ -182,10 +190,7 @@ class PsTimeslots extends Component {
         {this.colhour(time[25],slot,25)}
       </Row>
       
-      <div className="alert"> 
-                Please note that you cannot book more than 3 Playstations in a day. 
-                In case of any discrepancy or amount deducted but table not being assigned, please report the incident to Student's Club. Refund will be initiated accordingly in about 14 days.
-              </div>
+     
     </Grid>
     </div> 
     );
