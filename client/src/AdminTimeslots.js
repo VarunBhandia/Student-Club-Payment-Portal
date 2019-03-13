@@ -33,40 +33,40 @@ class Timeslots extends Component {
       buttonPush: 'invalid',
       count : 0,
       result: [],  
-      time : ['10:00-10:30', '10:30-11:00', '11:00-11:30', '11:30-12:00', '12:00-12:30', '12:30-13:00', '13:00-13:30', '13:30-14:00', '14:00-14:30', '14:30-15:00', '15:00-15:30', '15:30-16:00', '16:00-16:30', '16:30-17:00', '17:00-17:30', '17:30-18:00', '18:00-18:30','18:30-19:00', '19:00-19:30','19:30-20:00', '20:00-20:30', '20:30-21:00', '21:00-21:30', '22:00-22:30', '22:30-23:00', '23:00-23:30', '23:30-24:00'],
-      popoverlist : [{'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
-                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
-                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
-                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
-                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
-                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
-                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
-                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
-                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
-                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
-                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
-                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
-                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
-                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
-                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
-                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
-                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
-                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
-                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
-                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
-                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
-                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
-                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
-                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
-                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
-                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
-                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},
-                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available"},                    
+      time : ['10:00-10:30', '10:30-11:00', '11:00-11:30', '11:30-12:00', '12:00-12:30', '12:30-13:00', '13:00-13:30', '13:30-14:00', '14:00-14:30', '14:30-15:00', '15:00-15:30', '15:30-16:00', '16:00-16:30', '16:30-17:00', '17:00-17:30', '17:30-18:00', '18:00-18:30','18:30-19:00', '19:00-19:30','19:30-20:00', '20:00-20:30', '20:30-21:00', '21:00-21:30', '21:30-22:00', '22:00-22:30', '22:30-23:00', '23:00-23:30', '23:30-24:00'],
+      popoverlist : [{'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available", 'c1' : "Available", 'c2' : "Available"},
+                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available", 'c1' : "Available", 'c2' : "Available"},
+                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available", 'c1' : "Available", 'c2' : "Available"},
+                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available", 'c1' : "Available", 'c2' : "Available"},
+                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available", 'c1' : "Available", 'c2' : "Available"},
+                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available", 'c1' : "Available", 'c2' : "Available"},
+                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available", 'c1' : "Available", 'c2' : "Available"},
+                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available", 'c1' : "Available", 'c2' : "Available"},
+                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available", 'c1' : "Available", 'c2' : "Available"},
+                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available", 'c1' : "Available", 'c2' : "Available"},
+                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available", 'c1' : "Available", 'c2' : "Available"},
+                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available", 'c1' : "Available", 'c2' : "Available"},
+                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available", 'c1' : "Available", 'c2' : "Available"},
+                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available", 'c1' : "Available", 'c2' : "Available"},
+                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available", 'c1' : "Available", 'c2' : "Available"},
+                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available", 'c1' : "Available", 'c2' : "Available"},
+                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available", 'c1' : "Available", 'c2' : "Available"},
+                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available", 'c1' : "Available", 'c2' : "Available"},
+                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available", 'c1' : "Available", 'c2' : "Available"},
+                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available", 'c1' : "Available", 'c2' : "Available"},
+                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available", 'c1' : "Available", 'c2' : "Available"},
+                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available", 'c1' : "Available", 'c2' : "Available"},
+                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available", 'c1' : "Available", 'c2' : "Available"},
+                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available", 'c1' : "Available", 'c2' : "Available"},
+                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available", 'c1' : "Available", 'c2' : "Available"},
+                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available", 'c1' : "Available", 'c2' : "Available"},                   
+                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available", 'c1' : "Available", 'c2' : "Available"},
+                     {'p1': "Available", 'p2': "Available", 's1' : "Available", 's2' : "Available" , 's3' : "Available", 's4' : "Available", 's5' : "Available", 'c1' : "Available", 'c2' : "Available"},
                     ],
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.getList();
     this.getToken();
   }
@@ -148,6 +148,8 @@ class Timeslots extends Component {
     <strong >S3 -> {this.state.popoverlist[count].s3}</strong> <br />
     <strong >S4 -> {this.state.popoverlist[count].s4}</strong> <br />
     <strong >S5 -> {this.state.popoverlist[count].s5}</strong> <br />
+    <strong >Console1 -> {this.state.popoverlist[count].c1}</strong> <br/>
+    <strong >Console2 -> {this.state.popoverlist[count].c2}</strong> <br/>
   </Popover>
   );
   } 
@@ -220,6 +222,8 @@ class Timeslots extends Component {
         {this.colhour(time[23],slot,23)}
         {this.colhour(time[24],slot,24)}
         {this.colhour(time[25],slot,25)}
+        {this.colhour(time[26],slot,26)}
+        {this.colhour(time[27],slot,27)}
       </Row>
     </Grid>
       

@@ -88,7 +88,7 @@ class TsModal extends React.Component {
   createCheckboxes(currentT) {
     const {result} = this.state;
     this.setState({checkboxDis:false});
-    OPTIONS = ['10:00-10:30', '10:30-11:00', '11:00-11:30', '11:30-12:00', '12:00-12:30', '12:30-13:00', '13:00-13:30', '13:30-14:00', '14:00-14:30', '14:30-15:00', '15:00-15:30', '15:30-16:00', '16:00-16:30', '16:30-17:00', '17:00-17:30', '17:30-18:00', '18:00-18:30', '18:30-19:00','19:00-19:30','19:30-20:00', '20:00-20:30', '20:30-21:00', '21:00-21:30', '22:00-22:30', '22:30-23:00', '23:00-23:30', '23:30-24:00'];
+    OPTIONS = ['10:00-10:30', '10:30-11:00', '11:00-11:30', '11:30-12:00', '12:00-12:30', '12:30-13:00', '13:00-13:30', '13:30-14:00', '14:00-14:30', '14:30-15:00', '15:00-15:30', '15:30-16:00', '16:00-16:30', '16:30-17:00', '17:00-17:30', '17:30-18:00', '18:00-18:30', '18:30-19:00','19:00-19:30','19:30-20:00', '20:00-20:30', '20:30-21:00', '21:00-21:30', '21:30-22:00', '22:00-22:30', '22:30-23:00', '23:00-23:30', '23:30-24:00'];
     if(result) {
       for(var i=0; i<result.length; i++) {
         if(result[i].TableType === currentT.currentTable) {
@@ -164,7 +164,7 @@ class TsModal extends React.Component {
           
               <Alert> 
                 Please make sure that you are not booking more than 4 tables for today, otherwise your money will be
-                deducted but tables will not be assigned 
+                deducted but tables will not be assigned. 
                 to you.
               </Alert>
           
