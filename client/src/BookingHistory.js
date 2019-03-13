@@ -38,59 +38,32 @@ class BookingHistory extends Component {
 
   render() {
     const { result } = this.state;
-    var names = [];
-    var tables = [];
-    var contact = [];
-    var paymentIDs = [];
+    var entries = [];
        if(result[0]) {
        for(var i=0; i<result.length; i++) {
-        names.push(result[i].BookingEmail);
-        tables.push(result[i].TableId);
-        contact.push(result[i].BookingContact);
-        paymentIDs.push(result[i].PaymentId);
+           var arr = [result[i].BookingEmail,result[i].BookingContact, result[i].TableId, result[i].PaymentId];
+        entries.push(arr);
        }
     } 
-    names = names.map(function(value){
-        
-      return <tr>
-          <td>{value}</td>
-          </tr>;
-    });
-    tables = tables.map(function(value){
-        
-      return <tr>
-          <td>{value}</td>
-          </tr>;
-    });
-    
-    contact = tables.map(function(value){
-        
-        return <tr>
-            <td>{value}</td>
-            </tr>;
-    });
 
-    paymentIDs = tables.map(function(value){
-        
-        return <tr>
-            <td>{value}</td>
-            </tr>;
-    });
+    entries = entries.map(function(rows){
+        var row =  rows.map(cell => <td>{cell}</td>
+        );
+        return <tr>{row}</tr>;
+      });
     return(
       
-        <Table striped bordered hover>
+        <Table responsive variant="dark">
             <thead>
                 <tr>
                 <th>Email</th>
                 <th>Contact Number</th>
                 <th>Table</th> 
                 <th>PaymentID</th>
-                
                 </tr>
             </thead>
             <tbody>
-                {names}
-                
+                {entries}
             </tbody>
         </Table>
            
