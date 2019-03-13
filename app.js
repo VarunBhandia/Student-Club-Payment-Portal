@@ -194,6 +194,9 @@ app.get('/psbooking', (req, res) => {
 app.get('/tablestatus', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
 });
+app.get('/bookinghistory', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+});
 // static folders for admin pages
 app.get('/lsfoosball', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
@@ -761,6 +764,17 @@ app.get('/mznFag7kV7', function (req, res) {
     if (err) throw err;
     var dbo = db.db(process.env.DB_NAME);
     dbo.collection("TableStatus").find({}).toArray(function(err, result) {
+      if (err) throw err;
+      res.json(result);
+    });
+  });
+});
+
+app.get('/bookhist', function (req, res) {
+  MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db(process.env.DB_NAME);
+    dbo.collection("BookingHistory").find({}).toArray(function(err, result) {
       if (err) throw err;
       res.json(result);
     });
