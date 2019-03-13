@@ -1,7 +1,9 @@
 <html>
     <head>
+        <title> Team</title>
         	<meta content="width=device-width, initial-scale=1" name="viewport" />
         <link rel="stylesheet" href="team.css">
+        <link rel="shortcut icon" href="sclogo.PNG" type="image/x-icon">
         <link href="https://fonts.googleapis.com/css?family=Average" rel="stylesheet">
         
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -17,17 +19,45 @@
         <div class="desktop">
 
         <div class="header">
-            <a href="/"><img src="sclogo.PNG" class="logo"></a>
+            <a href="index.htm"><img src="sclogo.PNG" class="logo"></a>
             <ul class="head">
-                <li> <a href="index.htm" >Home </a></li>
-                <li> <a href="games.htm">Games </a> </li>
-                <li> <a href="events.htm">Events </a></li>
-                <li> <a href="about_us.htm">About Us </a></li>
-                <li> <a href="/portal">Book Table</a></li>
-		        <li> <a href="/tablestatus">Booking Status</a></li>
-                <li> <a href="notices.htm">Notices </a></li>
-                <li> <a href="team.htm" style="font-weight:normal; opacity:0.90;">Team </a></li>
-            </ul>
+                    <li role="presentation"> <a href="index.htm">Home </a></li>
+                    <li role="presentation"> <a href="games.htm" >Games </a> </li>
+                    <li role="presentation"> <a href="events.htm">Events </a></li>
+                    <li role="presentation"> <a href="about_us.htm">About Us </a></li>
+                    <li class="dropdown">
+                            <a  id="menu1" data-toggle="dropdown" href="" >Live Stream
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/foosballstream">Foosball</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/chessstream">Chess</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/snookerstream">Snooker</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/poolstream">Pool </a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/carromstream">Carrom</a></li>
+                            </ul>
+                          
+                    </li>
+                    <li class="dropdown">
+                            <a  id="menu1" data-toggle="dropdown" href="" >Booking Portel
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/portal">Pool and Snooker Booking</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/psbooking">Playstation Booking</a></li>
+                            </ul>
+                          
+                    </li>
+                    <li class="dropdown">
+                            <a  id="menu1" data-toggle="dropdown" href="" >Booking Status
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/tablestatus">Table Booking Status</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href=http://stuc.iitr.ac.in/psstatus>Playstation Booking Status</a></li>
+                            </ul>
+                          
+                    </li>
+                    <li role="presentation"> <a href="notices.htm">Notices </a></li>
+                    <li role="presentation" > <a href="team.htm" style="font-weight:normal; opacity:0.90;">Team </a></li>
+                </ul>
         </div>
         <p class="meet">MEET OUR TEAM</p>
         <div class="main">
@@ -38,7 +68,7 @@
                         <div class="team-member" style='background-image:url("gdrn.jpg");width: 100%;height: 70%;'>
                         </div>
                         <div class="panel-body">
-                            <p class="member-name">G.D. Ransinchung R.N.</p>
+                            <p class="member-name">Dr. G.D. Ransinchung R.N.</p>
                             <p>Faculty Advisor</p>
                         </div>
                        
@@ -201,7 +231,7 @@
                 </body>
             </div>
             <div class="mobile">
-                	<nav class="navbar navbar-inverse">
+                    <nav class="navbar navbar-inverse" style="background-color:#0f1012;border-color: #c7995d" >
                             <div class="container-fluid">
                                 <div class="navbar-header">
                                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -209,19 +239,47 @@
                                         <span class="icon-bar"></span>
                                         <span class="icon-bar"></span> 
                                     </button>
-                        <a href="index.htm" class="Studentclub_icon"><img src="logo-white-01.PNG" class="icon"></a>
+                        <a href="index.htm" class="Studentclub_icon"><img src="sclogo2.png" class="icon"></a>
                                 </div>
                                 <div class="collapse navbar-collapse" id="myNavbar">
-                                    <ul class="nav navbar-nav">
-                                                                    <li ><a href="index.htm">Home</a></li>
-                                        <li ><a href="about_us.htm">About Us</a></li>
-                                        <li> <a href="/portal">Bool Table</a></li>
-		                                <li> <a href="/tablestatus">Booking Status</a></li>
-                                        <li><a href="events.htm">Events</a></li>
-                                        <li ><a href="games.htm">Games</a></li> 
-                                        <li><a href="notices.htm">Notices</a></li>
-                                        <li class="active"><a href="team.htm">Team</a></li> 
-                                    </ul>
+                                        <ul class="nav navbar-nav">
+                                                <li role="presentation"> <a href="index.htm">Home </a></li>
+                                                <li role="presentation"> <a href="games.htm" >Games </a> </li>
+                                                <li role="presentation"> <a href="events.htm">Events </a></li>
+                                                <li role="presentation" > <a href="about_us.htm" >About Us </a></li>
+                                                <li class="dropdown">
+                                                        <a  id="menu1" data-toggle="dropdown" href="" >Live Stream
+                                                        <span class="caret"></span></a>
+                                                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/foosballstream">Foosball</a></li>
+                                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/chessstream">Chess</a></li>
+                                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/snookerstream">Snooker</a></li>
+                                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/poolstream">Pool </a></li>
+                                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/carromstream">Carrom</a></li>
+                                                        </ul>
+                                                      
+                                                </li>
+                                                <li class="dropdown">
+                                                        <a  id="menu1" data-toggle="dropdown" href="" >Booking Portel
+                                                        <span class="caret"></span></a>
+                                                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/portal">Pool and Snooker Booking</a></li>
+                                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/psbooking">Playstation Booking</a></li>
+                                                        </ul>
+                                                      
+                                                </li>
+                                                <li class="dropdown">
+                                                        <a  id="menu1" data-toggle="dropdown" href="" >Booking Status
+                                                        <span class="caret"></span></a>
+                                                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/tablestatus">Table Booking Status</a></li>
+                                                          <li role="presentation"><a role="menuitem" tabindex="-1" href=http://stuc.iitr.ac.in/psstatus>Playstation Booking Status</a></li>
+                                                        </ul>
+                                                      
+                                                </li>
+                                                <li role="presentation"> <a href="notices.htm">Notices </a></li>
+                                                <li role="presentation" class="active"> <a href="team.htm">Team </a></li>
+                                        </ul>
                                     
                                 </div>
                             </div>
@@ -238,17 +296,9 @@
                     <div class="row">
                         <div class="team_member">
                             <img src="gdrn.jpg" class="member_photo">
-                            <div class="nameofsecy">GDRN </div>
+                            <div class="nameofsecy">Dr. G.D. Ransinchung R.N. </div>
                             <div class="secy_type"> Faculty advisor</div>
-                            <div class="row">
-                                <div class="col-xs-4"></div>
-                                <div class="col-xs-4">
-                                    <a href="https://www.iitr.ac.in/~CE/gdranfce" target="_blank"> <img class="fb"
-                                            src="link.png"></a>
-                                </div>
-                                <div class="col-xs-4"></div>
-                            </div>
-                    
+                            <br>
                         </div>
                     
                     </div>
@@ -256,7 +306,7 @@
                             <div class="team_member">
                                 <img src="1.JPG" class="member_photo">
                                 <div class="nameofsecy">Vadada Kalyan Kumar</div>
-                                <div class="secy_type"> Secratary</div>
+                                <div class="secy_type"> Secretary</div>
                                 <div class="row">
                                     <div class="col-xs-4"></div>
                                     <div class="col-xs-4">

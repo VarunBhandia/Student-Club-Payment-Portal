@@ -69,12 +69,17 @@ class PSBookingStatus extends Component {
         return <Col md={1} sm={2} xs={6} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
       });
     } 
-    
+    var TableName = {
+      color: '#0f1012',
+      backgroundColor: '#c7995d',
+      
+      padding:' 7px',
+    };
     return(
        <container>
       <Grid>
       <Row>
-      <CardTitle><h2 style={{color:'white'}}>Playstation 1</h2></CardTitle>
+      <CardTitle><h2 style={TableName}>Playstation 1</h2></CardTitle>
       <CardSubtitle style={{padding: '5px',color:'white'}}><h4>Vacancies</h4></CardSubtitle>
         {timesP1}
 </Row>
@@ -82,7 +87,7 @@ class PSBookingStatus extends Component {
 
 <Grid>
 <Row>
-<CardTitle><h2 style={{color:'white'}}>Playstation 2</h2></CardTitle>
+<CardTitle><h2 style={TableName}>Playstation 2</h2></CardTitle>
 <CardSubtitle style={{padding: '5px',color:'white'}}><h4>Vacancies</h4></CardSubtitle>
   {timesP2}
 </Row>

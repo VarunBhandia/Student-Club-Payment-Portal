@@ -1,5 +1,10 @@
 <html>
     <head>
+        <title>
+            Home
+        </title>
+        <link rel="shortcut icon" href="sclogo.png" type="image/x-icon">
+
         <meta content="width=device-width, initial-scale=1" name="viewport" />
 
         <link rel="stylesheet" href="index.css">
@@ -103,15 +108,43 @@
         <div class="desktop">
             <a href="/"><img src="sclogo.PNG" class="logo"></a>
             <ul class="head">
-                <li> <a href="index.htm" style="font-weight:normal; opacity:0.90;">Home </a></li>
-                <li> <a href="games.htm">Games </a> </li>
-                <li> <a href="events.htm">Events </a></li>
-                <li> <a href="about_us.htm">About Us </a></li>
-                <li> <a href="/portal">Book Table</a></li>
-                <li> <a href="/tablestatus">Booking Status</a></li>
-                <li> <a href="notices.htm">Notices </a></li>
-                <li> <a href="team.htm">Team </a></li>
-            </ul>
+                    <li role="presentation"> <a href="index.htm" style="font-weight:normal; opacity:0.90;">Home </a></li>
+                    <li role="presentation"> <a href="games.htm" >Games </a> </li>
+                    <li role="presentation"> <a href="events.htm">Events </a></li>
+                    <li role="presentation"> <a href="about_us.htm">About Us </a></li>
+                    <li class="dropdown">
+                            <a  id="menu1" data-toggle="dropdown" href="" >Live Stream
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/foosballstream">Foosball</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/chessstream">Chess</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/snookerstream">Snooker</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/poolstream">Pool </a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/carromstream">Carrom</a></li>
+                            </ul>
+                          
+                    </li>
+                    <li class="dropdown">
+                            <a  id="menu1" data-toggle="dropdown" href="" >Booking Portel
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/portal">Pool and Snooker Booking</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/psbooking">Playstation Booking</a></li>
+                            </ul>
+                          
+                    </li>
+                    <li class="dropdown">
+                            <a  id="menu1" data-toggle="dropdown" href="" >Booking Status
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/tablestatus">Table Booking Status</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href=http://stuc.iitr.ac.in/psstatus>Playstation Booking Status</a></li>
+                            </ul>
+                          
+                    </li>
+                    <li role="presentation"> <a href="notices.htm">Notices </a></li>
+                    <li role="presentation"> <a href="team.htm">Team </a></li>
+                </ul>
             <span class="timing">CLUB TIMINGS: 10AM - 12AM </span>
             <div class="vl"></div>
 
@@ -173,7 +206,7 @@ setInterval(slider,5000);
 
         </div>
         <div class="mobile">
-            <nav class="navbar navbar-inverse">
+            <nav class="navbar navbar-inverse" style="background-color:#0F1012;border-color: #C7995D">
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -182,20 +215,48 @@ setInterval(slider,5000);
                             <span class="icon-bar"></span> 
                         </button>
                         
-                        <a href="index.htm" class="Studentclub_icon"><img src="logo-white-01.PNG" class="icon" > </a>
+                        <a href="index.htm" class="Studentclub_icon"><img src="sclogo2.png" class="icon" > </a>
 
                     </div>
                     <div class="collapse navbar-collapse" id="myNavbar">
-                        <ul class="nav navbar-nav">
-                            <li class="active"><a href="index.htm">Home</a></li>
-                            <li><a href="about_us.htm">About Us</a></li>
-                            <li> <a href="/portal">Book Table</a></li>
-                            <li> <a href="/tablestatus">Booking Status</a></li>
-                            <li><a href="events.htm">Events</a></li>
-                            <li><a href="games.htm">Games</a></li> 
-                            <li><a href="notices.htm">Notices</a></li>
-                            <li><a href="team.htm">Team</a></li> 
-                        </ul>
+                            <ul class="nav navbar-nav">
+                                    <li role="presentation" class="active"> <a href="index.htm">Home </a></li>
+                                    <li role="presentation"> <a href="games.htm" >Games </a> </li>
+                                    <li role="presentation"> <a href="events.htm">Events </a></li>
+                                    <li role="presentation" > <a href="about_us.htm" >About Us </a></li>
+                                    <li class="dropdown">
+                                            <a  id="menu1" data-toggle="dropdown" href="" >Live Stream
+                                            <span class="caret"></span></a>
+                                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                              <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/foosballstream">Foosball</a></li>
+                                              <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/chessstream">Chess</a></li>
+                                              <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/snookerstream">Snooker</a></li>
+                                              <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/poolstream">Pool </a></li>
+                                              <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/carromstream">Carrom</a></li>
+                                            </ul>
+                                          
+                                    </li>
+                                    <li class="dropdown">
+                                            <a  id="menu1" data-toggle="dropdown" href="" >Booking Portel
+                                            <span class="caret"></span></a>
+                                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                              <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/portal">Pool and Snooker Booking</a></li>
+                                              <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/psbooking">Playstation Booking</a></li>
+                                            </ul>
+                                          
+                                    </li>
+                                    <li class="dropdown">
+                                            <a  id="menu1" data-toggle="dropdown" href="" >Booking Status
+                                            <span class="caret"></span></a>
+                                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                              <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/tablestatus">Table Booking Status</a></li>
+                                              <li role="presentation"><a role="menuitem" tabindex="-1" href=http://stuc.iitr.ac.in/psstatus>Playstation Booking Status</a></li>
+                                            </ul>
+                                          
+                                    </li>
+                                    <li role="presentation"> <a href="notices.htm">Notices </a></li>
+                                    <li role="presentation"> <a href="team.htm">Team </a></li>
+                            </ul>
                         
                     </div>
                 </div>
@@ -238,18 +299,24 @@ setInterval(slider,5000);
                   <!-- Left and right controls -->
                 </div>
               </div>
-                     <div class="title">STUDENT'S CLUB</div>
+                     <div class="title">STUDENTS' CLUB</div>
                      <div class="mob-link">
                     <div class="row">
-                    <div class="col-xs-6">
+                    <div class="col-xs-8"></div>
+                    <div class="col-xs-4">
+                        <div class="row">
+                            <div class="col-xs-6">
+                            <center>
+                                    <a href="https://www.facebook.com/StudentsClubIITR/" target="_blank"><img src="fbnew2.png" class="scicn"></a>
+                                </center>
+                            </div>
+                            <div class="col-xs-6">
                         <center>
-                            <a href="https://www.facebook.com/StudentsClubIITR/" target="_blank"><img src="fb.png" class="scicn"></a>
+                            <a href="mailto:ashishsinha108@gmail.com" target="_blank"> <img src="mail2.png" class="scicn2"></a>
                         </center>
-                    </div>
-                    <div class="col-xs-6">
-                        <center>
-                            <a href="mailto:ashishsinha108@gmail.com" target="_blank"> <img src="gmail.png" class="scicn"></a>
-                        </center>
+                             </div>
+                        </div>
+                    
                     </div>
                     </div>
 
