@@ -10,8 +10,7 @@ class NavbarHeader extends Component {
   render() {
     return (
     <Navbar inverse fixed='top' style = {{ width: '100%', background: 'none',border:'none'}} >
-      <Navbar.Header>
-        
+      <Navbar.Header> 
         <Navbar.Brand>
         <a href="/" style={navstyle}><img src={Background} alt='stuc logo' href='/' style={{width:"33%",}}></img></a>
         </Navbar.Brand>

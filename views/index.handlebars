@@ -9,15 +9,7 @@
             <form action="/purchase" method="POST">
 <!-- Note that the amount is in paise = 50 INR -->                        
             <script src="https://js.instamojo.com/v1/checkout.js"></script>
-            <script>
-              Instamojo.open("https://test.instamojo.com/@stuc"); 
-              data.currency                = 'INR';
-              data.amount                  = {{amount}};
-              data.buyer_name              = 'Students Club';
-              data.send_sms                = 'False';
-              data.send_email              = 'False';
-              data.redirect_url            = '/purchase';
-            </script>
+
             <input type="hidden" value={{order_id}} name  ="order_id">
             </form>
             <style>

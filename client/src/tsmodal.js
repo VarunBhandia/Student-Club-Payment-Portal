@@ -2,7 +2,8 @@ import React from 'react';
 import {
   Modal,
   Button,
-  Checkbox
+  Checkbox,
+  Alert
 } from '../node_modules/react-bootstrap';
 
 var OPTIONS = [];
@@ -62,7 +63,7 @@ class TsModal extends React.Component {
       var newArr = this.state.finalbook;
       var totamo = this.state.totalamount;
       var newEle = e.target.value;
-      if(newArr.includes(newEle) || newArr.length === 5) {
+      if(newArr.includes(newEle) || newArr.length === 4) {
         alert('Cannot book more');
       }
       else {
@@ -75,7 +76,7 @@ class TsModal extends React.Component {
       var newArr = this.state.finalbook;
       var totamo = this.state.totalamount
       var newEle = e.target.value;
-      if(newArr.includes(newEle) || newArr.length < 5) {
+      if(newArr.includes(newEle) || newArr.length < 4) {
         var index = newArr.indexOf(newEle);
         newArr.splice(index, 1);
         totamo = totamo - 5;
@@ -109,7 +110,7 @@ class TsModal extends React.Component {
     var newArr = this.state.finalbook;
     var totamo = this.state.totalamount;
     item.keeptimeNew = item.keeptime + " " + str;
-    if(newArr.includes(item.keeptimeNew) || newArr.length === 5) {
+    if(newArr.includes(item.keeptimeNew) || newArr.length === 4) {
       alert('Cannot book more');
     }
     else {
@@ -160,6 +161,13 @@ class TsModal extends React.Component {
       	<Modal show={this.props.show} onHide={this.props.onhide}>
           <Modal.Header closeButton>
           <Modal.Title>Book Tables</Modal.Title>
+          
+              <Alert> 
+                Please make sure that you are not booking more than 4 tables for today, otherwise your money will be
+                deducted but tables will not be assigned 
+                to you.
+              </Alert>
+          
           </Modal.Header>
           <Modal.Body>            
             <hr />
