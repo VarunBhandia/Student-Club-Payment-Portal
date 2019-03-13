@@ -39,13 +39,14 @@
   }
   .mobile{
     display: block;
-    background-color: #b4373d;
+    background-color:  #0f1012;
     
   }
   
   .meet1{
-    color: white;
-
+    color: #0f1012;
+    border-color:  #0f1012;
+    background-color: #c7995d;
   
       text-align: center;
        font-family: 'Average', serif; 
@@ -60,22 +61,24 @@ width: 100%;
   }
   .team_member{
 margin: 15px;
-background-color: white;
-border: gray 2px solid;
+background-color: #0f1012;
+border: #c7995d 2px solid;
   }
     .icon{
     width: 29%;
+    padding: 5px;
   }
   .nameofsecy{
-    background-color: #fdc03c;
+    background-color: #c7995d;
     font-size: 1.7em;
+    color: #0f1012;
     margin: 8px;
-text-align: center;
+    text-align: center;
   }
   .secy_type{
     text-align: center;
     font-size: 1.7em;
-    color: black;
+    color: white;
 
   }
   .fb{

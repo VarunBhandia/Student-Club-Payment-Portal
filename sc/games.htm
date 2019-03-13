@@ -1,6 +1,11 @@
 <html>
 <head>
-        <meta content="width=device-width, initial-scale=1" name="viewport" />
+	<title>
+		Games
+	</title>
+		<meta content="width=device-width, initial-scale=1" name="viewport" />
+		<link rel="shortcut icon" href="sclogo.png" type="image/x-icon">
+
 	<link rel="stylesheet" href="games.css">
 	
 	<link href="https://fonts.googleapis.com/css?family=Average" rel="stylesheet">
@@ -413,7 +418,7 @@ $(document).ready(function(){
 					$('#4').click(function(){
 					$('.text, .gamesimg').hide();
 					$('#text4, #img4').show().animate({opacity:'1.0'},500);
-					$('.box').css({'background-color':'#FFDE2F'},800);
+					$('.box').css({'background-color':'rgb(215, 34, 34)'},800);
 					});
 
 					$('#5').click(function(){
@@ -433,6 +438,54 @@ $(document).ready(function(){
 					});
 		});
 
+		function function1(){
+			var x = document.getElementById("carrom_rules");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+		}
+		function function2(){
+			var x = document.getElementById("chess_rules");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+		}
+		function function3(){
+			var x = document.getElementById("snooker_rules");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+		}
+		function function4(){
+			var x = document.getElementById("pool__rules");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+		}
+		function function5(){
+			var x = document.getElementById("foosball_rules");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+		}
+		function function6(){
+			var x = document.getElementById("tabletennis_rules");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+		}
 
 
 </script>
@@ -440,16 +493,44 @@ $(document).ready(function(){
 <body>
 <div class="desktop">
 <div class="header">
-	<a href="/"><img src="sclogo.PNG" class="logo"></img></a>
+	<a href="/"><img src="sclogo2.PNG" class="logo"></img></a>
 	<ul class="head">
-		<li> <a href="index.htm">Home </a></li>
-		<li> <a href="games.htm" style="font-weight:normal; opacity:0.90;">Games </a> </li>
-		<li> <a href="events.htm">Events </a></li>
-		<li> <a href="about_us.htm">About Us </a></li>
-		<li> <a href="/portal">Book Table</a></li>
-		<li> <a href="/tablestatus">Booking Status</a></li>
-		<li> <a href="notices.htm">Notices </a></li>
-		<li> <a href="team.htm">Team </a></li>
+		<li role="presentation"> <a href="index.htm">Home </a></li>
+		<li role="presentation"> <a href="games.htm" style="font-weight:normal; opacity:0.90;">Games </a> </li>
+		<li role="presentation"> <a href="events.htm">Events </a></li>
+		<li role="presentation"> <a href="about_us.htm">About Us </a></li>
+		<li class="dropdown">
+				<a  id="menu1" data-toggle="dropdown" href="" >Live Stream
+				<span class="caret"></span></a>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+				  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/foosballstream">Foosball</a></li>
+				  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/chessstream">Chess</a></li>
+				  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/snookerstream">Snooker</a></li>
+				  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/poolstream">Pool </a></li>
+				  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/carromstream">Carrom</a></li>
+				</ul>
+			  
+		</li>
+		<li class="dropdown">
+				<a  id="menu1" data-toggle="dropdown" href="" >Booking Portel
+				<span class="caret"></span></a>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+				  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/portal">Pool and Snooker Booking</a></li>
+				  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/psbooking">Playstation Booking</a></li>
+				</ul>
+			  
+		</li>
+		<li class="dropdown">
+				<a  id="menu1" data-toggle="dropdown" href="" >Booking Status
+				<span class="caret"></span></a>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+				  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/tablestatus">Table Booking Status</a></li>
+				  <li role="presentation"><a role="menuitem" tabindex="-1" href=http://stuc.iitr.ac.in/psstatus>Playstation Booking Status</a></li>
+				</ul>
+			  
+		</li>
+		<li role="presentation"> <a href="notices.htm">Notices </a></li>
+		<li role="presentation"> <a href="team.htm">Team </a></li>
 	</ul>
 </div>
 <i class="fa fa-times" style="font-size:24px"></i>
@@ -500,7 +581,7 @@ when the ball is served through a hole at the side of the table.</p>	<!--<span c
 	</div>
 
 	<div class="text" id="text4">
-	<p class="game" style="color:#FFDE2F"> SNOOKER </p>
+	<p class="game" style="color:rgb(215, 34, 34)"> SNOOKER </p>
 	<p class="gametext">
 Snooker is a cue sport played on a 12 feet x 6 feet table. The game originated in India. The main objective of the game
 is to score more points than your opponent by potting balls as per the rules. There are 22 balls ( 15 reds , 6 other
@@ -961,80 +1042,334 @@ A game is started when one player (server) makes a service before the receiver m
 </div>
 </div>
 <div class="mobile">
-		<nav class="navbar navbar-inverse">
-                <div class="container-fluid">
+		<nav class="navbar navbar-inverse" style="background-color:#0f1012;border-color: #c7995d" >
+	                <div class="container-fluid">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span> 
 						</button>
-						<a href="index.htm" class="Studentclub_icon"><img src="logo-white-01.png" class="icon"></a>
+						<a href="index.htm" class="Studentclub_icon"><img src="sclogo2.png" class="icon"></a>
                         
                     </div>
                     <div class="collapse navbar-collapse" id="myNavbar">
-                        <ul class="nav navbar-nav">
-							<li ><a href="index.htm">Home</a></li>
-							<li ><a href="about_us.htm">About Us</a></li>
-							<li> <a href="/portal">Book Table</a></li>
-							<li> <a href="/tablestatus">Booking Status</a></li>
-                            <li><a href="events.htm">Events</a></li>
-                            <li class="active"><a href="games.htm">Games</a></li> 
-                            <li><a href="notices.htm">Notices</a></li>
-                            <li><a href="team.htm">Team</a></li> 
-                        </ul>
+							<ul class="nav navbar-nav">
+									<li role="presentation"> <a href="index.htm">Home </a></li>
+									<li role="presentation" class="active"> <a href="games.htm" >Games </a> </li>
+									<li role="presentation"> <a href="events.htm">Events </a></li>
+									<li role="presentation" > <a href="about_us.htm" >About Us </a></li>
+									<li class="dropdown">
+											<a  id="menu1" data-toggle="dropdown" href="" >Live Stream
+											<span class="caret"></span></a>
+											<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+											  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/foosballstream">Foosball</a></li>
+											  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/chessstream">Chess</a></li>
+											  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/snookerstream">Snooker</a></li>
+											  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/poolstream">Pool </a></li>
+											  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/carromstream">Carrom</a></li>
+											</ul>
+										  
+									</li>
+									<li class="dropdown">
+											<a  id="menu1" data-toggle="dropdown" href="" >Booking Portel
+											<span class="caret"></span></a>
+											<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+											  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/portal">Pool and Snooker Booking</a></li>
+											  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/psbooking">Playstation Booking</a></li>
+											</ul>
+										  
+									</li>
+									<li class="dropdown">
+											<a  id="menu1" data-toggle="dropdown" href="" >Booking Status
+											<span class="caret"></span></a>
+											<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+											  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/tablestatus">Table Booking Status</a></li>
+											  <li role="presentation"><a role="menuitem" tabindex="-1" href=http://stuc.iitr.ac.in/psstatus>Playstation Booking Status</a></li>
+											</ul>
+										  
+									</li>
+									<li role="presentation"> <a href="notices.htm">Notices </a></li>
+									<li role="presentation"> <a href="team.htm">Team </a></li>
+							</ul>
                         
                     </div>
                 </div>
             </nav>
             <br>
 	<!-- write your code here -->
-	<div class="container" >
+	
 
 
 	<div class="game-name">CARROM
 	</div>
+	<div class="container" >
 	<img src="carrom.png" class="game-image">
 	<p class="game-content">Carrom is a "strike-and-pocket" tabletop game where the objective of play is to use a striker disk with a flick of the finger to make contact with and move lighter object disks called carrom men, which are thus propelled into one of four corner pockets. </p>
 	
 	<div class="row">
 		<div class="col-xs-4"></div>
 		<div class="col-xs-4">
-	<a class="rules_" id="ca_read"  href="CARROM.pdf" target="_blank">RULES</a>
+	<a class="rules_" id="ca_read"  onclick="function1()">RULES</a>
 	</div>
 	<div class="col-xs-4"></div>
 	</div>
 	<br>
-<br>
+	<p class="rules_text" id="carrom_rules">
+			<b>Objective</b>
+		<br>Players take turns to play.  A turn consists of one or more strikes. A player wins by pocketing all of the pieces of their chosen colour first.   However, neither player can win until one or other player has "covered the Queen".  To cover the Queen, a player must pocket one of her own pieces immediately after pocketing the Queen.  If the Queen is pocketed but not covered, the Queen is returned to the board.  Both players normally try to cover the Queen in addition to trying to win the game because a player who wins and also covers the Queen receives bonus points.
+		<br><br>
+		<b>Striking</b>
+		<br>&nbsp;-&nbsp;For each strike, the player must position the striker within the baseline OR on one of the two circles at either end of the baseline.
+		<br>&nbsp;-&nbsp;A striker within the baseline must touch both the front line and the rear line.
+		<br>&nbsp;-&nbsp;The striker may not "cut the moon" - be placed partially within the baseline and partially within the circle.
+		<br>&nbsp;-&nbsp;The player must flick the striker with one finger so that it crosses the front baseline - it is not permitted to flick backwards or horizontally.
+		<br>&nbsp;-&nbsp;A piece that is on or behind the front baseline must not be struck by the striker until the striker has crossed the front baseline.
+		<br>&nbsp;-&nbsp;In striking, the player's hand or arm must not cross the diagonal foul lines at either end of the baseline.
+		<br><br><b>Basic rules</b>
+		<br>&nbsp;-&nbsp;For the very first turn, the player is allowed three attempts to "break" i.e. disturb the central group of counters.
+		<br>&nbsp;-&nbsp;It doesn't matter which piece the striker hits first and it doesn't matter if the striker hits no pieces.
+		<br>&nbsp;-&nbsp;If a the striker pockets the Queen and/or one or more pieces of her own colour, the player retrieves the striker and takes another strike.
+		<br>&nbsp;-&nbsp;If the player pockets no pieces or commits a foul, the turn finishes.
+		<br><br><b>Other Rules</b>
+		<br>&nbsp;-&nbsp;Pieces returned to the centre can be placed on top of other pieces within the main circle.
+		<br>&nbsp;-&nbsp;If pieces come to rest standing on their edge or overlapping another piece, they are left as they are until moved again in the normal course of play.
+		<br>&nbsp;-&nbsp;If the striker comes to rest under another piece, the striker should be removed with as little disturbance to the covering piece as possible.
+		<br><br><b>Fouls</b>
+		<br>When a player commits a foul, the turn comes to an end immediately and a penalty is incurred.  The penalty is that one pocketed piece is returned to the board by the opponent anywhere within the main circle.  Any other pieces requiring to be returned to the board are also placed within the main circle by the opponent.  It is normal for pieces to be positioned in order to confer an advantage for the opponent.
+		<br>A foul is recorded in the following situations:
+		<br>&nbsp;-&nbsp;The striker is pocketed.
+		<br>&nbsp;-&nbsp;The striker or any other piece leaves the board.
+		<br>&nbsp;-&nbsp;A player pockets an opponent's piece.  If the Queen was also pocketed, it is returned to the centre by the opponent together with the penalty piece.  Any other pieces pocketed in the same strike remain pocketed.
+		<br>&nbsp;-&nbsp;A player pockets the final opponent's piece.  Regardless of whether the Queen has been covered, the opponent's piece is returned to the centre in addition to the penalty piece.
+		<br>&nbsp;-&nbsp;A player pockets the final piece before the Queen has been covered.  In this case both the pocketed piece and a penalty piece are returned to the centre.
+		<br>&nbsp;-&nbsp;A player contravenes the rules for striking.
+		<br>&nbsp;-&nbsp;A player touches any piece in play, other than the striker.
+		<br>&nbsp;-&nbsp;The first player to strike fails to break the counters in three attempts.
+		<br>&nbsp;-&nbsp;Where a penalty is incurred but no pocketed pieces exist to return, the penalty is "owed" until a piece becomes available.  If a penalty is owed, when a piece becomes available due to being pocketed, the piece is returned to the centre by the opponent at the end of the turn.  Should the opponent forget to do this before the start of the next turn, any owed penalties are lost.
+		
+		<br><br><b>Scoring</b>
+		<br>&nbsp;-&nbsp;At the end of the game the winner scores 1 point for each opponent's piece left on the board.
+		<br>&nbsp;-&nbsp;If the winner has less than 24 points and the winner also covered the Queen, a bonus 5 points are scored.
+		<br>&nbsp;-&nbsp;If the winner has 24 or more points, then no points are scored for covering the Queen.
+		<br>&nbsp;-&nbsp;The maximum score for one game is therefore 14 points.  A match is played to 29 points.
+		<br><br><br>
+		</p>
+	<br>
+
+	</div>
+	
 <div class="game-name">CHESS
 	</div>
+	<div class="container" >
 	<img src="chess.png" class="game-image">
 	<p class="game-content">Chess is a two-player strategy board game played on a chessboard, a checkered gameboard with 64 squares arranged in an 8x8 grid. The objective is to checkmate the opponent's king by placing it under an inescapable threat of capture.</p>
 	<div class="row">
 			<div class="col-xs-4"></div>
 			<div class="col-xs-4">
-		<a class="rules_" id="ca_read" href="chess.pdf" target="_blank">RULES</a>
+		<a class="rules_" id="ca_read" onclick="function2()">RULES</a>
 		</div>
 		<div class="col-xs-4"></div>
 		</div>
 	<br>
-<br>
 
+<p class="rules_text" id="chess_rules">
+		<b>I. The nature and objectives of the game of chess</b><br>
+	1.1 The game of chess is played between two opponents who move their pieces on a square board called a 'chessboard'.
+	<br>1.2 The player with the light-coloured pieces (White) makes the first move, then the players move alternately, with the player with the dark-
+	coloured pieces (Black) making the next move.
+	<br>1.3 A player is said to 'have the move' when his opponent's move has been 'made'.
+	<br>1.4 The objective of each player is to place the opponent's king 'under attack' in such a way that the opponent has no legal move.
+	<br>1.4.1 The player who achieves this goal is said to have 'checkmated' the opponent's king and to have won the game. Leaving one's own king under
+	attack, exposing one's own king to attack and also 'capturing' the opponent's king is not allowed .
+	<br>1.4.2 The opponent whose king has been checkmated has lost the game.
+	<br>1.5 If the position is such that neither player can possibly checkmate the opponent's king, the game is drawn (see Article 5.2.2).
+	<br><br><b>II. The initial position of the pieces on the chessboard</b>
+	<br>2.1 The chessboard is composed of an 8 x 8 grid of 64 equal squares alternately light (the 'white' squares) and dark (the 'black' squares).
+	The chessboard is placed between the players in such a way that the near corner square to the right of the player is white.
+	<br>2.2 At the beginning of the game White has 16 light-coloured pieces (the 'white' pieces); Black has 16 dark-coloured pieces (the 'black' pieces).
+	<br>2.3 The eight vertical columns of squares are called 'files'. The eight horizontal rows of squares are called 'ranks'. A straight line of squares of the
+	same colour, running from one edge of the board to an adjacent edge, is called a 'diagonal'.
+	<br><br><b>III. The moves of the pieces</b>
+	<br>3.1 It is not permitted to move a piece to a square occupied by a piece of the same colour.
+	<br>3.1.1 If a piece moves to a square occupied by an opponent's piece the latter is captured and removed from the chessboard as part of the same
+	move.
+	<br>3.1.2 A piece is said to attack an opponent's piece if the piece could make a capture on that square according to Articles 3.2 to 3.8.
+	<br>3.1.3 A piece is considered to attack a square even if this piece is constrained from moving to that square because it would then leave or place the
+	king of its own colour under attack.
+	<br>3.2 The bishop may move to any square along a diagonal on which it stands.
+	<br>3.3 The rook may move to any square along the file or the rank on which it stands.
+	<br>3.4 The queen may move to any square along the file, the rank or a diagonal on which it stands.
+	<br>3.5 When making these moves, the bishop, rook or queen may not move over any intervening pieces.
+	<br>3.6 The knight may move to one of the squares nearest to that on which it stands but not on the same rank, file or diagonal.
+	<br>3.7.1 The pawn may move forward to the square immediately in front of it on the same file, provided that this square is unoccupied, or
+	<br>3.7.2 on its first move the pawn may move as in 3.7.1 or alternatively it may advance two squares along the same file, provided that both squares
+	are unoccupied, or
+	<br>3.7.3 the pawn may move to a square occupied by an opponent's piece diagonally in front of it on an adjacent file, capturing that piece.
+	<br>3.7.4.1 A pawn occupying a square on the same rank as and on an adjacent file to an opponent's pawn which has just advanced two squares in one
+	move from its original square may capture this opponent's pawn as though the latter had been moved only one square.
+	<br>3.7.4.2 This capture is only legal on the move following this advance and is called an 'en passant' capture.
+	<br>3.7.5.1 When a player, having the move, plays a pawn to the rank furthest from its starting position, he must exchange that pawn as part of the same
+	move for a new queen, rook, bishop or knight of the same colour on the intended square of arrival. This is called the square of 'promotion'.
+	<br>3.7.5.2 The player's choice is not restricted to pieces that have been captured previously.
+	<br>3.7.5.3 This exchange of a pawn for another piece is called promotion, and the effect of the new piece is immediate.
+	<br>3.8 There are two different ways of moving the king:
+	<br>3.8.1 by moving to an adjoining square
+	<br>3.8.2 by 'castling'. This is a move of the king and either rook of the same colour along the player's first rank, counting as a single move of the king
+	and executed as follows: the king is transferred from its original square two squares towards the rook on its original square, then that rook is
+	transferred to the square the king has just crossed.
+	<br>3.8.2.1 The right to castle has been lost:
+	<br>3.8.2.1.1 if the king has already moved, or
+	<br>3.8.2.1.2 with a rook that has already moved.
+	<br>3.8.2.2 Castling is prevented temporarily:
+	<br>3.8.2.2.1 if the square on which the king stands, or the square which it must cross, or the square which it is to occupy, is attacked by one or more of the
+	opponent's pieces, or
+	<br>3.8.2.2.2 if there is any piece between the king and the rook with which castling is to be effected.
+	<br>3.9.1 The king is said to be 'in check' if it is attacked by one or more of the opponent's pieces, even if such pieces are constrained from moving to the
+	square occupied by the king because they would then leave or place their own king in check.
+	<br>3.9.2 No piece can be moved that will either expose the king of the same colour to check or leave that king in check.
+	<br>3.10.1 A move is legal when all the relevant requirements of Articles 3.1 - 3.9 have been fulfilled.
+	<br>3.10.2 A move is illegal when it fails to meet the relevant requirements of Articles 3.1 - 3.9
+	<br>3.10.3 A position is illegal when it cannot have been reached by any series of legal move.
+	<br><br><br>
+	</p>
+	<br>
+	</div>
 <div class="game-name">SNOOKER
 	</div>
+	
+	<div class="container" >
 	<img src="billiards.png" class="game-image">
 	<p class="game-content">Snooker is a cue sport played on a 12 feet x 6 feet table. The game originated in India. The main objective of the game is to score more points than your opponent by potting balls as per the rules. There are 22 balls ( 15 reds , 6 other coloured balls) and a cue ball used for Snooker. Variants of the game can be played with 6 or 10 reds instead of the usual 15.</p>
 	<div class="row">
 			<div class="col-xs-4"></div>
 			<div class="col-xs-4">
-		<a class="rules_" id="ca_read" href="Snooker Rules.pdf" target="_blank">RULES</a>
+		<a class="rules_" id="ca_read" onclick="function3()">RULES</a>
 		</div>
 		<div class="col-xs-4"></div>
 		</div>
 	<br>
-<br>
+
+<p class="rules_text" id="snooker_rules">1. OBJECT OF THE GAME. Eight Ball is a call shot game played with a cue ball and fifteen
+		object balls, numbered 1 through 15. One player must pocket balls of the group numbered 1
+		through 7 (solid colors), while the other player has 9 thru 15 (stripes). THE PLAYER
+		POCKETING HIS GROUP FIRST AND THEN LEGALLY POCKETING THE 8-BALL WINS
+		THE GAME.<br><br>
+		2. CALL SHOT. In Call Shot, obvious balls and pockets do not have to be indicated. It is the
+		opponent's right to ask which ball and pocket if he is unsure of the shot. Bank shots and
+		combination shots are not considered obvious, and care should be taken in calling both the object
+		ball and the intended pocket. When calling the shot, it is NEVER necessary to indicate details
+		such as the number of cushions, banks, kisses, caroms, etc. Any balls pocketed on a foul remain
+		pocketed, regardless of whether they belong to the shooter or the opponent.
+		The opening break is not a "called shot." Any player performing a break shot in 8-Ball may
+		continue to shoot his next shot so long as he has legally pocketed any object ball on the break.
+		<br><br>
+		3. RACKING THE BALLS. The balls are racked in a triangle at the foot of the table with the 8-
+		ball in the center of the triangle, the first ball of the rack on the footspot, a stripe ball in one
+		corner of the rack and a solid ball in the other corner.
+		<br><br>
+		4. JUMP AND MASSE SHOT FOUL. While "cue ball fouls only" is the rule of play when a
+		match is not presided over by a referee, a player should be aware that it will be considered a cue
+		ball foul if during an attempt to jump, curve or masse the cue ball over or around an impeding
+		numbered ball that is not a legal object ball, the impeding ball moves (regardless of whether it
+		was moved by a hand, cue stick follow-through or bridge).
+		<br><br>
+		5. LEGAL BREAK SHOT. (Defined) To execute a legal break, the breaker (with the cue ball
+		behind the headstring) must either (1) pocket a ball, or (2) drive at least four numbered balls to
+		the rail. If he fails to make a legal break, it is a foul, and the incoming player has the option of
+		(1) accepting the table in position and shooting, or (2) having the balls reracked and having the
+		option of shooting the opening break himself or allowing the offending player to rebreak.
+		<br><br>
+		6. SCRATCH ON A LEGAL BREAK. If a player scratches on a legal break shot, (1) all balls
+		pocketed remain pocketed (exception, the 8-ball: see rule 9), (2) it is a foul, (3) the table is open.
+		PLEASE NOTE: Incoming player has cue ball in hand behind the head string and may not shoot
+		an object ball that is behind the head string, unless he first shoots the cue ball past the headstring
+		and causes the cue ball to come back behind the headstring and hit the object ball.
+		<br><br>
+		7. OBJECT BALLS JUMPED OFF THE TABLE ON THE BREAK. If a player jumps an
+		object ball off the table on the break shot, it is a foul and the incoming player has the option of
+		(1) accepting the table in position and shooting, or (2) taking cue ball in hand behind the head
+		string and shooting.
+		<br><br>
+		8. 8-BALL POCKETED ON THE BREAK. If the 8-ball is pocketed on the break, the breaker
+		may ask for a re-rack or have the 8-ball spotted and continue shooting. If the breaker scratches
+		while pocketing the 8-ball on the break, the incoming player has the option of a re-rack or having
+		the 8-ball spotted and begin shooting with ball in hand behind the headstring.
+		<br><br>
+		9. OPEN TABLE. (Defined) The table is "open" when the choice of groups (stripes or solids)
+		has not yet been determined. When the table is open, it is legal to hit a solid first to make a stripe
+		or vice-versa. Note: The table is always open immediately after the break shot. When the table is
+		open it is legal to hit any solid or stripe or the 8-ball first in the process of pocketing the called
+		stripe or solid. However, when the table is open and the 8-ball is the first ball contacted, no stripe
+		or solid may be scored in favor of the shooter. The shooter loses his turn; any balls pocketed
+		remain pocketed; and the incoming player addresses the balls with the table still open. On an
+		open table, all illegally pocketed balls remain pocketed.
+		<br><br>
+		10. CHOICE OF GROUP. The choice of stripes or solids is not determined on the break even if
+		balls are made from only one or both groups. THE TABLE IS ALWAYS OPEN
+		IMMEDIATELY AFTER THE BREAK SHOT. The choice of group is determined only when a
+		player legally pockets a called object ball after the break shot.
+		<br><br>
+		11. LEGAL SHOT. (Defined) On all shots (except on the break and when the table is open), the
+		shooter must hit one of his group of balls first and (1) pocket a numbered ball, or (2) cause the
+		cue ball or any numbered ball to contact a rail.
+		PLEASE NOTE: It is permissable for the shooter to bank the cue ball off a rail before contacting
+		his object ball; however, after contact with his object ball, an object ball must be pocketed, OR
+		the cue ball or any numbered ball must contact a rail. Failure to meet these requirements is a
+		foul.
+		<br><br>
+		12. "SAFETY" SHOT. For tactical reasons a player may choose to pocket an obvious object
+		ball and also discontinue his turn at the table by declaring "safety" in advance. A safety shot is
+		defined as a legal shot. If the shooting player intends to play safe by pocketing an obvious object
+		ball, then prior to the shot, he must declare a "safety" to his opponent. If this is NOT done, and
+		one of the shooter's object balls is pocketed, the shooter will be required to shoot again. Any ball
+		pocketed on a safety shot remains pocketed.
+		<br><br>
+		13. SCORING. A player is entitled to continue shooting until he fails to legally pocket a ball of
+		his group. After a player has legally pocketed all of his group of balls, he shoots to pocket the 8-
+		ball.
+		<br><br>
+		14. FOUL PENALTY. Opposing player gets cue ball in hand. This means that the player can
+		place the cue ball anywhere on the table (does not have to be behind the headstring except on
+		opening break). This rule prevents a player from making intentional fouls which would put his
+		opponent at a disadvantage. With "cue ball in hand," the player may use his hand or any part of
+		his cue (including the tip) to position the cue ball. When placing the cue ball in position, any
+		forward stroke motion contacting the cue ball will be a foul, if not a legal shot. (Also see Rule 39
+		in the General Rules of Pocket Billiards)
+		<br><br>
+		15. COMBINATION SHOTS. combination shots are allowed; however, the 8-ball cannot be
+		used as a first ball in the combination except when the table is open.
+		<br><br>
+		16. ILLEGALLY POCKETED BALLS. An object ball is considered to be illegally pocketed
+		when (1) that object ball is pocketed on the same shot a foul is committed, or (2) the called ball
+		did not go in the designated pocket, or (3) a safety is called prior to the shot. Illegally pocketed
+		balls remain pocketed.
+		<br><br>
+		17. OBJECT BALLS JUMPED OFF THE TABLE. If any object ball is jumped off the table,
+		it is a foul and loss of turn, unless it is the 8-ball, which is a loss of game. Any jumped object
+		balls are spotted in numerical order according to General Rules for spotting balls.
+		<br><br>
+		18. PLAYING THE 8-BALL. When shooting at the 8-ball, a scratch or foul is not loss of game
+		if the 8-ball is not pocketed or jumped from the table. Incoming player has cue ball in hand.
+		Note: A combination shot can never be used to legally pocket the 8-ball.
+		<br><br>
+		19. LOSS OF GAME. A player loses the game if he commits any of the following infractions:
+		a. Fouls when pocketing the 8-ball (exception: see 8-Ball Pocketed On The Break).
+		b. Pockets the 8-ball on the same stroke as the last of his group of balls.
+		c. Jumps the 8-ball off the table at any time.
+		d. Pockets the 8-ball in a pocket other than the one designated.
+		e. Pockets the 8-ball when it is not the legal object ball.
+		<br><br>
+		Note: All infractions must be called before another shot is taken, or else it will be
+		deemed that no infraction occurred
+		<br><br><br>
+				</p>
+				<br>
+	</div>
 <div class="game-name">POOL
 </div>
+
+<div class="container" >
 <img src="8ballpool.jpg" class="game-image">
 <p class="game-content">Pool is a cue sport played on a table with six pockets along the rails, into which balls are deposited.The game of pool
 is also known as “pocket billiards”.Some of the more well known variants of pool include eight-ball, blackball,
@@ -1043,61 +1378,266 @@ are Efren Reyes, Willie Mosconi, Allison Fisher, Jeanette Le.</p>
 <div class="row">
 	<div class="col-xs-4"></div>
 	<div class="col-xs-4">
-		<a class="rules_" id="ca_read" href="8 ball pool Rules.pdf" target="_blank">RULES</a>
+		<a class="rules_" id="ca_read" onclick="function4()">RULES</a>
 	</div>
 	<div class="col-xs-4"></div>
 </div>
 <br>
+<p class="rules_text" id="pool__rules">
+		<b>1.OBJECT OF THE GAME</b> 
+		<br>
+		Eight Ball is a call shot game played with a cue ball and fifteen
+		object balls, numbered 1 through 15. One player must pocket balls of the group numbered 1
+		through 7 (solid colors), while the other player has 9 thru 15 (stripes). THE PLAYER
+		POCKETING HIS GROUP FIRST AND THEN LEGALLY POCKETING THE 8-BALL WINS
+		THE GAME.
+		<br>
+	
+		<b>2. CALL SHOT.</b>
+		<br>
+		 In Call Shot, obvious balls and pockets do not have to be indicated. It is the
+		opponent's right to ask which ball and pocket if he is unsure of the shot. Bank shots and
+		combination shots are not considered obvious, and care should be taken in calling both the object
+		ball and the intended pocket. When calling the shot, it is NEVER necessary to indicate details
+		such as the number of cushions, banks, kisses, caroms, etc. Any balls pocketed on a foul remain
+		pocketed, regardless of whether they belong to the shooter or the opponent.
+		The opening break is not a "called shot." Any player performing a break shot in 8-Ball may
+		continue to shoot his next shot so long as he has legally pocketed any object ball on the break.
+		<br>
+		<b>3. RACKING THE BALLS.</b>
+		<br>
+		 The balls are racked in a triangle at the foot of the table with the 8-
+		ball in the center of the triangle, the first ball of the rack on the footspot, a stripe ball in one
+		corner of the rack and a solid ball in the other corner.
+		<br>
+		
+		<b>
+			5. JUMP AND MASSE SHOT FOUL.
+		</b>
+		<br>
+		 While "cue ball fouls only" is the rule of play when a
+		match is not presided over by a referee, a player should be aware that it will be considered a cue
+		ball foul if during an attempt to jump, curve or masse the cue ball over or around an impeding
+		numbered ball that is not a legal object ball, the impeding ball moves (regardless of whether it
+		was moved by a hand, cue stick follow-through or bridge).
+		<br>
+	
+		<b>6. LEGAL BREAK SHOT. </b>
+		<br>
+		 (Defined) To execute a legal break, the breaker (with the cue ball
+		behind the headstring) must either (1) pocket a ball, or (2) drive at least four numbered balls to
+		the rail. If he fails to make a legal break, it is a foul, and the incoming player has the option of
+		(1) accepting the table in position and shooting, or (2) having the balls reracked and having the
+		option of shooting the opening break himself or allowing the offending player to rebreak.
+		<br>
+		<b>7. SCRATCH ON A LEGAL BREAK.</b>
+		<br>
+		 If a player scratches on a legal break shot, (1) all balls
+		pocketed remain pocketed (exception, the 8-ball: see rule 9), (2) it is a foul, (3) the table is open.
+		PLEASE NOTE: Incoming player has cue ball in hand behind the head string and may not shoot
+		an object ball that is behind the head string, unless he first shoots the cue ball past the headstring
+		and causes the cue ball to come back behind the headstring and hit the object ball.
+		<br>
+		<b>8. OBJECT BALLS JUMPED OFF THE TABLE ON THE BREAK.</b>
+		<br>
+		 If a player jumps an
+		object ball off the table on the break shot, it is a foul and the incoming player has the option of
+		(1) accepting the table in position and shooting, or (2) taking cue ball in hand behind the head
+		string and shooting.
+		<br>
+		<b>9. 8-BALL POCKETED ON THE BREAK.</b>
+		<br>
+		 If the 8-ball is pocketed on the break, the breaker
+		may ask for a re-rack or have the 8-ball spotted and continue shooting. If the breaker scratches
+		while pocketing the 8-ball on the break, the incoming player has the option of a re-rack or having
+		the 8-ball spotted and begin shooting with ball in hand behind the headstring.
+		<br>
+		<b>10. OPEN TABLE.</b>
+		<br>
+		 (Defined) The table is "open" when the choice of groups (stripes or solids)
+		has not yet been determined. When the table is open, it is legal to hit a solid first to make a stripe
+		or vice-versa. Note: The table is always open immediately after the break shot. When the table is
+		open it is legal to hit any solid or stripe or the 8-ball first in the process of pocketing the called
+		stripe or solid. However, when the table is open and the 8-ball is the first ball contacted, no stripe
+		or solid may be scored in favor of the shooter. The shooter loses his turn; any balls pocketed
+		remain pocketed; and the incoming player addresses the balls with the table still open. On an
+		open table, all illegally pocketed balls remain pocketed.
+		<br>
+		<b>11. CHOICE OF GROUP.</b>
+		<br>
+		 The choice of stripes or solids is not determined on the break even if
+		balls are made from only one or both groups. THE TABLE IS ALWAYS OPEN
+		IMMEDIATELY AFTER THE BREAK SHOT. The choice of group is determined only when a
+		player legally pockets a called object ball after the break shot.
+		<br>
+		<b>12. LEGAL SHOT.</b>
+		<br>
+		 (Defined) On all shots (except on the break and when the table is open), the
+		shooter must hit one of his group of balls first and (1) pocket a numbered ball, or (2) cause the
+		cue ball or any numbered ball to contact a rail.
+		<b>PLEASE NOTE:</b>
+		 It is permissable for the shooter to bank the cue ball off a rail before contacting
+		his object ball; however, after contact with his object ball, an object ball must be pocketed, OR
+		the cue ball or any numbered ball must contact a rail. Failure to meet these requirements is a
+		foul.
+		<br>
+		<b>13. "SAFETY" SHOT.</b>
+		<br>
+		
+		 For tactical reasons a player may choose to pocket an obvious object
+		ball and also discontinue his turn at the table by declaring "safety" in advance. A safety shot is
+		defined as a legal shot. If the shooting player intends to play safe by pocketing an obvious object
+		ball, then prior to the shot, he must declare a "safety" to his opponent. If this is NOT done, and
+		one of the shooter's object balls is pocketed, the shooter will be required to shoot again. Any ball
+		pocketed on a safety shot remains pocketed.
+		<br>
+		<b>14. SCORING.</b>
+		<br>
+		 A player is entitled to continue shooting until he fails to legally pocket a ball of
+		his group. After a player has legally pocketed all of his group of balls, he shoots to pocket the 8-
+		ball.
+		<br>
+		<b>15. FOUL PENALTY.</b>
+		<br>
+		 Opposing player gets cue ball in hand. This means that the player can
+		place the cue ball anywhere on the table (does not have to be behind the headstring except on
+		opening break). This rule prevents a player from making intentional fouls which would put his
+		opponent at a disadvantage. With "cue ball in hand," the player may use his hand or any part of
+		his cue (including the tip) to position the cue ball. When placing the cue ball in position, any
+		forward stroke motion contacting the cue ball will be a foul, if not a legal shot. (Also see Rule 39
+		in the General Rules of Pocket Billiards)
+		<br>
+		<b>16. COMBINATION SHOTS.</b>
+		<br>
+		 combination shots are allowed; however, the 8-ball cannot be
+		used as a first ball in the combination except when the table is open.
+		<br>
+		<b>17. ILLEGALLY POCKETED BALLS.</b>
+		<br>
+		 An object ball is considered to be illegally pocketed
+		when (1) that object ball is pocketed on the same shot a foul is committed, or (2) the called ball
+		did not go in the designated pocket, or (3) a safety is called prior to the shot. Illegally pocketed
+		balls remain pocketed.
+		<br>
+		<b>18. OBJECT BALLS JUMPED OFF THE TABLE.</b>
+		<br>
+		 If any object ball is jumped off the table,
+		it is a foul and loss of turn, unless it is the 8-ball, which is a loss of game. Any jumped object
+		balls are spotted in numerical order according to General Rules for spotting balls.
+		<br>
+		<b>19. PLAYING THE 8-BALL.</b>
+		 When shooting at the 8-ball, a scratch or foul is not loss of game
+		if the 8-ball is not pocketed or jumped from the table. Incoming player has cue ball in hand.
+		Note: A combination shot can never be used to legally pocket the 8-ball.
+		<br>
+		<b>20. LOSS OF GAME.</b>
+		<br>
+		 A player loses the game if he commits any of the following infractions:
+		a. Fouls when pocketing the 8-ball (exception: see 8-Ball Pocketed On The Break).
+		b. Pockets the 8-ball on the same stroke as the last of his group of balls.
+		c. Jumps the 8-ball off the table at any time.
+		d. Pockets the 8-ball in a pocket other than the one designated.
+		e. Pockets the 8-ball when it is not the legal object ball.
+		
+		Note: All infractions must be called before another shot is taken, or else it will be
+		deemed that no infraction occurred
+	</p>
 <br>
-
+</div>
 
 <div class="game-name">FOOSBALL
 	</div>
+	
+	<div class="container" >
 	<img src="foosball.png" class="game-image">
 	<p class="game-content">Table football, also called foosball is a table-top game that is loosely based on football. The goal of the game is to move the control knobs to hit the opponent's gate.</p>
 	<div class="row">
 			<div class="col-xs-4"></div>
 			<div class="col-xs-4">
-		<a class="rules_" id="ca_read" href="foosball.pdf" target="_blank">RULES</a>
+		<a class="rules_" id="ca_read" onclick="function5()">RULES</a>
 		</div>
 		<div class="col-xs-4"></div>
 		</div>
 	<br>
+	<p class="rules_text" id="foosball_rules">
+			<b>Objective</b>
+			<br>To score 10 goals before your opponents (or to score 7 goals without allowing your opponent to score even once)
+			<br><br><b>Basic guidelines:</b>
+				<br>1.Flip A Coin - A coin flip decides who serves the foosball to start the foosball game. After the first goal is scored, the rule is that the team who was last scored on gets to serve the next ball. This rule keeps the game fair for both opponents. The foosball must be touched by a man before the ball goes into a goal for a legal goal to occur.
+				<br>2.No Spinning - A spin is a rule for when the rod completes a 360 degree rotation without touching the ball. This is deemed an illegal move in the rules of foosball.
+				<br>3.No Jarring - Jarring is a rule for when a player slams his or her rods against the wall of the foosball table in an attempt to distract or jar the foosball loose from the other player's possession. The rule is that there is no jarring allowed at any point during a game. This is not the same as when a player on the opposite team moves his or her foosball rods back and forth in an attempt to play defense. The key this rule is when a player hits the wall of the table with enough force to jar the ball or distract the opponent. That is why this is a subjective rule that may be called more strict by certain foosball player
+				<br>4.Dead Balls - If a foosball stops in the middle of two opposing team rods, the ball must be picked up and reserved. The serve goes back to the team that was last scored on. If a dead ball occurs inside the D of a team, then the ball is played from the goalkeeper of that team.
+				<br>5.Out of Play - If a ball comes off the table area or hits a top rail and comes back into the table area, the ball is ruled out of play and must be reserved by the team that was last scored on.
+			<br><br><br>
+			</p>
+			
 <br>
-
+	</div>
 <div class="game-name">TABLE TENNIS
 	</div>
+	
+	<div class="container" >
 	<img src="tt.png" class="game-image">
 	<p class="game-content">Table tennis, also known as ping-pong, is a sport in which two or four players hit a lightweight ball back and forth across a table using small bats.</p>
 	<div class="row">
 			<div class="col-xs-4"></div>
 			<div class="col-xs-4">
-		<a class="rules_" id="ca_read" href="tt.pdf" target="_blank">RULES</a>
+		<a class="rules_" id="ca_read" onclick="function6()">RULES</a>
 		</div>
 		<div class="col-xs-4"></div>
 		</div>
 	<br>
+	<p class="rules_text" id="tabletennis_rules">
+			<b>Playing The Game</b>
+			<br>
+			A game is started when one player (server) makes a service before the receiver makes the return.
+			<br><br><b>The Server should:</b>
+			<br>- start with the ball resting freely on an open palm.
+			<br>- project the ball near vertically upwards, without imparting spin, so that it rises at least 16cm.
+			<br>- strike the ball so that it touches first his/her court and then, after passing over the net assembly, touches directly the receiver's court. In doubles, the ball must touch successively the right half court of server and receiver.
+			<br>Once the ball has been served, both players are to make returns until a point is scored. In doubles, each player on the same team must take turns to make the return.
+			<br><br>After 2 points have been scored, the receiving player/pair shall become the serving player/pair and so on until the end of the game.
+			<br><br><b>Scoring</b>
+			<br>A set is when one of the players or pairs first score 11 points. In the event that both players/pairs score 10 points, a set is be won by the first player/pair to gain a 2-point lead. A full match is won when a player or pair wins the best of any odd number of sets (3,5,7).
+			<br>A point is scored when:
+			<br>1. an opponent fails to make a correct service,
+			<br>2. an opponent fails to make a return,
+			<br>3. the ball touches any part of an opponent’s body,
+			<br>4. an opponent strikes the ball twice in succession,
+			<br>5. if an opponent, or anything an opponent wears, touches the playing surface or net during play,
+			<br>6. if a doubles opponent strikes the ball out of the sequence established by the first server and first receiver.
+			<br><br><br>
+			</p>
 <br>
 
-
-<div class="mob-link">
-		<div class="row">
-		<div class="col-xs-6">
-			<center>
-				<a href="https://www.facebook.com/StudentsClubIITR/" target="_blank"><img src="fb.png" class="scicn"></a>
-			</center>
-		</div>
-		<div class="col-xs-6">
-			<center>
-				<a href="mailto:ashishsinha108@gmail.com" target="_blank"> <img src="gmail.png" class="scicn"></a>
-					</center>
-		</div>
-			
-			
-			
-	
 	</div>
-</div>
+	
+	<div class="container" >
+			<div class="mob-link">
+                    <div class="row">
+                    <div class="col-xs-8"></div>
+                    <div class="col-xs-4">
+                        <div class="row">
+                            <div class="col-xs-6">
+                            <center>
+                                    <a href="https://www.facebook.com/StudentsClubIITR/" target="_blank"><img src="fbnew2.png" class="scicn"></a>
+                                </center>
+                            </div>
+                            <div class="col-xs-6">
+                        <center>
+                            <a href="mailto:ashishsinha108@gmail.com" target="_blank"> <img src="mail2.png" class="scicn2"></a>
+                        </center>
+                             </div>
+                        </div>
+                    
+                    </div>
+                    </div>
+
+                        
+                        
+                        
+                
+                </div>			
 	<!--end  -->
 
 </div>

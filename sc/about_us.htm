@@ -1,6 +1,7 @@
 <html>
 <head>
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
+		<link rel="shortcut icon" href="sclogo.png" type="image/x-icon">
 	<link rel="stylesheet" href="about_us.css">
 	<link href="https://fonts.googleapis.com/css?family=Average" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
@@ -82,18 +83,46 @@
 <body>
 	
 	<div class="desktop">
-	<div class="header">
-	<a href="index.htm"><img src="sclogo.PNG" class="logo"></img></a>
+	<div class="header" >
+	<a href="index.htm"><img src="sclogo.png" class="logo"></img></a>
 	<ul class="head">
-		<li> <a href="index.htm">Home </a></li>
-		<li> <a href="games.htm">Games </a> </li>
-		<li> <a href="events.htm">Events </a></li>
-		<li> <a href="about_us.htm" style="font-weight:normal; opacity:0.90;">About Us </a></li>
-		<li> <a href="/portal">Book Table</a></li>
-		<li> <a href="/tablestatus">Booking Status</a></li>
-		<li> <a href="notices.htm">Notices </a></li>
-		<li> <a href="team.htm">Team </a></li>
-	</ul>
+			<li role="presentation"> <a href="index.htm">Home </a></li>
+			<li role="presentation"> <a href="games.htm" >Games </a> </li>
+			<li role="presentation"> <a href="events.htm">Events </a></li>
+			<li role="presentation"> <a href="about_us.htm" style="font-weight:normal; opacity:0.90;">About Us </a></li>
+			<li class="dropdown">
+					<a  id="menu1" data-toggle="dropdown" href="" >Live Stream
+					<span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+					  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/foosballstream">Foosball</a></li>
+					  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/chessstream">Chess</a></li>
+					  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/snookerstream">Snooker</a></li>
+					  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/poolstream">Pool </a></li>
+					  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/carromstream">Carrom</a></li>
+					</ul>
+				  
+			</li>
+			<li class="dropdown">
+					<a  id="menu1" data-toggle="dropdown" href="" >Booking Portel
+					<span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+					  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/portal">Pool and Snooker Booking</a></li>
+					  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/psbooking">Playstation Booking</a></li>
+					</ul>
+				  
+			</li>
+			<li class="dropdown">
+					<a  id="menu1" data-toggle="dropdown" href="" >Booking Status
+					<span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+					  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/tablestatus">Table Booking Status</a></li>
+					  <li role="presentation"><a role="menuitem" tabindex="-1" href=http://stuc.iitr.ac.in/psstatus>Playstation Booking Status</a></li>
+					</ul>
+				  
+			</li>
+			<li role="presentation"> <a href="notices.htm">Notices </a></li>
+			<li role="presentation"> <a href="team.htm">Team </a></li>
+		</ul>
 	</div>
 	<div class="section" id="one" onclick="myFunc1()">
 		<p class="title">Main Unit</p>
@@ -139,7 +168,7 @@
 
 </div>
 <div class="mobile">
-	<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-inverse" style="background-color:#0f1012;border-color: #c7995d" >
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -147,27 +176,58 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span> 
 						</button>
-						<a href="index.htm" class="Studentclub_icon"><img src="logo-white-01.PNG" class="icon"></a>
+						<a href="index.htm" class="Studentclub_icon"><img src="sclogo2.png" class="icon"></a>
                         
                     </div>
                     <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav">
-							<li ><a href="index.htm">Home</a></li>
-							<li class="active"><a href="about_us.htm">About Us</a></li>
-							<li> <a href="/portal">Bool Table</a></li>
-							<li> <a href="/tablestatus">Booking Status</a></li>
-                            <li><a href="events.htm">Events</a></li>
-                            <li><a href="games.htm">Games</a></li> 
-                            <li><a href="notices.htm">Notices</a></li>
-                            <li><a href="team.htm">Team</a></li> 
+								<li role="presentation"> <a href="index.htm">Home </a></li>
+								<li role="presentation"> <a href="games.htm" >Games </a> </li>
+								<li role="presentation"> <a href="events.htm">Events </a></li>
+								<li role="presentation" class="active"> <a href="about_us.htm" >About Us </a></li>
+								<li class="dropdown">
+										<a  id="menu1" data-toggle="dropdown" href="" >Live Stream
+										<span class="caret"></span></a>
+										<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+										  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/foosballstream">Foosball</a></li>
+										  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/chessstream">Chess</a></li>
+										  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/snookerstream">Snooker</a></li>
+										  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/poolstream">Pool </a></li>
+										  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/carromstream">Carrom</a></li>
+										</ul>
+									  
+								</li>
+								<li class="dropdown">
+										<a  id="menu1" data-toggle="dropdown" href="" >Booking Portel
+										<span class="caret"></span></a>
+										<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+										  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/portal">Pool and Snooker Booking</a></li>
+										  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/psbooking">Playstation Booking</a></li>
+										</ul>
+									  
+								</li>
+								<li class="dropdown">
+										<a  id="menu1" data-toggle="dropdown" href="" >Booking Status
+										<span class="caret"></span></a>
+										<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+										  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://stuc.iitr.ac.in/tablestatus">Table Booking Status</a></li>
+										  <li role="presentation"><a role="menuitem" tabindex="-1" href=http://stuc.iitr.ac.in/psstatus>Playstation Booking Status</a></li>
+										</ul>
+									  
+								</li>
+								<li role="presentation"> <a href="notices.htm">Notices </a></li>
+								<li role="presentation"> <a href="team.htm">Team </a></li>
                         </ul>
                         
                     </div>
                 </div>
 			</nav>
 		</br>
+<br>
+
+		<div class="unitname" style=" margin-top: -43px;">MAIN UNIT</div>
 		<div class="container">
-			<div class="unitname" style="margin-top: -40px;">MAIN UNIT</div>
+			
 			<img src="main_unit.JPG" class="unitimage">
 			<p style="color: white; margin-top: 12px;">The main unit of the Students' Club is located near Georgia and Punjab National Bank. It has various facilities for
 			students to avail such as Snooker, Pool, Table Tennis, Carrom, Foosball, Chess and Air Hockey. Starting from the
@@ -177,10 +237,12 @@
 			<p style="color: white;">
 			<b>Timings</b>
 			<br>
-			10:00 AM to 12:00 AM
+			10:00 AM to 11:59 PM
 			</p>
-
-			<div class="unitname" style="margin-top: -40px;">ALAKNANDA UNIT</div>
+		</div>
+	
+			<div class="unitname" >ALAKNANDA UNIT</div>
+			<div class="container">
 			<img src="IMG_0174.JPG" class="unitimage">
 			<p style="color: white;margin-top: 12px;">The Alaknanda unit is located in the Multi Activity Centre (MAC) . It is is situated very close to 5 Bhawans making it
 			easily accessible for a large number of students. It has facilities such as Snooker, Pool, Table Tennis, Carrom,
@@ -193,8 +255,10 @@
 				10:00 AM to 10:00 PM
 				
 			</p>
-
+		</div>
+		
 			<div class="unitname">JAWAHAR UNIT</div>
+			<div class="container">
 			<img src="jawahar_unit.JPG" class="unitimage">
 			<p style="color: white;margin-top: 12px;">The Jawahar unit is located in the Jawahar Bhawan. It has facilities such as Snooker, Pool, Table Tennis, Carrom,
 			Chess, Air Hockey and Foosball. It also has a TV room.</p>

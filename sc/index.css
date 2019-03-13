@@ -50,7 +50,7 @@ body {margin: 0; padding: 0;}
         overflow-y: hidden;
         height: 100%;
         display: block;
-        background-color: #b4373d;
+        background-color:#101211;
     }
     
     .mob-image{
@@ -58,25 +58,33 @@ body {margin: 0; padding: 0;}
     }
 
     .icon{
-    width: 29%;
+    width: 29%;    margin-top: 5px;
      }
     .title{
-        margin-top: .5em;
+        margin-top: .8em;
         margin-bottom: .2em;
         text-align: center;
-        color: white;
-        font-size: 3.5em;
+        color:#101211;
+        border: 2px solid #c7995d;
+        background-color: #c7995d;
+        font-size: 2.8em;
         letter-spacing: .1em;
         font-family: 'Average', serif;
-        line-height: 6rem;
+        line-height: 5rem;
         }
     .links{
         width:100%;
     }
+    .scicn2{
+        margin-top: 2.25rem;
+    width: 2.3rem;
+    margin-right: 15px
+    }
     .scicn{
         margin-top: 2rem;
-        margin-bottom: 2rem;
-        width: 3rem;        
+        margin-bottom: 7px;
+        width: 1.3rem;
+        margin-left: 38px;        
     }
     .mob-link{
         width: 100%;

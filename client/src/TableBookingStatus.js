@@ -89,57 +89,63 @@ class TableBookingStatus extends Component {
        }
     } 
     timesP1 = timesP1.map(function(value){
-      return <Col md={1} sm={2} xs={6} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
+      return <Col md={1} sm={2} xs={4} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
     });
 
     timesP2 = timesP2.map(function(value){
-      return <Col md={1} sm={2} xs={6} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
+      return <Col md={1} sm={2} xs={4} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
     });
 
     timesS1 = timesS1.map(function(value){
-      return <Col md={1} sm={2} xs={6} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
+      return <Col md={1} sm={2} xs={4} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
     });
 
     timesS2 = timesS2.map(function(value){
-      return <Col md={1} sm={2} xs={6} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
+      return <Col md={1} sm={2} xs={4} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
     });
 
     timesS3 = timesS3.map(function(value){
-      return <Col md={1} sm={2} xs={6} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
+      return <Col md={1} sm={2} xs={4} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
     });
     timesS4 = timesS4.map(function(value){
-      return <Col md={1} sm={2} xs={6} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
+      return <Col md={1} sm={2} xs={4} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
     });
     timesS5 = timesS5.map(function(value){
-      return <Col md={1} sm={2} xs={6} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
+      return <Col md={1} sm={2} xs={4} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
     });
-  
+    var TableName = {
+      color: '#0f1012',
+      backgroundColor: '#c7995d',
+      
+      padding:' 7px',
+    };
     return(
+     
       <container>
         <Grid >
         <Row >
-        <CardTitle><h2 style={{color:'white'}}>Pool Table 1</h2></CardTitle>
+        <CardTitle><h2 style={TableName}>Pool Table 1</h2></CardTitle>
         <CardSubtitle style={{padding: '5px',color:'white'}}><h4>Tables Vacant</h4></CardSubtitle>
           {timesP1}
 </Row>
 </Grid>
 <Grid >
         <Row >
-        <CardTitle><h2 style={{color:'white'}}>Pool Table 2</h2></CardTitle>
+        <CardTitle><h2 style={TableName}>Pool Table 2</h2></CardTitle>
         <CardSubtitle style={{padding: '5px',color:'white'}}><h4>Tables Vacant</h4></CardSubtitle>
           {timesP2}
 </Row>
 </Grid>
 <Grid >
         <Row >
-        <CardTitle><h2 style={{color:'white'}}>Snooker Table 1</h2></CardTitle>
+        <CardTitle><h2 style={TableName}>Snooker Table 1</h2></CardTitle>
         <CardSubtitle style={{padding: '5px',color:'white'}}><h4>Tables Vacant</h4></CardSubtitle>
           {timesS1}
 </Row>
 </Grid>
 <Grid >
         <Row >
-        <CardTitle><h2 style={{color:'white'}}>Snooker Table 2</h2></CardTitle>
+        <CardTitle><h2 style={TableName}>Snooker Table 2</h2></CardTitle>
         <CardSubtitle style={{padding: '5px',color:'white'}}><h4>Tables Vacant</h4></CardSubtitle>
           {timesS2}
 </Row>
@@ -147,7 +153,7 @@ class TableBookingStatus extends Component {
           
 <Grid >
         <Row >
-        <CardTitle><h2 style={{color:'white'}}>Snooker Table 3</h2></CardTitle>
+        <CardTitle><h2 style={TableName}>Snooker Table 3</h2></CardTitle>
         <CardSubtitle style={{padding: '5px',color:'white'}}><h4>Tables Vacant</h4></CardSubtitle>
           {timesS3}
 </Row>
@@ -155,14 +161,14 @@ class TableBookingStatus extends Component {
 
 <Grid >
         <Row >
-        <CardTitle><h2 style={{color:'white'}}>Snooker Table 4</h2></CardTitle>
+        <CardTitle><h2 style={TableName}>Snooker Table 4</h2></CardTitle>
         <CardSubtitle style={{padding: '5px',color:'white'}}><h4>Tables Vacant</h4></CardSubtitle>
           {timesS4}
 </Row>
 </Grid>
 <Grid >
         <Row >
-        <CardTitle><h2 style={{color:'white', fontFamily: 'Average'}}>Snooker Table 5</h2></CardTitle>
+        <CardTitle><h2 style={TableName}>Snooker Table 5</h2></CardTitle>
         <CardSubtitle style={{padding: '5px',color:'white'}}><h4>Tables Vacant</h4></CardSubtitle>
           {timesS5}
 </Row>

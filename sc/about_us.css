@@ -35,7 +35,7 @@
 @media only screen and (max-width: 600px){
   .mobile{
     display: block;
-    background-color: #b4373d;
+    background-color: #0f1012;
   }
   .desktop{
     display: none;
@@ -43,6 +43,7 @@
   }
   .icon{
     width: 29%;
+    margin-top: 5px;
   }
   .unitimage{
     width:100%;
@@ -57,10 +58,17 @@
   
   .unitname{
     text-align: center;
-    color: white;
+    color:#0f1012;
         font-size: 3.5em;
         letter-spacing: .1em;
         font-family: 'Average', serif;
+        border-color: #c7995d;
+        background-color: #c7995d;
+        margin-bottom: 12px;
+        line-height: 49px;
+        margin-top: 15px;
+       
+
   }
 }
 

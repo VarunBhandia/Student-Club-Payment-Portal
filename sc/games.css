@@ -30,6 +30,7 @@
 .desktop {
   display: block;
 }
+
 .mobile{
   display: none;
 }
@@ -41,20 +42,26 @@
      
       
       display: block;
-      background-color: #b4373d;
+      background-color:#0f1012;
   }
+  
   .game-image{
     width: 100%;
   }
   .icon{
     width: 29%;
+    margin-top: 5px;
   }
   .game-name{
     text-align: center;
-    color: white;
+    color: #0f1012;
+    border-color: #c7995d;
+    background-color: #c7995d;
         font-size: 3.5em;
         letter-spacing: .1em;
         font-family: 'Average', serif;
+        margin-top: -12px;
+        margin-bottom: 15px;
   }
   .game-content{
     color: white;
@@ -63,25 +70,40 @@
     font-size: 1.4em;
     text-align: justify;
   }
+  .rules_text{
+    display: none;
+    color: rgb(15, 16, 18);
+    background-color: rgb(199, 153, 93);
+    padding: 10px;
+    text-align: justify;
+  }
   .rules_{
     
     text-align: center;
-    color:  white;
+    color:   #0f1012;
     font-family: 'Average', serif;
-    font-size: 1.8em;
-    border: 1px solid black;
+    font-size: 1.5em;
+    background-color: #c7995d;
+    border-radius: 20px;
     padding: 0.4em;
     margin-top: 1em;
   }
-  .scicn{
+  .scicn2{
+    margin-top: 2.25rem;
+width: 2.3rem;
+margin-right: 15px
+}
+.scicn{
     margin-top: 2rem;
-    margin-bottom: 2rem;
-    width: 3rem;        
+    margin-bottom: 7px;
+    width: 1.3rem;
+    margin-left: 38px;        
 }
 .mob-link{
     width: 100%;
-  
    
+    margin-top:-1.5em;
+    bottom: 0%;
 }
 }
 rule

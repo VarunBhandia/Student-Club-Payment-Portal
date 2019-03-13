@@ -27,7 +27,7 @@ import { Alert } from 'react-bootstrap';
 var sectionStyle = {
   width: "100%",
   height: '100%',
-  backgroundColor:'#b4373d',
+  backgroundColor:'#0f1012',
   backgroundRepeat: 'repeat',
   backgroundSize: 'cover',
   top: '0', left: '0',right: '0', bottom: '0', minWidth: '100%', minHeight: '100%',

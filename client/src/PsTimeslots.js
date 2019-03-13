@@ -20,7 +20,7 @@ var backstyle = {
    
   marginLeft:'-15px',
   marginRight:'-15px',
-  marginTop: '-20px'
+  
 }
 // declaring variable for 
 class PsTimeslots extends Component {
@@ -146,14 +146,19 @@ class PsTimeslots extends Component {
     var time = this.state.time;
     return (
     <div className='psbook' style={backstyle}>
-
-    <Grid>
-    <h1 style={{color: 'white', marginLeft: '25px'}}><b>Playstation Booking</b></h1>
-              <Alert variant='danger'> 
+    <div className='container'>
+    <Alert variant='danger'> 
                 Please note that you cannot book more than 3 Playstations in a day. 
                 In case of any discrepancy or amount deducted but table not being assigned, please report the incident to Student's Club. Refund will be initiated accordingly in about 14 days.
                 
               </Alert>
+    </div>
+
+    <Grid>
+   
+              <br></br>
+    <h1 style={{ color:' #0f1012',backgroundColor:' #c7995d',padding: '7px'}}><b>Playstation Booking</b></h1>
+              
      <br></br>
       <Row className="timeslot">
         {this.colhour(time[0],slot,0)}

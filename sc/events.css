@@ -36,18 +36,20 @@
   }
   .mobile{
     display: block;
-    background-color: #b4373d;
-    height:130%;
+    background-color:#0f1012;
+  
   }
   .icon{
     width: 29%;
-    
+    margin-top: 5px;
   }
   .title{
     margin-top: .5em;
     margin-bottom: .2em;
     text-align: center;
-    color: white;
+    color: #0f1012;
+        border-color: #c7995d;
+        background-color: #c7995d;
     font-size: 3.5em;
     letter-spacing: .1em;
     font-family: 'Average', serif;
@@ -61,15 +63,22 @@
       color: white;
       font-size: 1em;
     }
-    .scicn{
+    .scicn2{
+      margin-top: 2.25rem;
+  width: 2.3rem;
+  margin-right: 15px
+  }
+  .scicn{
       margin-top: 2rem;
-      margin-bottom: 2rem;
-      width: 3rem;        
+      margin-bottom: 7px;
+      width: 1.3rem;
+      margin-left: 38px;        
   }
   .mob-link{
       width: 100%;
-    
      
+      margin-top:-1.5em;
+      bottom: 0%;
   }
 
   .register {
