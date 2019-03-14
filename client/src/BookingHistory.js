@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { Card, CardTitle, CardText,
     CardSubtitle, CardBody } from 'reactstrap';
     import { 
@@ -23,11 +24,14 @@ class BookingHistory extends Component {
     super(props, context);
     this.state = {
       result: [],
+      loading: true,
+      redirect: false,
       }
   }
 
   componentWillMount() {
     this.getList();
+    this.getToken();
   }
 
   getList = () => {
@@ -36,8 +40,33 @@ class BookingHistory extends Component {
     .then(result => this.setState({ result }))
   }
 
+  getToken = () => {
+    fetch('/checkToken')
+    .then(res => {
+      if (res.status === 200) {
+        this.setState({ loading: false });
+      } else {
+        const error = new Error(res.error);
+        throw error;
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      this.setState({ loading: false, redirect: true });
+    });
+  }
+
   render() {
     const { result } = this.state;
+    var time = this.state.time;
+    const { loading, redirect } = this.state;
+    if (loading) {
+      return null;
+    }
+    if (redirect) {
+      return <Redirect to="/admin2019" />;
+    }
+
     var entries = [];
        if(result[0]) {
        for(var i=0; i<result.length; i++) {
@@ -45,12 +74,13 @@ class BookingHistory extends Component {
         entries.push(arr);
        }
     } 
-
+    
     entries = entries.map(function(rows){
         var row =  rows.map(cell => <td>{cell}</td>
         );
         return <tr>{row}</tr>;
-      });
+    });
+    
     return(
       
         <Table responsive style={{color: 'white'}}>
