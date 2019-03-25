@@ -29,7 +29,7 @@ class TsModal extends React.Component {
     
   }
  
-  componentWillMount() {
+  componentDidMount() {
     this.getList();
   }
 
@@ -184,7 +184,9 @@ class TsModal extends React.Component {
             <br></br>
             Bookings made are : {final}
             <br></br>
-            <Button onClick={() => { this.handlePostReq({finalbook},{totalamount})}} href='/payment'>Confirm Booking</Button>
+            <form action="/payment" method="post" id="myForm">
+            <Button onClick={() => { this.handlePostReq({finalbook},{totalamount})}} type="submit">Confirm Booking</Button>
+            </form>
             <Button disabled ={this.state.dis}  onClick={() => {this.createCheckboxes({currentTable}, {currentAmount})}}>Book more {currentTable}</Button>
             <Button onClick={this.props.onclick}>Close</Button>
           </Modal.Footer>

@@ -58,7 +58,6 @@ class BookingHistory extends Component {
 
   render() {
     const { result } = this.state;
-    var time = this.state.time;
     const { loading, redirect } = this.state;
     if (loading) {
       return null;

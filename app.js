@@ -312,7 +312,7 @@ app.post('/', function (req, res) {
 });
 
 
-app.use('/payment', (req, res) => {
+app.post('/payment', (req, res) => {
   var orderid = [];  
   CheckBooking(count,table_id);
 

@@ -66,7 +66,7 @@ class Timeslots extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.getList();
   
   }

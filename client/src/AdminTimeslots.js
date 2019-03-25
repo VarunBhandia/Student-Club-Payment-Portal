@@ -171,13 +171,6 @@ class Timeslots extends Component {
 
   render() {
     const { result } = this.state;
-    if(result === null) {
-      return <div />
-    }
-    if(result) {
-    var slot = result;
-    } 
-    var time = this.state.time;
     const { loading, redirect } = this.state;
       if (loading) {
         return null;
@@ -185,6 +178,14 @@ class Timeslots extends Component {
       if (redirect) {
         return <Redirect to="/admin2019" />;
       }
+    if(result === null) {
+      return <div />
+    }
+    if(result) {
+    var slot = result;
+    } 
+    var time = this.state.time;
+    
     return (
     <Grid>
        <h1 style={{color: 'white', marginLeft: '25px'}}><b>Pool And Snooker Booking</b></h1>
