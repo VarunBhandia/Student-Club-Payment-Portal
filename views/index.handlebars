@@ -5,34 +5,19 @@
           Students Club
         </h1><p class="lead">Book the table : {{table_id}}</p>
         <p>Do not refresh page while booking</p>
-  <!-- Note that the amount is in paise = 50 INR -->
-            <form action="/purchase" method="POST">
-<!-- Note that the amount is in paise = 50 INR -->                        
-            <script src="https://js.instamojo.com/v1/checkout.js"></script>
-
-            <input type="hidden" value={{order_id}} name  ="order_id">
-            </form>
-            <style>
-              .razorpay-payment-button{
-                background-color: #FFF;
-                color: #1565b1;
-                cursor: pointer;
-                font-size: 18px;
-                font-weight: 400;
-                line-height: 58px;
-                height: 60px;
-                margin: 15px 0;
-                min-width: 200px;
-                text-align: center;
-                text-transform: uppercase;
-                transition: .3s;
-              }
-              .razorpay-payment-button:hover {
-                -webkit-transform: scale(1.1);
-                        transform: scale(1.1);
-                box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 2px 4px 4px 0 rgba(0, 0, 0, 0.25);
-              }
-            </style>
+          <form id="redirectForm" method="post" action="https://test.cashfree.com/billpay/checkout/post/submit">
+            <input type="hidden" name="appId" value="4150f0eb1ccd2b29c552e6230514"/>
+            <input type="hidden" name="orderId" value={{order_id}}/>
+            <input type="hidden" name="orderAmount" value={{amount}}/>
+            <input type="hidden" name="orderCurrency" value="INR"/>
+            <input type="hidden" name="orderNote" value="test"/>
+            <input type="submit" name="customerName" value="John Doe"/>
+            <input type="submit" name="customerEmail" value="Johndoe@test.com"/>
+            <input type="submit" name="customerPhone" value="9999999999"/>
+            <input type="hidden" name="returnUrl" value="http://localhost:4000/purchase"/>
+            <input type="hidden" name="signature" value="<GENERATED_SIGNATURE>"/>
+        </form>
+           
     </div>
     <div class="col-md-6">
       <img src="/img/studentclub.jpg" alt="" class="img-fluid" style="margin-top:100px">

@@ -6,19 +6,10 @@ const secret = 'mysecretsshhh';
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
 const withAuth = require('./middleware');
-var Insta = require('instamojo-nodejs');
-Insta.setKeys('test_740ce91628198c7bee53da61912','test_34c3808f8fcc937059bed35a427' );
-Insta.isSandboxMode(true);
+var crypto = require('crypto');
+
 
 require('dotenv').config();
-var Razorpay = require('razorpay');
-var instance = new Razorpay({
-  key_id: process.env.API_KEY,
-  key_secret: process.env.API_PASS
-})
-
-var data = new Insta.PaymentData();
-
 
 // ... other imports 
 const path = require("path");
@@ -86,23 +77,23 @@ app.use(cookieParser());
 
 // Index Route
 var amount= 1000,
-    order_id,payment_id, count = 0, bookno = true,
-    table_id = [];
+    payment_id, count = 0, bookno = true,
+    table_id = [], i = 0;
     
 // deleting ongoing tables every 30 minutes
     setInterval(function() {
-      MongoClient.connect(url, function(err, db) {
+      MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
         if (err) throw err;
         var myquery = { TableFinalStatus: 'Ongoing' };
         var dbo = db.db(process.env.DB_NAME);
-        dbo.collection("TableStatus").remove(myquery, function(err, obj) {
+        dbo.collection("TableStatus").deleteMany(myquery, function(err, obj) {
           if (err) throw err;
           console.log(obj.result.n + " Table Status document(s) deleted");
           db.close();
         });
       });
       table_id = [];
-    },300000);
+    },900000);
     
 app.post('/admin', function (req, res) {
   const password = req.body.pass;
@@ -166,6 +157,7 @@ app.post('/adminbook', function (req, res) {
 
 
 // Set Static Folder
+app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'sc')));
 
 app.get('/', (req, res) => {
@@ -280,12 +272,13 @@ app.get('/manifest.json', (req, res) => {
 app.post('/', function (req, res) {
     table_id = req.body.item.finalbook;
     amount = req.body.amount.totalamount;
-    if(amount>=10) {
       var TableTime = [];
-        var TableType = [];
+      var TableType = [];
         for (var i=0; i < table_id.length; i++) {
             TableTime[i] = table_id[i].slice(0,11);
+            
             TableType[i] = table_id[i].slice(12);
+            
         } 
     MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
       if(!err) {
@@ -296,91 +289,147 @@ app.post('/', function (req, res) {
           console.log(err);
       }
       for(var i=0; i < table_id.length; i++) {
-      var dbo = db.db(process.env.DB_NAME);
-      var insertobj = { TableTime : TableTime[i],
-        TableType : TableType[i],
-        TableStatus : 'Booked',
-        TableFinalStatus: 'Ongoing'
-      };
-      dbo.collection("TableStatus").insertOne(insertobj, function(err, res) {
-        if (err) throw err;
-        console.log("Table time is " + insertobj.TableTime +  "     "  + insertobj.TableType + " has been booked" );
-      });
-    }
-    });
-    }      
+        var dbo = db.db(process.env.DB_NAME);
+        var insertobj = { TableTime : TableTime[i],
+          TableType : TableType[i],
+          TableStatus : 'Booked',
+          TableFinalStatus: 'Ongoing'
+        }
+        dbo.collection("TableStatus").insertOne(insertobj, function(err, res) {
+          if (err) throw err;
+          console.log("Table time is " + insertobj.TableTime +  "     "  + insertobj.TableType + " has been booked" );
+        });
+      }
+    });    
 });
 
 
-app.post('/payment', (req, res) => {
-  var orderid = [];  
+app.post('/payment', (req, res) => {  
   CheckBooking(count,table_id);
-
   setTimeout(function() {
-    if(amount < 10) {
-      res.send('Please book more than 1 table slot');
-    }
-    else if(count === 1) {
+  var order_id = "SCB" +  Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    if(count === 1) {
       count = 0;
-      console.log('hello');
       res.redirect('/');
     }
     else if(table_id[0] === undefined){
       res.redirect('/');
     }
     else {
-        data.purpose = "Book : " + table_id;           
-        data.amount = amount;             
-        data.setRedirectUrl('http://stuc.iitr.ac.in/purchase/');
-        Insta.createPayment(data, function(error,response) {
-          if (error) {
-            alert(error);
-          } else {
-            var redirect_link = [];
-            console.log(response);
-            response = JSON.parse(response);
-            orderid = response['payment_request'].id;
-            redirect_link = response['payment_request'].longurl;
-            MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
-              if(!err) {
-                console.log("We are connected");
-              }
-              if(err)
-              {
-                  console.log(err);
-              }
-              
-              var dbo = db.db(process.env.DB_NAME);
-              var insertobj = { table_id: table_id,
-                order_id : orderid 
-              };
-              dbo.collection("OrderTableStatus").insertOne(insertobj, function(err, res) {
-                if (err) throw err;
-              });
-            });
-            res.redirect(redirect_link);
-          }
+      MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
+        if(!err) {
+          console.log("We are connected");
+        }
+        if(err)
+        {
+            console.log(err);
+        }
+        
+        var dbo = db.db(process.env.DB_NAME);
+        var insertobj = { table_id: table_id,
+          order_id : order_id,
+        };
+        dbo.collection("OrderTableStatus").insertOne(insertobj, function(err, res) {
+          if (err) throw err;
+          console.log('order added');
         });
-        app.engine('handlebars',exphbs({defaultLayout:'main'}));
-        app.set('view engine', 'handlebars');
-      
+      });
+        app.set('view engine', 'jade');
+          res.render('layouts/index', 
+          {
+            order_id, table_id, amount
+          });  
     }
   }, 2000);
-  
+
 });
 
-/*****************
- * Payment status*
- *****************/
-app.get('/purchase', (req,res,value) =>{
+app.post('/request', (req, res) => {
+  var postData = {
+    "appId" : req.body.appId,
+    "orderId" : req.body.orderId,
+    "orderAmount" : req.body.orderAmount,
+    'customerName' : req.body.customerName,
+    "customerEmail" : req.body.customerEmail,
+    "customerPhone" : req.body.customerPhone,
+    "returnUrl" : req.body.returnUrl,
+  };
+  CheckContactInfo(postData);
+  setTimeout(function(){
+    if(bookno === false) {
+      bookno = true;
+      app.engine('handlebars',exphbs({defaultLayout:'main'}));
+        app.set('view engine', 'handlebars');
+        res.render('notif', 
+          {
+            text: 'Sorry! You have already made 4 bookings for today. Please try again tomorrow!' 
+          });
+    }
+    else {    
+      MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
+        if (err) throw err;
+        var dbo = db.db(process.env.DB_NAME);
+        var myquery = { order_id: postData.orderId };
+        var newvalues = { $set: {customerName: req.body.custoneName, customerEmail: req.body.customerEmail, customerPhone: req.body.customerPhone } };
+        dbo.collection("OrderTableStatus").updateOne(myquery, newvalues, function(err, res) {
+          if (err) throw err;
+          console.log("1 document updated");
+          db.close();
+        });
+      });
+      
+      var mode = "TEST",
+      secretKey = "f68b32cbcde140db82d771a71b020bfda4f3a985",
+      sortedkeys = Object.keys(postData),
+      URL="",
+      signatureData = "";
+      sortedkeys.sort();
+      for (var i = 0; i < sortedkeys.length; i++) {
+        k = sortedkeys[i];
+        signatureData += k + postData[k];
+      }
+      var signature = crypto.createHmac('sha256',secretKey).update(signatureData).digest('base64');
+      postData['signature'] = signature;
+      if (mode == "PROD") {
+        URL = "https://www.cashfree.com/checkout/post/submit";
+      } else {
+        URL = "https://test.cashfree.com/billpay/checkout/post/submit";
+      }
+      res.render('request',{postData : JSON.stringify(postData),url : URL});
+      }
+      }, 1000);
+      
+});
+
+
+app.post('/purchase', (req,res,value) =>{
+  var postData = {
+	  "orderId" : req.body.orderId,
+	  "orderAmount" : req.body.orderAmount,
+	  "referenceId" : req.body.referenceId,
+	  "txStatus" : req.body.txStatus,
+	  "paymentMode" : req.body.paymentMode,
+	  "txMsg" : req.body.txMsg,
+	  "txTime" : req.body.txTime
+	 },
+	secretKey = "f68b32cbcde140db82d771a71b020bfda4f3a985",
+
+	signatureData = "";
+	for (var key in postData) {
+		signatureData +=  postData[key];
+	}
+	var computedsignature = crypto.createHmac('sha256',secretKey).update(signatureData).digest('base64');
+	postData['signature'] = req.body.signature;
+	postData['computedsignature'] = computedsignature;
+
   var tableid = []
-    payment_id = req.query.payment_id;
-    payment_status = req.query.payment_status;
-    payment_request_id = req.query.payment_request_id;
+    payment_id = req.body.referenceId;
+    payment_status = req.body.txStatus;
+    
     console.log("**********Payment authorized***********");
     console.log(payment_id);
     console.log("**********Payment authorized***********");
-    if(payment_id === undefined || payment_status!='Credit'|| payment_request_id===undefined) {
+    if(payment_id === undefined || payment_status!='SUCCESS' || postData['signature']!=postData['computedsignature']) {
       app.engine('handlebars',exphbs({defaultLayout:'main'}));
                 app.set('view engine', 'handlebars');
                 res.render('notif', 
@@ -389,22 +438,17 @@ app.get('/purchase', (req,res,value) =>{
                 });
     }
     else {
-      Insta.getPaymentDetails(payment_request_id, payment_id, function(error, response) {
-        if (error) {
-          alert(error);
-        } else {
-          console.log(response);
           console.log("**********Payment instance***********");
           MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
             if (err) throw err;
             var dbo = db.db(process.env.DB_NAME);
-            var query = {order_id: response['payment_request'].id};  
+            var query = {order_id: req.body.orderId};  
             dbo.collection("OrderTableStatus").find(query).toArray(function(err, result) {
               if (err){
                 throw err;
               }
               else {
-                if(result[0]===undefined) {
+                if(result[0].table_id===undefined) {
                   app.engine('handlebars',exphbs({defaultLayout:'main'}));
                   app.set('view engine', 'handlebars');
                   res.render('notif', 
@@ -414,33 +458,30 @@ app.get('/purchase', (req,res,value) =>{
                 }
                 else {
                   tableid = result[0].table_id;
+                  postData.customerName =  result[0].customerName;
+                  postData.customerEmail = result[0].customerEmail;
+                  postData.customerPhone = result[0].customerPhone;
                 }
               }
             });
           });
           setTimeout(function() {
-            if(tableid.length === 0) {
-              console.log('Already booked');
-            }
-            else {
-                // checking for 3 or more bookings
-                  setTimeout(function() {
-                    CheckContactInfo(response);
-                    CheckBooking(count,tableid);
-                    MongoClient.connect(url, { useNewUrlParser: true },function(err, db) {
+                // checking for 3 or more bookings  
+                setTimeout(function() {
+                  CheckBooking(count,tableid);
+                  MongoClient.connect(url, { useNewUrlParser: true },function(err, db) {
+                    if (err) throw err;
+                    var myquery = { table_id: tableid };
+                    var dbo = db.db(process.env.DB_NAME);
+                    dbo.collection("OrderTableStatus").deleteOne(myquery, function(err, obj) {
                       if (err) throw err;
-                      var myquery = { table_id: tableid };
-                      var dbo = db.db(process.env.DB_NAME);
-                      dbo.collection("OrderTableStatus").remove(myquery, function(err, obj) {
-                        if (err) throw err;
-                        console.log(obj.result.n + " Order Table document(s) deleted");
-                        db.close();
-                      });
+                      console.log(obj.result.n + " Order Table document(s) deleted");
+                      db.close();
                     });
-                  }, 2000);
-                  
-                  
-                    
+                  });
+                }, 3000);
+                
+                
                   setTimeout(function() {
                     if(count === 1) {
                       count = 0;
@@ -461,16 +502,16 @@ app.get('/purchase', (req,res,value) =>{
                     });
                     }
                     else {
-                      response.table_id = tableid;
+                      postData.table_id = tableid;
                       
                       var TableTime = [];
                       var TableType = [];
                       for (var i=0; i < table_id.length; i++) {
-                          TableTime[i] = response.table_id[i].slice(0,11);
-                          TableType[i] = response.table_id[i].slice(12);
+                          TableTime[i] = postData.table_id[i].slice(0,11);
+                          TableType[i] = postData.table_id[i].slice(12);
                       } 
-                      response.tabletime = TableTime;
-                      response.tabletype = TableType;
+                      postData.tabletime = TableTime;
+                      postData.tabletype = TableType;
                       
                       
                       
@@ -485,8 +526,8 @@ app.get('/purchase', (req,res,value) =>{
                           }
                           for(var i=0; i < table_id.length; i++) {
                           var dbo = db.db(process.env.DB_NAME);
-                          var insertobj = { TableTime : response.tabletime[i],
-                            TableType : response.tabletype[i],
+                          var insertobj = { TableTime : postData.tabletime[i],
+                            TableType : postData.tabletype[i],
                             TableStatus : 'Booked',
                             TableFinalStatus: 'Purchased'
                           };
@@ -510,36 +551,26 @@ app.get('/purchase', (req,res,value) =>{
                           }
                           for(var i=0; i < table_id.length; i++) {
                           var dbo = db.db(process.env.DB_NAME);
-                          var insertobj = { BookingEmail: response['payment_request'].payment['buyer_email'],
-                            BookingContact: response['payment_request'].payment['buyer_phone'],
-                            BookingId: response['payment_request'].id,
-                            TableId : response.table_id[i],
-                            PaymentId: response['payment_request'].payment['payment_id']
+                          var insertobj = { 
+                            BookingName: postData.customerName,
+                            BookingEmail: postData.customerEmail,
+                            BookingContact: postData.customerPhone,
+                            BookingId: postData['orderId'],
+                            TableId : postData.table_id[i],
+                            PaymentId: postData['referenceId']
                           };
                           dbo.collection("BookingHistory").insertOne(insertobj, function(err, res) {
                             if (err) throw err;
                             console.log("Table time and id: " + insertobj.TableId + " has been booked by : " + insertobj.BookingEmail );
-                          });
+                          }); 
                         }
                         }); 
                     
-                  
-                      app.engine('handlebars',exphbs({defaultLayout:'main'}));
-                      app.set('view engine', 'handlebars');
-                  
-                      res.render(
-                        'purchase',
-                        {response}
-                      );
+                        res.render('response',{postData : JSON.stringify(postData)});
                     }
-                  }, 3000);
-              }
-          }, 3000);
-          
-          }   
-        })
+                  }, 2000);
+              }, 4000);
     }
-    
     })
 
 // getting info from admin pages 
@@ -868,12 +899,11 @@ function CheckBooking(count, table) {
   }
 }
 
-function CheckContactInfo(response) {  
-  console.log(response['payment_request'].payment['buyer_phone']);
+function CheckContactInfo(postData) {  
   MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
     if (err) throw err;
     var dbo = db.db(process.env.DB_NAME);
-    var query = {BookingContact: response['payment_request'].payment['buyer_phone']};  
+    var query = {BookingContact: postData['customerPhone']};  
     dbo.collection("BookingHistory").find(query).toArray(function(err, result) {
       if (err) throw err;
       

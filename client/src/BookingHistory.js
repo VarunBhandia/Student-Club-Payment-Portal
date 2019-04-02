@@ -69,7 +69,7 @@ class BookingHistory extends Component {
     var entries = [];
        if(result[0]) {
        for(var i=0; i<result.length; i++) {
-           var arr = [result[i].BookingEmail,result[i].BookingContact, result[i].TableId, result[i].PaymentId];
+           var arr = [result[i].BookingName, result[i].BookingEmail,result[i].BookingContact, result[i].TableId, result[i].PaymentId];
         entries.push(arr);
        }
     } 
@@ -85,6 +85,7 @@ class BookingHistory extends Component {
         <Table responsive style={{color: 'white'}}>
             <thead >
                 <tr>
+                <th>Name</th>
                 <th>Email</th>
                 <th>Contact Number</th>
                 <th>Table</th> 

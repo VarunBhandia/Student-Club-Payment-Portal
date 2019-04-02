@@ -29,7 +29,7 @@ class TsModal extends React.Component {
     
   }
  
-  componentDidMount() {
+  componentWillMount() {
     this.getList();
   }
 

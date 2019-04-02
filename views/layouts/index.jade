@@ -1,0 +1,36 @@
+extends layout
+:javascript
+block content
+  body
+    br
+    br
+    .container.fluid
+      h1(align='center') Students' Club Booking  for #{table_id}
+      .alert.alert-info
+        strong Do Not Refresh Page While Booking
+      form#redirectForm(method='post', action='/request')
+        .form-group
+          input.form-control(name='appId', type='hidden', value='4150f0eb1ccd2b29c552e6230514')
+        .form-group
+          input.form-control(name='orderId', type='hidden', value={order_id}.order_id)
+        .form-group
+          input.form-control(name='orderAmount', type='hidden', value={amount}.amount)
+        .form-group
+          label Name:
+          br
+          input.form-control(name='customerName', placeholder='Enter your name here (Ex. John Doe)')
+        .form-group
+          label Email:
+          br
+          input.form-control(name='customerEmail', placeholder='Enter your email address here (Ex. Johndoe@test.com)')
+        .form-group
+          label Phone:
+          br
+          input.form-control(name='customerPhone', placeholder='Enter your phone number here (Ex. 9999999999)')
+        .form-group
+          input.form-control(name='returnUrl', type='hidden', value='http://stuc.iitr.ac.in/purchase')
+        button.btn.btn-primary.btn-block(type='submit', value='Pay') Submit
+        br
+        br
+        br
+        br
