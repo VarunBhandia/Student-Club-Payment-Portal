@@ -72,11 +72,13 @@
   }
 }
 
-
+.booktablelink{
+  text-decoration: none;
+}
 
 body {padding:0; margin:0}
 
-.logo {position: fixed; z-index: 50; top:2rem; left:12rem; width:10rem;}
+.logo {position: fixed; z-index: 50; top:2rem; left:2rem; width:10rem;}
 
 .head {position: fixed; z-index: 55; top:3.5rem; right:11rem; font-family: brandon grotesque; font-size: 1.3rem;}
 
