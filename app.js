@@ -92,7 +92,7 @@ var amount= 1000,
         });
       });
       table_id = [];
-    },900000);
+    },600000);
     
 app.post('/admin', function (req, res) {
   const password = req.body.pass;
@@ -920,7 +920,7 @@ function CheckContactInfo(postData) {
 
 
 
-app.use('/XKTmYC3pOg', function (req, res) {
+app.use(process.env.DB_DELETE, function (req, res) {
   DeleteTableStatus();
   DeleteBookingHistory();
   DeleteOrderTableStatus();
