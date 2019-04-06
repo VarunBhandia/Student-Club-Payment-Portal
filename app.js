@@ -2,7 +2,6 @@ const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
-const secret = 'mysecretsshhh';
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
 const withAuth = require('./middleware');
@@ -97,7 +96,7 @@ var amount= 1000,
     
 app.post('/admin', function (req, res) {
   const password = req.body.pass;
-  if(password === 'iamadmin') {
+  if(password === process.env.ADMIN_PASS) {
     const payload = {password};
       const token = jwt.sign(payload, secret, {
         expiresIn: '1h'
@@ -379,7 +378,7 @@ app.post('/request', (req, res) => {
       });
       
       var mode = "TEST",
-      secretKey = "f68b32cbcde140db82d771a71b020bfda4f3a985",
+      secretKey = process.env.SECRET_KEY,
       sortedkeys = Object.keys(postData),
       URL="",
       signatureData = "";
@@ -412,7 +411,7 @@ app.post('/purchase', (req,res,value) =>{
 	  "txMsg" : req.body.txMsg,
 	  "txTime" : req.body.txTime
 	 },
-	secretKey = "f68b32cbcde140db82d771a71b020bfda4f3a985",
+	secretKey = process.env.SECRET_KEY,
 
 	signatureData = "";
 	for (var key in postData) {
@@ -506,7 +505,7 @@ app.post('/purchase', (req,res,value) =>{
                       
                       var TableTime = [];
                       var TableType = [];
-                      for (var i=0; i < table_id.length; i++) {
+                      for (var i=0; i < postData.table_id.length; i++) {
                           TableTime[i] = postData.table_id[i].slice(0,11);
                           TableType[i] = postData.table_id[i].slice(12);
                       } 
@@ -524,7 +523,7 @@ app.post('/purchase', (req,res,value) =>{
                           {
                               console.log(err);
                           }
-                          for(var i=0; i < table_id.length; i++) {
+                          for(var i=0; i < postData.table_id.length; i++) {
                           var dbo = db.db(process.env.DB_NAME);
                           var insertobj = { TableTime : postData.tabletime[i],
                             TableType : postData.tabletype[i],
@@ -549,7 +548,7 @@ app.post('/purchase', (req,res,value) =>{
                           {
                               console.log(err);
                           }
-                          for(var i=0; i < table_id.length; i++) {
+                          for(var i=0; i < postData.table_id.length; i++) {
                           var dbo = db.db(process.env.DB_NAME);
                           var insertobj = { 
                             BookingName: postData.customerName,
@@ -566,7 +565,7 @@ app.post('/purchase', (req,res,value) =>{
                         }
                         }); 
                     
-                        res.render('response',{postData : JSON.stringify(postData)});
+                        res.render('response',{postData : JSON.stringify(postData), table_id: postData.table_id});
                     }
                   }, 2000);
               }, 4000);

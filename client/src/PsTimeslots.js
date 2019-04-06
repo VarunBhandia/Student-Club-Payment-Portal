@@ -10,7 +10,7 @@ import {
 } from 'react-bootstrap';
 import './App.css';
 import PsTsModal from'./PsTsModal';
-import Background from './playstation.jpg';
+
 
 var btstyle = {
   padding: '10px',
