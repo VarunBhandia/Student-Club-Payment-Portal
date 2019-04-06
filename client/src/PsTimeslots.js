@@ -13,8 +13,9 @@ import PsTsModal from'./PsTsModal';
 import Background from './playstation.jpg';
 
 var btstyle = {
-  padding: '10px',
-  margin : '10px',
+  padding: '12px',
+  margin : '14px',
+  fontSize :'16px',
 }
 var backstyle = {
    
@@ -125,7 +126,7 @@ class PsTimeslots extends Component {
         <Col className='halfhour' xs={4} md={1}>
           <PsTsModal modalid = {this.state.buttonpush} popoverlist = {this.state.popoverlist} count = {this.state.count} show={this.state.show} onhide={this.handleClose} onclick={this.handleClose}   />
             <OverlayTrigger overlay = {this.popoverHoverFocus(count)} delay={{ show: 250, hide: 400 }}>
-              <Button bsStyle="outline-info"  style={btstyle} onMouseEnter={() => {this.handlePopoverList(keeptime, butdisable, count);}} onClick={() => { this.handleShow(); this.handleButPush({keeptime},count); }}>
+              <Button  bsStyle="outline-info"  style={btstyle} onMouseEnter={() => {this.handlePopoverList(keeptime, butdisable, count);}} onClick={() => { this.handleShow(); this.handleButPush({keeptime},count); }}>
                 {keeptime} 
               </Button>
             </OverlayTrigger>
@@ -168,29 +169,32 @@ class PsTimeslots extends Component {
         {this.colhour(time[4],slot,4)}
         {this.colhour(time[5],slot,5)}
         {this.colhour(time[6],slot,6)}
-      </Row>
-      <Row className="timeslot">
+      
         {this.colhour(time[7],slot,7)}
+        </Row>
+      <Row className="timeslot">
         {this.colhour(time[8],slot,8)}
         {this.colhour(time[9],slot,9)}
         {this.colhour(time[10],slot,10)}
         {this.colhour(time[11],slot,11)}
         {this.colhour(time[12],slot,12)}
         {this.colhour(time[13],slot,13)}
-      </Row>
-      <Row className="timeslot">
+      
         {this.colhour(time[14],slot,14)}
         {this.colhour(time[15],slot,15)}
+        </Row>
+      <Row className="timeslot">
         {this.colhour(time[16],slot,16)}
         {this.colhour(time[17],slot,17)}
         {this.colhour(time[18],slot,18)}
         {this.colhour(time[19],slot,19)}
         {this.colhour(time[20],slot,20)}
-      </Row>
-      <Row className="timeslot">
+     
         {this.colhour(time[21],slot,21)}
         {this.colhour(time[22],slot,22)}
         {this.colhour(time[23],slot,23)}
+        </Row>
+      <Row className="timeslot">
         {this.colhour(time[24],slot,24)}
         {this.colhour(time[25],slot,25)}
       </Row>

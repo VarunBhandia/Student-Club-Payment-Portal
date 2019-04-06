@@ -17,6 +17,10 @@ var sectionStyle = {
   fontFamily: 'Average',
 };
 
+var btstyle = {
+  fontSize :'16px',
+}
+
 
 // function getIndex(arr,value) {
 //   for(var i = 0; i < arr.length; i++) {
@@ -89,29 +93,29 @@ class TableBookingStatus extends Component {
        }
     } 
     timesP1 = timesP1.map(function(value){
-      return <Col md={1} sm={2} xs={4} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
+      return <Col md={1} sm={2} xs={5} style={{margin: '10px',}}><button variant="outline-info" style={btstyle} type="button" class="btn btn-default">{value}</button></Col>;
     });
 
     timesP2 = timesP2.map(function(value){
-      return <Col md={1} sm={2} xs={4} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
+      return <Col md={1} sm={2} xs={5} style={{margin: '10px',}}><button variant="outline-info" style={btstyle} type="button" class="btn btn-default">{value}</button></Col>;
     });
 
     timesS1 = timesS1.map(function(value){
-      return <Col md={1} sm={2} xs={4} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
+      return <Col md={1} sm={2} xs={5} style={{margin: '10px',}}><button variant="outline-info" style={btstyle} type="button" class="btn btn-default">{value}</button></Col>;
     });
 
     timesS2 = timesS2.map(function(value){
-      return <Col md={1} sm={2} xs={4} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
+      return <Col md={1} sm={2} xs={5} style={{margin: '10px',}}><button variant="outline-info" style={btstyle} type="button" class="btn btn-default">{value}</button></Col>;
     });
 
     timesS3 = timesS3.map(function(value){
-      return <Col md={1} sm={2} xs={4} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
+      return <Col md={1} sm={2} xs={5} style={{margin: '10px',}}><button variant="outline-info" style={btstyle} type="button" class="btn btn-default">{value}</button></Col>;
     });
     timesS4 = timesS4.map(function(value){
-      return <Col md={1} sm={2} xs={4} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
+      return <Col md={1} sm={2} xs={5} style={{margin: '10px',}}><button variant="outline-info" style={btstyle} type="button" class="btn btn-default">{value}</button></Col>;
     });
     timesS5 = timesS5.map(function(value){
-      return <Col md={1} sm={2} xs={4} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
+      return <Col md={1} sm={2} xs={5} style={{margin: '10px',}}><button variant="outline-info" style={btstyle} type="button" class="btn btn-default">{value}</button></Col>;
     });
     var TableName = {
       color: '#0f1012',

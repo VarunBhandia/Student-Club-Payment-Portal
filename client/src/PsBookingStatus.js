@@ -22,7 +22,9 @@ var sectionStyle = {
   color:'white',
   overflowX: 'hidden'
 };
-
+var btstyle = {
+  fontSize :'16px',
+};
 class PSBookingStatus extends Component {
   constructor(props, context) {
     super(props, context);
@@ -62,11 +64,11 @@ class PSBookingStatus extends Component {
         
      }
        timesP1 = timesP1.map(function(value){
-        return <Col md={1} sm={2} xs={6} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
+        return <Col md={1} sm={2} xs={5} style={{margin: '10px',}}><button variant="outline-info" style={btstyle} type="button" class="btn btn-default">{value}</button></Col>;
       });
 
       timesP2 = timesP2.map(function(value){
-        return <Col md={1} sm={2} xs={6} style={{padding: '2px'}}><button variant="outline-info" type="button" class="btn btn-default">{value}</button></Col>;
+        return <Col md={1} sm={2} xs={5} style={{margin: '10px',}}><button variant="outline-info" style={btstyle} type="button" class="btn btn-default">{value}</button></Col>;
       });
     } 
     var TableName = {
