@@ -19,6 +19,9 @@ html
                 td Order ID
                 td#orderId
               tr
+                td Tables Booked 
+                td#tableId
+              tr
                 td Order Amount
                 td#orderAmount
               tr
@@ -38,8 +41,11 @@ html
                 td#txTime
               script(type='text/javascript').
                 var postData = JSON.parse('!{postData}');
+                var table_id = '!{table_id}';
+                console.log(table_id);
                 if(postData.signature==postData.computedsignature){
                 document.getElementById("panel").className += " panel-success";
+                document.getElementById("tableId").innerHTML = table_id;
                 }else{
                 document.getElementById("panel").className += " panel-danger";
                 document.getElementById("heading").innerHTML = "Signature Verification Failed";
@@ -47,4 +53,5 @@ html
                 for(var key in postData){
                 document.getElementById(key).innerHTML = postData[key];
                 }
+                
           // </div>

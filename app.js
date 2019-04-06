@@ -2,12 +2,11 @@ const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
-const secret = 'mysecretsshhh';
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
 const withAuth = require('./middleware');
 var crypto = require('crypto');
-
+const secret = 'mysecretsshhh';
 
 require('dotenv').config();
 
@@ -93,11 +92,12 @@ var amount= 1000,
         });
       });
       table_id = [];
-    },900000);
+    },600000);
     
 app.post('/admin', function (req, res) {
   const password = req.body.pass;
-  if(password === 'iamadmin') {
+  console.log(secret);
+  if(password === process.env.ADMIN_PASS) {
     const payload = {password};
       const token = jwt.sign(payload, secret, {
         expiresIn: '1h'
@@ -370,7 +370,7 @@ app.post('/request', (req, res) => {
         if (err) throw err;
         var dbo = db.db(process.env.DB_NAME);
         var myquery = { order_id: postData.orderId };
-        var newvalues = { $set: {customerName: req.body.custoneName, customerEmail: req.body.customerEmail, customerPhone: req.body.customerPhone } };
+        var newvalues = { $set: {customerName: req.body.customerName, customerEmail: req.body.customerEmail, customerPhone: req.body.customerPhone } };
         dbo.collection("OrderTableStatus").updateOne(myquery, newvalues, function(err, res) {
           if (err) throw err;
           console.log("1 document updated");
@@ -378,8 +378,8 @@ app.post('/request', (req, res) => {
         });
       });
       
-      var mode = "TEST",
-      secretKey = "f68b32cbcde140db82d771a71b020bfda4f3a985",
+      var mode = "PROD",
+      secretKey = process.env.SECRET_KEY,
       sortedkeys = Object.keys(postData),
       URL="",
       signatureData = "";
@@ -412,7 +412,7 @@ app.post('/purchase', (req,res,value) =>{
 	  "txMsg" : req.body.txMsg,
 	  "txTime" : req.body.txTime
 	 },
-	secretKey = "f68b32cbcde140db82d771a71b020bfda4f3a985",
+	secretKey = process.env.SECRET_KEY,
 
 	signatureData = "";
 	for (var key in postData) {
@@ -422,7 +422,7 @@ app.post('/purchase', (req,res,value) =>{
 	postData['signature'] = req.body.signature;
 	postData['computedsignature'] = computedsignature;
 
-  var tableid = []
+  
     payment_id = req.body.referenceId;
     payment_status = req.body.txStatus;
     
@@ -430,6 +430,7 @@ app.post('/purchase', (req,res,value) =>{
     console.log(payment_id);
     console.log("**********Payment authorized***********");
     if(payment_id === undefined || payment_status!='SUCCESS' || postData['signature']!=postData['computedsignature']) {
+      console.log(payment_id, payment_status, postData['signature'], postData['computedsignature'] );
       app.engine('handlebars',exphbs({defaultLayout:'main'}));
                 app.set('view engine', 'handlebars');
                 res.render('notif', 
@@ -438,6 +439,7 @@ app.post('/purchase', (req,res,value) =>{
                 });
     }
     else {
+          var tableid = [];
           console.log("**********Payment instance***********");
           MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
             if (err) throw err;
@@ -506,7 +508,7 @@ app.post('/purchase', (req,res,value) =>{
                       
                       var TableTime = [];
                       var TableType = [];
-                      for (var i=0; i < table_id.length; i++) {
+                      for (var i=0; i < postData.table_id.length; i++) {
                           TableTime[i] = postData.table_id[i].slice(0,11);
                           TableType[i] = postData.table_id[i].slice(12);
                       } 
@@ -524,7 +526,7 @@ app.post('/purchase', (req,res,value) =>{
                           {
                               console.log(err);
                           }
-                          for(var i=0; i < table_id.length; i++) {
+                          for(var i=0; i < postData.table_id.length; i++) {
                           var dbo = db.db(process.env.DB_NAME);
                           var insertobj = { TableTime : postData.tabletime[i],
                             TableType : postData.tabletype[i],
@@ -549,7 +551,7 @@ app.post('/purchase', (req,res,value) =>{
                           {
                               console.log(err);
                           }
-                          for(var i=0; i < table_id.length; i++) {
+                          for(var i=0; i < postData.table_id.length; i++) {
                           var dbo = db.db(process.env.DB_NAME);
                           var insertobj = { 
                             BookingName: postData.customerName,
@@ -565,8 +567,7 @@ app.post('/purchase', (req,res,value) =>{
                           }); 
                         }
                         }); 
-                    
-                        res.render('response',{postData : JSON.stringify(postData)});
+                        res.render('response',{postData : JSON.stringify(postData), table_id : postData.table_id[0]});
                     }
                   }, 2000);
               }, 4000);
@@ -919,7 +920,7 @@ function CheckContactInfo(postData) {
 
 
 
-app.use('/XKTmYC3pOg', function (req, res) {
+app.use(process.env.DB_DELETE, function (req, res) {
   DeleteTableStatus();
   DeleteBookingHistory();
   DeleteOrderTableStatus();
