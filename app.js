@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
 const withAuth = require('./middleware');
 var crypto = require('crypto');
-
+const secret = 'mysecretsshhh';
 
 require('dotenv').config();
 
@@ -96,6 +96,7 @@ var amount= 1000,
     
 app.post('/admin', function (req, res) {
   const password = req.body.pass;
+  console.log(secret);
   if(password === process.env.ADMIN_PASS) {
     const payload = {password};
       const token = jwt.sign(payload, secret, {
@@ -369,7 +370,7 @@ app.post('/request', (req, res) => {
         if (err) throw err;
         var dbo = db.db(process.env.DB_NAME);
         var myquery = { order_id: postData.orderId };
-        var newvalues = { $set: {customerName: req.body.custoneName, customerEmail: req.body.customerEmail, customerPhone: req.body.customerPhone } };
+        var newvalues = { $set: {customerName: req.body.customerName, customerEmail: req.body.customerEmail, customerPhone: req.body.customerPhone } };
         dbo.collection("OrderTableStatus").updateOne(myquery, newvalues, function(err, res) {
           if (err) throw err;
           console.log("1 document updated");
@@ -377,7 +378,7 @@ app.post('/request', (req, res) => {
         });
       });
       
-      var mode = "TEST",
+      var mode = "PROD",
       secretKey = process.env.SECRET_KEY,
       sortedkeys = Object.keys(postData),
       URL="",
@@ -421,7 +422,7 @@ app.post('/purchase', (req,res,value) =>{
 	postData['signature'] = req.body.signature;
 	postData['computedsignature'] = computedsignature;
 
-  var tableid = []
+  
     payment_id = req.body.referenceId;
     payment_status = req.body.txStatus;
     
@@ -429,6 +430,7 @@ app.post('/purchase', (req,res,value) =>{
     console.log(payment_id);
     console.log("**********Payment authorized***********");
     if(payment_id === undefined || payment_status!='SUCCESS' || postData['signature']!=postData['computedsignature']) {
+      console.log(payment_id, payment_status, postData['signature'], postData['computedsignature'] );
       app.engine('handlebars',exphbs({defaultLayout:'main'}));
                 app.set('view engine', 'handlebars');
                 res.render('notif', 
@@ -437,6 +439,7 @@ app.post('/purchase', (req,res,value) =>{
                 });
     }
     else {
+          var tableid = [];
           console.log("**********Payment instance***********");
           MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
             if (err) throw err;
@@ -564,8 +567,7 @@ app.post('/purchase', (req,res,value) =>{
                           }); 
                         }
                         }); 
-                    
-                        res.render('response',{postData : JSON.stringify(postData), table_id: postData.table_id});
+                        res.render('response',{postData : JSON.stringify(postData), table_id : postData.table_id[0]});
                     }
                   }, 2000);
               }, 4000);
