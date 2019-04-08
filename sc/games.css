@@ -106,8 +106,15 @@ margin-right: 15px
     bottom: 0%;
 }
 }
-rule
 
+.booktablelink{
+  text-decoration: none;
+  color: #565656;
+}
+.booktablelink:hover{
+  text-decoration: none;
+  color:white;
+}
 
 body {padding:0; margin:0}
 
@@ -150,7 +157,7 @@ li { font-size:100%; display:inline; padding-left:2.5rem; }
 
 .readmore {
   position: relative;
-  //display:block;
+ 
   outline: 0;
   overflow:hidden;
   background: none;
