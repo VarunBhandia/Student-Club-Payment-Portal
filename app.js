@@ -508,7 +508,7 @@ app.post('/purchase', (req,res,value) =>{
                       
                       var TableTime = [];
                       var TableType = [];
-                      for (var i=0; i < postData.table_id.length; i++) {
+                      for (var i=0; i < tableid.length; i++) {
                           TableTime[i] = postData.table_id[i].slice(0,11);
                           TableType[i] = postData.table_id[i].slice(12);
                       } 
@@ -526,7 +526,7 @@ app.post('/purchase', (req,res,value) =>{
                           {
                               console.log(err);
                           }
-                          for(var i=0; i < postData.table_id.length; i++) {
+                          for(var i=0; i < tableidlength; i++) {
                           var dbo = db.db(process.env.DB_NAME);
                           var insertobj = { TableTime : postData.tabletime[i],
                             TableType : postData.tabletype[i],
@@ -551,7 +551,7 @@ app.post('/purchase', (req,res,value) =>{
                           {
                               console.log(err);
                           }
-                          for(var i=0; i < postData.table_id.length; i++) {
+                          for(var i=0; i < tableid.length; i++) {
                           var dbo = db.db(process.env.DB_NAME);
                           var insertobj = { 
                             BookingName: postData.customerName,
