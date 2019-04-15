@@ -84,19 +84,19 @@ class PSBookingStatus extends Component {
       <CardTitle><h2 style={TableName}>Playstation 1</h2></CardTitle>
       <CardSubtitle style={{padding: '5px',color:'white'}}><h4>Vacancies</h4></CardSubtitle>
         {timesP1}
-</Row>
-</Grid>
+      </Row>
+      </Grid>
 
-<Grid>
-<Row>
-<CardTitle><h2 style={TableName}>Playstation 2</h2></CardTitle>
-<CardSubtitle style={{padding: '5px',color:'white'}}><h4>Vacancies</h4></CardSubtitle>
-  {timesP2}
-</Row>
-</Grid>
-</container>
-    );
-  }
-}
+      <Grid>
+      <Row>
+      <CardTitle><h2 style={TableName}>Playstation 2</h2></CardTitle>
+      <CardSubtitle style={{padding: '5px',color:'white'}}><h4>Vacancies</h4></CardSubtitle>
+        {timesP2}
+      </Row>
+      </Grid>
+      </container>
+          );
+        }
+      }
 
 export default PSBookingStatus; 
