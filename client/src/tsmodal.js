@@ -35,7 +35,7 @@ class TsModal extends React.Component {
 
   getList = () => {
     
-    fetch("/mznFag7kV7")
+    fetch("/testpayment")
     .then(res => res.json())
     .then(result => this.setState({ result }))
   }
@@ -187,7 +187,7 @@ class TsModal extends React.Component {
             <form action="/payment" method="post" id="myForm">
             <Button onClick={() => { this.handlePostReq({finalbook},{totalamount})}} type="submit">Confirm Booking</Button>
             </form>
-            <Button disabled ={this.state.dis}  onClick={() => {this.createCheckboxes({currentTable}, {currentAmount})}}>Book more {currentTable}</Button>
+            <Button disabled ={this.state.dis}  onClick={() => {this.createCheckboxes({currentTable}, {currentAmount})}}>Book more slots of {currentTable}</Button>
             <Button onClick={this.props.onclick}>Close</Button>
           </Modal.Footer>
           <h4 hidden = {this.state.checkboxDis}>{currentTable} free slots</h4>
