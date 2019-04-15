@@ -131,6 +131,12 @@ class Timeslots extends Component {
           if(butdisable[i].TableType === 'Snooker Table 5') {
             newList[count].s5 = 'Booked';
           }
+          if(butdisable[i].TableType === 'Playstation 1') {
+            newList[count].c1 = 'Booked';
+          }
+          if(butdisable[i].TableType === 'Playstation 2') {
+            newList[count].c2 = 'Booked';
+          }
         }
       }
       this.setState({popoverlist : newList});
