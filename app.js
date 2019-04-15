@@ -862,6 +862,10 @@ function DeleteTableStatus() {
       if (err) throw err;
       console.log(obj.result.n + " document(s) deleted");
     });
+    dbo.collection("TestTableStatus").deleteMany(myquery, function(err, obj) {
+      if (err) throw err;
+      console.log(obj.result.n + " document(s) deleted");
+    });
   });
 }
 
@@ -875,6 +879,10 @@ function DeleteBookingHistory() {
       if (err) throw err;
       console.log(obj.result.n + " document(s) deleted");
     });
+    dbo.collection("TestBookingHistory").deleteMany(myquery, function(err, obj) {
+      if (err) throw err;
+      console.log(obj.result.n + " document(s) deleted");
+    });
   });
 }
 
@@ -884,6 +892,10 @@ function DeleteOrderTableStatus() {
     var dbo = db.db(process.env.DB_NAME);
     var myquery = {};
     dbo.collection("OrderTableStatus").deleteMany(myquery, function(err, obj) {
+      if (err) throw err;
+      console.log(obj.result.n + " document(s) deleted");
+    });
+    dbo.collection("TestOrderTableStatus").deleteMany(myquery, function(err, obj) {
       if (err) throw err;
       console.log(obj.result.n + " document(s) deleted");
     });
