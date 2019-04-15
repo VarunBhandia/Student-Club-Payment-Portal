@@ -970,5 +970,5 @@ const port = process.env.PORT || 4000;
 // }); 
 
 app.listen(process.env.PORT || port, function() {
-  console.log('Express server is up and running!');
+  console.log('Express server is up!');
 });
