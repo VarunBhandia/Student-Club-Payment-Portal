@@ -11,18 +11,13 @@ import {
 import './App.css';
 import PsTsModal from'./PsTsModal';
 
-
+// Time button style 
 var btstyle = {
   padding: '12px',
   margin : '14px',
   fontSize :'16px',
 }
-var backstyle = {
-   
-  marginLeft:'-15px',
-  marginRight:'-15px',
-  
-}
+
 // declaring variable for 
 class PsTimeslots extends Component {
   constructor(props, context) {
@@ -146,7 +141,7 @@ class PsTimeslots extends Component {
     } 
     var time = this.state.time;
     return (
-    <div className='psbook' style={backstyle}>
+    <div className='psbook' >
     <div className='container'>
     <Alert variant='danger'> 
                 Please note that you cannot book more than 4 Playstation slots in a day. 

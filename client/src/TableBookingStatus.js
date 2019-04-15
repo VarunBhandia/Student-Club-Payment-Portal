@@ -7,7 +7,7 @@ import { Card, CardTitle, CardText,
       Grid
     } from 'react-bootstrap';
 import './App.css';
-
+// table booking status style 
 var sectionStyle = {
   width: "100%",
   height: '100%',
@@ -16,20 +16,13 @@ var sectionStyle = {
   overflowX: 'hidden',
   fontFamily: 'Average',
 };
-
+//  Button of time style
 var btstyle = {
   fontSize :'16px',
 }
 
 
-// function getIndex(arr,value) {
-//   for(var i = 0; i < arr.length; i++) {
-//       if(arr[i] === value) {
-//           return i;
-//       }
-//   }
-//   return -1; //to handle the case where the value doesn't exist
-// }
+
 
 
 class TableBookingStatus extends Component {
@@ -39,7 +32,7 @@ class TableBookingStatus extends Component {
       result: [],
       }
   }
-
+//
   componentWillMount() {
     this.getList();
   }
@@ -128,6 +121,7 @@ class TableBookingStatus extends Component {
       <container>
         <Grid >
         <Row >
+        
         <CardTitle><h2 style={TableName}>Pool Table 1</h2></CardTitle>
         <CardSubtitle style={{padding: '5px',color:'white'}}><h4>Tables Vacant</h4></CardSubtitle>
           {timesP1}
