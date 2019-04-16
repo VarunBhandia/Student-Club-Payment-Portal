@@ -21,7 +21,7 @@ import BookingHistory from './BookingHistory';
 import TableBooking from './NewBooking';
 import PSBookingStatus from './PsBookingStatus';
 import PsTimeslots from './PsTimeslots';
-import { Alert } from 'react-bootstrap';
+import { Alert, Button } from 'react-bootstrap';
 
 
 var sectionStyle = {
@@ -45,25 +45,27 @@ class App extends Component {
           <NavbarHeader />
           <Route exact path="/portal" render={props => (
             <React.Fragment>
+              <br></br><br></br>
               <div className="container">
-              <Alert variant={variant}> 
+              {/* <Alert variant={variant}> 
                 1. Please note that you cannot book more than 4 table slots in a day.<br></br> 
                 In case of any discrepancy or amount deducted but table not being assigned, please report the incident to Student's Club. Refund will be initiated accordingly in about 14 days.<br></br>
                 2. Please wait a few seconds before selecting so that the availability status can be updated.<br></br>
                 3. On mobile devices, long press on the time for table availability status.
-                
-                
+              </Alert> */}
+              
+              <Alert variant={variant}> 
+                <h1> Will be activated soon after the successful working of first phase of the website!! <br></br> For checking the booking status: <Button href='http://stuc.iitr.ac.in/tablestatus'>click here</Button> </h1>
               </Alert>
               </div>
-              <Timeslots />
-              <br></br><br></br>
+              
               
             </React.Fragment>
           )}>
           </Route> 
         {/* <Route path="/portal1" component={TableBooking}/> */}
         <Route path="/psstatus" component={PSBookingStatus}/>
-        <Route path="/psbooking" component={PsTimeslots}/>
+        {/* <Route path="/psbooking" component={PsTimeslots}/> */}
         <Route path="/tablestatus" component={TableBookingStatus}/>
         <Route path="/bookinghistory" component={BookingHistory}/>
         <Route path="/admin2019" component={LoginAdmin}/>

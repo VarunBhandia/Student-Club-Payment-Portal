@@ -32,7 +32,7 @@ class NavbarHeader extends Component {
           </NavDropdown>
           <NavDropdown eventKey={4} title="BookingPortal" id="basic-nav-dropdown">
             <MenuItem eventKey={4.2} href="/portal">Pool and Snooker Table Booking</MenuItem>
-            <MenuItem eventKey={4.2} href="/psbooking">Playstation Booking</MenuItem>
+            {/* <MenuItem eventKey={4.2} href="/psbooking">Playstation Booking</MenuItem> */}
           </NavDropdown>
           <NavDropdown eventKey={5} title="Booking Status" id="basic-nav-dropdown">
             <MenuItem eventKey={5.1} href="/tablestatus">Table Booking Status</MenuItem>
