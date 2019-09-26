@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 const withAuth = require('./middleware');
 var crypto = require('crypto');
 const secret = 'mysecretsshhh';
-
+var hbs = require('express-handlebars')
 require('dotenv').config();
 
 // ... other imports 
@@ -79,7 +79,8 @@ MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
 const app = express();
 
 //Handlebars Middleware
-
+app.engine('handlebars',hbs({extname: 'handlebars',defaultLayout: 'main', layoutDir:__dirname+'/views/layouts'}));
+app.set('view engine', 'handlebars');
 
 // Body Parser Middleware
 app.use(bodyParser.json());
@@ -175,8 +176,14 @@ app.use(express.static(path.join(__dirname, 'sc')));
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'sc', 'index.htm'))
 });
+// app.get('/test', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'sc', 'events.htm'))
+// });
 app.use(express.static(path.join(__dirname, 'public')));
 app.get('/portal', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+});
+app.get('/portal1', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
 });
 app.get('/admin2019', (req, res) => {

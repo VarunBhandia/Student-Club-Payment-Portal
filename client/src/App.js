@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { Component } from 'react';
 import NavbarHeader from './navbarhead';
 import AdminTimeslots from './AdminTimeslots';
@@ -63,9 +64,9 @@ class App extends Component {
             </React.Fragment>
           )}>
           </Route> 
-        {/* <Route path="/portal1" component={TableBooking}/> */}
+        <Route path="/portal1" component={TableBooking}/>
         <Route path="/psstatus" component={PSBookingStatus}/>
-        {/* <Route path="/psbooking" component={PsTimeslots}/> */}
+        <Route path="/psbooking" component={PsTimeslots}/>
         <Route path="/tablestatus" component={TableBookingStatus}/>
         <Route path="/bookinghistory" component={BookingHistory}/>
         <Route path="/admin2019" component={LoginAdmin}/>
