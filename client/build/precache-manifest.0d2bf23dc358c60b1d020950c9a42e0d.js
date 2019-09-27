@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "23e6470260d900679a0f",
+    "revision": "fd4bd641b9ba01200503",
     "url": "/static/css/main.367a933c.chunk.css"
   },
   {
-    "revision": "23e6470260d900679a0f",
-    "url": "/static/js/main.23e64702.chunk.js"
+    "revision": "fd4bd641b9ba01200503",
+    "url": "/static/js/main.fd4bd641.chunk.js"
   },
   {
     "revision": "a74f9bde628e0279be4b",
@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "/static/media/playstation.777ffba0.jpg"
   },
   {
-    "revision": "23035a28b433bc685aed85148fb0c151",
+    "revision": "f5a6dd9e7f82c9cbfc1c5202b5fef784",
     "url": "/index.html"
   }
 ];
