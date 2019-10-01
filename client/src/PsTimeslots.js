@@ -72,7 +72,7 @@ class PsTimeslots extends Component {
 
   getList = () => {
     
-    fetch("/testpayment")
+    fetch("/payment")
     .then(res => res.json())
     .then(result => this.setState({ result }))
   }
