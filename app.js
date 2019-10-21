@@ -314,7 +314,7 @@ app.post('/', function (req, res) {
           TableStatus : 'Booked',
           TableFinalStatus: 'Ongoing'
         }
-        dbo.collection("TestTableStatus").insertOne(insertobj, function(err, res) {
+        dbo.collection("TableStatus").insertOne(insertobj, function(err, res) {
           if (err) throw err;
           console.log("Table time is " + insertobj.TableTime +  "     "  + insertobj.TableType + " has been booked" );
         });
@@ -348,7 +348,7 @@ app.post('/payment', (req, res) => {
         var insertobj = { table_id: table_id,
           order_id : order_id,
         };
-        dbo.collection("TestOrderTableStatus").insertOne(insertobj, function(err, res) {
+        dbo.collection("OrderTableStatus").insertOne(insertobj, function(err, res) {
           if (err) throw err;
           console.log('order added');
         });
@@ -390,13 +390,15 @@ app.post('/request', (req, res) => {
         var dbo = db.db(process.env.DB_NAME);
         var myquery = { order_id: postData.orderId };
         var newvalues = { $set: {customerName: req.body.customerName, customerEmail: req.body.customerEmail, customerPhone: req.body.customerPhone } };
-        dbo.collection("TestOrderTableStatus").updateOne(myquery, newvalues, function(err, res) {
+        dbo.collection("OrderTableStatus").updateOne(myquery, newvalues, function(err, res) {
           if (err) throw err;
           console.log("1 document updated");
           db.close();
         });
       });
       
+      console.log("checking")
+
       var mode = "PROD",
       secretKey = process.env.SECRET_KEY,
       sortedkeys = Object.keys(postData),
@@ -448,7 +450,7 @@ app.post('/purchase', (req,res,value) =>{
     console.log("**********Payment authorized***********");
     console.log(payment_id);
     console.log("**********Payment authorized***********");
-    if(payment_id === undefined || payment_status!='SUCCESS' || postData['signature']!=postData['computedsignature']) {
+    if(payment_id === undefined || payment_status!='SUCCESS' || postData['signature']==postData['computedsignature']) {
       console.log(payment_id, payment_status, postData['signature'], postData['computedsignature'] );
       app.engine('handlebars',exphbs({defaultLayout:'main'}));
                 app.set('view engine', 'handlebars');
@@ -464,7 +466,7 @@ app.post('/purchase', (req,res,value) =>{
             if (err) throw err;
             var dbo = db.db(process.env.DB_NAME);
             var query = {order_id: req.body.orderId};  
-            dbo.collection("TestOrderTableStatus").find(query).toArray(function(err, result) {
+            dbo.collection("OrderTableStatus").find(query).toArray(function(err, result) {
               if (err){
                 throw err;
               }
@@ -494,7 +496,7 @@ app.post('/purchase', (req,res,value) =>{
                     if (err) throw err;
                     var myquery = { table_id: tableid };
                     var dbo = db.db(process.env.DB_NAME);
-                    dbo.collection("TestOrderTableStatus").deleteOne(myquery, function(err, obj) {
+                    dbo.collection("OrderTableStatus").deleteOne(myquery, function(err, obj) {
                       if (err) throw err;
                       console.log(obj.result.n + " Order Table document(s) deleted");
                       db.close();
@@ -552,7 +554,7 @@ app.post('/purchase', (req,res,value) =>{
                             TableStatus : 'Booked',
                             TableFinalStatus: 'Purchased'
                           };
-                          dbo.collection("TestTableStatus").insertOne(insertobj, function(err, res) {
+                          dbo.collection("TableStatus").insertOne(insertobj, function(err, res) {
                             if (err) throw err;
                             console.log("Table time is " + insertobj.TableTime +  "     "  + insertobj.TableType + " has been booked" );
                           });
@@ -580,7 +582,7 @@ app.post('/purchase', (req,res,value) =>{
                             TableId : postData.table_id[i],
                             PaymentId: postData['referenceId']
                           };
-                          dbo.collection("TestBookingHistory").insertOne(insertobj, function(err, res) {
+                          dbo.collection("BookingHistory").insertOne(insertobj, function(err, res) {
                             if (err) throw err;
                             console.log("Table time and id: " + insertobj.TableId + " has been booked by : " + insertobj.BookingEmail );
                           }); 

@@ -35,7 +35,7 @@ class TsModal extends React.Component {
 
   getList = () => {
     
-    fetch("/payment")
+    fetch("/mznFag7kV7")
     .then(res => res.json())
     .then(result => this.setState({ result }))
   }
