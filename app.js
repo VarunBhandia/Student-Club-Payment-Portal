@@ -399,7 +399,7 @@ app.post('/request', (req, res) => {
       
       console.log("checking")
 
-      var mode = "TEST",
+      var mode = "PROD",
       secretKey = process.env.SECRET_KEY,
       sortedkeys = Object.keys(postData),
       URL="",
