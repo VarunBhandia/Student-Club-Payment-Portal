@@ -399,7 +399,7 @@ app.post('/request', (req, res) => {
       
       console.log("checking")
 
-      var mode = "PROD",
+      var mode = "TEST",
       secretKey = process.env.SECRET_KEY,
       sortedkeys = Object.keys(postData),
       URL="",
@@ -450,7 +450,7 @@ app.post('/purchase', (req,res,value) =>{
     console.log("**********Payment authorized***********");
     console.log(payment_id);
     console.log("**********Payment authorized***********");
-    if(payment_id === undefined || payment_status!='SUCCESS' || postData['signature']==postData['computedsignature']) {
+    if(payment_id === undefined || payment_status!='SUCCESS' || postData['signature']!=postData['computedsignature']) {
       console.log(payment_id, payment_status, postData['signature'], postData['computedsignature'] );
       app.engine('handlebars',exphbs({defaultLayout:'main'}));
                 app.set('view engine', 'handlebars');
