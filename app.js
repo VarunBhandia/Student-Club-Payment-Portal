@@ -418,7 +418,7 @@ app.post('/request', (req, res) => {
       }
       res.render('request',{postData : JSON.stringify(postData),url : URL});
       }
-      }, 1000);
+      }, 3000);
       
 });
 
