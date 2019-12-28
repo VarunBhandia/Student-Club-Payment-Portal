@@ -373,6 +373,7 @@ app.post('/request', (req, res) => {
     "customerPhone" : req.body.customerPhone,
     "returnUrl" : req.body.returnUrl,
   };
+	console.log(postData);
   CheckContactInfo(postData);
   setTimeout(function(){
     if(bookno === false) {
