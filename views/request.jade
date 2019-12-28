@@ -9,6 +9,7 @@ html
       p Please wait.......
       script(type='text/javascript').
         var postData = JSON.parse('!{postData}');
+        console.log('!{secretKey}')
         console.log(postData['orderId']);
         console.log(postData['appId']);
         console.log(postData['orderAmount']);

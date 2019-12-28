@@ -410,7 +410,6 @@ app.post('/request', (req, res) => {
         signatureData += k + postData[k];
       }
       var signature = crypto.createHmac('sha256',secretKey).update(signatureData).digest('base64');
-      console
       postData['signature'] = signature;
       if (mode == "PROD") {
         URL = "https://www.cashfree.com/checkout/post/submit";
@@ -418,7 +417,7 @@ app.post('/request', (req, res) => {
         URL = "https://test.cashfree.com/billpay/checkout/post/submit";
       }
       app.set('view engine', 'jade');
-      res.render('request',{postData : JSON.stringify(postData),url : URL});
+      res.render('request',{postData : JSON.stringify(postData),url : URL, secretKey: secretKey});
       }
       }, 3000);
       
