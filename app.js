@@ -384,7 +384,7 @@ app.post('/request', (req, res) => {
             text: 'Sorry! You have already made 4 bookings for today. Please try again tomorrow!' 
           });
     }
-    else {    
+    else {
       MongoClient.connect(url, { useNewUrlParser: true },  function(err, db) {
         if (err) throw err;
         var dbo = db.db(process.env.DB_NAME);
@@ -396,9 +396,8 @@ app.post('/request', (req, res) => {
           db.close();
         });
       });
-      
-      console.log("checking")
 
+      
       var mode = "PROD",
       secretKey = process.env.SECRET_KEY,
       sortedkeys = Object.keys(postData),
@@ -416,6 +415,7 @@ app.post('/request', (req, res) => {
       } else {
         URL = "https://test.cashfree.com/billpay/checkout/post/submit";
       }
+      app.set('view engine', 'jade');
       res.render('request',{postData : JSON.stringify(postData),url : URL});
       }
       }, 3000);
@@ -587,7 +587,8 @@ app.post('/purchase', (req,res,value) =>{
                             console.log("Table time and id: " + insertobj.TableId + " has been booked by : " + insertobj.BookingEmail );
                           }); 
                         }
-                        }); 
+                        });
+                        app.set('view engine', 'jade');
                         res.render('response',{postData : JSON.stringify(postData), table_id : postData.table_id[0]});
                     }
                   }, 2000);
