@@ -373,7 +373,6 @@ app.post('/request', (req, res) => {
     "customerPhone" : req.body.customerPhone,
     "returnUrl" : req.body.returnUrl,
   };
-	console.log(postData);
   CheckContactInfo(postData);
   setTimeout(function(){
     if(bookno === false) {
@@ -417,7 +416,7 @@ app.post('/request', (req, res) => {
         URL = "https://test.cashfree.com/billpay/checkout/post/submit";
       }
       app.set('view engine', 'jade');
-      res.render('request',{postData : JSON.stringify(postData),url : URL, secretKey: secretKey});
+      res.render('request',{postData : JSON.stringify(postData),url : URL});
       }
       }, 3000);
       
@@ -434,7 +433,7 @@ app.post('/purchase', (req,res,value) =>{
 	  "txMsg" : req.body.txMsg,
 	  "txTime" : req.body.txTime
 	 },
-	secretKey = process.env.SECRET_KEY,
+	secretKey = '7c5a9522a204050aba5bbe4125d16dd734a31655',
 
 	signatureData = "";
 	for (var key in postData) {
