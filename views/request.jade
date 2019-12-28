@@ -9,6 +9,14 @@ html
       p Please wait.......
       script(type='text/javascript').
         var postData = JSON.parse('!{postData}');
+        console.log(postData['orderId']);
+        console.log(postData['appId']);
+        console.log(postData['orderAmount']);
+        console.log(postData['customerEmail']);
+        console.log(postData['customerPhone']);
+        console.log(postData['returnUrl']);
+        console.log(postData['customerName']);
+        console.log(postData['signature']);
         for(var key in postData){
         var input = document.createElement('input');
         input.setAttribute('type', 'hidden');

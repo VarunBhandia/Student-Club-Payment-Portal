@@ -410,6 +410,7 @@ app.post('/request', (req, res) => {
         signatureData += k + postData[k];
       }
       var signature = crypto.createHmac('sha256',secretKey).update(signatureData).digest('base64');
+      console
       postData['signature'] = signature;
       if (mode == "PROD") {
         URL = "https://www.cashfree.com/checkout/post/submit";
