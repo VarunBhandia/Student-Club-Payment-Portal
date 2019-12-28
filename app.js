@@ -400,7 +400,7 @@ app.post('/request', (req, res) => {
 
       
       var mode = "PROD",
-      secretKey = process.env.SECRET_KEY,
+      secretKey = '7c5a9522a204050aba5bbe4125d16dd734a31655',
       sortedkeys = Object.keys(postData),
       URL="",
       signatureData = "";
