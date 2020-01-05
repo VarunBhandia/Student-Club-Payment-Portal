@@ -11,6 +11,7 @@ import {
 import './App.css';
 import TsModal from'./tsmodal';
 
+var d = new Date();
 
 var btstyle = {
   padding: '12px',
@@ -168,46 +169,45 @@ class Timeslots extends Component {
        <h1 style={{ color:' #0f1012',backgroundColor:' #c7995d',padding: '7px'}}><b>Pool And Snooker Booking</b></h1>
      <br></br>
       <Row className="timeslot">
-        {this.colhour(time[0],slot,0)}
-        {this.colhour(time[1],slot,1)}
-        {this.colhour(time[2],slot,2)}
-        {this.colhour(time[3],slot,3)}
-        {this.colhour(time[4],slot,4)}
-        {this.colhour(time[5],slot,5)}
-        {this.colhour(time[6],slot,6)}
-        
-        {this.colhour(time[7],slot,7)}
+        {d.getHours()< 10? this.colhour(time[0],slot,0): null}
+        {d.getHours()< 10 && d.getMinutes() < 30? this.colhour(time[1],slot,1): null}
+        {d.getHours()< 11? this.colhour(time[2],slot,2): null}
+        {d.getHours()< 11 && d.getMinutes() < 30? this.colhour(time[3],slot,3): null}
+        {d.getHours()< 12? this.colhour(time[4],slot,4): null}
+        {d.getHours()< 12 && d.getMinutes() < 30? this.colhour(time[5],slot,5): null}
+        {d.getHours()< 13? this.colhour(time[6],slot,6): null}
+        {d.getHours()< 13 && d.getMinutes() < 30? this.colhour(time[7],slot,7): null}
         </Row>
         <Row className="timeslot">
-        {this.colhour(time[8],slot,8)}
+        {d.getHours()< 14? this.colhour(time[8],slot,8): null}
         
       
-        {this.colhour(time[9],slot,9)}
-        {this.colhour(time[10],slot,10)}
-        {this.colhour(time[11],slot,11)}
-        {this.colhour(time[12],slot,12)}
-        {this.colhour(time[13],slot,13)}
+        {d.getHours()< 14 && d.getMinutes() < 30? this.colhour(time[9],slot,9): null}
+        {d.getHours()< 15? this.colhour(time[10],slot,10): null}
+        {d.getHours()< 15 && d.getMinutes() < 30? this.colhour(time[11],slot,11): null}
+        {d.getHours()< 16? this.colhour(time[12],slot,12): null}
+        {d.getHours()< 16 && d.getMinutes() < 30? this.colhour(time[13],slot,13): null}
         
-        {this.colhour(time[14],slot,14)}
-        {this.colhour(time[15],slot,15)}
+        {d.getHours()< 17? this.colhour(time[14],slot,14): null}
+        {d.getHours()< 17 && d.getMinutes() < 30? this.colhour(time[15],slot,15): null}
         </Row>
         <Row className="timeslot">
-        {this.colhour(time[16],slot,16)}
-        {this.colhour(time[17],slot,17)}
+        {d.getHours()< 18? this.colhour(time[16],slot,16): null}
+        {d.getHours()< 18 && d.getMinutes() < 30? this.colhour(time[17],slot,17): null}
         
-        {this.colhour(time[18],slot,18)}
-        {this.colhour(time[19],slot,19)}
-        {this.colhour(time[20],slot,20)}
+        {d.getHours()< 19? this.colhour(time[18],slot,18): null}
+        {d.getHours()< 19 && d.getMinutes() < 30? this.colhour(time[19],slot,19): null}
+        {d.getHours()< 20? this.colhour(time[20],slot,20): null}
         
-        {this.colhour(time[21],slot,21)}
-        {this.colhour(time[22],slot,22)}
-        {this.colhour(time[23],slot,23)}
+        {d.getHours()< 20 && d.getMinutes() < 30? this.colhour(time[21],slot,21): null}
+        {d.getHours()< 21? this.colhour(time[22],slot,22): null}
+        {d.getHours()< 21 && d.getMinutes() < 30? this.colhour(time[23],slot,23): null}
         </Row>
       <Row className="timeslot">
-        {this.colhour(time[24],slot,24)}
-        {this.colhour(time[25],slot,25)}
-        {this.colhour(time[26],slot,26)}
-        {this.colhour(time[27],slot,27)}
+      {d.getHours()< 22? this.colhour(time[24],slot,24): null}
+      {d.getHours()< 22 && d.getMinutes() < 30? this.colhour(time[25],slot,25): null}
+        {d.getHours()< 23? this.colhour(time[26],slot,26): null}
+        {d.getHours()< 23 && d.getMinutes() < 30? this.colhour(time[27],slot,27): null}
       </Row>
     </Grid>
       
