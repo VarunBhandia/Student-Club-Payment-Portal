@@ -170,44 +170,44 @@ class Timeslots extends Component {
      <br></br>
       <Row className="timeslot">
         {d.getHours()< 10? this.colhour(time[0],slot,0): null}
-        {d.getHours()< 10 && d.getMinutes() < 30? this.colhour(time[1],slot,1): null}
+        {d.getHours() * 60 + d.getMinutes() < 630? this.colhour(time[1],slot,1): null}
         {d.getHours()< 11? this.colhour(time[2],slot,2): null}
-        {d.getHours()< 11 && d.getMinutes() < 30? this.colhour(time[3],slot,3): null}
+        {d.getHours() * 60 + d.getMinutes() < 690? this.colhour(time[3],slot,3): null}
         {d.getHours()< 12? this.colhour(time[4],slot,4): null}
-        {d.getHours()< 12 && d.getMinutes() < 30? this.colhour(time[5],slot,5): null}
+        {d.getHours() * 60 + d.getMinutes() < 750? this.colhour(time[5],slot,5): null}
         {d.getHours()< 13? this.colhour(time[6],slot,6): null}
-        {d.getHours()< 13 && d.getMinutes() < 30? this.colhour(time[7],slot,7): null}
+        {d.getHours() * 60 + d.getMinutes() < 810? this.colhour(time[7],slot,7): null}
         </Row>
         <Row className="timeslot">
         {d.getHours()< 14? this.colhour(time[8],slot,8): null}
         
       
-        {d.getHours()< 14 && d.getMinutes() < 30? this.colhour(time[9],slot,9): null}
+        {d.getHours() * 60 + d.getMinutes() < 870? this.colhour(time[9],slot,9): null}
         {d.getHours()< 15? this.colhour(time[10],slot,10): null}
-        {d.getHours()< 15 && d.getMinutes() < 30? this.colhour(time[11],slot,11): null}
+        {d.getHours() * 60 + d.getMinutes() < 930? this.colhour(time[11],slot,11): null}
         {d.getHours()< 16? this.colhour(time[12],slot,12): null}
-        {d.getHours()< 16 && d.getMinutes() < 30? this.colhour(time[13],slot,13): null}
+        {d.getHours() * 60 + d.getMinutes() < 990? this.colhour(time[13],slot,13): null}
         
         {d.getHours()< 17? this.colhour(time[14],slot,14): null}
-        {d.getHours()< 17 && d.getMinutes() < 30? this.colhour(time[15],slot,15): null}
+        {d.getHours() * 60 + d.getMinutes() < 1050? this.colhour(time[15],slot,15): null}
         </Row>
         <Row className="timeslot">
         {d.getHours()< 18? this.colhour(time[16],slot,16): null}
-        {d.getHours()< 18 && d.getMinutes() < 30? this.colhour(time[17],slot,17): null}
+        {d.getHours() * 60 + d.getMinutes() < 1110? this.colhour(time[17],slot,17): null}
         
         {d.getHours()< 19? this.colhour(time[18],slot,18): null}
-        {d.getHours()< 19 && d.getMinutes() < 30? this.colhour(time[19],slot,19): null}
+        {d.getHours() * 60 + d.getMinutes() < 1170? this.colhour(time[19],slot,19): null}
         {d.getHours()< 20? this.colhour(time[20],slot,20): null}
         
-        {d.getHours()< 20 && d.getMinutes() < 30? this.colhour(time[21],slot,21): null}
+        {d.getHours() * 60 + d.getMinutes() < 1230? this.colhour(time[21],slot,21): null}
         {d.getHours()< 21? this.colhour(time[22],slot,22): null}
-        {d.getHours()< 21 && d.getMinutes() < 30? this.colhour(time[23],slot,23): null}
+        {d.getHours() * 60 + d.getMinutes() < 1290? this.colhour(time[23],slot,23): null}
         </Row>
       <Row className="timeslot">
       {d.getHours()< 22? this.colhour(time[24],slot,24): null}
-      {d.getHours()< 22 && d.getMinutes() < 30? this.colhour(time[25],slot,25): null}
+      {d.getHours() * 60 + d.getMinutes() < 1350? this.colhour(time[25],slot,25): null}
         {d.getHours()< 23? this.colhour(time[26],slot,26): null}
-        {d.getHours()< 23 && d.getMinutes() < 30? this.colhour(time[27],slot,27): null}
+        {d.getHours() * 60 + d.getMinutes() < 1410? this.colhour(time[27],slot,27): null}
       </Row>
     </Grid>
       
