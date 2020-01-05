@@ -1,7 +1,7 @@
 {
   "main.css": "/static/css/main.edd183ab.chunk.css",
-  "main.js": "/static/js/main.90edf103.chunk.js",
-  "main.js.map": "/static/js/main.90edf103.chunk.js.map",
+  "main.js": "/static/js/main.f60a069a.chunk.js",
+  "main.js.map": "/static/js/main.f60a069a.chunk.js.map",
   "static/js/1.575b4dd0.chunk.js": "/static/js/1.575b4dd0.chunk.js",
   "static/js/1.575b4dd0.chunk.js.map": "/static/js/1.575b4dd0.chunk.js.map",
   "runtime~main.js": "/static/js/runtime~main.229c360f.js",
@@ -11,6 +11,6 @@
   "static/media/playstation.jpg": "/static/media/playstation.777ffba0.jpg",
   "static/media/snooker.jpg": "/static/media/snooker.424e45de.jpg",
   "index.html": "/index.html",
-  "precache-manifest.9f135e4846390e80cce42d47c5dca0e3.js": "/precache-manifest.9f135e4846390e80cce42d47c5dca0e3.js",
+  "precache-manifest.aa6e0e94d4e3b622eb4aa4c907ec5bd9.js": "/precache-manifest.aa6e0e94d4e3b622eb4aa4c907ec5bd9.js",
   "service-worker.js": "/service-worker.js"
 }
