@@ -1,7 +1,7 @@
 {
-  "name": "ebookseller",
+  "name": "onlinebookingportal",
   "version": "1.0.0",
-  "description": "App to sell ebook",
+  "description": "Website for online booking of Pool/Snooker tables and Playstations",
   "main": "app.js",
   "scripts": {
     "client-install": "npm install --prefix client",
@@ -11,7 +11,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
-  "author": "Brad Traversy",
+  "author": "Students' Club IITR",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
