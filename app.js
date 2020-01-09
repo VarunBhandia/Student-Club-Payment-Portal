@@ -8,6 +8,7 @@ const withAuth = require('./middleware');
 var crypto = require('crypto');
 const secret = 'mysecretsshhh';
 var hbs = require('express-handlebars')
+const cron = require('node-cron')
 require('dotenv').config();
 
 // ... other imports 
@@ -106,7 +107,18 @@ var amount= 1000,
       });
       table_id = [];
     },600000);
-    
+
+// deleting database values everyday at 12 AM
+    cron.schedule('0 0 * * *', () => {
+      MongoClient.connect(url, { useNewUrlParser: true}, (err, db) => {
+        if(err) throw err;
+        var dbo = db.db(process.env.DB_NAME);
+        dbo.collection("TableStatus").deleteMany({});
+        dbo.collection("OrderTableStatus").deleteMany({});
+        console.log("Database values cleared");
+      })
+    });
+  
 app.post('/admin', function (req, res) {
   const password = req.body.pass;
   console.log(secret);
