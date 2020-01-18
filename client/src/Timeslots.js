@@ -12,7 +12,6 @@ import './App.css';
 import TsModal from'./tsmodal';
 
 var d = new Date();
-
 var btstyle = {
   padding: '12px',
   margin : '14px',
@@ -204,10 +203,10 @@ class Timeslots extends Component {
         {d.getHours() * 60 + d.getMinutes() < 1290? this.colhour(time[23],slot,23): null}
         </Row>
       <Row className="timeslot">
-      {d.getHours()< 22? this.colhour(time[24],slot,24): null}
-      {d.getHours() * 60 + d.getMinutes() < 1350? this.colhour(time[25],slot,25): null}
-        {d.getHours()< 23? this.colhour(time[26],slot,26): null}
-        {d.getHours() * 60 + d.getMinutes() < 1410? this.colhour(time[27],slot,27): null}
+      {d.getHours()< 22 && d.getMonth() * d.getFullYear() > 0? this.colhour(time[24],slot,24): null}
+      {d.getHours() * 60 + d.getMinutes() < 1350 && d.getMonth() * d.getFullYear() > 0? this.colhour(time[25],slot,25): null}
+        {d.getHours()< 23 && d.getMonth() * d.getFullYear() > 0? this.colhour(time[26],slot,26): null}
+        {d.getHours() * 60 + d.getMinutes() < 1410 && d.getMonth() * d.getFullYear() > 0 ? this.colhour(time[27],slot,27): null}
       </Row>
     </Grid>
       
