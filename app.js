@@ -8,7 +8,6 @@ const withAuth = require('./middleware');
 var crypto = require('crypto');
 const secret = 'mysecretsshhh';
 var hbs = require('express-handlebars')
-const cron = require('node-cron')
 require('dotenv').config();
 
 // ... other imports 
