@@ -8,7 +8,6 @@ const withAuth = require('./middleware');
 var crypto = require('crypto');
 const secret = 'mysecretsshhh';
 var hbs = require('express-handlebars')
-const cron = require('node-cron')
 require('dotenv').config();
 
 // ... other imports 
@@ -109,16 +108,35 @@ var amount= 1000,
     },600000);
 
 // deleting database values everyday at 12 AM
-    cron.schedule('0 0 * * *', () => {
-      MongoClient.connect(url, { useNewUrlParser: true}, (err, db) => {
-        if(err) throw err;
-        var dbo = db.db(process.env.DB_NAME);
-        dbo.collection("TableStatus").deleteMany({});
-        dbo.collection("OrderTableStatus").deleteMany({});
-        console.log("Database values cleared");
+    const clearDatabase = () => {
+      setTimeout(() => {
+        MongoClient.connect(url, { useNewUrlParser: true}, (err, db) => {
+          if(err) throw err;
+          var d = new Date();
+          var dbo = db.db(process.env.DB_NAME);
+          if(d.getHours() === 0){
+            dbo.collection("TableStatus").deleteMany({});
+            dbo.collection("OrderTableStatus").deleteMany({});
+            console.log("Database values cleared");
+            clearDatabase();
+          }
       })
-    });
-  
+    },3300000);
+    }
+
+    clearDatabase();
+
+// ping the server every ~ 5 minutes
+
+  //   setInterval(() => {
+  //     const host = "stuc.iitr.ac.in";
+      
+  //     ping.sys.probe(host, (isAlive) => {
+  //       const msg = isAlive ? 'Host ' + host + ' is alive.' : 'Host ' + host + ' is dead.';
+  //       console.log(msg);
+  //   });
+  // }, 250000);
+
 app.post('/admin', function (req, res) {
   const password = req.body.pass;
   console.log(secret);
