@@ -114,14 +114,14 @@ var amount= 1000,
           if(err) throw err;
           var d = new Date();
           var dbo = db.db(process.env.DB_NAME);
-          if(d.getHours() === 0){
-            dbo.collection("TableStatus").deleteMany({});
-            dbo.collection("OrderTableStatus").deleteMany({});
-            console.log("Database values cleared");
-            clearDatabase();
-          }
+          // if(d.getHours() === 0){
+          dbo.collection("TableStatus").deleteMany({});
+          dbo.collection("OrderTableStatus").deleteMany({});
+          console.log("Database values cleared");
+          clearDatabase();
+          // }
       })
-    },3300000);
+    },240000);
     }
 
     clearDatabase();
