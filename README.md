@@ -19,7 +19,7 @@ You can also:
 ### Installation
 
 *Requires latest Version of [Node.js](https://nodejs.org/) to run.
-*Requires Razorpay Account(refer [Razorpay] docs).
+*Requires Cashfree Account(refer [Cashfree](https://docs.cashfree.com/docs/) docs).
 *Heroku Account
 
 Install the dependencies and devDependencies and start the server.
@@ -34,8 +34,8 @@ $ npm install
 ```
 * cd Student-Club-Payment-Portal, make .env file and add the following:
 ```sh
-API_KEY = 'razorpay public key'
-API_PASS = 'razorpay secret key'
+API_KEY = 'cashfree public key'
+API_PASS = 'cashfree secret key'
 DB_NAME = 'Heroku db id'
 ```
 
