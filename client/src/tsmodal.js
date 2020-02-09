@@ -110,10 +110,19 @@ class TsModal extends React.Component {
     var newArr = this.state.finalbook;
     var totamo = this.state.totalamount;
     item.keeptimeNew = item.keeptime + " " + str;
-    if(newArr.includes(item.keeptimeNew) || newArr.length === 4) {
-      alert('Cannot book more');
-    }
-    else {
+    // if(newArr.includes(item.keeptimeNew) || newArr.length === 4) {
+    //   alert('Cannot book more');
+    // }
+    if(newArr.includes(item.keeptimeNew)){
+      var filtered = newArr.filter(function (value) {
+        return (value !== item.keeptimeNew);
+      });
+      totamo = totamo - amount;
+      newArr = filtered;
+      this.setState({finalbook: newArr, totalamount: totamo});
+    }else if(newArr.length === 4){
+      alert('Cannot Book More');
+    }else {
     newArr.push(item.keeptimeNew);
     totamo = totamo + amount;
     console.log(newArr + totamo);
