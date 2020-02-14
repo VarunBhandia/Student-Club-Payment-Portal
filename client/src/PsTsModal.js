@@ -94,7 +94,17 @@ class PsTsModal extends React.Component {
           OPTIONS.splice(index, 1);
         }
       }
-      OPTIONS = OPTIONS.map(value => {
+      var AVAILABLE_OPTIONS= [];
+      for (let i = 0; i < OPTIONS.length; i++) {
+        var slot = OPTIONS[i];
+        var currentDate = new Date(); 
+        var currentTime =   currentDate.getHours() + ":" + currentDate.getMinutes();
+        var timeString = slot.split("-");
+        if(currentTime < timeString[0])
+          AVAILABLE_OPTIONS[i]=OPTIONS[i]
+      }
+
+      OPTIONS = AVAILABLE_OPTIONS.map(value => {
         return  ( <label style={{marginRight:'10px'}} for="mybox">{value}<li><br></br><input  onChange={this.handleCheckbox} type="checkbox" id="mybox"  name = 'unchecked' value={value + " " + currentT.currentTable}  /></li></label> 
         );
       });
