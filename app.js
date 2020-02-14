@@ -126,17 +126,6 @@ var amount= 1000,
 
     clearDatabase();
 
-// ping the server every ~ 5 minutes
-
-  //   setInterval(() => {
-  //     const host = "stuc.iitr.ac.in";
-      
-  //     ping.sys.probe(host, (isAlive) => {
-  //       const msg = isAlive ? 'Host ' + host + ' is alive.' : 'Host ' + host + ' is dead.';
-  //       console.log(msg);
-  //   });
-  // }, 250000);
-
 app.post('/admin', function (req, res) {
   const password = req.body.pass;
   console.log(secret);
