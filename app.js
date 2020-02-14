@@ -107,25 +107,6 @@ var amount= 1000,
       table_id = [];
     },600000);
 
-// deleting database values everyday at 12 AM
-    const clearDatabase = () => {
-      setTimeout(() => {
-        MongoClient.connect(url, { useNewUrlParser: true}, (err, db) => {
-          if(err) throw err;
-          var d = new Date();
-          var dbo = db.db(process.env.DB_NAME);
-          if(d.getHours() === 0){
-            dbo.collection("TableStatus").deleteMany({});
-            dbo.collection("OrderTableStatus").deleteMany({});
-            console.log("Database values cleared");
-            clearDatabase();
-          }
-      })
-    },1800000);
-    }
-
-    clearDatabase();
-
 app.post('/admin', function (req, res) {
   const password = req.body.pass;
   console.log(secret);
