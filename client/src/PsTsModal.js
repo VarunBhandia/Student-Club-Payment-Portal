@@ -105,7 +105,7 @@ class PsTsModal extends React.Component {
       }
 
       OPTIONS = AVAILABLE_OPTIONS.map(value => {
-        return  ( <label style={{marginRight:'10px'}} for="mybox">{value}<li><br></br><input  onChange={this.handleCheckbox} type="checkbox" id="mybox"  name = 'unchecked' value={value + " " + currentT.currentTable}  /></li></label> 
+        return  ( <label style={{marginRight:'10px'}} for="mybox">{value}<li style={{display: 'inline'}}><br></br><input style={{margin:'0 18px'}}  onChange={this.handleCheckbox} type="checkbox" id="mybox"  name = 'unchecked' value={value + " " + currentT.currentTable}  /></li></label> 
         );
       });
     }
