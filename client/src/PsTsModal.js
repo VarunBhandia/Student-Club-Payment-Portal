@@ -100,7 +100,7 @@ class PsTsModal extends React.Component {
         var currentDate = new Date(); 
         var currentTime =   currentDate.getHours() + ":" + currentDate.getMinutes();
         var timeString = slot.split("-");
-        if(currentTime < timeString[0])
+        if(currentTime.localeCompare(timeString[0]))
           AVAILABLE_OPTIONS[i]=OPTIONS[i]
       }
 
