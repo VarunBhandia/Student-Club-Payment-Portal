@@ -7,7 +7,7 @@ import {
 } from '../node_modules/react-bootstrap';
 
 var OPTIONS = [];
-
+var flag = 0;
 
 class TsModal extends React.Component {
   constructor(props) {
@@ -112,6 +112,7 @@ class TsModal extends React.Component {
     }
   }
   handleTotalBooking(item,str,amount) {
+    flag = 1;
     this.setState({currentTable:str, currentAmount:amount, dis:false})
     var newArr = this.state.finalbook;
     var totamo = this.state.totalamount;
@@ -194,6 +195,7 @@ class TsModal extends React.Component {
             <Button disabled = {disabled[6]} bsStyle="primary" bsSize="small" style={{ margin: '4px'}} onClick={() => { this.handleTotalBooking(item, 'Snooker Table 5',5)}}>Snooker table 5</Button>
           </Modal.Body>
           <Modal.Footer style={{position:'relative', textAlign:'left'}}>
+            {flag === 1 ? <div><strong>Click on the selected table to deselect it</strong><br/></div> : null}
             Total Amount is : {this.state.totalamount}
             <br></br>
             Bookings made are : {final}
