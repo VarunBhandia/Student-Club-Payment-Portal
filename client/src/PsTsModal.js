@@ -6,7 +6,7 @@ import {
 } from 'react-bootstrap';
 
 var OPTIONS = [];
-
+var flag = 0;
 class PsTsModal extends React.Component {
   constructor(props) {
     super(props);
@@ -112,7 +112,7 @@ class PsTsModal extends React.Component {
   }
   
   handleTotalBooking(item,str,amount) {
-    
+    flag = 1;
     // eslint-disable-next-line
     this.setState({currentTable:str, currentAmount:amount, dis:false})
     var newArr = this.state.finalbook;
@@ -171,6 +171,7 @@ class PsTsModal extends React.Component {
               </Alert>
           
           </Modal.Header>
+          {flag === 1 ? <div style={{marginLeft: '10px'}}><strong>Click on the selected slot to deselect it</strong><br/></div> : null}
           <Modal.Body>            
             <hr />
             <Button disabled = {disabled[0]} bsStyle="primary" bsSize="small" style={{ margin: '4px'}} onClick={() => { this.handleTotalBooking(item, 'Playstation 1',30)}} >Playstation 1 </Button>

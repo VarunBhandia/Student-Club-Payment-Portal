@@ -184,6 +184,7 @@ class TsModal extends React.Component {
               </Alert>
           
           </Modal.Header>
+          {flag === 1 ? <div style={{marginLeft: '10px'}}><strong>Click on the selected table to deselect it</strong><br/></div> : null}
           <Modal.Body>            
             <hr />
             <Button disabled = {disabled[0]} bsStyle="primary" bsSize="small" style={{ margin: '4px'}} onClick={() => { this.handleTotalBooking(item, 'Pool Table 1',5)}} >Pool table 1 </Button>
@@ -195,7 +196,6 @@ class TsModal extends React.Component {
             <Button disabled = {disabled[6]} bsStyle="primary" bsSize="small" style={{ margin: '4px'}} onClick={() => { this.handleTotalBooking(item, 'Snooker Table 5',5)}}>Snooker table 5</Button>
           </Modal.Body>
           <Modal.Footer style={{position:'relative', textAlign:'left'}}>
-            {flag === 1 ? <div><strong>Click on the selected table to deselect it</strong><br/></div> : null}
             Total Amount is : {this.state.totalamount}
             <br></br>
             Bookings made are : {final}
