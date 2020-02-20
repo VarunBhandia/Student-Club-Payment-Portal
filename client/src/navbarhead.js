@@ -23,13 +23,13 @@ class NavbarHeader extends Component {
         <MenuItem eventKey={3} href='/games.htm'>Games</MenuItem>
         <MenuItem eventKey={3} href='/events.htm'>Events</MenuItem>
         <MenuItem eventKey={3} href='/about_us.htm'>About Us</MenuItem>
-          <NavDropdown eventKey={3} title="Livestream" id="basic-nav-dropdown">
+          {/* <NavDropdown eventKey={3} title="Livestream" id="basic-nav-dropdown">
             <MenuItem eventKey={3.1} href="/foosballstream">Foosball</MenuItem>
             <MenuItem eventKey={3.2} href="/chessstream">Chess</MenuItem>
             <MenuItem eventKey={3.3} href="/snookerstream">Snooker</MenuItem>
             <MenuItem eventKey={3.4} href="/poolstream">Pool</MenuItem>
             <MenuItem eventKey={3.5} href="/carromstream">Carrom</MenuItem>
-          </NavDropdown>
+          </NavDropdown> */}
           <NavDropdown eventKey={4} title="BookingPortal" id="basic-nav-dropdown">
             <MenuItem eventKey={4.2} href="/portal">Pool and Snooker Table Booking</MenuItem>
             <MenuItem eventKey={4.2} href="/psbooking">Playstation Booking</MenuItem>

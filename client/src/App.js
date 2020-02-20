@@ -85,7 +85,7 @@ class App extends Component {
             <Route path="/bookinghistory" component={BookingHistory} />
             <Route path="/admin2019" component={LoginAdmin} />
             <Route path="/finaladmin" component={AdminTimeslots} />
-            <Route path="/lsfoosball" component={LsFoosball} />
+            {/* <Route path="/lsfoosball" component={LsFoosball} />
             <Route path="/foosballstream" component={Foosball} />
             <Route path="/lscarrom" component={LsCarrom} />
             <Route path="/carromstream" component={Carrom} />
@@ -94,7 +94,7 @@ class App extends Component {
             <Route path="/lspool" component={LsPool} />
             <Route path="/poolstream" component={Pool} />
             <Route path="/lssnooker" component={LsSnooker} />
-            <Route path="/snookerstream" component={Snooker} />
+            <Route path="/snookerstream" component={Snooker} /> */}
           </div>
         </Router>
       </div>
