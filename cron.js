@@ -8,5 +8,6 @@ MongoClient.connect(url, { useNewUrlParser: true}, (err, db) => {
     var dbo = db.db(process.env.DB_NAME);
     dbo.collection("TableStatus").deleteMany({});
     dbo.collection("OrderTableStatus").deleteMany({});
+    dbo.collection("BookingHistory").deleteMany({});
     console.log("Database values cleared");
 })
