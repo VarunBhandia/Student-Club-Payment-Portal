@@ -25,7 +25,7 @@
     "instamojo-nodejs": "0.0.5",
     "jade": "^1.11.0",
     "jsonwebtoken": "^8.5.0",
-    "mongodb": "^3.1.10",
+    "mongodb": "^3.1.13",
     "nodemon": "^1.19.4",
     "path": "^0.12.7",
     "pug": "^2.0.3",
